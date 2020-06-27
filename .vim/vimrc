@@ -1,0 +1,46 @@
+" vimrc
+set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
+let mapleader=' '           " ustawiona spacja jako klawisz leader
+let localmapleader='\\'     " klawisz \ ustawiony jako local leader
+
+call plug#begin('~/.vim/plugged')
+    Plug 'gruvbox-community/gruvbox'
+    Plug 'sainnhe/gruvbox-material'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+call plug#end()
+
+syntax on
+set number
+set relativenumber
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set wildmenu
+set wildmode=list:longest,full
+set foldmethod=marker
+set splitright
+set splitbelow
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set hidden
+set noshowmode
+set nowrap
+set smartcase
+set incsearch
+set undodir=~/.vim/undo
+set undofile
+set undolevels=10000
+set scrolloff=5
+set autochdir
+colorscheme gruvbox
+let g:airline_theme='lucius'
+
+nnoremap th :set hlsearch!<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap qq :q<cr>
+nnoremap qs :update<cr>:q<cr>
