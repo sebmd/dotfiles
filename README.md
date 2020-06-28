@@ -127,18 +127,14 @@ Oto kilka fajniejszych schematów:
 | `:Commands`       | Commands                                                                |
 | `:Maps`           | Normal mode mappings                                                    |
 | `:Helptags`       | Help tags <sup id="a1">[1](#helptags)</sup>                             |
-| ``:Filetypes``    | File types                                                              |
+| `:Filetypes`      | File types                                                              |
 
 ## Plugin fzf-preview.vim
 
 Konfiguracja
 
 ```
-let g:fzf_preview_window = right:hidden
-```
-
-```
-let g:fzf_preview_window = 'top:60%'
+let g:fzf_preview_window = 'right:60%'
 ```
 
 | Command                 | List                                                                                |
