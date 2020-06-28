@@ -44,9 +44,6 @@ set incsearch
 set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
-set viewdir-=.
-set viewdir+=.
-set viewdir+=~/.vim/view
 set laststatus=2
 set scrolloff=5
 set autochdir
@@ -66,16 +63,8 @@ if !isdirectory($HOME . '/.vim/undo')
     call mkdir($HOME . '/.vim/undo')
 endif
 
-if !isdirectory($HOME . '/.vim/view')
-    call mkdir($HOME . '/.vim/view')
-endif
-
 if !isdirectory($HOME . '/notes')
     call mkdir($HOME . '/notes')
-endif
-
-if !isdirectory($HOME . '/view')
-    call mkdir($HOME . '/view')
 endif
 
 nnoremap th :set hlsearch!<cr>
@@ -147,8 +136,8 @@ vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent loadview
 
 " FZF z podglądem zawartości pliku
 command! -bang -nargs=? -complete=dir Files
