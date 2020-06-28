@@ -8,6 +8,7 @@
     * [Kolory](#kolory)
     * [Funkcje](#funkcje)
     * [Komendy pluginu FZF](#komendy-pluginu-fzf)
+    * [Plugin fzf-preview.vim](#plugin-fzf-previewvim)
     * [Plugin vimfiler](#plugin-vimfiler)
     * [Zarządzanie sesjami](#zarzdzanie-sesjami)
 * [Aliasy bash](#aliasy-bash)
@@ -18,6 +19,7 @@
 
 ## Pluginy
 
+  - [fzf-preview.vim]
   - [fzf.vim]
   - [git-messenger]
   - [goyo]
@@ -63,6 +65,7 @@
 [vim-airline]: https://github.com/vim-airline/vim-airline
 [vim-colorscheme-switcher]: https://github.com/xolox/vim-colorscheme-switcher
 [vim-colorscheme-manager]: https://github.com/Taverius/vim-colorscheme-manager
+[fzf-preview.vim]:https://github.com/chengzeyi/fzf-preview.vim
 
 ## Kolory
 
@@ -125,6 +128,34 @@ Oto kilka fajniejszych schematów:
 | `:Maps`           | Normal mode mappings                                                    |
 | `:Helptags`       | Help tags <sup id="a1">[1](#helptags)</sup>                             |
 | ``:Filetypes``    | File types                                                              |
+
+## Plugin fzf-preview.vim
+
+Konfiguracja
+
+```
+let g:fzf_preview_window = right:hidden
+```
+
+```
+let g:fzf_preview_window = 'top:60%'
+```
+
+| Command                 | List                                                                                |
+| ---                     | ---                                                                                 |
+| FZF/FZFFiles            | Search files with previewing file content.                                          |
+| FZFLocate               | Use your system's file database to search files with previewing file content.       |
+| FZFGGrep                | Use git grep to search your file content and preview the context of lines.          |
+| FZFGrep                 | Use grep to search your file content and preview the context of lines.              |
+| FZFAg                   | Use silversearcher-ag to search your file content and preview the context of lines. |
+| FZFRg                   | Use ripgrep to search your file content and preview the context of lines.           |
+| FZFHistory              | Browse edited files in vim's history list with previewing file content.             |
+| FZFBLines               | Search all lines of the current buffer and previewing their context.                |
+| FZFTags                 | Search all the tags in vim's tags and previewing their context.                     |
+| FZFBTags                | Search all the tags of the current buffer and previewing their context.             |
+| FZFMarks                | Search all the positions of vim's marks and preview their context.                  |
+| FZFWindows              | Search all the vim's windows and preview their content.                             |
+| FZFQuickFix/FZFLocList' | Search VIM's QuickFix/LocList entries with preview!                                 |
 
 ## Plugin vimfiler
 
