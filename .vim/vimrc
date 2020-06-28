@@ -129,7 +129,7 @@ autocmd! BufWritePost $MYVIMRC source % | redraw
 
 " Modyfikacja komendy Rg z pluginem FZF.vim
 " Przeszukiwanie zawartości plików
-function! RipgrepFzf(query, fullscreen)
+function! RgFzf(query, fullscreen)
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
@@ -139,8 +139,8 @@ endfunction
 
 " Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim
 " Przeszukiwanie zawartości plików
-function! RipgrepFzfNotes(query, fullscreen)
-    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $NOTES_DIR || true'
+function! RGNotes(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $HOME/notes || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
     let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
@@ -176,9 +176,9 @@ command! -bang -nargs=? -complete=dir Files
 command! -bang -nargs=? -complete=dir Notes
     \ call fzf#vim#files('$HOME/notes', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--prompt=Notes> ']}), <bang>0)
 
-command! -bang -nargs=* RgFzf call RipgrepFzf(<q-args>, <bang>0)
+command! -bang -nargs=* RgFzf call RgFzf(<q-args>, <bang>0)
 
-command! -bang -nargs=* RgFzfNotes call RipgrepFzfNotes(<q-args>, <bang>0)
+command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)
 
 " FZF bez podglądu zawartości pliku
 command! -bang -nargs=* -complete=dir LS
@@ -188,4 +188,3 @@ command! InsertLogEntry call InsertLogEntry()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
 command! CurTime call CurTime()
-

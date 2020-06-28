@@ -13,3 +13,5 @@ ln -s $PWD/bin ~/bin
 cd ~/bin && funkcje -i
 
 vim -c ":PlugInstall" -c ":qa"
+
+mkdir $HOME/notes
