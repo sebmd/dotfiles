@@ -1,5 +1,17 @@
 # dotfiles
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [Vim](#vim)
+    * [Pluginy](#pluginy)
+    * [Funkcje](#funkcje)
+    * [Komendy pluginu FZF](#komendy-pluginu-fzf)
+    * [Plugin vimfiler](#plugin-vimfiler)
+    * [Zarządzanie sesjami](#zarzdzanie-sesjami)
+
+<!-- vim-markdown-toc -->
+
 # Vim
 
 ## Pluginy
