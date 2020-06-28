@@ -3,13 +3,6 @@ set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem
 let mapleader=' '    " ustawiona spacja jako klawisz leader
 let localmapleader='\\'     " klawisz \ ustawiony jako local leader
 
-" pobranie menadżera pluginów Plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
     Plug 'sainnhe/gruvbox-material'
@@ -58,14 +51,6 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:airline_theme='lucius'
-
-if !isdirectory($HOME . '/.vim/undo')
-    call mkdir($HOME . '/.vim/undo')
-endif
-
-if !isdirectory($HOME . '/notes')
-    call mkdir($HOME . '/notes')
-endif
 
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
