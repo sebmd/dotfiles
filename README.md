@@ -6,22 +6,24 @@
 
   - [vim-plug]
   - [fzf.vim]
-  - undotree
-  - vim-startify
-  - vimfiler
-  - vim-commentary
-  - vim-repeat
-  - vim-surround
-  - vim-fugitive
-  - vim-unimpaired
-  - gv
-  - git-messenger
-  - vim-signify
-  - quick-scope
-  - vim-airline
+  - [undotree]
+  - [vim-startify]
+  - [vimfiler]
+  - [vim-commentary]
+  - [vim-repeat]
+  - [vim-surround]
+  - [vim-fugitive]
+  - [vim-unimpaired]
+  - [gv]
+  - [git-messenger]
+  - [vim-signify]
+  - [quick-scope]
+  - [vim-airline]
 
 [vim-plug]: https://github.com/junegunn/vim-plug/
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
+[undotree]: https://github.com/mbbill/undotree
+[vim-startify]:
 
 ## Funkcje
 
