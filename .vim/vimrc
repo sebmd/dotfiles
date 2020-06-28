@@ -34,7 +34,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-signify'
     Plug 'unblevable/quick-scope'
     Plug 'Yggdroot/indentLine'
-    Plug 'ayu-theme/ayu-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
