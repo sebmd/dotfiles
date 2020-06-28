@@ -4,12 +4,12 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Vim](#vim)
-	* [Pluginy](#pluginy)
-	* [Kolory](#kolory)
-	* [Funkcje](#funkcje)
-	* [Komendy pluginu FZF](#komendy-pluginu-fzf)
-	* [Plugin vimfiler](#plugin-vimfiler)
-	* [Zarządzanie sesjami](#zarzdzanie-sesjami)
+    * [Pluginy](#pluginy)
+    * [Kolory](#kolory)
+    * [Funkcje](#funkcje)
+    * [Komendy pluginu FZF](#komendy-pluginu-fzf)
+    * [Plugin vimfiler](#plugin-vimfiler)
+    * [Zarządzanie sesjami](#zarzdzanie-sesjami)
 * [Aliasy bash](#aliasy-bash)
 
 <!-- vim-markdown-toc -->
@@ -66,8 +66,9 @@
 
 ## Kolory
 
-- Despacio
+- ayu
 - cosmic_latte
+- despacio
 - gruvbox
 - gruvbox-material
 - hydrangea-vim
