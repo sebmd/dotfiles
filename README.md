@@ -66,6 +66,13 @@
 
 ## Kolory
 
+Schematy kolorów można przełączać za pomocą klawisza `F8`, jeśli nie spodoba Ci się
+schemat kolorów wystarczy, że naciśniesz `F9` zostanie on dodany do listy
+niechcianych kolorystyk. Za pomocą polecenia `:Colors` można przeszukiwać dostępne
+schematy kolorystyczne.
+
+Oto kilka fajniejszych schematów:
+
 - ayu
 - cosmic_latte
 - despacio
