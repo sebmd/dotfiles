@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rhysd/git-messenger.vim'
     Plug 'mhinz/vim-signify'
     Plug 'unblevable/quick-scope'
+	Plug 'Yggdroot/indentLine.git'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -101,6 +102,10 @@ let g:gruvbox_invert_selection='0'
 "   Default: 253
 "let g:seoul256_background = 256
 "colo seoul256-light
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
 
 set termguicolors
 if exists('+termguicolors')
@@ -294,3 +299,10 @@ let g:startify_commands = [
     \ {'b': ['Bashrc', 'e ~/.bashrc']},
     \ {'a': ['Aliases', 'e ~/.aliases']},
     \ ]
+
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+

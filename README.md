@@ -4,12 +4,12 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Vim](#vim)
-    * [Pluginy](#pluginy)
-    * [Kolory](#kolory)
-    * [Funkcje](#funkcje)
-    * [Komendy pluginu FZF](#komendy-pluginu-fzf)
-    * [Plugin vimfiler](#plugin-vimfiler)
-    * [Zarządzanie sesjami](#zarzdzanie-sesjami)
+	* [Pluginy](#pluginy)
+	* [Kolory](#kolory)
+	* [Funkcje](#funkcje)
+	* [Komendy pluginu FZF](#komendy-pluginu-fzf)
+	* [Plugin vimfiler](#plugin-vimfiler)
+	* [Zarządzanie sesjami](#zarzdzanie-sesjami)
 * [Aliasy bash](#aliasy-bash)
 
 <!-- vim-markdown-toc -->
@@ -22,6 +22,7 @@
   - [git-messenger]
   - [goyo]
   - [gv]
+  - [indentLine.git]
   - [limelight]
   - [quick-scope]
   - [undotree]
@@ -40,7 +41,7 @@
   - [vim-unimpaired]
   - [vimfiler]
 
-
+[indentLine.git]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
 [vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
 [limelight]: https://github.com/junegunn/limelight.vim
