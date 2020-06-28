@@ -3,11 +3,21 @@ set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem
 let mapleader='\<space>'    " ustawiona spacja jako klawisz leader
 let localmapleader='\\'     " klawisz \ ustawiony jako local leader
 
+" pobranie menadżera pluginów Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
     Plug 'sainnhe/gruvbox-material'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'mbbill/undotree'
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -34,11 +44,31 @@ set incsearch
 set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
+set viewdir-=.
+set viewdir+=.
+set viewdir+~/.vim/view
+set laststatus=2
 set scrolloff=5
 set autochdir
 setlocal spelllang=pl
+set background=dark
 colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
+set termguicolors
+if exist('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 let g:airline_theme='lucius'
+
+if !isdirectory($HOME. '/notes')
+    call mkdir($HOME . '/notes')
+endif
+
+if !isdirectory($HOME. '/view')
+    call mkdir($HOME . '/view')
+endif
 
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
@@ -89,3 +119,71 @@ nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
 " otwera menadżer plików dla lokalizacji otwartego pliku
 nnoremap <leader>f :sv %:p:h<cr>
+
+nnoremap <leader>u :UndotreeToggle<cr>
+
+nnoremap <leader>t :term<cr>
+nnoremap <leader>tv :botright vertical terminal<cr>
+
+" kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
+" bufora
+nnoremap <leader>e !!$SHELL<cr>
+
+" kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
+nnoremap <leader>v yy:@"<cr>
+
+nnoremap <leader>n :exe "e $NOTES_DIR/daily/".strftime("%F-%H%M%S").".md"<cr>
+
+" kopiuj / wklej do schowka systemowego
+vnoremap <c-c> "*y :let @+=@*<cr>
+nnoremap <c-c> "*y :let @+=@*<cr>
+map <c-p> "+P
+
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" FZF z podglądem zawartości pliku
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" FZF w $NOTES_DIR z podglądem zawartości pliku
+command! -bang -nargs=? -complete=dir Notes
+    \ call fzf#vim#files('$NOTES_DIR', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" Modyfikacja komendy Rg z pluginem FZF.vim
+" Przeszukiwanie zawartości plików
+function! RipgrepFzf(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -bang -nargs=* RgFzf call RipgrepFzf(<q-args>, <bang>0)
+
+" Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim
+" Przeszukiwanie zawartości plików
+function! RipgrepFzfNotes(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $NOTES_DIR || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -bang -nargs=* RgFzfNotes call RipgrepFzfNotes(<q-args>, <bang>0)
+
+" FZF bez podglądu zawartości pliku
+command! -bang -nargs=* -complete=dir LS
+    \ call fzf#run(fzf#wrap({'source': 'ls', 'dir': <q-args>}, <bang>0))
+
+function InsertLogEntry()
+    normal! o# <temat> <data>
+    execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
+    normal! 0f<d7l
+    execute ':startinsert'
+endfunction
+
+command! InsertLogEntry call InsertLogEntry()
+command! Log :e $NOTES_DIR/log.md
