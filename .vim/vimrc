@@ -133,14 +133,8 @@ nnoremap <leader>ve yy:@"<cr>
 
 nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
 
-" \fp wyświetla bieżący katalog
-nnoremap <localleader>fp :echo expand("%:p:h")<cr>
-
-" \fn wyświetla nazwę edytowanego pliku
-nnoremap <localleader>fn :echo expand("%:t:r")<cr>
-
 " \fnn wyświetala pełną ścieżkę dla pliku wraz z jego nazwą
-nnoremap <localleader>fnn :echo expand("%:p")<cr>
+nnoremap <localleader>f :echo expand("%:p")<cr>
 
 " kopiuj / wklej do schowka systemowego
 vnoremap <c-c> "*y :let @+=@*<cr>
