@@ -36,6 +36,7 @@ set undofile
 set undolevels=10000
 set scrolloff=5
 set autochdir
+setlocal spelllang=pl
 colorscheme gruvbox
 let g:airline_theme='lucius'
 
