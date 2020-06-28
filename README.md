@@ -17,22 +17,31 @@
 
 ## Pluginy
 
-  - [vim-plug]
   - [fzf.vim]
-  - [undotree]
-  - [vim-startify]
-  - [vimfiler]
-  - [vim-commentary]
-  - [vim-repeat]
-  - [vim-surround]
-  - [vim-fugitive]
-  - [vim-unimpaired]
-  - [gv]
   - [git-messenger]
-  - [vim-signify]
+  - [goyo]
+  - [gv]
+  - [limelight]
   - [quick-scope]
+  - [undotree]
   - [vim-airline]
+  - [vim-commentary]
+  - [vim-fugitive]
+  - [vim-markdown-toc]
+  - [vim-peekaboo]
+  - [vim-plug]
+  - [vim-repeat]
+  - [vim-signify]
+  - [vim-startify]
+  - [vim-surround]
+  - [vim-unimpaired]
+  - [vimfiler]
 
+
+[vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
+[vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
+[limelight]: https://github.com/junegunn/limelight.vim
+[goyo]: https://github.com/junegunn/goyo.vim
 [vim-plug]: https://github.com/junegunn/vim-plug/
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
 [undotree]: https://github.com/mbbill/undotree
