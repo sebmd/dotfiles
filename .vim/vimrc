@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'nightsense/cosmic_latte'
     Plug 'chriskempson/base16-vim'
     Plug 'flazz/vim-colorschemes'
-    Plug 'rafi/awesome-vim-colorschemes'
     Plug 'Taverius/vim-colorscheme-manager'
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-colorscheme-switcher'
@@ -132,6 +131,7 @@ nmap gJ 9999gj
 nmap gK 9999gk
 
 nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
+vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
 
 nnoremap <tab> :e #<cr>
 
