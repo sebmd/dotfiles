@@ -38,6 +38,7 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
 set laststatus=2
+set cmdheight=2
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set listchars=nbsp:⦸
@@ -45,6 +46,7 @@ set listchars+=tab:▸\ ,
 set listchars+=extends:»
 set listchars+=precedes:«
 set listchars+=trail:•
+set listchars+=eol:¬
 set fillchars+=vert:\ 
 set showbreak=↪
 set scrolloff=5
@@ -60,6 +62,9 @@ if exists('+termguicolors')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 let g:airline_theme='lucius'
+let g:netrw_browse_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
 
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
