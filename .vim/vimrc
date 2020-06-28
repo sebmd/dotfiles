@@ -130,9 +130,9 @@ nnoremap <leader>tv :botright vertical terminal<cr>
 nnoremap <leader>e !!$SHELL<cr>
 
 " kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
-nnoremap <leader>v yy:@"<cr>
+nnoremap <leader>ve yy:@"<cr>
 
-nnoremap <leader>n :exe "e $NOTES_DIR/daily/".strftime("%F-%H%M%S").".md"<cr>
+nnoremap <leader>n :exe "e ~/notes/daily/".strftime("%F-%H%M%S").".md"<cr>
 
 " kopiuj / wklej do schowka systemowego
 vnoremap <c-c> "*y :let @+=@*<cr>
