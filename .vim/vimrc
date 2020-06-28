@@ -174,7 +174,7 @@ command! -bang -nargs=? -complete=dir Files
 
 " FZF w $NOTES_DIR z podglądem zawartości pliku
 command! -bang -nargs=? -complete=dir Notes
-    \ call fzf#vim#files('$HOME/notes', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+    \ call fzf#vim#files('$HOME/notes', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--prompt Notes']}), <bang>0)
 
 command! -bang -nargs=* RgFzf call RipgrepFzf(<q-args>, <bang>0)
 
