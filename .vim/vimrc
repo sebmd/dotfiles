@@ -62,19 +62,19 @@ if exists('+termguicolors')
 endif
 let g:airline_theme='lucius'
 
-if !isdirectory($HOME. '.vim/undo')
-    call mkdir($HOME . '.vim/undo')
+if !isdirectory($HOME . '/.vim/undo')
+    call mkdir($HOME . '/.vim/undo')
 endif
 
-if !isdirectory($HOME. '.vim/view')
-    call mkdir($HOME . '.vim/view')
+if !isdirectory($HOME . '/.vim/view')
+    call mkdir($HOME . '/.vim/view')
 endif
 
-if !isdirectory($HOME. '/notes')
+if !isdirectory($HOME . '/notes')
     call mkdir($HOME . '/notes')
 endif
 
-if !isdirectory($HOME. '/view')
+if !isdirectory($HOME . '/view')
     call mkdir($HOME . '/view')
 endif
 
