@@ -22,7 +22,7 @@
   - [git-messenger]
   - [goyo]
   - [gv]
-  - [indentLine.git]
+  - [indentLine]
   - [limelight]
   - [quick-scope]
   - [undotree]
@@ -41,7 +41,7 @@
   - [vim-unimpaired]
   - [vimfiler]
 
-[indentLine.git]: https://github.com/Yggdroot/indentLine
+[indentLine]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
 [vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
 [limelight]: https://github.com/junegunn/limelight.vim
