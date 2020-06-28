@@ -38,6 +38,15 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
 set laststatus=2
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=nbsp:⦸
+set listchars+=tab:▸\ ,
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=trail:•
+set fillchars+=vert:\•
+set showbreak=↪
 set scrolloff=5
 set autochdir
 setlocal spelllang=pl
@@ -64,6 +73,11 @@ nnoremap N Nzz
 nnoremap qq :q<cr>
 nnoremap qs :update<cr>:q<cr>
 
+nmap gj <plug>(signify-next-hunk)
+nmap gk <plug>(signify-prev-hunk)
+nmap gJ 9999gj
+nmap gK 9999gk
+
 nnoremap <tab> :e #<cr>
 
 cmap <c-h> <left>
@@ -84,6 +98,9 @@ nmap <c-k> <c-w><c-k>
 nmap <c-l> <c-w><c-l>
 
 nnoremap <leader>; :
+
+" ustawia podzielone okno na główne (full screen)
+nnoremap <leader>o :only<cr>
 
 " przechodzi do katalogu w którym znajduje się edytowany plik
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -120,6 +137,9 @@ nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
 vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
+
+autocmd Filetype help nnoremap <leader>l <c-]>
+autocmd Filetype help nnoremap <leader>h <c-t>
 
 autocmd BufWinLeave ?* mkview
 autocmd BufWinEnter ?* silent loadview
