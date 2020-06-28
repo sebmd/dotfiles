@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'nightsense/stellarized'
     Plug 'arcticicestudio/nord-vim'
     Plug 'nightsense/cosmic_latte'
+    Plug 'chriskempson/base16-vim'
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'Taverius/vim-colorscheme-manager'
     Plug 'xolox/vim-misc'
