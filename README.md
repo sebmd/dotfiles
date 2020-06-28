@@ -4,11 +4,12 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Vim](#vim)
-    * [Pluginy](#pluginy)
-    * [Funkcje](#funkcje)
-    * [Komendy pluginu FZF](#komendy-pluginu-fzf)
-    * [Plugin vimfiler](#plugin-vimfiler)
-    * [Zarządzanie sesjami](#zarzdzanie-sesjami)
+	* [Pluginy](#pluginy)
+	* [Kolory](#kolory)
+	* [Funkcje](#funkcje)
+	* [Komendy pluginu FZF](#komendy-pluginu-fzf)
+	* [Plugin vimfiler](#plugin-vimfiler)
+	* [Zarządzanie sesjami](#zarzdzanie-sesjami)
 * [Aliasy bash](#aliasy-bash)
 
 <!-- vim-markdown-toc -->
@@ -25,6 +26,8 @@
   - [quick-scope]
   - [undotree]
   - [vim-airline]
+  - [vim-colorscheme-manager]
+  - [vim-colorscheme-switcher]
   - [vim-commentary]
   - [vim-fugitive]
   - [vim-markdown-toc]
@@ -57,6 +60,24 @@
 [vim-signify]: https://github.com/mhinz/vim-signify
 [quick-scope]: https://github.com/unblevable/quick-scope
 [vim-airline]: https://github.com/vim-airline/vim-airline
+[vim-colorscheme-switcher]: https://github.com/xolox/vim-colorscheme-switcher
+[vim-colorscheme-manager]: https://github.com/Taverius/vim-colorscheme-manager
+
+## Kolory
+
+- gruvbox
+- gruvbox-material
+- molokai
+- vim-tomorrow-theme
+- hydrangea-vim
+- vim-deep-space
+- Despacio
+- iceberg.vim
+- vim-hybrid
+- snow
+- stellarized
+- nord-vim
+- cosmic_latte
 
 ## Funkcje
 
