@@ -7,3 +7,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ln -s $PWD/.bashrc ~/.bashrc
+ln -s $PWD/bin ~/bin
+
+cd ~/bin && funkcje -i
