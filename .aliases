@@ -1,6 +1,14 @@
 alias v=vim
 alias t=tmux
+alias ta='tmux atta'
 alias aliases='vim $HOME/.aliases && source $HOME/.aliases'
 alias vrc='vim $HOME/.vim/vimrc'
 alias vimrc=vrc
-alias pu='git pull'
+alias q=exit
+alias more=less
+alias so=source
+alias n='vim -c "e $HOME/notes"'
+alias pwgen="pwgen -c -s -n -y -1 32"
+alias p=pass
+alias df='df -h'
+alias free='free -m'

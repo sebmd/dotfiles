@@ -15,3 +15,4 @@ cd ~/bin && funkcje -i
 vim -c ":PlugInstall" -c ":qa"
 
 mkdir $HOME/notes
+mkdir $HOME/tmp
