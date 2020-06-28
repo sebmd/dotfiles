@@ -43,9 +43,16 @@ let g:airline_theme='lucius'
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
 nnoremap k gk
+nnoremap gh 0
+nnoremap gl $
+nnoremap J maJ`a
+nnoremap Y y$
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap qq :q<cr>
 nnoremap qs :update<cr>:q<cr>
-nnoremap <leader>; :
+
+nnoremap <tab> :e #<cr>
 
 cmap <c-h> <left>
 cmap <c-j> <down>
@@ -63,3 +70,22 @@ nmap <c-h> <c-w><c-h>
 nmap <c-j> <c-w><c-j>
 nmap <c-k> <c-w><c-k>
 nmap <c-l> <c-w><c-l>
+
+nnoremap <leader>; :
+
+" przechodzi do katalogu w którym znajduje się edytowany plik
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" klonuje paragraf
+nnoremap <leader>cp yap<S-}>p
+
+nnoremap <leader>pa :set invpaste paste?<cr>
+
+nnoremap <leader>v :e $MYVIMRC<cr>
+
+nnoremap <leader>r :source $MYVIMRC<cr>echom "Konfiguracja została przeładowana ..."<cr>
+
+nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
+
+" otwera menadżer plików dla lokalizacji otwartego pliku
+nnoremap <leader>f :sv %:p:h<cr>
