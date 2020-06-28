@@ -45,7 +45,7 @@ set listchars+=tab:▸\ ,
 set listchars+=extends:»
 set listchars+=precedes:«
 set listchars+=trail:•
-set fillchars+=vert:\•
+set fillchars+=vert:\ 
 set showbreak=↪
 set scrolloff=5
 set autochdir
@@ -133,10 +133,21 @@ nnoremap <leader>ve yy:@"<cr>
 
 nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
 
+" \fp wyświetla bieżący katalog
+nnoremap <localleader>fp <c-r>=expand("%:p:h")<cr>
+
+" \fn wyświetla nazwę edytowanego pliku
+nnoremap <localleader>fn <c-r>=expand("%:t:r")<cr>
+
+" \fnn wyświetala pełną ścieżkę dla pliku wraz z jego nazwą
+nnoremap <localleader>fnn <c-r>=expand("%:p")<cr>
+
 " kopiuj / wklej do schowka systemowego
 vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
+
+command Q :q!
 
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
