@@ -1,6 +1,6 @@
 " vimrc
 set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
-let mapleader='\<space>'    " ustawiona spacja jako klawisz leader
+let mapleader=' '    " ustawiona spacja jako klawisz leader
 let localmapleader='\\'     " klawisz \ ustawiony jako local leader
 
 " pobranie menadżera pluginów Plug
@@ -186,4 +186,4 @@ function InsertLogEntry()
 endfunction
 
 command! InsertLogEntry call InsertLogEntry()
-command! Log :e $NOTES_DIR/log.md
+command! Log :e ~/notes/log.md
