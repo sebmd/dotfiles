@@ -1,6 +1,6 @@
 " vimrc
 set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
-let mapleader=' '           " ustawiona spacja jako klawisz leader
+let mapleader='\<space>'    " ustawiona spacja jako klawisz leader
 let localmapleader='\\'     " klawisz \ ustawiony jako local leader
 
 call plug#begin('~/.vim/plugged')
@@ -45,3 +45,21 @@ nnoremap j gj
 nnoremap k gk
 nnoremap qq :q<cr>
 nnoremap qs :update<cr>:q<cr>
+nnoremap <leader>; :
+
+cmap <c-h> <left>
+cmap <c-j> <down>
+cmap <c-k> <up>
+cmap <c-l> <right>
+
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+
+inoremap <c-c> <esc>
+
+nmap <c-h> <c-w><c-h>
+nmap <c-j> <c-w><c-j>
+nmap <c-k> <c-w><c-k>
+nmap <c-l> <c-w><c-l>
