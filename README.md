@@ -23,7 +23,18 @@
 [vim-plug]: https://github.com/junegunn/vim-plug/
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
 [undotree]: https://github.com/mbbill/undotree
-[vim-startify]:
+[vim-startify]: https://github.com/mhinz/vim-startify
+[vimfiler]: https://github.com/Shougo/vimfiler.vim
+[vim-commentary]: https://github.com/tpope/vim-commentar://github.com/tpope/vim-commentary
+[vim-repeat]: https://github.com/tpope/vim-repeat
+[vim-surround]: https://github.com/tpope/vim-surround
+[vim-fugitive]: https://github.com/tpope/vim-fugitive
+[vim-unimpaired]: https://github.com/tpope/vim-unimpaired
+[gv]: https://github.com/junegunn/gv.vim
+[git-messenger]: https://github.com/rhysd/git-messenger.vim
+[vim-signify]: https://github.com/mhinz/vim-signify
+[quick-scope]: https://github.com/unblevable/quick-scope
+[vim-airline]: https://github.com/vim-airline/vim-airline
 
 ## Funkcje
 
@@ -36,9 +47,6 @@
   - Log
 
 ## Komendy pluginu FZF
-
-Commands
---------
 
 | Command           | List                                                                    |
 | ---               | ---                                                                     |
@@ -66,4 +74,21 @@ Commands
 | `:Maps`           | Normal mode mappings                                                    |
 | `:Helptags`       | Help tags <sup id="a1">[1](#helptags)</sup>                             |
 | ``:Filetypes``    | File types                                                              |
+
+## Plugin vimfiler
+
+Ustawienie vimfiler jako domyślnego menadżera plików
+
+```
+:let g:vimfiler_as_default_explorer = 1
+```
+
+## Zarządzanie sesjami
+
+Do zarządzania sesjami służy plugin Startify
+
+- `SSave [nazwa-sesji]` - zapisanie sesji
+- `SLoad [nazwa-sesji]` - odtworzenie sesji
+- `SClose` - zakończenie sesji
+- `SDelete [nazwa-sesji]` - usunięcie sesji
 
