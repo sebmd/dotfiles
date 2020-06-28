@@ -112,7 +112,7 @@ nnoremap <leader>pa :set invpaste paste?<cr>
 
 nnoremap <leader>v :e $MYVIMRC<cr>
 
-nnoremap <leader>r :source $MYVIMRC<cr>echom "Konfiguracja została przeładowana ..."<cr>
+nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowana ..."<cr>
 
 nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
@@ -134,13 +134,13 @@ nnoremap <leader>ve yy:@"<cr>
 nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
 
 " \fp wyświetla bieżący katalog
-nnoremap <localleader>fp <c-r>=expand("%:p:h")<cr>
+nnoremap <localleader>fp :echo expand("%:p:h")<cr>
 
 " \fn wyświetla nazwę edytowanego pliku
-nnoremap <localleader>fn <c-r>=expand("%:t:r")<cr>
+nnoremap <localleader>fn :echo expand("%:t:r")<cr>
 
 " \fnn wyświetala pełną ścieżkę dla pliku wraz z jego nazwą
-nnoremap <localleader>fnn <c-r>=expand("%:p")<cr>
+nnoremap <localleader>fnn :echo expand("%:p")<cr>
 
 " kopiuj / wklej do schowka systemowego
 vnoremap <c-c> "*y :let @+=@*<cr>
