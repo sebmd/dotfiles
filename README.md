@@ -4,8 +4,8 @@
 
 ## Pluginy
 
-  - fzf
-  - fzf.vim
+  - [vim-plug]
+  - [fzf.vim]
   - undotree
   - vim-startify
   - vimfiler
@@ -19,6 +19,9 @@
   - vim-signify
   - quick-scope
   - vim-airline
+
+[vim-plug]: https://github.com/junegunn/vim-plug/
+[fzf.vim]: https://github.com/junegunn/fzf.vim/
 
 ## Funkcje
 
