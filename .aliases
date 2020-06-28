@@ -3,3 +3,4 @@ alias t=tmux
 alias aliases='vim $HOME/.aliases && source $HOME/.aliases'
 alias vrc='vim $HOME/.vim/vimrc'
 alias vimrc=vrc
+alias pu='git pull'
