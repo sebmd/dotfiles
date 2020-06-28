@@ -9,6 +9,7 @@
     * [Komendy pluginu FZF](#komendy-pluginu-fzf)
     * [Plugin vimfiler](#plugin-vimfiler)
     * [Zarządzanie sesjami](#zarzdzanie-sesjami)
+* [Aliasy bash](#aliasy-bash)
 
 <!-- vim-markdown-toc -->
 
@@ -104,3 +105,21 @@ Do zarządzania sesjami służy plugin Startify
 - `SClose` - zakończenie sesji
 - `SDelete [nazwa-sesji]` - usunięcie sesji
 
+# Aliasy bash
+
+| Alias    | Komenda                                       |
+| ---      | ---                                           |
+| `v`      | `vim`                                         |
+| `t`      | `tmux`                                        |
+| `ta`     | `tmux atta`                                   |
+| `aliases | `vim $HOME/.aliases && source $HOME/.aliases` |
+| `vrc`    | `vim $HOME/.vim/vimrc`                        |
+| `vimrc`  | `vrc`                                         |
+| `q`      | `exit`                                        |
+| `more`   | `less`                                        |
+| `so`     | `source`                                      |
+| `n`      | `vim -c "e $HOME/notes"`                      |
+| `pwgen`  | `pwgen -c -s -n -y -1 32`                     |
+| `p`      | `pass`                                        |
+| `df`     | `df -h`                                       |
+| `free`   | `free -m`                                     |
