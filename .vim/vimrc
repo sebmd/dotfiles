@@ -1,7 +1,7 @@
 " vimrc
 set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
-let mapleader=' '    " ustawiona spacja jako klawisz leader
-let localmapleader='\\'     " klawisz \ ustawiony jako local leader
+let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
+let localmapleader="\\"     " klawisz \ ustawiony jako local leader
 
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
