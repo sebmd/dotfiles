@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-unimpaired'
     Plug 'junegunn/gv.vim'
-    Plug 'rhysd/git-messenger'
+    Plug 'rhysd/git-messenger.git'
     Plug 'mhinz/vim-signify'
     Plug 'unblevable/quick-scope'
     Plug 'vim-airline/vim-airline'
