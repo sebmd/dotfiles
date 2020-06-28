@@ -40,7 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rhysd/git-messenger.vim'
     Plug 'mhinz/vim-signify'
     Plug 'unblevable/quick-scope'
-    Plug 'Yggdroot/indentLine.git'
+    Plug 'Yggdroot/indentLine'
     Plug 'ayu-theme/ayu-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -301,9 +301,7 @@ let g:startify_commands = [
     \ {'a': ['Aliases', 'e ~/.aliases']},
     \ ]
 
-let g:indentLine_char = ''
-let g:indentLine_first_char = ''
+let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
-"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
