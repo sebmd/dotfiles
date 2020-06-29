@@ -10,10 +10,11 @@ ln -s $PWD/.bashrc ~/.bashrc
 ln -s $PWD/.aliases ~/.aliases
 ln -s $PWD/bin ~/bin
 
-cd ~/bin && funkcje -i
-
 vim -c ":PlugInstall" -c ":qa"
 
 mkdir $HOME/notes
 mkdir $HOME/tmp
 ln -s $PWD/.config/zathura $HOME/.config/zathura
+
+# stworzenie linków symbolicznych w katalogu ~/bin
+cd ~/bin && funkcje -i
