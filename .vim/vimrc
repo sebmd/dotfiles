@@ -99,6 +99,7 @@ let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
 
+" Mapowanie klawiszy
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
 nnoremap k gk
@@ -140,6 +141,9 @@ nmap <c-l> <c-w><c-l>
 
 nnoremap <leader>; :
 
+" Przełączanie się pomiędzy buforami
+nnoremap <leader>, :bp<cr>
+nnoremap <leader>. :bn<cr>
 " ustawia podzielone okno na główne (full screen)
 nnoremap <leader>o :only<cr>
 
@@ -266,7 +270,7 @@ command! FileTime call FileTime()
 command! CurTime call CurTime()
 
 " Startify
-let g:startify_session_dir = '~/.vim/startify_sessions'
+let g:startify_session_dir = '~/.vim/startify_session'
 
 let g:startify_custom_header = ''
 
