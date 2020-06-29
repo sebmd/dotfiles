@@ -266,6 +266,10 @@ command! FileTime call FileTime()
 command! CurTime call CurTime()
 
 " Startify
+let g:startify_session_dir = '~/.vim/startify_sessions'
+
+let g:startify_custom_header = ''
+
 let g:startify_lists = [
       \ { 'type': 'files',     'header': ['   MRU']            },
       \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
