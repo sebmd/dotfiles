@@ -16,5 +16,4 @@ vim -c ":PlugInstall" -c ":qa"
 
 mkdir $HOME/notes
 mkdir $HOME/tmp
-mkdir $HOME/.config/zathura
 ln -s $PWD/.config/zathura $HOME/zathura
