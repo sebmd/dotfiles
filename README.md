@@ -4,6 +4,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Vim](#vim)
+    * [Konfiguracja](#konfiguracja)
     * [Pluginy](#pluginy)
     * [Kolory](#kolory)
     * [Funkcje](#funkcje)
@@ -16,6 +17,12 @@
 <!-- vim-markdown-toc -->
 
 # Vim
+
+## Konfiguracja
+
+Dodatkową konfigurację można wprowadzać w plikach `~/.vimrc.local`
+lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować orgyginalnej
+konfiguracji.
 
 ## Pluginy
 

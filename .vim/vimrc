@@ -293,3 +293,13 @@ let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
+" jeśli istnieje plik ~/.vim/vimrc.local to odczytuje jego zawartość
+if filereadable(expand("~/.vim/vimrc.local"))
+    source ~/.vim/vimrc.local
+endif
