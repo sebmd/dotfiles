@@ -3,6 +3,7 @@
 BACKUP_DIR=$HOME/.backup
 SCRIPT_DIR=$PWD
 
+# tworzy potrzebne katalogi
 mkdir -p $BACKUP_DIR
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.vim/undo
@@ -14,6 +15,10 @@ mkdir -p $HOME/.config/zathura
 
 cd $HOME
 
+# odczytuje plik 'files' sprawdzając czy odczytany plik z pliku istnieje
+# i nie jest linkiem symbolicznym, po czym kopiuje go do katalogu $BACKUP_DIR
+# następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
+# w redpozytorium dotfiles
 while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
     if [ ! -L $LINE ]; then
         cp -R $LINE $BACKUP_DIR/
