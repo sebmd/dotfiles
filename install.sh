@@ -7,6 +7,7 @@ mkdir -p $BACKUP_DIR
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.vim/undo
 mkdir -p $HOME/.vim/view
+mkdir -p $HOME/bin
 mkdir -p $HOME/notes
 mkdir -p $HOME/tmp
 mkdir -p $HOME/.config/zathura
