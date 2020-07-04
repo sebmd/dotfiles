@@ -22,6 +22,7 @@ stty -ctlecho
 # ustawinie esc na capslocku
 if [ $DISPLAY ]; then
     setxkbmap -option caps:escape
+    xset r rate 280 40
 fi
 
 # włączenie vi mode
