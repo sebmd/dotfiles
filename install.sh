@@ -15,7 +15,7 @@ mkdir -p $HOME/.config/zathura
 
 cd $HOME
 
-# odczytuje plik 'files' sprawdzając czy odczytany plik z pliku istnieje
+# odczytuje plik 'files' sprawdzając czy odczytany plik z pliku 'files' istnieje
 # i nie jest linkiem symbolicznym, po czym kopiuje go do katalogu $BACKUP_DIR
 # następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
 # w redpozytorium dotfiles

@@ -3,6 +3,9 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Instalacja](#instalacja)
+    * [Pobranie repozytorium](#pobranie-repozytorium)
+    * [Uruchomienie instalatora](#uruchomienie-instalatora)
 * [Vim](#vim)
     * [Konfiguracja](#konfiguracja)
     * [Pluginy](#pluginy)
@@ -15,6 +18,25 @@
 * [Aliasy bash](#aliasy-bash)
 
 <!-- vim-markdown-toc -->
+
+# Instalacja
+
+## Pobranie repozytorium
+
+```
+git clone https://github.com/sebmd/dotfiles
+```
+
+## Uruchomienie instalatora
+
+Instalator utworzy linki sysmboliczne do repozytorium 'dotfiles'.
+Wszystkie pliki, które już istnieją zostaną przeniesione do katalogu
+`~/.backup`.
+
+```
+cd dotfiles
+./install.sh
+```
 
 # Vim
 
