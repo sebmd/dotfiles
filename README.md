@@ -21,6 +21,7 @@
     * [Dzielenie okna na panele](#dzielenie-okna-na-panele)
     * [Poruszanie się pomiędzy panelami](#poruszanie-si-pomidzy-panelami)
     * [Utworznie nowego okna](#utworznie-nowego-okna)
+    * [Zmiana nazwy okna](#zmiana-nazwy-okna)
     * [Przechodzenie pomiędzy oknami](#przechodzenie-pomidzy-oknami)
     * [Zarządzanie oknami](#zarzdzanie-oknami)
     * [Użycie Shift-Strzałki do zmiany sesji](#uycie-shift-strzaki-do-zmiany-sesji)
@@ -260,6 +261,10 @@ Użycie prefiksu + hjkl
 ## Utworznie nowego okna
 
   * `Prefix-c` - tworzy nowe okno
+
+## Zmiana nazwy okna
+
+  * `Prefix-:` - zmiana nazwy bieżącego okna
 
 ## Przechodzenie pomiędzy oknami
 
