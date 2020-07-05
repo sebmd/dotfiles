@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
+    Plug 'vimwiki/vimwiki'
     Plug 'junegunn/vim-peekaboo'
     Plug 'Shougo/unite.vim'
     Plug 'tpope/vim-commentary'
@@ -203,7 +204,7 @@ map <c-p> "+P
 
 command Q :q!
 
-autocmd Filetype markdown imap ,i <esc>:InsertLogEntry<cr>
+autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
 
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
