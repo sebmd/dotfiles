@@ -1,8 +1,4 @@
-" vimrc
-set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
-let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
-let localmapleader="\\"     " klawisz \ ustawiony jako local leader
-
+" --- Pluginy {{{
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
     Plug 'sainnhe/gruvbox-material'
@@ -37,7 +33,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-
+" --- Pluginy }}}
+" --- Ustawienia {{{
+set nocompatible            " wyłączenie wstecznej kompatybilności z edytorem vi
 syntax on
 set number
 set relativenumber
@@ -60,6 +58,7 @@ set incsearch
 set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
+set viminfo+=n~/.vim/tmp/viminfo/viminfo
 set laststatus=2
 set cmdheight=2
 set list
@@ -98,8 +97,11 @@ let g:airline_theme='lucius'
 let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsize=25
+" --- Ustawienia }}}
+" --- Mapowanie klawiszy {{{
+let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
+let localmapleader="\\"     " klawisz \ ustawiony jako local leader
 
-" Mapowanie klawiszy
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
 nnoremap k gk
@@ -198,9 +200,12 @@ map <c-p> "+P
 
 command Q :q!
 
+autocmd Filetype markdown imap ,i <esc>:InsertLogEntry<cr>
+
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
-
+" --- Mapowanie klawiszy }}}
+" --- Autocmd / Funkcje {{{
 autocmd BufWinLeave ?* mkview
 autocmd BufWinEnter ?* silent loadview
 
@@ -268,7 +273,8 @@ command! InsertLogEntry call InsertLogEntry()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
 command! CurTime call CurTime()
-
+" --- Autocmd / Funkcje }}}
+" --- Ustawienia plugiów {{{
 " Startify
 let g:startify_session_dir = '~/.vim/startify_session'
 
@@ -293,7 +299,8 @@ let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
+" --- Ustawienia plugiów }}}
+" --- Dodatkowe pliki konfiguracyjne {{{
 " jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
@@ -303,3 +310,4 @@ endif
 if filereadable(expand("~/.vim/vimrc.local"))
     source ~/.vim/vimrc.local
 endif
+" --- Dodatkowe pliki konfiguracyjne }}}
