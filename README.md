@@ -18,6 +18,8 @@
 * [Aliasy bash](#aliasy-bash)
 * [Tmux skróty klawiszowe](#tmux-skróty-klawiszowe)
     * [Prefix](#prefix)
+    * [Wejście do trybu komend](#wejcie-do-trybu-komend)
+    * [Odłączenie się od bieżącej sesji](#odczenie-si-od-biecej-sesji)
     * [Dzielenie okna na panele](#dzielenie-okna-na-panele)
     * [Poruszanie się pomiędzy panelami](#poruszanie-si-pomidzy-panelami)
     * [Utworznie nowego okna](#utworznie-nowego-okna)
@@ -235,6 +237,14 @@ Do zarządzania sesjami służy plugin Startify
 Tmux standardowo jako prefiksu używa skrótu `ctrl-b` natomiast Ci, którzy są
 przyzwyczajeni do programu `screen` używają skrótu `ctrl-a`, w tej konfiguracji
 jako prefiks jest ustawiony skrót `ctrl-a`.
+
+## Wejście do trybu komend
+
+  * `Prefix-:`
+
+## Odłączenie się od bieżącej sesji
+
+  * `Prefix-d`
 
 
 ## Dzielenie okna na panele
