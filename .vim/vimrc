@@ -1,5 +1,6 @@
-" zn - rozwija zagnieżdżenia
-" zm - zwija zagnieżdzenia
+" zn - rozwija wszystkie zagnieżdżenia
+" zm - zwija wszystkie zagnieżdzenia
+" za - zwija / rozwija jedno zagnieżdżenie
 " --- Pluginy {{{
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
@@ -82,7 +83,7 @@ set textwidth=80
 set cursorline
 set colorcolumn=+1
 set background=dark
-silent colorscheme gruvbox
+silent! colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
 "let ayucolor="light"  " for light version of theme
