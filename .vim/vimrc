@@ -61,7 +61,7 @@ set incsearch
 set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
-set viminfo+=n~/.vim/tmp/viminfo/viminfo
+set viminfo+=n~/.vim/viminfo/viminfo
 set laststatus=2
 set cmdheight=2
 set list
