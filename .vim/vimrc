@@ -1,3 +1,5 @@
+" zn - rozwija zagnieżdżenia
+" zm - zwija zagnieżdzenia
 " --- Pluginy {{{
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
