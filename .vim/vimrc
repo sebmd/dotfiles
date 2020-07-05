@@ -189,9 +189,11 @@ nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
 noremap <leader>sw :norm ysiw
 " <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
 noremap <leader>sW :norm ysiW
+" <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
+noremap <leader>sp :norm ysip
 " <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
 noremap <leader>ss :norm yss
-" <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
+" <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
 noremap <leader>sd :norm ds
 
 " \fnn wyświetala pełną ścieżkę dla pliku wraz z jego nazwą
