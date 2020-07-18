@@ -120,10 +120,10 @@ let g:startify_lists = [
     \ ]
 
 let g:startify_commands = [
-    \ {'c': ['Current Directory', 'e .']},
-    \ {'v': ['VIMRC', 'e $MYVIMRC']},
-    \ {'b': ['Bashrc', 'e ~/.bashrc']},
-    \ {'a': ['Aliases', 'e ~/.aliases']},
+    \ { 'c': [ 'Current Directory', 'e .' ]          },
+    \ { 'v': [ 'VIMRC'            , 'e $MYVIMRC' ]   },
+    \ { 'b': [ 'Bashrc'           , 'e ~/.bashrc' ]  },
+    \ { 'a': [ 'Aliases'          , 'e ~/.aliases' ] },
     \ ]
 
 let g:startify_custom_header = [
