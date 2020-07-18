@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'rhysd/git-messenger.vim'
     Plug 'mhinz/vim-signify'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'unblevable/quick-scope'
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
