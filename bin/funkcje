@@ -129,7 +129,7 @@ function ga() {
 # ga }}}
 # gp {{{
 function gp() {
-    git add -A && git commit -S -m $DATA && git push
+    git add -A && git commit -m $DATA && git push
 }
 # gp }}}
 # last_edit {{{
