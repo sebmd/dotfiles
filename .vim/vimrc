@@ -5,25 +5,25 @@
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
     Plug 'sainnhe/gruvbox-material'
+    Plug 'junegunn/seoul256.vim'
     Plug 'nightsense/cosmic_latte'
     Plug 'chriskempson/base16-vim'
     Plug 'flazz/vim-colorschemes'
     Plug 'Taverius/vim-colorscheme-manager'
-    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-misc'               " wymagany dle pluginu vim-colorscheme-switcher
     Plug 'xolox/vim-colorscheme-switcher'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'chengzeyi/fzf-preview.vim'
     Plug 'mbbill/undotree'
-    Plug 'junegunn/seoul256.vim'
     Plug 'mhinz/vim-startify'
+    Plug 'Shougo/unite.vim'             " wymagany dla pluginu vimwiler.vim
     Plug 'Shougo/vimfiler.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
     Plug 'vimwiki/vimwiki'
     Plug 'junegunn/vim-peekaboo'
-    Plug 'Shougo/unite.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -247,17 +247,17 @@ function InsertLogEntry()
 endfunction
 
 function! FileTime()
-  let filename=expand('%:p')
-  let msg=""
-  let msg=msg."Mod: ".strftime("%F %T",getftime(filename))." ".filename
-  echom msg
+    let filename=expand('%:p')
+    let msg=""
+    let msg=msg."Mod: ".strftime("%F %T",getftime(filename))." ".filename
+    echom msg
 endfunction
 
 function! CurTime()
-  let ftime=""
-  let ftime=ftime." ".strftime("Teraz jest: %F %T")
-  echom ftime
-  " return ftime
+    let ftime=""
+    let ftime=ftime." ".strftime("Teraz jest: %F %T")
+    echom ftime
+    " return ftime
 endfunction
 
 " FZF z podglądem zawartości pliku
@@ -288,12 +288,12 @@ let g:startify_session_dir = '~/.vim/startify_session'
 let g:startify_custom_header = ''
 
 let g:startify_lists = [
-      \ { 'type': 'files',     'header': ['   MRU']            },
-      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-      \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ ]
+    \ { 'type': 'files',     'header': ['   MRU']            },
+    \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+    \ { 'type': 'sessions',  'header': ['   Sessions']       },
+    \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+    \ { 'type': 'commands',  'header': ['   Commands']       },
+    \ ]
 
 let g:startify_commands = [
     \ {'c': ['Current Directory', 'e .']},
