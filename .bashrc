@@ -37,3 +37,5 @@ HISTTIMEFORMAT='%F %T'
 PROMPT_COMMAND='history -a'
 
 TEMPDIR=$HOME/tmp
+
+export EDITOR=vim
