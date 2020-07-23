@@ -137,6 +137,10 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
+" nnn
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+
 " NERDTree
 "autocmd vimenter * NERDTree  " uruchomienie przy starcie NERDTree
 
@@ -270,7 +274,8 @@ nnoremap <leader>tv :botright vertical terminal<cr>
 " Otwiera i zamyka NERDTreee w bieżącej lokalizacji
 " nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
-nnoremap <leader>e :NERDTreeToggleVCS<cr>
+nnoremap <leader>n :NERDTreeToggleVCS<cr>
+nnoremap <leader>N :NnnPicker '%:p:h'<cr>
 
 " kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
 " bufora
@@ -279,7 +284,7 @@ nnoremap <leader>E !!$SHELL<cr>
 " kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
 nnoremap <leader>ve yy:@"<cr>
 
-nnoremap <leader>n :exe "e ~/notes/".strftime("%F").".md"<cr>
+nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
 
 " Obsługa luginu vim-surround
 " <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
@@ -309,18 +314,19 @@ autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
 
 " Pierwsze mapowanie dla '\'
-let g:which_key_map['/'] = [ 'Commentary'     , 'comment'             ]
-let g:which_key_map[';'] = [ ':Commands'      , 'commands'            ]
-let g:which_key_map['='] = [ '<C-W>='         , 'balance windows'     ]
-let g:which_key_map['S'] = [ ':Startify'      , 'start screen'        ]
-let g:which_key_map['T'] = [ ':Rg'            , 'search text'         ]
-let g:which_key_map['e'] = [ ':NnnPicker'     , 'nnn n³'              ]
-let g:which_key_map['f'] = [ ':Files'         , 'search files'        ]
-let g:which_key_map['h'] = [ '<C-W>s'         , 'split below'         ]
-let g:which_key_map['v'] = [ '<C-W>v'         , 'split right'         ]
-let g:which_key_map['z'] = [ 'Goyo'           , 'zen'                 ]
-let g:which_key_map['q'] = [ 'q'              , 'quit vim'            ]
-let g:which_key_map['x'] = [ 'x'              , 'save & quit vim'     ]
+let g:which_key_map['/'] = [ 'Commentary'         , 'comment'         ]
+let g:which_key_map[';'] = [ ':Commands'          , 'commands'        ]
+let g:which_key_map['='] = [ '<C-W>='             , 'balance windows' ]
+let g:which_key_map['S'] = [ ':Startify'          , 'start screen'    ]
+let g:which_key_map['T'] = [ ':Rg'                , 'search text'     ]
+let g:which_key_map['N'] = [ ':NnnPicker'         , 'nnn n³'          ]
+let g:which_key_map['n'] = [ ':NERDTreeToggleVCS' , 'NERDTree'        ]
+let g:which_key_map['f'] = [ ':Files'             , 'search files'    ]
+let g:which_key_map['h'] = [ '<C-W>s'             , 'split below'     ]
+let g:which_key_map['v'] = [ '<C-W>v'             , 'split right'     ]
+let g:which_key_map['z'] = [ 'Goyo'               , 'zen'             ]
+let g:which_key_map['q'] = [ 'q'                  , 'quit vim'        ]
+let g:which_key_map['x'] = [ 'x'                  , 'save & quit vim' ]
 
 " t - toggle
 " d - dot.files
@@ -333,13 +339,6 @@ let g:which_key_map['x'] = [ 'x'              , 'save & quit vim'     ]
 let g:which_key_map.d = {
     \ 'name' : '+dot.files',
     \ 'v' : [':e $MYVIMRC'                      , 'vimrc'               ],
-    \ 's' : [':e ~/.vim/vimrc_settings.vim'     , 'vimrc_settings'      ],
-    \ 'm' : [':e ~/.vim/vimrc_mappings.vim'     , 'vimrc_mappings'      ],
-    \ 'p' : [':e ~/.vim/vimrc_plugins.vim'      , 'vimrc_plugins'       ],
-    \ 'c' : [':e ~/.vim/vimrc_plugins_conf.vim' , 'vimrc_plugins_conf'  ],
-    \ 'f' : [':e ~/.vim/vimrc_functions.vim'    , 'vimrc_functions'     ],
-    \ 'a' : [':e ~/.vim/vimrc_abbr.vim'         , 'vimrc_abbr'          ],
-    \ 'e' : [':e ~/.vim/vimrc_enc.vim'          , 'vimrc_enc'           ],
     \ 'b' : [':e ~/.bashrc'                     , 'bashrc'              ],
     \ 'z' : [':e ~/.zshrc'                      , 'zshrc'               ],
     \ }
@@ -351,7 +350,6 @@ let g:which_key_map.t = {
     \ 'n' : [':set nonumber!'          , 'line-numbers'             ],
     \ 'r' : [':set norelativenumber!'  , 'relative line nums'       ],
     \ 'P' : [':let @/ = ""'            , 'remove search highlight'  ],
-    \ 'v' : [':Vista!!'                , 'tag viewer'               ],
     \ }
 
 let g:which_key_map.s = {
