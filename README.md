@@ -8,6 +8,12 @@
     * [Uruchomienie instalatora](#uruchomienie-instalatora)
 * [Vim](#vim)
     * [Konfiguracja](#konfiguracja)
+    * [Niestandardowe mapowanie klaiwszy](#niestandardowe-mapowanie-klaiwszy)
+        * [Klaiwsz LEADER](#klaiwsz-leader)
+        * [Tryb COMMAND](#tryb-command)
+        * [Tryb INSERT](#tryb-insert)
+        * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
+        * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
     * [Pluginy](#pluginy)
     * [Kolory](#kolory)
     * [Funkcje](#funkcje)
@@ -57,6 +63,55 @@ cd dotfiles
 Dodatkową konfigurację można wprowadzać w plikach `~/.vimrc.local`
 lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować orgyginalnej
 konfiguracji.
+
+## Niestandardowe mapowanie klaiwszy
+
+ - `th` - wyłącza podświetlanie wyszukiwanego tekstu
+ - `gh` - przechodzi na początek linii
+ - `gl` - przechodzi na koniec linii
+ - `qq` - wychodzi z edytora zastępuje `:q`
+ - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
+ - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
+ - `<ctrl-h>` - przechodzi do okna po lewej
+ - `<ctrl-l>` - przechodzi do okna po prawej
+ - `<ctrl-j>` - przechodzi do okna niżej
+ - `<ctrl-k>` - przechodzi do okna wyżej
+
+### Klaiwsz LEADER
+
+Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
+LEADER jest klawisz `SPACJA`
+
+ - `<leader>;` - wchodzi do trybu komend - `:`
+ - `<leader>,` - przechodzi do poprzedniego bufora
+ - `<leader>.` - przechodzi do następnego bufora
+
+### Tryb COMMAND
+
+ - `<ctrl-h>` - przechodzi o jeden znak w lewo
+ - `<ctrl-l>` - przechodzi o jeden znak w prawo
+ - `<ctrl-k>` - poruszanie się po historii komend w górę
+ - `<ctrl-j>` - poruszanie się po historii komend w dół
+
+### Tryb INSERT
+
+ - `<ctrl-h>` - przechodzi o jeden znak w lewo
+ - `<ctrl-l>` - przechodzi o jeden znak w prawo
+ - `<ctrl-k>` - przechodzi o jedeą linię w górę
+ - `<ctrl-j>` - przechodzi o jedeą linię w dół
+
+### Mapowanie pluginu signify
+
+Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
+
+- `gj` - przechodzi do kolejnej zmiany w pliku
+- `gk` - przechodzi do poprzedniej zmiany w pliku
+- `gJ` - przechodzi do ostatniej linii gdzie wystąpiła zmiana w pliku
+- `gK` - przechodzi do pierwszej linii gdzie wystąpiła zmiana w pliku
+
+### Mapowanie pluginu commentary
+
+ - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
 
 ## Pluginy
 
