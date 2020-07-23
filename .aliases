@@ -12,3 +12,4 @@ alias pwgen="pwgen -c -s -n -y -1 32"
 alias p=pass
 alias df='df -h'
 alias free='free -m'
+alias pg=psgrep
