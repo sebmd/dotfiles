@@ -128,6 +128,8 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [gv]
   - [indentLine]
   - [limelight]
+  - [NERDTree]
+  - [nerdtree-git-plugin]
   - [quick-scope]
   - [undotree]
   - [vim-airline]
@@ -143,7 +145,6 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [vim-startify]
   - [vim-surround]
   - [vim-unimpaired]
-  - [vimfiler]
 
 [indentLine]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
@@ -154,12 +155,13 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
 [undotree]: https://github.com/mbbill/undotree
 [vim-startify]: https://github.com/mhinz/vim-startify
-[vimfiler]: https://github.com/Shougo/vimfiler.vim
-[vim-commentary]: https://github.com/tpope/vim-commentar://github.com/tpope/vim-commentary
+[vim-commentary]: https://github.com/tpope/vim-commentary
 [vim-repeat]: https://github.com/tpope/vim-repeat
 [vim-surround]: https://github.com/tpope/vim-surround
 [vim-fugitive]: https://github.com/tpope/vim-fugitive
 [vim-unimpaired]: https://github.com/tpope/vim-unimpaired
+[NERDTree]: https://github.com/preservim/nerdtree
+[nerdtree-git-plugin]: https://github.com/Xuyuanp/nerdtree-git-plugin
 [gv]: https://github.com/junegunn/gv.vim
 [git-messenger]: https://github.com/rhysd/git-messenger.vim
 [vim-signify]: https://github.com/mhinz/vim-signify
