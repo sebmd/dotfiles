@@ -12,6 +12,8 @@
         * [Klaiwsz LEADER](#klaiwsz-leader)
         * [Tryb COMMAND](#tryb-command)
         * [Tryb INSERT](#tryb-insert)
+        * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
+        * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
         * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
         * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
     * [Pluginy](#pluginy)
@@ -71,6 +73,7 @@ konfiguracji.
  - `gl` - przechodzi na koniec linii
  - `qq` - wychodzi z edytora zastępuje `:q`
  - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
+ - `Q` - wychodzi z edytora bez zapisania zmian `:q!`
  - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
  - `<ctrl-h>` - przechodzi do okna po lewej
  - `<ctrl-l>` - przechodzi do okna po prawej
@@ -82,6 +85,8 @@ konfiguracji.
 Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
 LEADER jest klawisz `SPACJA`
 
+Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
+
  - `<leader>;` - wchodzi do trybu komend - `:`
  - `<leader>,` - przechodzi do poprzedniego bufora
  - `<leader>.` - przechodzi do następnego bufora
@@ -91,6 +96,11 @@ LEADER jest klawisz `SPACJA`
  - `<leader>ps` - wchodzi / wychodzi w tryb paste
  - `<leader>v` - otwiera plik `vimrc`
  - `<leader>r` - przeładowuje plik `vimrc`
+ - `<leader>t` - uruchamia terminal (podział poziomy)
+ - `<leader>tv` - uruchamia terminal (podział pionowy)
+ - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
+ - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
+ - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
 
 ### Tryb COMMAND
 
@@ -105,6 +115,26 @@ LEADER jest klawisz `SPACJA`
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
  - `<ctrl-k>` - przechodzi o jedeą linię w górę
  - `<ctrl-j>` - przechodzi o jedeą linię w dół
+ 
+ ### Mapowanie pluginu NERDTree
+ 
+  - `<leader>n` - uruchamia menadżer plików NERDTree
+
+### Mapowanie pluginu NNN.vim
+
+  - `<leader>N` - uruchamia menadżer plików NNN
+
+### Obsługa pluginu vim-surround
+
+  - `<leader>sw` - czeka na wprowadzenie znaku, którym otoczy wyraz
+  - `<leader>sW` - czeka na wprowadzenie znaku, którym otoczy WYRAZ
+  - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
+  - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
+  - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
+ 
+ ### Mapowanie pluginu Undotree
+ 
+ - `<leader>u` - uruchamia plugin Undotree
 
 ### Mapowanie pluginu signify
 
