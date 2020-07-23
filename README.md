@@ -206,6 +206,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 - `F8` - przełącza na kolejny schemat kolorów
 - `Shift-F8` - przełącza na poprzedni schemat kolorów
 - `F9` - banuje schemat kolorów
+- `:Colors` - wyszukiwarka schematów kolorów
 
 ## Funkcje niestandardowe
 
