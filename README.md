@@ -18,7 +18,7 @@
         * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
     * [Pluginy](#pluginy)
     * [Kolory](#kolory)
-    * [Funkcje](#funkcje)
+    * [Funkcje niestandardowe](#funkcje-niestandardowe)
     * [Komendy pluginu FZF](#komendy-pluginu-fzf)
     * [Plugin fzf-preview.vim](#plugin-fzf-previewvim)
     * [Plugin vimfiler](#plugin-vimfiler)
@@ -203,36 +203,19 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 
 ## Kolory
 
-- `F8` - przełącza na kolejny schemat
-- `Shift-F8` - przełącza na poprzedni schemat
-- `F9` - banuje schemat
+- `F8` - przełącza na kolejny schemat kolorów
+- `Shift-F8` - przełącza na poprzedni schemat kolorów
+- `F9` - banuje schemat kolorów
 
-Oto kilka fajniejszych schematów:
+## Funkcje niestandardowe
 
-- ayu
-- cosmic_latte
-- despacio
-- gruvbox
-- gruvbox-material
-- hydrangea-vim
-- iceberg.vim
-- molokai
-- nord-vim
-- snow
-- stellarized
-- vim-deep-space
-- vim-hybrid
-- vim-tomorrow-theme
-
-## Funkcje
-
-  - RgFZF
-  - RgNotes
-  - InsertLogEntry
-  - FileTime
-  - CurTime
-  - LS
-  - Log
+  - `RgFzf` - przeszukiwanie plików
+  - `RgNotes` - przeszukiwanie plików w katalogu `~/notes`
+  - `InsertLogEntry` - wstawia nagłówek MARKDOWN wraz aktualną datą i godziną
+  - `FileTime` - pokazuje datę modyfikacji pliku
+  - `CurTime` - pokazuje aktualną datę i godzinę
+  - `LS` - lista plików w bieżącej lokalizacji
+  - `Log` - otwiera plik `~/notes/log.md`
 
 ## Komendy pluginu FZF
 
