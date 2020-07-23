@@ -17,8 +17,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'chengzeyi/fzf-preview.vim'
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
-    Plug 'Shougo/unite.vim'             " wymagany dla pluginu vimwiler.vim
-    Plug 'Shougo/vimfiler.vim'
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
@@ -131,10 +131,42 @@ let g:startify_custom_header = [
     \ '--------------------------'
     \ ]
 
+" indentLine
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" NERDTree
+"autocmd vimenter * NERDTree  " uruchomienie przy starcie NERDTree
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeNaturalSort = 1
+let g:NERDTreeBookmarkFile = '$HOME/.vim/NERDTreeBookmarks'
+let g:NERDTreeQuitOnOpen = 3
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 33
+let g:NERDTreeAutoDeleteBuffer=1
+
+" NERDTree-GIT
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Ignored"   : "☒",
+    \ "Unknown"   : "?"
+    \ }
 
 " Vimwiki
 let wiki = {}
@@ -221,6 +253,7 @@ nnoremap <leader>cp yap<S-}>p
 nnoremap <leader>pa :set invpaste paste?<cr>
 
 nnoremap <leader>v :e $MYVIMRC<cr>
+" nnoremap <leader>vv :NERDTreeToggle ~/.vim<cr>
 
 nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowana ..."<cr>
 
@@ -234,9 +267,14 @@ nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <leader>t :term<cr>
 nnoremap <leader>tv :botright vertical terminal<cr>
 
+" Otwiera i zamyka NERDTreee w bieżącej lokalizacji
+" nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+nnoremap <leader>e :NERDTreeToggleVCS<cr>
+
 " kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
 " bufora
-nnoremap <leader>e !!$SHELL<cr>
+nnoremap <leader>E !!$SHELL<cr>
 
 " kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
 nnoremap <leader>ve yy:@"<cr>
