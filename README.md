@@ -85,6 +85,12 @@ LEADER jest klawisz `SPACJA`
  - `<leader>;` - wchodzi do trybu komend - `:`
  - `<leader>,` - przechodzi do poprzedniego bufora
  - `<leader>.` - przechodzi do następnego bufora
+ - `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
+ - `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
+ - `<leader>cp` - klonuje bieżący paragraf
+ - `<leader>ps` - wchodzi / wychodzi w tryb paste
+ - `<leader>v` - otwiera plik `vimrc`
+ - `<leader>r` - przeładowuje plik `vimrc`
 
 ### Tryb COMMAND
 
