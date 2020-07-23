@@ -284,7 +284,9 @@ function create_symlinks() {
             echo "UWAGA! \"$BIN/$I\" istnieje i NIE jest linkiem."
         elif [ ! -L $BIN/$I ]
         then
-            ln -s $BIN/$(basename $0) $BIN/$I
+            cd $BIN
+            ln -s $(basename $0) $I
+            # ln -s $BIN/$(basename $0) $BIN/$I
             echo "Utworzyłem link $BIN/$I"
         elif [ ! -e $BIN/$I ]   # uszkodzony symlink
         then
