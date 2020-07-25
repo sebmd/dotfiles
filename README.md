@@ -44,7 +44,8 @@
 ## Pobranie repozytorium
 
 ```
-git clone https://github.com/sebmd/dotfiles
+mkdir -p $HOME/git
+git clone https://github.com/sebmd/dotfiles $HOME/git/dotfiles
 ```
 
 ## Uruchomienie instalatora
@@ -54,7 +55,7 @@ Wszystkie pliki, które już istnieją zostaną przeniesione do katalogu
 `~/.backup`.
 
 ```
-cd dotfiles
+cd $HOME/git/dotfiles
 ./install.sh
 ```
 
