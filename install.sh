@@ -45,8 +45,8 @@ function create_bin_symlinks() {
 }
 
 echo
-echo    " -------------------------------------------------------  "
-read -p "Czy chcesz użyć plików binarnych z katalogu ~/bin? [T/n]: " odp
+echo    " ------------------------------------------------------  "
+read -p "Czy chcesz użyć plików binarnych z katalogu ~/bin [T/n]: " odp
 
 case $odp in
     t|T)
