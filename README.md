@@ -8,9 +8,17 @@
     * [Uruchomienie instalatora](#uruchomienie-instalatora)
 * [Vim](#vim)
     * [Konfiguracja](#konfiguracja)
+    * [Niestandardowe mapowanie klaiwszy](#niestandardowe-mapowanie-klaiwszy)
+        * [Klaiwsz LEADER](#klaiwsz-leader)
+        * [Tryb COMMAND](#tryb-command)
+        * [Tryb INSERT](#tryb-insert)
+        * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
+        * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
+        * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
+        * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
     * [Pluginy](#pluginy)
     * [Kolory](#kolory)
-    * [Funkcje](#funkcje)
+    * [Funkcje niestandardowe](#funkcje-niestandardowe)
     * [Komendy pluginu FZF](#komendy-pluginu-fzf)
     * [Plugin fzf-preview.vim](#plugin-fzf-previewvim)
     * [Plugin vimfiler](#plugin-vimfiler)
@@ -58,6 +66,90 @@ Dodatkową konfigurację można wprowadzać w plikach `~/.vimrc.local`
 lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować orgyginalnej
 konfiguracji.
 
+## Niestandardowe mapowanie klaiwszy
+
+ - `th` - wyłącza podświetlanie wyszukiwanego tekstu
+ - `gh` - przechodzi na początek linii
+- `gl` - przechodzi na koniec linii
+ - `qq` - wychodzi z edytora zastępuje `:q`
+ - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
+- `Q` - wychodzi z edytora bez zapisania zmian `:q!`
+ - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
+ - `<ctrl-h>` - przechodzi do okna po lewej
+ - `<ctrl-l>` - przechodzi do okna po prawej
+ - `<ctrl-j>` - przechodzi do okna niżej
+ - `<ctrl-k>` - przechodzi do okna wyżej
+
+### Klaiwsz LEADER
+
+Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
+LEADER jest klawisz `SPACJA`
+
+Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
+
+ - `<leader>;` - wchodzi do trybu komend - `:`
+ - `<leader>,` - przechodzi do poprzedniego bufora
+ - `<leader>.` - przechodzi do następnego bufora
+ - `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
+ - `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
+ - `<leader>cp` - klonuje bieżący paragraf
+ - `<leader>ps` - wchodzi / wychodzi w tryb paste
+ - `<leader>v` - otwiera plik `vimrc`
+ - `<leader>r` - przeładowuje plik `vimrc`
+ - `<leader>t` - uruchamia terminal (podział poziomy)
+ - `<leader>tv` - uruchamia terminal (podział pionowy)
+ - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
+ - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
+ - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
+ - `<leader>w` - zapisuje plik ` :update`
+
+### Tryb COMMAND
+
+ - `<ctrl-h>` - przechodzi o jeden znak w lewo
+ - `<ctrl-l>` - przechodzi o jeden znak w prawo
+ - `<ctrl-k>` - poruszanie się po historii komend w górę
+ - `<ctrl-j>` - poruszanie się po historii komend w dół
+
+### Tryb INSERT
+
+ - `<ctrl-h>` - przechodzi o jeden znak w lewo
+ - `<ctrl-l>` - przechodzi o jeden znak w prawo
+ - `<ctrl-k>` - przechodzi o jedeą linię w górę
+ - `<ctrl-j>` - przechodzi o jedeą linię w dół
+ 
+ ### Mapowanie pluginu NERDTree
+ 
+  - `<leader>n` - uruchamia menadżer plików NERDTree
+
+### Mapowanie pluginu NNN.vim
+
+  - `<leader>N` - uruchamia menadżer plików NNN
+
+### Obsługa pluginu vim-surround
+
+  - `<leader>sw` - czeka na wprowadzenie znaku, którym otoczy wyraz
+  - `<leader>sW` - czeka na wprowadzenie znaku, którym otoczy WYRAZ
+  - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
+  - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
+  - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
+ 
+ ### Mapowanie pluginu Undotree
+ 
+ - `<leader>u` - uruchamia plugin Undotree
+
+### Mapowanie pluginu signify
+
+Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
+
+- `gj` - przechodzi do kolejnej zmiany w pliku
+- `gk` - przechodzi do poprzedniej zmiany w pliku
+- `gJ` - przechodzi do ostatniej linii gdzie wystąpiła zmiana w pliku
+- `gK` - przechodzi do pierwszej linii gdzie wystąpiła zmiana w pliku
+
+### Mapowanie pluginu commentary
+
+ - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
+
 ## Pluginy
 
   - [fzf-preview.vim]
@@ -67,6 +159,8 @@ konfiguracji.
   - [gv]
   - [indentLine]
   - [limelight]
+  - [NERDTree]
+  - [nerdtree-git-plugin]
   - [quick-scope]
   - [undotree]
   - [vim-airline]
@@ -82,7 +176,6 @@ konfiguracji.
   - [vim-startify]
   - [vim-surround]
   - [vim-unimpaired]
-  - [vimfiler]
 
 [indentLine]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
@@ -93,12 +186,13 @@ konfiguracji.
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
 [undotree]: https://github.com/mbbill/undotree
 [vim-startify]: https://github.com/mhinz/vim-startify
-[vimfiler]: https://github.com/Shougo/vimfiler.vim
-[vim-commentary]: https://github.com/tpope/vim-commentar://github.com/tpope/vim-commentary
+[vim-commentary]: https://github.com/tpope/vim-commentary
 [vim-repeat]: https://github.com/tpope/vim-repeat
 [vim-surround]: https://github.com/tpope/vim-surround
 [vim-fugitive]: https://github.com/tpope/vim-fugitive
 [vim-unimpaired]: https://github.com/tpope/vim-unimpaired
+[NERDTree]: https://github.com/preservim/nerdtree
+[nerdtree-git-plugin]: https://github.com/Xuyuanp/nerdtree-git-plugin
 [gv]: https://github.com/junegunn/gv.vim
 [git-messenger]: https://github.com/rhysd/git-messenger.vim
 [vim-signify]: https://github.com/mhinz/vim-signify
@@ -110,36 +204,20 @@ konfiguracji.
 
 ## Kolory
 
-- `F8` - przełącza na kolejny schemat
-- `Shift-F8` - przełącza na poprzedni schemat
-- `F9` - banuje schemat
+- `F8` - przełącza na kolejny schemat kolorów
+- `Shift-F8` - przełącza na poprzedni schemat kolorów
+- `F9` - banuje schemat kolorów
+- `:Colors` - wyszukiwarka schematów kolorów
 
-Oto kilka fajniejszych schematów:
+## Funkcje niestandardowe
 
-- ayu
-- cosmic_latte
-- despacio
-- gruvbox
-- gruvbox-material
-- hydrangea-vim
-- iceberg.vim
-- molokai
-- nord-vim
-- snow
-- stellarized
-- vim-deep-space
-- vim-hybrid
-- vim-tomorrow-theme
-
-## Funkcje
-
-  - RgFZF
-  - RgNotes
-  - InsertLogEntry
-  - FileTime
-  - CurTime
-  - LS
-  - Log
+  - `RgFzf` - przeszukiwanie plików
+  - `RgNotes` - przeszukiwanie plików w katalogu `~/notes`
+  - `InsertLogEntry` - wstawia nagłówek MARKDOWN wraz aktualną datą i godziną
+  - `FileTime` - pokazuje datę modyfikacji pliku
+  - `CurTime` - pokazuje aktualną datę i godzinę
+  - `LS` - lista plików w bieżącej lokalizacji
+  - `Log` - otwiera plik `~/notes/log.md`
 
 ## Komendy pluginu FZF
 

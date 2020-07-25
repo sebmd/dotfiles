@@ -3,3 +3,8 @@
 .vim/view
 .vim/undo
 .vim/viminfo
+.vim/.colorscheme
+.vim/.netrwhist
+bin/lf
+bin/fzf
+bin/rg

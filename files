@@ -3,5 +3,6 @@
 .aliases
 .tmux.conf
 .config/zathura/zathurarc
+.config/alacritty/alacritty.yml
 .vim
 bin
