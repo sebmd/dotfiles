@@ -12,6 +12,7 @@ Opis zawartości katalogu `~/bin`
 - `EncryptGPG`
 - `EncryptSSL`
 - `funkcje`
+- `fzf` - fuzzy finder (plik binarny)
 - `ga`
 - `gp`
 - `last_edit`
