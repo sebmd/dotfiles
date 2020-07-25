@@ -4,8 +4,6 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Instalacja](#instalacja)
-    * [Pobranie repozytorium](#pobranie-repozytorium)
-    * [Uruchomienie instalatora](#uruchomienie-instalatora)
 * [Vim](#vim)
     * [Konfiguracja](#konfiguracja)
     * [Niestandardowe mapowanie klaiwszy](#niestandardowe-mapowanie-klaiwszy)
@@ -41,14 +39,14 @@
 
 # Instalacja
 
-## Pobranie repozytorium
+**Pobranie repozytorium**
 
 ```
 mkdir -p $HOME/git
 git clone https://github.com/sebmd/dotfiles $HOME/git/dotfiles --depth 1
 ```
 
-## Uruchomienie instalatora
+**Uruchomienie instalatora**
 
 Instalator utworzy linki sysmboliczne do repozytorium 'dotfiles'.
 Wszystkie pliki, które już istnieją zostaną przeniesione do katalogu
