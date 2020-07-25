@@ -38,19 +38,21 @@ vim -c ":PlugInstall" -c ":qa"
 # stworzenie linków symbolicznych w katalogu $HOME/bin
 cd $BIN_DIR && funkcje -i
 
-function create_bin_symlinks() {
-    ln -sf ~/bin/fzf_sebmd ~/bin/fzf
-    ln -sf ~/bin/lf_sebmd ~/bin/lf
-    ln -sf ~/bin/rg_sebmd ~/bin/rg
+function bin_dir() {
+    mkdir -p $HOME/git
+    git clone https://github.com/sebmd/dotfiles_bin $HOME/git/dotfiles_bin
+    ln -sf $HOME/git/dotfiles_bin/fzf $HOME/bin/fzf
+    ln -sf $HOME/git/dotfiles_bin/lf $HOME/bin/lf
+    ln -sf $HOME/git/dotfiles_bin/rg $HOME/bin/rg
 }
 
 echo
 echo    " ------------------------------------------------------  "
-read -p "Czy chcesz użyć plików binarnych z katalogu ~/bin [T/n]: " odp
+read -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " odp
 
 case $odp in
     t|T)
-        create_bin_symlinks
+        bin_dir
         exit
         ;;
     n|N)
@@ -58,7 +60,7 @@ case $odp in
         exit
         ;;
     *)
-        create_bin_symlinks
+        bin_dir
         exit
         ;;
 esac

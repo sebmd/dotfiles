@@ -12,11 +12,9 @@ Opis zawartości katalogu `~/bin`
 - `EncryptGPG`
 - `EncryptSSL`
 - `funkcje`
-- `fzf` - fuzzy finder (plik binarny)
 - `ga`
 - `gp`
 - `last_edit`
-- `lf` - menadżer plików (plik binarny)
 - `open_with_fzf`
 - `otp`
 - `otp_add`
@@ -24,7 +22,6 @@ Opis zawartości katalogu `~/bin`
 - `passr`
 - `psgrep`
 - `pu`
-- `rg` - ripgrep - zastępuje program `grep` (plik binarny)
 - `rgvi`
 - `se`
 - `suspend`
