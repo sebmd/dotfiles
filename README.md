@@ -70,10 +70,10 @@ konfiguracji.
 
  - `th` - wyłącza podświetlanie wyszukiwanego tekstu
  - `gh` - przechodzi na początek linii
- - `gl` - przechodzi na koniec linii
+- `gl` - przechodzi na koniec linii
  - `qq` - wychodzi z edytora zastępuje `:q`
  - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
- - `Q` - wychodzi z edytora bez zapisania zmian `:q!`
+- `Q` - wychodzi z edytora bez zapisania zmian `:q!`
  - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
  - `<ctrl-h>` - przechodzi do okna po lewej
  - `<ctrl-l>` - przechodzi do okna po prawej
@@ -101,6 +101,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
  - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
  - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
+ - `<leader>w` - zapisuje plik ` :update`
 
 ### Tryb COMMAND
 

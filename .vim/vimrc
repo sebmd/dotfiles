@@ -43,7 +43,7 @@ call plug#end()
 " --- Pluginy }}}
 " --- Ustawienia {{{
 set nocompatible                " wyłączenie wstecznej kompatybilności z edytorem vi
-syntax on                       "  podkreślanie składni
+syntax on                       " podkreślanie składni
 set nu rnu                      " number, relativenumber
 set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, smarttab
 set wildmenu
@@ -237,6 +237,8 @@ nmap <c-k> <c-w><c-k>
 nmap <c-l> <c-w><c-l>
 
 nnoremap <leader>; :
+
+nnoremap <leader>w :update<cr>
 
 " Przełączanie się pomiędzy buforami
 nnoremap <leader>, :bp<cr>
@@ -504,6 +506,7 @@ command! InsertLogEntry call InsertLogEntry()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
 command! CurTime call CurTime()
+command! PI :PlugInstall
 " --- Autocmd / Funkcje }}}
 " --- Dodatkowe pliki konfiguracyjne {{{
 " jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
