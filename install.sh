@@ -37,3 +37,28 @@ vim -c ":PlugInstall" -c ":qa"
 
 # stworzenie linków symbolicznych w katalogu $HOME/bin
 cd $BIN_DIR && funkcje -i
+
+function create_bin_symlinks() {
+    ln -sf ~/bin/fzf_sebmd ~/bin/fzf
+    ln -sf ~/bin/lf_sebmd ~/bin/lf
+    ln -sf ~/bin/rg_sebmd ~/bin/rg
+}
+
+echo
+echo    " -------------------------------------------------------  "
+read -p "Czy chcesz użyć plików binarnych z katalogu ~/bin? [T/n]: " odp
+
+case $odp in
+    t|T)
+        create_bin_symlinks
+        exit
+        ;;
+    n|N)
+        echo "Zły wybór ;)"
+        exit
+        ;;
+    *)
+        create_bin_symlinks
+        exit
+        ;;
+esac
