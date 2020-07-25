@@ -44,12 +44,8 @@ call plug#end()
 " --- Ustawienia {{{
 set nocompatible                " wyłączenie wstecznej kompatybilności z edytorem vi
 syntax on                       "  podkreślanie składni
-set number                      " numerowanie wierszy
-set relativenumber              " relatywne numerowanie wierszy
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+set nu rnu                      " number, relativenumber
+set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, smarttab
 set wildmenu
 set wildmode=list:longest,full
 set foldmethod=marker
