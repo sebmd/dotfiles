@@ -22,7 +22,7 @@ cd $HOME
 # następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
 # w redpozytorium dotfiles
 while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
-    if [ ! -L $LINE ] && [ -e $LINE ]; then
+    if [ ! -L $LINE ]; then
         cp -R $LINE $BACKUP_DIR/
         rm -rf $LINE
         ln -s $SCRIPT_DIR/$LINE $LINE
