@@ -48,7 +48,7 @@ function bin_dir() {
 }
 
 echo
-echo    " ------------------------------------------------------  "
+echo    " ---------------------------------------------  "
 read -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " odp
 
 case $odp in
