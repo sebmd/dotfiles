@@ -45,7 +45,7 @@
 
 ```
 mkdir -p $HOME/git
-git clone https://github.com/sebmd/dotfiles $HOME/git/dotfiles
+git clone https://github.com/sebmd/dotfiles $HOME/git/dotfiles --depth 1
 ```
 
 ## Uruchomienie instalatora
