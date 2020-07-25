@@ -9,3 +9,4 @@ bin/lf
 bin/fzf
 bin/rg
 bin/sd
+bin/bat

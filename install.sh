@@ -45,6 +45,7 @@ function bin_dir() {
     ln -sf $HOME/git/dotfiles_bin/lf $HOME/bin/lf
     ln -sf $HOME/git/dotfiles_bin/rg $HOME/bin/rg
     ln -sf $HOME/git/dotfiles_bin/sd $HOME/bin/sd
+    ln -sf $HOME/git/dotfiles_bin/bat $HOME/bin/bat
 }
 
 echo
