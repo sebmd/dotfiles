@@ -4,6 +4,9 @@ Opis zawartości katalogu `~/bin`
 
 - `backup_dir`
 - `cdb`
+- `cdba`
+- `cdbd`
+- `cdbe`
 - `cd_fzf`
 - `cleartemp`
 - `create_symlinks`
@@ -77,6 +80,29 @@ function cd_fzf() {
 function cdb() {
     KATALOG="$(cat ~/.config/bmdirs|sk|sed "s|~|$HOME|")"
     cd -P -- "$KATALOG"
+}
+```
+
+# Funkcja cdba
+
+Dodaje bieżący katalog do ~/.config/bmdirs
+
+```
+function cdba() {
+    echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
+    sort -o ~/.config/bmdirs ~/.config/bmdirs
+}
+```
+
+# Funkcja cdbd
+
+Usuwa bieżący katalog z ~/.config/bmdirs
+
+```
+function cdbd() {
+    KATALOG=$(echo $PWD | sed "s|$HOME|~|")
+    sed -i "s|^$KATALOG$||" ~/.config/bmdirs
+    sed -i '/^$/d'  ~/.config/bmdirs
 }
 ```
 

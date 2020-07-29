@@ -15,3 +15,8 @@ alias free='free -m'
 alias pg=psgrep
 alias batt='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias g=git
+alias cdb="source ~/bin/cdb && cdb"
+alias cdba="source ~/bin/cdba && cdba"
+alias cdbd="source ~/bin/cdbd && cdbd"
+alias cdbe="vim ~/.config/bmdirs"
+

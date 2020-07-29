@@ -40,12 +40,6 @@ function cd_fzf() {
         --bind="space:toggle-preview" --preview-window=:hidden)"
 }
 # cd_fzf }}}
-# cdb {{{
-function cdb() {
-    KATALOG="$(cat ~/.config/bmdirs|sk|sed "s|~|$HOME|")"
-    cd -P -- "$KATALOG"
-}
-# cdb }}}
 # cleartemp {{{
 function cleartemp() {
     find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
@@ -323,9 +317,6 @@ case $(basename $0) in
         ;;
     cd_fzf)
         cd_fzf
-        ;;
-    cdb)
-        cdb
         ;;
     cleartemp)
         cleartemp

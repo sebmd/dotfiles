@@ -1,1 +1,8 @@
-funkcje
+#!/bin/bash
+
+# bmdirs
+function cdb() {
+    KATALOG="$(cat ~/.config/bmdirs|fzf|sed "s|~|$HOME|")"
+    [ ! -z $KATALOG ] && cd -P -- "$KATALOG"
+}
+
