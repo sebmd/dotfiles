@@ -118,11 +118,13 @@ Pomoc: `:help text-objects`
 
 Koniec i początek linii
 
-- `d$`
-- `d^`
-- `D`
-- `C`
-- `Y` - ten skrót standardowo nie działa i trzeba go zmapować samodzielnie
+- `d$` - usunięcie od kursora do końca linii
+- `d^` - usunięcie od kursora do początku linii
+- `D`  - usunięcie od kursora do końca linii zamiennik `d$`
+- `C`  - usunięcie od kursora do końca linii wejście w tryb INSERT
+- `Y`  - ten skrót standardowo nie działa i trzeba go zmapować samodzielnie
+
+Mapowanie `Y` do działania zgodnego z podobnymi skrótami tj. `D` czy `C`.
 
 ```
 nnoremap Y y$
