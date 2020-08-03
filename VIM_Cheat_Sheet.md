@@ -7,7 +7,8 @@
 ## Kilka przydatnych skrótów
 
   - `xp` - zamienia dwie litery miejscami
-  - `g <ctrl-g>` - wyświetla informacje o pliku takie jak liczba wierszy czy
+  - `<ctrl-g>` - wyświetla informacje o pliku
+  - `g <ctrl-g>` - wyświetla trochę więciej informacji o pliku
     słów w pliku
   - `:x` - zapisanie pliku i wyjście
   - `:term` - uruchomienie terminala systemowego
@@ -24,6 +25,16 @@ Ustawienie długości linii `:set textwidth=70`
 - `gqap` w trybie **NORMAL** formatuje paragraf
 - `gwap` w trybie **NORMAL** formatuje paragraf, kursor zostaje w miejscu gdzie wywołaliśmy polecenie
 - `gq` w trybie **VISUAL** formatuje zaznaczenie
+
+## Wprowadzanie znaków UTF-8
+
+W trybie INSERT naciskamy `Ctrl-v` a następnie `uXXXX` gdzie `XXXX` jest to numer
+znaku w tabeli UTF-8 np.
+
+```
+Ctrl-v u25B8
+▸
+```
 
 ## Poruszanie się w linii
 
@@ -86,6 +97,29 @@ przewijania ekranu.
 - `M` - przechodzi na środek ekranu
 - `L` - przechodzi na dół ekranu
 
+## Przewijanie pliku
+
+- `Ctrl-e` - przewija o jedną linię w górę
+- `Ctrl-y` - przewija o jedną linię w dół
+- `Ctrl-d` - przewija o pół ekranu w dół
+- `Ctrl-u` - przewija o pół ekranu w górę
+- `Ctrl-f` - przewija o cały ekran w dół
+- `Ctrl-b` - przewija o cały ekran w górę
+
+Wszystkie te kombinację możemy poprzedzić liczbą powtórzej danej operacji. Na
+przykład przwinięcie o 6 linii w dół:
+
+```
+6Ctrl-e
+```
+
+## Wyrównanie bieżącej linii względem ekranu
+
+- `zt` - ustawia linię na górze ekranu
+- `zz` - ustawia linię po środku ekranu
+- `zb` - ustawia linię na dole ekranu
+
+
 ## Edycja
 
 ### Obiekty tekstowe
@@ -132,18 +166,19 @@ nnoremap Y y$
 
 ### Przykłady edycji
 
-- `x` - usunięcie jednego znaku pod kursorem
+- `x` - usuwa jeden znak znajdujący się pod kursorem
 - `dd` - usuwa całą linię
 - `D` - usuwa od kursora do końca linii
-- `daw` - usunięcie wyrazu + spacja
-- `diw` - usunięcie wyrazu
-- `caw` - usunięcie wyrazu + spacja i wejście w tryb **INSERT**
-- `ciw` - usunięcie wyrazu i wejście w trym **INSERT**
-- `dap` - usunięcie całego paragrafu
-- `di"` - usunięcie wszystkiego w bloku ""
-- `dt"` - usunięcie od kursora do pierwszego wystąpienia znaku "
-- `dT"` - usunięcie od kursora do poprzedniego wystąpienia znaku "
-- `di{` - usunięcie wszystkiego pomiędzy znakami `{}`
+- `daw` - usuwa wyraz + spacja
+- `diw` - usuwa wyraz
+- `caw` - usuwa wyraz + spacja i wchodzi w tryb **INSERT**
+- `ciw` - usuwa wyraz i wchodzi w tryb **INSERT**
+- `dap` - usuwa cały paragraf
+- `di"` - usuwa wszystko w bloku `""`
+- `dt"` - usuwa od kursora do pierwszego wystąpienia znaku `"`
+- `dt<spacja>` - usuwa od kursora do znaku spacji
+- `dT"` - usuwa od kursora do poprzedniego wystąpienia znaku `"`
+- `di{` - usuwa wszystko pomiędzy znakami `{}`
 - `J` - łączenie dwóch linii
 - `cc` - wycina całą linię i wchodzi w tryb **INSERT**
 - `~` - zamienia wielkość liter pod kursorem np. z małej na Wielką
@@ -155,6 +190,17 @@ nnoremap Y y$
 - `cc` - wycina całą linię i wchodzi w tryb **INSERT**
 - `p` - wkleja za kursorem
 - `P` - wkleja przed kursorem
+
+## Wprowadzanie tekstu
+
+Przejście w tryb wprowadzania tekstu czyli do trybu INSERT:
+
+- `i` - zaczyna wprowadzać tekst przed kursorem 
+- `a` - zaczyna wprowadzać tekst za kursorem
+- `I` - zaczyna wprowadzać tekst na początku linii
+- `A` - zaczyna wprowadzać tekst na końcu linii
+- `o` - zaczyna wprowadzać tekst w linii poniżej
+- `O` - zaczyna wprowadzać tekst w linii powyżej
 
 ## Makra
 
