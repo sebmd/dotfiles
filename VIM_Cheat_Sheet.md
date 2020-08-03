@@ -57,8 +57,8 @@ Ustawienie długości linii `:set textwidth=70`
 - `E` - przechodzi na koniec kolejnego WYRAZU
 - `b` - przechodzi na początek poprzedniego wyrazu
 - `B` - przechodzi na początek poprzedniego WYRAZU
-- `ge` - pzechodzi na koniec poprzedniego wyrazu
-- `gE` - pzechodzi na koniec poprzedniego WYRAZU
+- `ge` - przechodzi na koniec poprzedniego wyrazu
+- `gE` - przechodzi na koniec poprzedniego WYRAZU
 
 ## Poruszanie się pomiędzy obiektami tekstowymi
 

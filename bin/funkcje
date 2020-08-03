@@ -35,6 +35,9 @@ function backup_dir() {
 }
 # backup }}}
 # cd_fzf {{{
+function cd_dir() {
+    cd -P -- "$1"
+}
 function cd_fzf() {
     cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" \
         --bind="space:toggle-preview" --preview-window=:hidden)"
