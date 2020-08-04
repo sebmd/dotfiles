@@ -6,12 +6,13 @@
 
 ## Kilka przydatnych skrótów
 
-  - `xp` - zamienia dwie litery miejscami
   - `<ctrl-g>` - wyświetla informacje o pliku
   - `g <ctrl-g>` - wyświetla trochę więciej informacji o pliku
     słów w pliku
   - `:x` - zapisanie pliku i wyjście
   - `:term` - uruchomienie terminala systemowego
+  - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
+  - `:retab` - zamiana znaków TAB na spacje w całym pliku
 
 ## Kopiowani tekstu z bufora / pliku do linii komend:
 
@@ -183,6 +184,7 @@ nnoremap Y y$
 - `cc` - wycina całą linię i wchodzi w tryb **INSERT**
 - `~` - zamienia wielkość liter pod kursorem np. z małej na Wielką
 - `r` - zamienia znak pod kursorem np. `ra` zamienia znak pod kursorem na `a`
+ - `xp` - zamienia dwie litery miejscami
 
 ## Kopiuj / wklej
 
