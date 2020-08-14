@@ -313,6 +313,10 @@ autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
 
+autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
+
 " Pierwsze mapowanie dla '\'
 let g:which_key_map['/'] = [ 'Commentary'         , 'comment'         ]
 let g:which_key_map[';'] = [ ':Commands'          , 'commands'        ]
