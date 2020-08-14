@@ -246,6 +246,8 @@ nnoremap <leader>. :bn<cr>
 " ustawia podzielone okno na główne (full screen)
 nnoremap <leader>o :only<cr>
 
+nnoremap <leader>d :DestractionFree<cr>
+
 " przechodzi do katalogu w którym znajduje się edytowany plik
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
@@ -466,8 +468,22 @@ function! RgNotes(query, fullscreen)
 endfunction
 
 function! DestractionFree()
-    set nonu nornu
-    set nolist
+    set number!
+    set relativenumber!
+    set list!
+    if match(&runtimepath, 'indentLine') != -1  " sprawdza czy plugin indentLine jest zainstalowany
+        IndentLinesToggle
+    endif
+    if &cursorline
+        set nocursorline
+    else
+        set cursorline
+    endif
+    if &colorcolumn == "+1"
+        set colorcolumn=
+    else
+        set colorcolumn=+1
+    endif
 endfunction
 
 function InsertLogEntry()
