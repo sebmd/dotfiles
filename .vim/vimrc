@@ -316,6 +316,7 @@ autocmd Filetype help nnoremap <leader>h <c-t>
 autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
+autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
 
 " Pierwsze mapowanie dla '\'
 let g:which_key_map['/'] = [ 'Commentary'         , 'comment'         ]
