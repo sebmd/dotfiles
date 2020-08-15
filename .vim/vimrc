@@ -5,6 +5,7 @@
 call plug#begin('~/.vim/plugged')
     Plug 'gruvbox-community/gruvbox'
     Plug 'pearofducks/ansible-vim'
+    Plug 'dense-analysis/ale'
     Plug 'sainnhe/gruvbox-material'
     Plug 'chriskempson/base16-vim'
     Plug 'flazz/vim-colorschemes'
