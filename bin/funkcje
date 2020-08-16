@@ -207,7 +207,43 @@ function se() {
         echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
         exit
     fi
-    SEARCH=$(fd . ~/bin/ | sk --exact --tac --prompt="Wyszukaj: " \
+    SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
+        --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+        --preview-window=down:50%)
+    [[ $SEARCH ]] && vim $SEARCH
+    # vim "$(fd ~/bin/* | sk)"
+    # vim "$(find ~/bin/* | fzf-tmux +s --tac)"
+}
+function sedi() {
+    BAT=$(which bat)
+    PREVIEW_SH=$(which preview.sh)
+    if [ ! -z $BAT ]; then
+        PREVIEW="bat --style=numbers --color=always {}"
+    elif [ ! -z $PREVIEW_SH ]; then
+        PREVIEW="preview.sh {}"
+    else
+        echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+        exit
+    fi
+    SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
+        --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+        --preview-window=down:50%)
+    [[ $SEARCH ]] && vim $SEARCH
+    # vim "$(fd ~/bin/* | sk)"
+    # vim "$(find ~/bin/* | fzf-tmux +s --tac)"
+}
+function sefi() {
+    BAT=$(which bat)
+    PREVIEW_SH=$(which preview.sh)
+    if [ ! -z $BAT ]; then
+        PREVIEW="bat --style=numbers --color=always {}"
+    elif [ ! -z $PREVIEW_SH ]; then
+        PREVIEW="preview.sh {}"
+    else
+        echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+        exit
+    fi
+    SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
         --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
         --preview-window=down:50%)
     [[ $SEARCH ]] && vim $SEARCH
@@ -257,6 +293,8 @@ function vim_notes() {
 # vim_notes }}}
 # vs {{{
 function vs() {
+    # export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden'
+    # vim $(rg --files --hidden --follow --glob '!venv'|fzf)
     if [[ $# == 0 ]]; then
 
         if [ -f $(which bat) ]; then
@@ -371,6 +409,12 @@ case $(basename $0) in
         ;;
     se)
         se
+        ;;
+    sedi)
+        sedi
+        ;;
+    sefi)
+        sefi
         ;;
     suspend)
         suspend
