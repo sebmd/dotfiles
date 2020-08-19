@@ -1,6 +1,5 @@
 # Vim
 
-
 <!-- vim-markdown-toc GFM -->
 
 * [Konfiguracja](#konfiguracja)
