@@ -12,6 +12,7 @@ alias free='free -m'
 alias pg=psgrep
 alias batt='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias g=git
+alias ga=~/bin/ga
 alias gp=~/bin/gp
 alias pu="git pull"
 alias push="git push"

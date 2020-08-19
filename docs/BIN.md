@@ -3,10 +3,10 @@
 Opis zawartości katalogu `~/bin`
 
 - `backup_dir`
-- `cdb`
-- `cdba`
-- `cdbd`
-- `cdbe`
+- `cdb` - wyświetla listę katalogów znajdujących się w pliku `~/.config/bmdirs`, po wybraniu katalogu przechodzi do niego
+- `cdba` - dodaje bieżący katalog do `~/.config/bmdirs`
+- `cdbd` - usuwa bieżący katalog z pliku `~/.config/bmdirs`
+- `cdbe` - włącza edycję pliku `~/.config/bmdirs`
 - `cd_fzf`
 - `cleartemp`
 - `create_symlinks`
@@ -15,8 +15,8 @@ Opis zawartości katalogu `~/bin`
 - `EncryptGPG`
 - `EncryptSSL`
 - `funkcje`
-- `ga`
-- `gp`
+- `ga` - skrót dla `git add ; git commit`
+- `gp` - skrót dla `git add ; git commit ; git push`
 - `last_edit`
 - `open_with_fzf`
 - `otp`
@@ -24,7 +24,8 @@ Opis zawartości katalogu `~/bin`
 - `passf`
 - `passr`
 - `psgrep`
-- `pu`
+- `pu` - skrót dla `git pull`
+- `push` - skrót dla `git push`
 - `rgvi`
 - `se`
 - `suspend`
