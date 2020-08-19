@@ -119,16 +119,6 @@ function EncryptSSL () {
     fi
 }
 # EncryptSSL }}}
-# ga {{{
-function ga() {
-    git add -A && git commit -m $DATA
-}
-# ga }}}
-# gp {{{
-function gp() {
-    git add -A && git commit -m $DATA && git push
-}
-# gp }}}
 # last_edit {{{
 function last_edit() {
     find $HOME -type f -mtime -3 -mtime +4

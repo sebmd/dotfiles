@@ -1,9 +1,6 @@
 alias v=vim
 alias t=tmux
 alias ta='tmux atta'
-alias aliases='vim $HOME/.aliases && source $HOME/.aliases'
-alias vrc='vim $HOME/.vim/vimrc'
-alias vimrc=vrc
 alias q=exit
 alias more=less
 alias so=source
@@ -15,9 +12,23 @@ alias free='free -m'
 alias pg=psgrep
 alias batt='upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"'
 alias g=git
+alias gp=~/bin/gp
+alias pu="git pull"
+alias push="git push"
 alias cdb="source ~/bin/cdb && cdb"
 alias cdba="source ~/bin/cdba && cdba"
 alias cdbd="source ~/bin/cdbd && cdbd"
 alias cdbe="vim ~/.config/bmdirs"
 alias cd_fzf=~/bin/cd_fzf
-
+alias .d="cd $HOME/git/dotfiles"
+alias .v="vim -c 'e \$MYVIMRC'"
+alias .t="vim $HOME/.tmux.conf"
+alias .a="vim $HOME/.aliases && source $HOME/.aliases"
+alias .b="vim $HOME/.bashrc"
+alias .z="vim $HOME/.zshrc"
+alias vrc=".v"
+alias vimrc=".v"
+alias aliases=".a"
+alias f="ls -A|wc -l"
+alias ..="cd .."
+alias ...="cd ../.."
