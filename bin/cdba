@@ -1,8 +1,4 @@
 #!/bin/bash
 
-# dodaje bieżący katalog do ~/.config/bmdirs
-function cdba() {
-    echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
-    sort -o ~/.config/bmdirs ~/.config/bmdirs
-}
-
+echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
+sort -o ~/.config/bmdirs ~/.config/bmdirs

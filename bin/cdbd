@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# usuwa bieżący katalog z ~/.config/bmdirs
-function cdbd() {
-    KATALOG=$(echo $PWD | sed "s|$HOME|~|")
-    sed -i "s|^$KATALOG$||" ~/.config/bmdirs
-    sed -i '/^$/d'  ~/.config/bmdirs
-}
+KATALOG=$(echo $PWD | sed "s|$HOME|~|")
+sed -i "s|^$KATALOG$||" ~/.config/bmdirs
+sed -i '/^$/d'  ~/.config/bmdirs

@@ -7,7 +7,7 @@ Opis zawartości katalogu `~/bin`
 - `cdba` - dodaje bieżący katalog do `~/.config/bmdirs`
 - `cdbd` - usuwa bieżący katalog z pliku `~/.config/bmdirs`
 - `cdbe` - włącza edycję pliku `~/.config/bmdirs`
-- `cd_fzf`
+- `cdf`
 - `cleartemp`
 - `create_symlinks`
 - `DecryptGPG`
@@ -66,13 +66,17 @@ function backup_dir() {
 }
 ```
 
-# Funkcja cd_fzf
+# Skrypt cdf
 
 ```
-function cd_fzf() {
-    cd $HOME && cd "$(fd -t d | fzf --preview="tree -L 1 {}" \
-        --bind="space:toggle-preview" --preview-window=:hidden)"
-}
+#!/usr/bin/env bash
+
+cd $HOME
+KATALOG="$(fd -t d | fzf --preview="fd --full-path {}")"
+
+if [ ! -z $KATALOG ]; then
+    cd "$KATALOG"
+fi
 ```
 
 # Funkcja cdb
@@ -95,9 +99,9 @@ function cdba() {
 }
 ```
 
-# Funkcja cdbd
+# Skrypt cdbd
 
-Usuwa bieżący katalog z ~/.config/bmdirs
+Usuwa bieżący katalog z `~/.config/bmdirs`
 
 ```
 function cdbd() {
@@ -107,13 +111,13 @@ function cdbd() {
 }
 ```
 
-# Funkcja cleartemp
+# Skrypt cleartemp
+
+Usuwa pliki i katalogi starsze niż 7 dni
 
 ```
-function cleartemp() {
-    find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
-    find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
-}
+find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
+find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 ```
 
 # Funkcja DecryptGPG
