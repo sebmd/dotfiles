@@ -2,25 +2,52 @@
 
 ## ...
 
+Przechodzi dwa katalogi wyżej
+
 ```
 cd ../..
 ```
+
 ## ..
+
+Przechodzi jeden katalog wyżej
 
 ```
 cd ..
 ```
 
 ## .a
+
+Edycja aliasów `$HOME/.aliases`
  
  ```
  vim $HOME/.aliases && source $HOME/.aliases
  ```
 
-| `.a`               | `vim $HOME/.aliases && source $HOME/.aliases"`            |
-| `.b`               | `vim $HOME/.bashrc"`                                      |
-| `.bs`              | `vim $HOME/.config/bspwm/bspwmrc`                         |
-| `.d`               | `cd $HOME/git/dotfiles"`                                  |
+## .b
+
+Edycja pliku `$HOME/.bashrc`
+
+```
+vim $HOME/.bashrc
+```
+
+## .bs
+
+Edycja pliku konfiguracyjnego BSPWM `$HOME/.config/bspwm/bspwmrc`
+
+```
+vim $HOME/.config/bspwm/bspwmrc
+```
+
+## .d
+
+Przechodzi do katalogu `$HOME/git/dotfiles`
+
+```
+cd $HOME/git/dotfiles
+```
+
 | `.s`               | `vim $HOME/.ssh/config`                                   |
 | `.sx`              | `vim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd` |
 | `.t`               | `vim $HOME/.tmux.conf"`                                   |
