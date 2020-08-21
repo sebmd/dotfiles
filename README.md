@@ -2,10 +2,22 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [Wymagania](#wymagania)
 * [Instalacja](#instalacja)
 * [Informacje dodatkowe](#informacje-dodatkowe)
 
 <!-- vim-markdown-toc -->
+
+# Wymagania
+
+  - vim
+  - fzf
+  - skim (sk)
+  - ripgrep (rg)
+
+```
+sudo dnf install fzf skim ripgrep vim
+```
 
 # Instalacja
 
