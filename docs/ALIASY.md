@@ -267,7 +267,15 @@ Uruchamia program `pass` bez zapisywania polecenia w historii
 
 ## pg
 
-Wyszukuje procesów uruchamiając polecenie `psgrep`
+Wyszukuje procesów uruchamiając skrypt `$HOME/bin/psgrep`
+
+Źródło:
+
+```
+#!/usr/bin/env bash
+
+ps ax | grep -i "$1" | grep -v grep
+```
 
 Przykład:
 

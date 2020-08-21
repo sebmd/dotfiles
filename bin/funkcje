@@ -161,11 +161,6 @@ function passr() {
     | rofi -dmenu -i -p "Szukaj w bazie PASS") | tr -d '\n' | xclip
 }
 # passf }}}
-# psgrep {{{
-function psgrep() {
-    ps ax | grep -i "$1" | grep -v grep
-}
-# psgrep }}}
 # pu {{{
 function pu() {
     git pull
