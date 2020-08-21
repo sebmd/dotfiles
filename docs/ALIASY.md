@@ -308,6 +308,37 @@ Uruchamia polecenie `exit`
 
 Uruchamia polecenie `source`
 
+##  sysdis
+
+Deaktywuje usługę
+
+```
+sudo systemctl disable
+```
+
+## sysena
+
+Aktywuje usługę
+
+```
+sudo systemctl enable
+```
+
+## sysstart
+
+Uruchamia usługę
+
+```
+sudo systemctl start"
+```
+
+## sysstop
+
+Zatrzymuje usługę
+
+```
+sudo systemctl stop"
+```
 
 ## t
 
