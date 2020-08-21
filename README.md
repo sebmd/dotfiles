@@ -11,15 +11,18 @@
 
 # Wymagania
 
-  - vim
+  - bat
   - fzf
-  - skim (sk)
+  - git
   - ripgrep (rg)
+  - skim (sk)
+  - tmux
+  - vim
 
 ## Instalacja wymaganych pakietów w systemie Fedora
 
 ```
-sudo dnf install fzf skim ripgrep vim
+sudo dnf install bat fzf git ripgrep skim tmux vim
 ```
 
 # Instalacja
