@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd $HOME
+KATALOG="$(fd -t d | fzf --preview="fd --full-path {}")"
+
+if [ ! -z $KATALOG ]; then
+    cd "$KATALOG"
+fi
