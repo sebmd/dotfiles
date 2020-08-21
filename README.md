@@ -3,6 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Wymagania](#wymagania)
+    * [Instalacja wymaganych pakietów w systemie Fedora](#instalacja-wymaganych-pakietów-w-systemie-fedora)
 * [Instalacja](#instalacja)
 * [Informacje dodatkowe](#informacje-dodatkowe)
 
@@ -14,6 +15,8 @@
   - fzf
   - skim (sk)
   - ripgrep (rg)
+
+## Instalacja wymaganych pakietów w systemie Fedora
 
 ```
 sudo dnf install fzf skim ripgrep vim
