@@ -1,8 +1,21 @@
 # Aliasy
 
-- `...                cd ../..`
-- `..                 cd ..`
-- `.a                 vim $HOME/.aliases && source $HOME/.aliases`
+## ...
+
+```
+cd ../..
+```
+## ..
+
+```
+cd ..
+```
+
+## .a
+ 
+ ```
+ vim $HOME/.aliases && source $HOME/.aliases
+ ```
 
 | `.a`               | `vim $HOME/.aliases && source $HOME/.aliases"`            |
 | `.b`               | `vim $HOME/.bashrc"`                                      |
