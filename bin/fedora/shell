@@ -23,7 +23,6 @@ rclone
 restic
 ripgrep
 rsync
-sd
 skim
 srm
 tmux

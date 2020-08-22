@@ -34,7 +34,6 @@ libxml2-devel
 libxslt-devel
 meson
 ncurses-devel
-ninja
 ninja-build
 nss-devel
 openssl-devel
