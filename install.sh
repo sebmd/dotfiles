@@ -4,6 +4,11 @@ BACKUP_DIR=$HOME/.backup
 SCRIPT_DIR=$PWD
 BIN_DIR=$HOME/bin
 
+if [ -f /etc/fedora-release ]; then
+    sudo dnf update
+    sudo dnf install git vim curl
+fi
+
 # tworzy potrzebne katalogi
 mkdir -p $BACKUP_DIR
 mkdir -p $BIN_DIR
