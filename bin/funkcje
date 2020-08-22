@@ -161,11 +161,6 @@ function passr() {
     | rofi -dmenu -i -p "Szukaj w bazie PASS") | tr -d '\n' | xclip
 }
 # passf }}}
-# pu {{{
-function pu() {
-    git pull
-}
-# pu }}}
 # rgvi {{{
 function rgvi() {
     SEARCH=$(sk --ansi -i -c 'rg --color=always --hidden --line-number "{}"' \
@@ -236,11 +231,6 @@ function sefi() {
     # vim "$(find ~/bin/* | fzf-tmux +s --tac)"
 }
 # se }}}
-# suspend {{{
-function suspend() {
-    sudo systemctl suspend
-}
-# suspend }}}
 # vf {{{
 function vf() {
     sk | xargs -r -I % $EDITOR %
@@ -341,12 +331,6 @@ case $(basename $0) in
     backup_dir)
         backup_dir
         ;;
-    cd_fzf)
-        cd_fzf
-        ;;
-    cleartemp)
-        cleartemp
-        ;;
     DecryptGPG)
         DecryptGPG
         ;;
@@ -380,23 +364,8 @@ case $(basename $0) in
     psgrep)
         psgrep "$1"
         ;;
-    pu)
-        pu
-        ;;
     rgvi)
         rgvi
-        ;;
-    se)
-        se
-        ;;
-    sedi)
-        sedi
-        ;;
-    sefi)
-        sefi
-        ;;
-    suspend)
-        suspend
         ;;
     vf)
         vf

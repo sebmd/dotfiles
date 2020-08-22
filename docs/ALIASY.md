@@ -308,6 +308,14 @@ Uruchamia polecenie `exit`
 
 Uruchamia polecenie `source`
 
+## suspend
+
+Usypia komputer
+
+```
+sudo systemctl suspend
+```
+
 ##  sysdis
 
 Deaktywuje usługę

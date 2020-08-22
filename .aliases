@@ -38,6 +38,7 @@ alias push="git push"
 alias pwgen="pwgen -c -s -n -y -1 32"
 alias q=exit
 alias so=source
+alias suspend="sudo systemctl suspend"
 alias sysdis="sudo systemctl disable"
 alias sysena="sudo systemctl enable"
 alias sysstart="sudo systemctl start"
