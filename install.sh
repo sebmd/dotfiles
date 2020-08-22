@@ -5,8 +5,21 @@ SCRIPT_DIR=$PWD
 BIN_DIR=$HOME/bin
 
 if [ -f /etc/fedora-release ]; then
-    sudo dnf update
-    sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+    echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
+    read ODP
+    case $ODP in
+        t|T)
+            sudo dnf update
+            sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+            ;;
+        n|N)
+            echo -n
+            ;;
+        *)
+            sudo dnf update
+            sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+            ;;
+    esac
 fi
 
 # tworzy potrzebne katalogi
