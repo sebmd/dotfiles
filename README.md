@@ -14,6 +14,8 @@
   - bat
   - fzf
   - git
+  - oathtool
+  - pass
   - ripgrep (rg)
   - skim (sk)
   - tmux
@@ -22,7 +24,7 @@
 ## Instalacja wymaganych pakietów w systemie Fedora
 
 ```
-sudo dnf install bat fzf git ripgrep skim tmux vim
+sudo dnf install bat fzf git oathtool pass ripgrep skim tmux vim
 ```
 
 # Instalacja
