@@ -162,7 +162,7 @@ let g:NERDTreeWinSize = 33
 let g:NERDTreeAutoDeleteBuffer=1
 
 " NERDTree-GIT
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
