@@ -6,7 +6,7 @@ BIN_DIR=$HOME/bin
 
 if [ -f /etc/fedora-release ]; then
     sudo dnf update
-    sudo dnf install git vim curl
+    sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
 fi
 
 # tworzy potrzebne katalogi
