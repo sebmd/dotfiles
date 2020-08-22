@@ -17,3 +17,5 @@ function devel-all() {
     devel-shell
     xwindow-devel
 }
+
+fusion
