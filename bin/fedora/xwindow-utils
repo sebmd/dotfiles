@@ -6,9 +6,12 @@ nextcloud-client
 pinentry-gnome3
 remmina
 remmina-plugins-rdp
+feh
+network-manager-applet
 sakura
 simplescreenrecorder
 slop
+sxiv
 vlc
 wireshark
 xclip

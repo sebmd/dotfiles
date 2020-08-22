@@ -1,5 +1,10 @@
+arp-scan
+bridge-utils
+iptraf-ng
+masscan
 mtr
 nmap
+nmap-ncat
 socat
 tcpdump
 wireshark-cli

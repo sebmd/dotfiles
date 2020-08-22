@@ -6,6 +6,8 @@ fd-find
 fzf
 htop
 hunspell-pl
+inxi
+iotop
 kpartx
 links
 lm_sensors
@@ -24,7 +26,9 @@ restic
 ripgrep
 rsync
 skim
+smartmontools
 srm
+tlp
 tmux
 vim
 w3m
