@@ -4,13 +4,13 @@ function install-from-file() {
     sudo dnf install $(grep "^[^#]" "$1")
 }
 
-function shell() {
-    install-from-file shell
-}
-
 function fusion() {
     sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+}
+
+function shell() {
+    install-from-file shell
 }
 
 function devel-all() {
@@ -18,5 +18,42 @@ function devel-all() {
     xwindow-devel
 }
 
-fusion
-shell
+function witaj() {
+    echo " -------- "
+    echo "| Witaj! |"
+    echo " -------- "
+}
+
+function lightdm() {
+    # multi-user.target / graphical.target
+    # sudo systemctl get-default
+    sudo systemctl set-default graphical.target
+    sudo systemctl enable lightdm
+}
+
+function pytanie() {
+    # $1 - treść pytania
+    # $2 - funkcja którą ma uruchomić
+    # $3 - standardowa odpowiedź
+    echo -n "$1"
+    read ODP
+    case $ODP in
+        t|T)
+            "$2"
+            ;;
+        n|N)
+            echo -n
+            ;;
+        *)
+            if [[ ("$3" == "t") || ("$3" == "T") ]]; then
+                "$2"
+            fi
+            ;;
+    esac
+}
+
+witaj
+
+pytanie "Czy włączyć repozytorium rpmfusion [T/n] " "fusion" "t"
+pytanie "Zainstalować pakiety dla konsoli tekstowe [T/n] " "shell" "t"
+pytanie "Uruchomić graficzny menadżer logowania lightdm [T/n] " "lightdm" "t"
