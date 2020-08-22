@@ -2,34 +2,24 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Wymagania](#wymagania)
-    * [Instalacja wymaganych pakietów w systemie Fedora](#instalacja-wymaganych-pakietów-w-systemie-fedora)
 * [Instalacja](#instalacja)
 * [Informacje dodatkowe](#informacje-dodatkowe)
 
 <!-- vim-markdown-toc -->
 
-# Wymagania
-
-  - bat
-  - fzf
-  - git
-  - oathtool
-  - pass
-  - ripgrep (rg)
-  - skim (sk)
-  - tmux
-  - vim
-
-## Instalacja wymaganych pakietów w systemie Fedora
-
-```
-sudo dnf install bat fzf git oathtool pass ripgrep skim tmux vim
-```
-
 # Instalacja
 
 **Pobranie repozytorium**
+
+```
+curl https://git.io/JUvRG -fLo $HOME/git/dotfiles.zip --create-dirs
+cd git
+unzip dotfiles.zip
+rm dotfiles.zip
+mv dotfiles-master dotfiles
+```
+
+Sklonowanie repozytorium
 
 ```
 mkdir -p $HOME/git
