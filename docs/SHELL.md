@@ -2,6 +2,7 @@
 
 * [Polecenie fd](#polecenie-fd)
 * [Zmienne specjalne](#zmienne-specjalne)
+* [Sprawdzenie czy skrypt został uruchomiony w trybie graficznym](#sprawdzenie-czy-skrypt-zosta-uruchomiony-w-trybie-graficznym)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -34,6 +35,16 @@ Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
 - `$@` wszystkie argumenty zaczynając od pierwszego
 - `$1` pierwszy argument
 - `$_` ostatni argument poprzedniego polecenia
+
+# Sprawdzenie czy skrypt został uruchomiony w trybie graficznym
+
+```
+if [[ $DISPLAY ]]; then
+    xterm -e htop
+else
+    htop
+fi
+```
 
 # TODO
 
