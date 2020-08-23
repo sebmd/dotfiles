@@ -1,6 +1,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Polecenie fd](#polecenie-fd)
+* [Zmienne specjalne](#zmienne-specjalne)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -21,6 +22,18 @@ Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
 ```
 --hidden
 ```
+
+# Zmienne specjalne
+
+- `$?` - wyświetla status zakończenia ostatniego programu
+- `$!` numer PID ostatniego programu
+- `$$` numer PID powłoki shell
+- `$0` nazwa uruchomionego skryptu
+- `$#` liczba argumentów
+- `$*` wszystkie argumenty
+- `$@` wszystkie argumenty zaczynając od pierwszego
+- `$1` pierwszy argument
+- `$_` ostatni argument poprzedniego polecenia
 
 # TODO
 
