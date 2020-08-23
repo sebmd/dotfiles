@@ -237,18 +237,6 @@ case $(basename $0) in
     backup_dir)
         backup_dir
         ;;
-    DecryptGPG)
-        DecryptGPG
-        ;;
-    DecryptSSL)
-        DecryptSSL
-        ;;
-    EncryptGPG)
-        EncryptGPG
-        ;;
-    EncryptSSL)
-        EncryptSSL
-        ;;
     last_edit)
         last_edit
         ;;
