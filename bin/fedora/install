@@ -13,6 +13,10 @@ function shell() {
     install-from-file shell
 }
 
+function net() {
+    install-from-file net
+}
+
 function devel-all() {
     devel-shell
     xwindow-devel
@@ -56,4 +60,5 @@ witaj
 
 pytanie "Czy włączyć repozytorium rpmfusion [T/n] " "fusion" "t"
 pytanie "Zainstalować pakiety dla konsoli tekstowe [T/n] " "shell" "t"
+pytanie "Zainstalować narzędzia sieciowe [T/n] " "net" "t"
 pytanie "Uruchomić graficzny menadżer logowania lightdm [T/n] " "lightdm" "t"
