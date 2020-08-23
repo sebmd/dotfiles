@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+MONITOR=$(xrandr | grep primary | cut -f 1 -d ' ')
+
+xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode $MONITOR 1920x1080
+xrandr --output $MONITOR --mode 1920x1080
