@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+KAT="$1"
+mkdir -p "$KAT"
+cd "$KAT"

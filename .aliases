@@ -30,6 +30,7 @@ alias h=history
 alias l=ll
 alias ll="exa -al --group-directories-first --git --header"
 alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
+alias mkcdir="source $HOME/bin/mkcdir $1"
 alias more=less
 alias n='vim -c "e $HOME/notes"'
 alias p=" pass"
