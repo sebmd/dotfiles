@@ -1,5 +1,6 @@
 <!-- vim-markdown-toc GFM -->
 
+* [Przydatne narzędzia](#przydatne-narzdzia)
 * [Polecenie fd](#polecenie-fd)
 * [Zmienne specjalne](#zmienne-specjalne)
 * [Sprawdzenie czy skrypt został uruchomiony w trybie graficznym](#sprawdzenie-czy-skrypt-zosta-uruchomiony-w-trybie-graficznym)
@@ -9,6 +10,14 @@
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
+
+# Przydatne narzędzia
+
+- [https://github.com/junegunn/fzf](fzf)
+- [https://github.com/lotabout/skim](sk - skim)
+- [https://github.com/BurntSushi/ripgrep](rg - ripgrep)
+- [https://github.com/chmln/sd](sd)
+- [https://github.com/sharkdp/fd](fd - fd-find)
 
 # Polecenie fd
 
@@ -113,9 +122,10 @@ KATALOG=/mnt/sda1/backup/$DATA
 
 # TODO
 
-- fzf
-- zk
-- rg
+- fzf [https://github.com/junegunn/fzf](fzf)
+- sk - [https://github.com/lotabout/skim](skim)
+- rg - [https://github.com/BurntSushi/ripgrep](ripgrep)
+- sd - [https://github.com/chmln/sd](sd)
 - test
 - if
 - case
