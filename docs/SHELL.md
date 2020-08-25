@@ -13,11 +13,11 @@
 
 # Przydatne narzędzia
 
-- [https://github.com/junegunn/fzf](fzf)
-- [https://github.com/lotabout/skim](sk - skim)
-- [https://github.com/BurntSushi/ripgrep](rg - ripgrep)
-- [https://github.com/chmln/sd](sd)
-- [https://github.com/sharkdp/fd](fd - fd-find)
+- [fzf](https://github.com/junegunn/fzf)
+- [sk -skim](https://github.com/lotabout/skim)
+- [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
+- [sd](https://github.com/chmln/sd)
+- [fd - fd-find](https://github.com/sharkdp/fd)
 
 # Polecenie fd
 
@@ -122,10 +122,11 @@ KATALOG=/mnt/sda1/backup/$DATA
 
 # TODO
 
-- fzf [https://github.com/junegunn/fzf](fzf)
-- sk - [https://github.com/lotabout/skim](skim)
-- rg - [https://github.com/BurntSushi/ripgrep](ripgrep)
-- sd - [https://github.com/chmln/sd](sd)
+- [fzf](https://github.com/junegunn/fzf)
+- [sk -skim](https://github.com/lotabout/skim)
+- [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
+- [sd](https://github.com/chmln/sd)
+- [fd - fd-find](https://github.com/sharkdp/fd)
 - test
 - if
 - case
