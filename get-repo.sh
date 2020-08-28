@@ -10,11 +10,11 @@ echo -n "Uruchomić skrypt instalacyjny? [T/n]: "
 read ODP
 case $ODP in
     t|T)
-        ./install.sh
+        $HOME/git/dotfiles/install.sh
         ;;
     n|N)
         ;;
     *)
-        ./install.sh
+        $HOME/git/dotfiles/install.sh
         ;;
 esac
