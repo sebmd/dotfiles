@@ -37,6 +37,7 @@ mkdir -p $HOME/notes
 mkdir -p $HOME/tmp
 mkdir -p $HOME/.config/zathura
 mkdir -p $HOME/.config/alacritty
+mkdir -p $HOME/.gnupg
 
 cd $HOME
 
