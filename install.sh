@@ -4,20 +4,23 @@ BACKUP_DIR=$HOME/.backup
 SCRIPT_DIR=$PWD
 BIN_DIR=$HOME/bin
 
+function install_dnf() {
+    sudo dnf update
+    sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+}
+
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
     read ODP
     case $ODP in
         t|T)
-            sudo dnf update
-            sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+            install_dnf
             ;;
         n|N)
             echo -n
             ;;
         *)
-            sudo dnf update
-            sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+            install_dnf
             ;;
     esac
 fi
@@ -32,6 +35,7 @@ mkdir -p $HOME/.vim/viminfo
 mkdir -p $HOME/notes
 mkdir -p $HOME/tmp
 mkdir -p $HOME/.config/zathura
+mkdir -p $HOME/.config/alacritty
 
 cd $HOME
 
