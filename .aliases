@@ -27,6 +27,13 @@ alias g=git
 alias ga=~/bin/ga
 alias gl="git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gp=~/bin/gp
+alias gpg-delete-keys="gpg --delete-keys"
+alias gpg-edit-key="gpg --edit-key"
+alias gpg-export-secret-key="gpg --armor --export-secret-keys"
+alias gpg-export="gpg --armor --export"
+alias gpg-gen-key="gpg --default-new-key-algo rsa4096  --gen-key"
+alias gpg-list-secret-keys-short="gpg --list-secret-keys --keyid-format SHORT"
+alias gpg-list-secret-keys="gpg --list-secret-keys --keyid-format LONG"
 alias h=history
 alias l=ll
 alias ll="exa -al --group-directories-first --git --header"
