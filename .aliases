@@ -1,3 +1,5 @@
+shopt -s expand_aliases
+
 alias ...="cd ../.."
 alias ..="cd .."
 alias .a="vim $HOME/.aliases && source $HOME/.aliases"
@@ -37,10 +39,10 @@ alias gpg-edit-key=$HOME/bin/gpg-edit-key
 alias gpg-export-secret-key=$HOME/bin/gpg-export-secret-key
 alias gpg-export=$HOME/bin/gpg-export
 alias gpg-gen-key=$HOME/bin/gpg-gen-key
-alias gpg-list-secret-keys-short="gpg --list-secret-keys --keyid-format SHORT"
-alias gpg-list-secret-keys="gpg --list-secret-keys --keyid-format LONG"
-alias gpg-list-keys="gpg --list-keys --keyid-format LONG"
-alias gpg-list-keys-short="gpg --list-keys --keyid-format SHORT"
+alias gpg-list-secret-keys-short=$HOME/bin/gpg-list-secret-keys-short
+alias gpg-list-secret-keys=$HOME/bin/gpg-list-secret-keys
+alias gpg-list-keys=$HOME/bin/gpg-list-keys
+alias gpg-list-keys-short=$HOME/bin/gpg-list-keys-short
 alias h=history
 alias l=ll
 alias ll="exa -al --group-directories-first --git --header"
