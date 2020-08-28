@@ -1,12 +1,3 @@
-# dotfiles
-
-<!-- vim-markdown-toc GFM -->
-
-* [Instalacja](#instalacja)
-* [Informacje dodatkowe](#informacje-dodatkowe)
-
-<!-- vim-markdown-toc -->
-
 # Instalacja
 
 ```
