@@ -48,6 +48,14 @@ Przechodzi do katalogu `$HOME/git/dotfiles`
 cd $HOME/git/dotfiles
 ```
 
+## .g
+
+Edycja pliku `$HOME/.gitconfig`
+
+## .h
+
+Przechodzi do katalogu domowego `$HOME`
+
 ## .s
 
 Edycja pliku `$HOME/.ssh/config`
@@ -143,12 +151,28 @@ Czyści zapamiętane hasło przez agenta GPG
 gpg-connect-agent reloadagent /bye"
 ```
 
+## dec
+
+Deszyfruje plik za pomocą GPG
+
+```
+$HOME/bin/DecryptGPG
+```
+
 ## df
 
 Wyświetla wolną przestrzeń na dyskach w bardziej ludzki sposób
 
 ```
 df -h
+```
+
+## enc
+
+Szyfruje plik za pomocą GPG
+
+```
+$HOME/bin/EncryptGPG
 ```
 
 ## f
@@ -215,6 +239,13 @@ git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) -
 
 Uruchamia skrypt `$HOME/bin/gp`
 
+Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
+- `git add -A`
+- `git commit`
+- `git push`
+
+W wersji `gps` jest podpisywany commit za pomocą klucza GPG
+
 Źródło:
 
 ```
@@ -222,8 +253,89 @@ Uruchamia skrypt `$HOME/bin/gp`
 
 DATA=$(date +%F-%T)
 
-git add -A && git commit -m $DATA && git push
+if [ "$(basename $0)" == "gps" ]; then
+    git add -A && git commit -S -m $DATA && git push
+else
+    git add -A && git commit -m $DATA && git push
+fi
 ```
+
+## gps
+
+Uruchamia skrypt `$HOME/bin/gps` który jest linkiem symbolicznym do pliku `$HOME/bin/gp`
+
+Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
+- `git add -A`
+- `git commit`
+- `git push`
+
+W wersji `gps` jest podpisywany commit za pomocą klucza GPG
+
+Źródło
+
+```
+#!/usr/bin/env bash
+
+DATA=$(date +%F-%T)
+
+if [ "$(basename $0)" == "gps" ]; then
+    git add -A && git commit -S -m $DATA && git push
+else
+    git add -A && git commit -m $DATA && git push
+fi
+```
+
+## gpg-agent-restart
+
+Skrypt restartujący agenta GPG
+
+## gpg-delete-keys
+
+Usuwa wybrany klucz publiczny
+
+## gpg-delete-secret-keys
+
+Usuwa wybrany klucz prywatny
+
+## gpg-edit-key
+
+Edytuje wybrany klucz
+
+## gpg-export-secret-key
+
+Eksportuje klucz prywatny
+
+Źródło:
+
+```
+#!/usr/bin/env bash
+
+gpg --armor --export-secret-keys
+```
+
+## gpg-export
+
+Eksportuje klucz publiczny
+
+## gpg-gen-key
+
+Generuje nową parę kluczy
+
+## gpg-list-secret-keys-short
+
+Pokazuje listę kluczy prywatnych gdzie ID jest w formacie SHORT
+
+## gpg-list-secret-keys
+
+Pokazuje listę kluczy prywatnych gdzie ID jest w formacie LONG
+
+## gpg-list-keys
+
+Pokazuje listę kluczy publicznych gdzie ID jest w formacie LONG
+
+## gpg-list-keys-short
+
+Pokazuje listę kluczy publicznych gdzie ID jest w formacie SHORT
 
 ## h
 
@@ -248,6 +360,10 @@ exa -al --group-directories-first --git --header
 ```
 ls -F | grep '*$'
 ```
+
+## mkcdir
+
+Tworzy katalog a następnie przechodzi do niego
 
 ## more
 
