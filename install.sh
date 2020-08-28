@@ -63,11 +63,12 @@ cd $BIN_DIR && funkcje -i
 function bin_dir() {
     mkdir -p $HOME/git
     git clone https://github.com/sebmd/dotfiles_bin $HOME/git/dotfiles_bin
+    ln -sf $HOME/git/dotfiles_bin/bat $HOME/bin/bat
+    ln -sf $HOME/git/dotfiles_bin/exa $HOME/bin/exa
     ln -sf $HOME/git/dotfiles_bin/fzf $HOME/bin/fzf
     ln -sf $HOME/git/dotfiles_bin/lf $HOME/bin/lf
     ln -sf $HOME/git/dotfiles_bin/rg $HOME/bin/rg
     ln -sf $HOME/git/dotfiles_bin/sd $HOME/bin/sd
-    ln -sf $HOME/git/dotfiles_bin/bat $HOME/bin/bat
 }
 
 echo
