@@ -45,7 +45,9 @@ cd $HOME
 # w redpozytorium dotfiles
 while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
     if [ ! -L $LINE ]; then
-        cp -R $LINE $BACKUP_DIR/
+        if [ -f $LINE ]; then
+            cp -R $LINE $BACKUP_DIR/
+        fi
         rm -rf $LINE
         ln -s $SCRIPT_DIR/$LINE $LINE
     fi
