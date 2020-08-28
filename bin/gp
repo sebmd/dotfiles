@@ -2,4 +2,8 @@
 
 DATA=$(date +%F-%T)
 
-git add -A && git commit -m $DATA && git push
+if [ "$(basename $0)" == "gps" ]; then
+    git add -A && git commit -S -m $DATA && git push
+else
+    git add -A && git commit -m $DATA && git push
+fi

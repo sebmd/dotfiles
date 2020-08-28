@@ -27,6 +27,7 @@ alias g=git
 alias ga=~/bin/ga
 alias gl="git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias gp=~/bin/gp
+alias gps=~/bin/gps
 alias gpg-delete-keys="gpg --delete-keys"
 alias gpg-delete-secret-keys="gpg --delete-secret-keys"
 alias gpg-edit-key="gpg --edit-key"
