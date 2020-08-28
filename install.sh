@@ -3,6 +3,7 @@
 BACKUP_DIR=$HOME/.backup
 SCRIPT_DIR=$PWD
 BIN_DIR=$HOME/bin
+DOTFILES_BIN_DIR=$HOME/git/dotfiles_bin
 
 function install_dnf() {
     sudo dnf update
@@ -62,15 +63,12 @@ vim -c ":PlugInstall" -c ":qa"
 # stworzenie linków symbolicznych w katalogu $HOME/bin
 cd $BIN_DIR && funkcje -i
 
-function bin_dir() {
-    mkdir -p $HOME/git
-    git clone https://github.com/sebmd/dotfiles_bin $HOME/git/dotfiles_bin
-    ln -sf $HOME/git/dotfiles_bin/bat $HOME/bin/bat
-    ln -sf $HOME/git/dotfiles_bin/exa $HOME/bin/exa
-    ln -sf $HOME/git/dotfiles_bin/fzf $HOME/bin/fzf
-    ln -sf $HOME/git/dotfiles_bin/lf $HOME/bin/lf
-    ln -sf $HOME/git/dotfiles_bin/rg $HOME/bin/rg
-    ln -sf $HOME/git/dotfiles_bin/sd $HOME/bin/sd
+function dotfiles_bin() {
+    mkdir -p $DOTFILES_BIN_DIR
+    git clone https://github.com/sebmd/dotfiles_bin $DOTFILES_BIN_DIR
+    for FILE in $(ls $DOTFILES_BIN_DIR); do
+        ln -sf $DOTFILES_BIN_DIR/$FILE $BIN_DIR/$FILE
+    done
 }
 
 echo
@@ -79,7 +77,7 @@ read -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " odp
 
 case $odp in
     t|T)
-        bin_dir
+        dotfiles_bin
         exit
         ;;
     n|N)
@@ -87,7 +85,7 @@ case $odp in
         exit
         ;;
     *)
-        bin_dir
+        dotfiles_bin
         exit
         ;;
 esac
