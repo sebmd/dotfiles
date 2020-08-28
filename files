@@ -6,4 +6,5 @@
 .config/alacritty/alacritty.yml
 .config/kitty
 .vim
+.gnupg/gpg-agent.conf
 bin
