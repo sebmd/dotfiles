@@ -15,7 +15,7 @@
   - `:retab` - zamiana znaków TAB na spacje w całym pliku
   - `gi` - przechodzi do miejsca ostatniej edycji, jednocześnie wchodząc w tryb
     INSERT
-  - ``^` - przechodzi do miejsca ostatniej edycji, ale pozostaje w trybie NORMAL
+  - `\`^` - przechodzi do miejsca ostatniej edycji, ale pozostaje w trybie NORMAL
  
 ## Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`
 
