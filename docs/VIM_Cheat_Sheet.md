@@ -278,10 +278,23 @@ nnoremap yr $y^
 
 ## Znajdź i zatąp
 
-Zastępuje tekst w bieżącej linii
+Dostępne parametry
+
+- `g` - global
+- `e` - nie wyświetla błędów
+- `c` - wymaga potwierdzenia
+- `i` - nie zwraca uwagi na wielkość znaków zwraca
+
+Zastępuje pierwsze wystąpienie szukanego wyrazu w bieżącej linii
 
 ```
 :s/nnoremap/nmap
+```
+
+Zastępuje każde wystąpienie szukanego słowa w linii
+
+```
+:s/nnoremap/nmap/g
 ```
 
 Zastąpienie tekstu w całym pliku wymaga dodania znaku `%` na początku komendy.
