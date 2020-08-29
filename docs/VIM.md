@@ -7,18 +7,6 @@
     * [Klaiwsz LEADER](#klaiwsz-leader)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
-    * [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
-    * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
-    * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
-    * [Mapowanie pluginu Undotree](#mapowanie-pluginu-undotree)
-    * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
-    * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
-* [Pluginy](#pluginy)
-* [Kolory](#kolory)
-* [Funkcje niestandardowe](#funkcje-niestandardowe)
-* [Komendy pluginu FZF](#komendy-pluginu-fzf)
-* [Plugin fzf-preview.vim](#plugin-fzf-previewvim)
-* [Plugin vimfiler](#plugin-vimfiler)
 * [Zarządzanie sesjami](#zarzdzanie-sesjami)
 
 <!-- vim-markdown-toc -->
@@ -79,6 +67,27 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
  - `<ctrl-k>` - przechodzi o jedeą linię w górę
  - `<ctrl-j>` - przechodzi o jedeą linię w dół
+ 
+ ## Autouzupełnianie
+
+Plugin AutoComplPop pokazuje okno podpowiedzi na podstawie słów z otwartych
+buforów. Dodatkowo używając `Ctrl-p` podczas wprowadzania uruchamia podpowiedzi
+ze słownika. Wcześniej należy uruchomić funkcję `spell`.
+
+```
+Plug 'vim-scripts/AutoComplPop'
+```
+Ustawienia autouzupełniania
+
+```
+set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
+set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
+set completeopt=menuone,longest
+ ```
+ - `Ctrl-n` przechodzi do słowa niżej
+ - `Ctrl-p` przechodzi do słowa wyżej
+ - `Ctrl-y` zatwierdza wybraną podpowiedź
+ - `Ctrl-e` opuszcza okno podpowiedzi
  
 ## Mapowanie pluginu NERDTree
  
