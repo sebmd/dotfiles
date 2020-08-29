@@ -13,7 +13,10 @@
   - `:term` - uruchomienie terminala systemowego
   - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
   - `:retab` - zamiana znaków TAB na spacje w całym pliku
-
+  - `gi` - przechodzi do miejsca ostatniej edycji, jednocześnie wchodząc w tryb
+    INSERT
+  - ``^` - przechodzi do miejsca ostatniej edycji, ale pozostaje w trybie NORMAL
+ 
 ## Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`
 
 Ustawienie długości linii `:set textwidth=70`
@@ -235,3 +238,28 @@ możemy ją zmapować:
 ```
 nnoremap yr $y^
 ```
+
+## Znajdź i zatąp
+
+Zastępuje tekst w bieżącej linii
+
+```
+:s/nnoremap/nmap
+```
+
+Zastąpienie tekstu w całym pliku wymaga dodania znaku `%` na początku komendy.
+
+```
+:%s/nnoremap/nmap
+```
+
+Potwierdzenie zastąpienia wymaga dodania `/c` na końcu polecenia.
+
+```
+:%s/nnoremap/nmap/c
+```
+
+- `&` w trybie normal powtarza poprzednie znajdź i zastąp
+- `g&` powtarza ostatnie znajdź i zastąp w całym pliku
+- `:&` powtarza ostatnie znajdź i zastąp w bieżącej linii, umożliwia dodanie
+  dodatkowych flag np. `:&c`, będzie wymagać potwierdzenia.
