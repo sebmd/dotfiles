@@ -35,6 +35,7 @@
 * [Praca z oknami](#praca-z-oknami)
     * [Dzielenie okna](#dzielenie-okna)
     * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
+* [Kodowanie ROT13](#kodowanie-rot13)
 
 <!-- vim-markdown-toc -->
 
@@ -399,3 +400,19 @@ pomocą komendy `:reg`
 - `Ctrl-w -` - zmniejszenie okna
 - `Ctrl-w =` - wrócenie do równego podziału
 - `:resize 10` - zmienia wielkość okna na 10 linii
+
+## Kodowanie ROT13
+
+```
+g??
+```
+
+```
+Tekst niezakodowany
+```
+
+Po użyciu `g??`
+
+```
+Grxfg mnxbqbjnal
+```
