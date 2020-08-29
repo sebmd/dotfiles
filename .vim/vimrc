@@ -52,10 +52,12 @@ set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, s
 set wildmenu
 set wildmode=list:longest,full
 set foldmethod=marker
+set foldcolumn=1
 set splitright
 set splitbelow
 set backspace=indent,eol,start
 set clipboard=unnamedplus
+set mouse=a
 set hidden
 set noshowmode
 set nowrap
