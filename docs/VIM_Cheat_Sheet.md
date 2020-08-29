@@ -6,9 +6,8 @@
 
 ## Kilka przydatnych skrótów
 
-  - `<ctrl-g>` - wyświetla informacje o pliku
-  - `g <ctrl-g>` - wyświetla trochę więciej informacji o pliku
-    słów w pliku
+  - `<ctrl-g>` - wyświetla informacje o pliku w tym jego nazwę
+  - `g <ctrl-g>` - wyświetla trochę więciej informacji o pliku słów w pliku
   - `:x` - zapisanie pliku i wyjście
   - `:term` - uruchomienie terminala systemowego
   - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
@@ -289,6 +288,21 @@ Wstawienie wyniku polecenia do edytowanego pliku
 :r!ls -alh
 ```
 
+Innym sposobem jest naciśnięcie dwukrotnie wykrzykniaka w trybie NORMAL
+
+```
+!!
+```
+
+Uruchomi się tryb COMMAND z poleceniem:
+
+```
+:.!
+```
+
+Teraz wprowadzamy komendę np. `ls`, efektem będzie zastąpienie bieżącej linii
+wynikiem polecenia systemowego `ls`.
+
 ## Otworzenie pliku na konkretnej linii
 
 Otworzenie pliku w linii 222
@@ -300,3 +314,22 @@ Otworzenie pliku w linii 222
 ```
 $ vim +222 nazwa_pliku.txt
 ```
+
+## Powtórzenie ostatniej komendy
+
+```
+@:
+```
+
+## Uruchomienie komendy Vim z rejestru czyli schowka Vim
+
+Kopiując z bufora linię np. `:r!ls -al` zapisujemy ją w rejestrze `"`, możemy
+użyć tego rejestru do uruchomienie skopiowanego polecenia za pomocą komendy
+
+```
+:@"
+```
+
+Rejestr `"` jest to ostatnio skopiowany tekst, możemy użyć innego rejestru np.
+rejestru `0` używając tej samej składni `:@0`, rejestry możemy przeglądać za
+pomocą komendy `:reg`
