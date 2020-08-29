@@ -11,3 +11,4 @@ bin/rg
 bin/sd
 bin/bat
 notes
+*.swp
