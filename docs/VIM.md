@@ -8,6 +8,7 @@
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
 * [Zarządzanie sesjami](#zarzdzanie-sesjami)
+* [Plugin vim-unimpaired](#plugin-vim-unimpaired)
 
 <!-- vim-markdown-toc -->
 
@@ -20,8 +21,6 @@ konfiguracji.
 # Niestandardowe mapowanie klaiwszy
 
  - `th` - wyłącza podświetlanie wyszukiwanego tekstu
- - `gh` - przechodzi na początek linii
-- `gl` - przechodzi na koniec linii
  - `qq` - wychodzi z edytora zastępuje `:q`
  - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
 - `Q` - wychodzi z edytora bez zapisania zmian `:q!`
@@ -54,6 +53,8 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
  - `<leader>w` - zapisuje plik ` :update`
  - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
+ - `<leader>h` - przechodzi na początek linii
+- `<leader>l` - przechodzi na koniec linii
 
 ## Tryb COMMAND
 
@@ -142,21 +143,21 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [gv]
   - [indentLine]
   - [limelight]
-  - [NERDTree]
-  - [nerdtree-git-plugin]
+  - [NERDTree] - menadżer plików
+  - [nerdtree-git-plugin] - rozszerzenie dla NERDTree
   - [quick-scope]
-  - [undotree]
-  - [vim-airline]
-  - [vim-colorscheme-manager]
-  - [vim-colorscheme-switcher]
+  - [undotree] - drzewo zmian
+  - [vim-airline] - linia statusu
+  - [vim-colorscheme-manager] - schmaty kolorów
+  - [vim-colorscheme-switcher] - przełączanie schematów kolorów
   - [vim-commentary]
   - [vim-fugitive]
-  - [vim-markdown-toc]
+  - [vim-markdown-toc] - automatycznie tworzy i aktualizuje spis treści dla plików Markdown
   - [vim-peekaboo]
-  - [vim-plug]
-  - [vim-repeat]
-  - [vim-signify]
-  - [vim-startify]
+  - [vim-plug] - zarządzanie pluginami
+  - [vim-repeat] - dodatkowe obiekty tekstowe na których można używać powtórzeń `.`
+  - [vim-signify] - pokazuje zmiany w pliku względem popzedniej wersji w repozytorium Git
+  - [vim-startify] - ekran startowy
   - [vim-surround]
   - [vim-unimpaired]
 
@@ -255,14 +256,6 @@ let g:fzf_preview_window = 'right:60%'
 | FZFWindows              | Search all the vim's windows and preview their content.                             |
 | FZFQuickFix/FZFLocList' | Search VIM's QuickFix/LocList entries with preview!                                 |
 
-# Plugin vimfiler
-
-Ustawienie vimfiler jako domyślnego menadżera plików
-
-```
-:let g:vimfiler_as_default_explorer = 1
-```
-
 # Zarządzanie sesjami
 
 Do zarządzania sesjami służy plugin Startify
@@ -271,3 +264,13 @@ Do zarządzania sesjami służy plugin Startify
 - `SLoad [nazwa-sesji]` - odtworzenie sesji
 - `SClose` - zakończenie sesji
 - `SDelete [nazwa-sesji]` - usunięcie sesji
+
+# Plugin vim-unimpaired
+
+- https://github.com/tpope/vim-unimpaired
+
+- `[<space>` - wstawia pustą linię powyżej
+- `]<space>` - wstawia pustą linię poniżej
+- `yox` - wyróżnia położenie kursora w linii i w kolumnie `:set cursorline!` oraz
+  `:set cursorcolumn!`
+- `yos` - włącza sprawdzanie pisowni

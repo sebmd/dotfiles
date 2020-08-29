@@ -219,8 +219,6 @@ let localmapleader="\\"     " klawisz \ ustawiony jako local leader
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap gh 0
-nnoremap gl $
 nnoremap J maJ`a
 nnoremap Y y$
 nnoremap n nzz
@@ -258,9 +256,14 @@ nmap <c-j> <c-w><c-j>
 nmap <c-k> <c-w><c-k>
 nmap <c-l> <c-w><c-l>
 
+" wchodzi do trybu COMMAND
 nnoremap <leader>; :
 
 nnoremap <leader>w :update<cr>
+
+" początek i koniec linii
+nnoremap <leader>h 0
+nnoremap <leader>l $
 
 " Przełączanie się pomiędzy buforami
 nnoremap <leader>, :bp<cr>
