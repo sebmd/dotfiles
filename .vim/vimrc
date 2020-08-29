@@ -270,6 +270,8 @@ nnoremap <leader>o :only<cr>
 
 nnoremap <leader>d :DestractionFree<cr>
 
+nnoremap <leader>b :Buffers<cr>
+
 " przechodzi do katalogu w którym znajduje się edytowany plik
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 

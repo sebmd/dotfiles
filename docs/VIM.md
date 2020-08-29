@@ -53,6 +53,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
  - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
  - `<leader>w` - zapisuje plik ` :update`
+ - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
 
 ## Tryb COMMAND
 

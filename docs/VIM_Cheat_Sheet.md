@@ -1,5 +1,43 @@
 # VIM Cheat Sheet
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [Przydatne strony pomocy](#przydatne-strony-pomocy)
+* [Kilka przydatnych skrótów](#kilka-przydatnych-skrótów)
+* [Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`](#wyrównanie-paragrafu-na-szeroko-80-znaków-lub-warto-parametru-textwidth)
+* [Wprowadzanie znaków UTF-8](#wprowadzanie-znaków-utf-8)
+* [Poruszanie się w linii](#poruszanie-si-w-linii)
+* [Poruszanie się pomiędzy wyrazami](#poruszanie-si-pomidzy-wyrazami)
+* [Poruszanie się pomiędzy obiektami tekstowymi](#poruszanie-si-pomidzy-obiektami-tekstowymi)
+* [Poruszanie się pomiędzy liniami](#poruszanie-si-pomidzy-liniami)
+* [Poruszanie się po ekranie](#poruszanie-si-po-ekranie)
+* [Przewijanie pliku](#przewijanie-pliku)
+* [Wyrównanie bieżącej linii względem ekranu](#wyrównanie-biecej-linii-wzgldem-ekranu)
+* [Edycja](#edycja)
+    * [Obiekty tekstowe](#obiekty-tekstowe)
+    * [Mnożnik i zakresy](#mnonik-i-zakresy)
+    * [Praca w linii](#praca-w-linii)
+    * [Przykłady edycji](#przykady-edycji)
+* [Kopiuj / wklej](#kopiuj--wklej)
+* [Wprowadzanie tekstu](#wprowadzanie-tekstu)
+* [Makra](#makra)
+* [Kopiowani tekstu z bufora / pliku do linii komend:](#kopiowani-tekstu-z-bufora--pliku-do-linii-komend)
+* [Skopiowanie słowa pod kursorem do linii komend](#skopiowanie-sowa-pod-kursorem-do-linii-komend)
+* [Otworzenie wszystkich plików z bieżącego katalogu](#otworzenie-wszystkich-plików-z-biecego-katalogu)
+* [Skopiowanie całej linii bez znaku końca linii](#skopiowanie-caej-linii-bez-znaku-koca-linii)
+* [Znajdź i zatąp](#znajd-i-zatp)
+* [Sortowanie](#sortowanie)
+* [Praca z powłoką systemową](#praca-z-powok-systemow)
+* [Otworzenie pliku na konkretnej linii](#otworzenie-pliku-na-konkretnej-linii)
+* [Powtórzenie ostatniej komendy](#powtórzenie-ostatniej-komendy)
+* [Uruchomienie komendy Vim z rejestru czyli schowka Vim](#uruchomienie-komendy-vim-z-rejestru-czyli-schowka-vim)
+* [Praca z oknami](#praca-z-oknami)
+    * [Dzielenie okna](#dzielenie-okna)
+    * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
+
+<!-- vim-markdown-toc -->
+
 ## Przydatne strony pomocy
 
 - obiekty tekstowe - `:help text-objects`
@@ -333,3 +371,18 @@ użyć tego rejestru do uruchomienie skopiowanego polecenia za pomocą komendy
 Rejestr `"` jest to ostatnio skopiowany tekst, możemy użyć innego rejestru np.
 rejestru `0` używając tej samej składni `:@0`, rejestry możemy przeglądać za
 pomocą komendy `:reg`
+
+## Praca z oknami
+
+### Dzielenie okna
+
+- `Ctrl-w s` - dzielenie okna w poziomie
+- `Ctrl-w v` - dzielenie okna w pionie
+- `Ctrl-w q` - zamknięcie okna
+
+### Zmiana rozmiaru okna
+
+- `Ctrl-w +` - powiększenie okna
+- `Ctrl-w -` - zmniejszenie okna
+- `Ctrl-w =` - wrócenie do równego podziału
+- `:resize 10` - zmienia wielkość okna na 10 linii
