@@ -59,7 +59,7 @@ Ctrl-v u25B8
 - `,` - przechodzi do poprzedniego wystąpienia szukanego wcześniej znaku za
    pomocą `t/T/f/F`
 
-## Poruszanie się pomiędzy wyrazami
+## Poruszanie się pomiędzy wyrazami
 
 - `w` - przechodzi na początek kolejnego wyrazu
 - `W` - przechodzi na początek kolejnego WYRAZU
@@ -263,3 +263,40 @@ Potwierdzenie zastąpienia wymaga dodania `/c` na końcu polecenia.
 - `g&` powtarza ostatnie znajdź i zastąp w całym pliku
 - `:&` powtarza ostatnie znajdź i zastąp w bieżącej linii, umożliwia dodanie
   dodatkowych flag np. `:&c`, będzie wymagać potwierdzenia.
+
+## Sortowanie
+
+- `:sort` - sortowanie tekstu
+- `:sort!` - odwrotene sortowanie
+
+## Praca z powłoką systemową
+
+Wykonanie polecenia
+
+```
+:!ls -alh
+```
+
+Wykonanie polecenia `uniq` na całym pliku
+
+```
+:%!uniq -u
+```
+
+Wstawienie wyniku polecenia do edytowanego pliku
+
+```
+:r!ls -alh
+```
+
+## Otworzenie pliku na konkretnej linii
+
+Otworzenie pliku w linii 222
+
+```
+:e +222 nazwa_pliku.txt
+```
+
+```
+$ vim +222 nazwa_pliku.txt
+```
