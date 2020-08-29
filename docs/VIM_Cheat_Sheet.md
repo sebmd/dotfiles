@@ -224,3 +224,14 @@ linii komend.
 W trybie komend wprowadzamy komendę `:e` następnie wprowadzamy kombinację
 klawiszy `<C-a><C-a>` do linii komend zostaną wprowadzone wszystkie pliki z
 bieżącego katalogu.
+
+## Skopiowanie całej linii bez znaku końca linii
+
+Standardowo kopiując linię za pomocą `yy` będzie ona zawierała znak końca linii.
+Jeśli chcemy skopiować linię bez tego znaku np. chcąc wkleić linię pomiędzy
+wyrazy lub do linii komend możemy posłużyć się kombinacją: `$y^` dla ułatwienia
+możemy ją zmapować:
+
+```
+nnoremap yr $y^
+```
