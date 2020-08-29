@@ -36,6 +36,7 @@
     * [Dzielenie okna](#dzielenie-okna)
     * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
 * [Kodowanie ROT13](#kodowanie-rot13)
+* [Rejestry](#rejestry)
 
 <!-- vim-markdown-toc -->
 
@@ -416,3 +417,32 @@ Po użyciu `g??`
 ```
 Grxfg mnxbqbjnal
 ```
+
+## Rejestry
+
+Vim posiada kilka rejestrów w których przechowuje kopiowany tekst oraz inne
+wartości np. nazwę edytowanego pliku / bufora.
+
+```
+:h registers
+
+1. The unnamed register ""
+2. 10 numbered registers "0 to "9
+3. The small delete register "-
+4. 26 named registers "a to "z or "A to "Z
+5. Three read-only registers ":, "., "%
+6. Alternate buffer register "#
+7. The expression register "=
+8. The selection and drop registers "*, "+ and "~ 
+9. The black hole register "_
+10. Last search pattern register "/
+```
+
+Wartość poszczególnych rejestrów można wyświetlić za pomocą komendy
+
+```
+:reg
+```
+
+W linii komend można każdy z rejestrów wkleic poprzedzając go kombinacja `Ctrl-r`
+np. `Ctrl-r %` wstawi rejest `%` czyli nazwę edytowanego pliku.
