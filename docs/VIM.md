@@ -84,10 +84,20 @@ set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga w�
 set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
 set completeopt=menuone,longest
  ```
+ 
+ Zmapowanie klawisza `<TAB>` w trybie INSERT do zatwierdzenia wyboru słowa.
+
+ ```
+inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
+ ```
+ 
+ Skróty klawiszowe
+ 
  - `Ctrl-n` przechodzi do słowa niżej
  - `Ctrl-p` przechodzi do słowa wyżej
  - `Ctrl-y` zatwierdza wybraną podpowiedź
  - `Ctrl-e` opuszcza okno podpowiedzi
+ - `<TAB>` - zatwierdza wybraną podpowiedź
  
 ## Mapowanie pluginu NERDTree
  

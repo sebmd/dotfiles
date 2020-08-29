@@ -14,11 +14,6 @@
   - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
   - `:retab` - zamiana znaków TAB na spacje w całym pliku
 
-## Kopiowani tekstu z bufora / pliku do linii komend:
-
-1. Kopiujemy tekst np. `yiw`
-2. Wklejamy do linii komend `:`, `Ctrl-r`, `"`
-
 ## Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`
 
 Ustawienie długości linii `:set textwidth=70`
@@ -210,3 +205,22 @@ Przejście w tryb wprowadzania tekstu czyli do trybu INSERT:
 - `q` - zatrzymuje nagrywanie makra
 - `@a` - uruchamia makro `a`
 - `@@` - ponownie uruchamia poprzednio odtworzone makro
+
+## Kopiowani tekstu z bufora / pliku do linii komend:
+
+1. Kopiujemy tekst np. `yiw`
+2. Wklejamy do linii komend `:`, `Ctrl-r`, `"`
+
+Zamiast `Ctrl-r "` możemy używać `Ctrl-r 0`.
+
+## Skopiowanie słowa pod kursorem do linii komend
+
+W trybie komend wprowadzamy polecenie np. `:e` następnie naciskamy kombinację
+klawiszy `<C-r><C-a><C-a>` w ten sposób słowo pod kursorem zostanie wklejone do
+linii komend.
+
+## Otworzenie wszystkich plików z bieżącego katalogu
+
+W trybie komend wprowadzamy komendę `:e` następnie wprowadzamy kombinację
+klawiszy `<C-a><C-a>` do linii komend zostaną wprowadzone wszystkie pliki z
+bieżącego katalogu.

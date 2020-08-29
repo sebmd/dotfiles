@@ -87,8 +87,8 @@ set cursorline
 set colorcolumn=+1
 set background=dark
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
-set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
 set completeopt=menuone,longest
+set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
 silent! colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
@@ -225,6 +225,9 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap qq :q<cr>
 nnoremap qs :update<cr>:q<cr>
+
+" mapuje klawisz TAB w trybie insert do zatwierdzenia popowiedzi autouzupełaniania
+inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
 
 nmap gj <plug>(signify-next-hunk)
 nmap gk <plug>(signify-prev-hunk)
