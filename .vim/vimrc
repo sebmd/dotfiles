@@ -340,7 +340,7 @@ noremap <leader>ss :norm yss
 " <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
 noremap <leader>sd :norm ds
 
-" \fnn wyświetala pełną ścieżkę dla pliku wraz z jego nazwą
+" \fnn wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
 nnoremap <localleader>f :echo expand("%:p")<cr>
 
 " kopiuj / wklej do schowka systemowego
