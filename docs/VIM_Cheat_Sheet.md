@@ -339,6 +339,7 @@ Powtórzenie operacji
 
 - `:sort` - sortowanie tekstu
 - `:sort!` - odwrotnie sortowanie
+- `:sort i` - ignoruje wielkość znaków
 
 ## Praca z powłoką systemową
 

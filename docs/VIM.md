@@ -170,16 +170,16 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 
 # Pluginy
 
+  - [fern.vim]
   - [fzf-preview.vim]
   - [fzf.vim]
-  - [fern.vim]
   - [git-messenger]
   - [goyo]
   - [gv]
   - [indentLine]
   - [limelight]
-  - [NERDTree] - menadżer plików
   - [nerdtree-git-plugin] - rozszerzenie dla NERDTree
+  - [NERDTree] - menadżer plików
   - [quick-scope]
   - [undotree] - drzewo zmian
   - [vim-airline] - linia statusu
