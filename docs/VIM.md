@@ -186,6 +186,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [NERDTree] - menadżer plików
   - [quick-scope]
   - [undotree] - drzewo zmian
+  - [vim-abolish]
   - [vim-airline] - linia statusu
   - [vim-colorscheme-manager] - schmaty kolorów
   - [vim-colorscheme-switcher] - przełączanie schematów kolorów
@@ -201,6 +202,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [vim-surround]
   - [vim-unimpaired]
 
+[vim-abolish]: https://github.com/tpope/vim-abolish
 [vim-eunuch]: https://github.com/tpope/vim-eunuch
 [indentLine]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
