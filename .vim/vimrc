@@ -152,7 +152,7 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:nnn#set_default_mappings = 0
 
 " Fern
- let g:fern#renderer = "nerdfont"
+let g:fern#renderer = "nerdfont"
 
 " NERDTree
 "autocmd vimenter * NERDTree  " uruchomienie przy starcie NERDTree

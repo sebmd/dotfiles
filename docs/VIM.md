@@ -151,6 +151,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 - `a` - otwiera linię komend `action`
 - `s` - otwiera plik w wybranym oknie
 - `m` - zmienia nazwę lub przenosi plik
+- `R` - otwiera okno do zmiany nazwy pliku lub zaznaczonych plików
 - `Ctrl-j` - zaznacza / odznacza plik niżej
 - `Ctrl-k` - zaznacza / odznacza plik wyżej
 
