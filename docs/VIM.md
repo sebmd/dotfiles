@@ -69,6 +69,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>h` - przechodzi na początek linii
 - `<leader>l` - przechodzi na koniec linii
 - `<leader>s` - uruchamia sprawdzanie pisowni
+- `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
 
 ## Tryb COMMAND
 
@@ -130,9 +131,9 @@ Skróty klawiszowe
   - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
   - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
   - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
-  
-  W trybie **VISUAL** po zaznaczeniu tekstu należy nacisnąć `S` a następnie znak
-  którym chcemy otoczyć zaznaczenie po czym naciskamy **ENTER**.
+ 
+ W trybie **VISUAL** po zaznaczeniu tekstu należy nacisnąć `S` a następnie znak,
+ którym chcemy otoczyć zaznaczenie po czym naciskamy **ENTER**.
 
 ## Mapowanie pluginu Undotree
 

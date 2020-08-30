@@ -344,6 +344,8 @@ nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowa
 
 nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
+nnoremap <leader>g :Rg<cr>
+
 " otwiera menadżer plików dla lokalizacji otwartego pliku
 " nnoremap <leader>f :sv %:p:h<cr>
 nnoremap <leader>f :Fern . -drawer -reveal=% -toggle -width=30<cr>
@@ -531,6 +533,11 @@ let g:which_key_map.b = {
 autocmd BufWinLeave ?* mkview
 autocmd BufWinEnter ?* silent loadview
 
+" przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
+" pliki typu git i GV, którym sprawia to problem
+let ftToIgnore = [ 'GV', 'git', 'fern' ]
+autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | lcd %:p:h
+
 " przeładowanie .vimrc po zapisaniu pliku
 autocmd! BufWritePost $MYVIMRC source % | redraw
 
@@ -548,6 +555,15 @@ endfunction
 " Przeszukiwanie zawartości plików
 function! RgNotes(query, fullscreen)
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $HOME/notes || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" Przeszukiwanie zawartości plików w bieżącej lokalizacji
+function! RgCurrDir(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $PWD || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
     let reload_command = printf(command_fmt, '{q}')
     let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
@@ -605,6 +621,7 @@ command! -bang -nargs=? -complete=dir Notes
 command! -bang -nargs=* RgFzf call RgFzf(<q-args>, <bang>0)
 
 command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)
+command! -bang -nargs=* RgCurrDir call RgCurrDir(<q-args>, <bang>0)
 
 " FZF bez podglądu zawartości pliku
 command! -bang -nargs=* -complete=dir LS
