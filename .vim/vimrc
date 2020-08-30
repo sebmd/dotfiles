@@ -273,6 +273,11 @@ nnoremap N Nzz
 nnoremap qq :q<cr>
 nnoremap qs :update<cr>:q<cr>
 
+" usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejest `_` jest
+" to rejest typu blackhole
+noremap x "_x
+noremap X "_X
+
 " mapuje klawisz TAB w trybie insert do zatwierdzenia popowiedzi autouzupełaniania
 inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
 
