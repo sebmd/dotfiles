@@ -54,7 +54,7 @@
 ## Kilka przydatnych skrótów
 
   - `<ctrl-g>` - wyświetla informacje o pliku w tym jego nazwę
-  - `g <ctrl-g>` - wyświetla trochę więciej informacji o pliku słów w pliku
+  - `g <ctrl-g>` - wyświetla trochę więcej informacji o pliku słów w pliku
   - `:x` - zapisanie pliku i wyjście
   - `:term` - uruchomienie terminala systemowego
   - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
@@ -151,8 +151,8 @@ przewijania ekranu.
 - `Ctrl-f` - przewija o cały ekran w dół
 - `Ctrl-b` - przewija o cały ekran w górę
 
-Wszystkie te kombinację możemy poprzedzić liczbą powtórzej danej operacji. Na
-przykład przwinięcie o 6 linii w dół:
+Wszystkie te kombinację możemy poprzedzić liczbą powtórzeń danej operacji. Na
+przykład przewinięcie o 6 linii w dół:
 
 ```
 6Ctrl-e
@@ -337,7 +337,7 @@ Powtórzenie operacji
 ## Sortowanie
 
 - `:sort` - sortowanie tekstu
-- `:sort!` - odwrotene sortowanie
+- `:sort!` - odwrotnie sortowanie
 
 ## Praca z powłoką systemową
 
@@ -359,7 +359,7 @@ Wstawienie wyniku polecenia do edytowanego pliku
 :r!ls -alh
 ```
 
-Innym sposobem jest naciśnięcie dwukrotnie wykrzykniaka w trybie NORMAL
+Innym sposobem jest naciśnięcie dwukrotnie wykrzyknika w trybie NORMAL
 
 ```
 !!

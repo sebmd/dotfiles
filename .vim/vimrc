@@ -304,9 +304,9 @@ nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowa
 
 nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
-" otwera menadżer plików dla lokalizacji otwartego pliku
+" otwiera menadżer plików dla lokalizacji otwartego pliku
 " nnoremap <leader>f :sv %:p:h<cr>
-nnoremap <leader>f :Fern . -drawer -toggle<cr>
+nnoremap <leader>f :Fern . -drawer -reveal=% -toggle<cr>
 
 nnoremap <leader>u :UndotreeToggle<cr>
 
@@ -328,7 +328,7 @@ nnoremap <leader>ve yy:@"<cr>
 
 nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
 
-" Obsługa luginu vim-surround
+" Obsługa pluginu vim-surround
 " <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
 noremap <leader>sw :norm ysiw
 " <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ

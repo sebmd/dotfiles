@@ -3,8 +3,8 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Konfiguracja](#konfiguracja)
-* [Niestandardowe mapowanie klaiwszy](#niestandardowe-mapowanie-klaiwszy)
-    * [Klaiwsz LEADER](#klaiwsz-leader)
+* [Niestandardowe mapowanie klawiszy](#niestandardowe-mapowanie-klawiszy)
+    * [Klawisz LEADER](#klawisz-leader)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
 * [Zarządzanie sesjami](#zarzdzanie-sesjami)
@@ -15,10 +15,10 @@
 # Konfiguracja
 
 Dodatkową konfigurację można wprowadzać w plikach `~/.vimrc.local`
-lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować orgyginalnej
+lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować oryginalnej
 konfiguracji.
 
-# Niestandardowe mapowanie klaiwszy
+# Niestandardowe mapowanie klawiszy
 
  - `th` - wyłącza podświetlanie wyszukiwanego tekstu
  - `qq` - wychodzi z edytora zastępuje `:q`
@@ -30,7 +30,7 @@ konfiguracji.
  - `<ctrl-j>` - przechodzi do okna niżej
  - `<ctrl-k>` - przechodzi do okna wyżej
 
-## Klaiwsz LEADER
+## Klawisz LEADER
 
 Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
 LEADER jest klawisz `SPACJA`
@@ -50,7 +50,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>tv` - uruchamia terminal (podział pionowy)
  - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
  - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
- - `<leader>e` - otweira nowy plik dziennika w katalogu `~/notes`
+ - `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
  - `<leader>w` - zapisuje plik ` :update`
  - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
  - `<leader>h` - przechodzi na początek linii
@@ -67,8 +67,8 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 
  - `<ctrl-h>` - przechodzi o jeden znak w lewo
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
- - `<ctrl-k>` - przechodzi o jedeą linię w górę
- - `<ctrl-j>` - przechodzi o jedeą linię w dół
+ - `<ctrl-k>` - przechodzi o jedną linię w górę
+ - `<ctrl-j>` - przechodzi o jedną linię w dół
  
  ## Autouzupełnianie
 
@@ -79,7 +79,7 @@ ze słownika. Wcześniej należy uruchomić funkcję `spell`.
 ```
 Plug 'vim-scripts/AutoComplPop'
 ```
-Ustawienia autouzupełniania
+Ustawienia automatycznego uzupełniania
 
 ```
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
