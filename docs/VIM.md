@@ -7,6 +7,19 @@
     * [Klawisz LEADER](#klawisz-leader)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
+    * [Autouzupełnianie](#autouzupenianie)
+    * [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
+    * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
+    * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
+    * [Mapowanie pluginu Undotree](#mapowanie-pluginu-undotree)
+    * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
+    * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
+    * [Mapowanie pluginu Fern](#mapowanie-pluginu-fern)
+* [Pluginy](#pluginy)
+* [Kolory](#kolory)
+* [Funkcje niestandardowe](#funkcje-niestandardowe)
+* [Komendy pluginu FZF](#komendy-pluginu-fzf)
+* [Plugin fzf-preview.vim](#plugin-fzf-previewvim)
 * [Zarządzanie sesjami](#zarzdzanie-sesjami)
 * [Plugin vim-unimpaired](#plugin-vim-unimpaired)
 
@@ -69,8 +82,8 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
  - `<ctrl-k>` - przechodzi o jedną linię w górę
  - `<ctrl-j>` - przechodzi o jedną linię w dół
- 
- ## Autouzupełnianie
+
+## Autouzupełnianie
 
 Plugin AutoComplPop pokazuje okno podpowiedzi na podstawie słów z otwartych
 buforów. Dodatkowo używając `Ctrl-p` podczas wprowadzania uruchamia podpowiedzi
@@ -85,24 +98,24 @@ Ustawienia automatycznego uzupełniania
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
 set completeopt=menuone,longest
- ```
- 
- Zmapowanie klawisza `<TAB>` w trybie INSERT do zatwierdzenia wyboru słowa.
+```
 
- ```
+Zmapowanie klawisza `<TAB>` w trybie INSERT do zatwierdzenia wyboru słowa.
+
+```
 inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
- ```
- 
- Skróty klawiszowe
- 
+```
+
+Skróty klawiszowe
+
  - `Ctrl-n` przechodzi do słowa niżej
  - `Ctrl-p` przechodzi do słowa wyżej
  - `Ctrl-y` zatwierdza wybraną podpowiedź
  - `Ctrl-e` opuszcza okno podpowiedzi
  - `<TAB>` - zatwierdza wybraną podpowiedź
- 
+
 ## Mapowanie pluginu NERDTree
- 
+
   - `<leader>n` - uruchamia menadżer plików NERDTree
 
 ## Mapowanie pluginu NNN.vim
@@ -116,9 +129,9 @@ inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
   - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
   - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
   - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
- 
+
 ## Mapowanie pluginu Undotree
- 
+
  - `<leader>u` - uruchamia plugin Undotree
 
 ## Mapowanie pluginu signify
@@ -133,32 +146,33 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 ## Mapowanie pluginu commentary
 
  - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
- 
- ## Mapowanie pluginu Fern
- 
- - `z` - zoom
+
+## Mapowanie pluginu Fern
+
+- `a` - otwiera linię komend `action`
  - `!` - pokazuje / chowa ukryte pliki
- - `fi` - include
-- `fe` - exclude
 - `h` - zwija katalog
 - `l` - rozwija katalog
 - `ENTER` - wchodzi do katalogu
 - `BACKSPACE` - przechodzi do katalogu wyżej
-- `K` - tworzy nowy katalog
-- `N` - tworzy nowy plik
+- `d` - tworzy nowy katalog
+- `f` - tworzy nowy plik
+- `n` - tworzy nowy plik / katalog / ścieżkę
 - `E` - otwiera plik w nowym oknie
 - `D` - usuwa plik
-- `a` - otwiera linię komend `action`
-- `s` - otwiera plik w wybranym oknie
+- `s` - otwiera plik w podziale poziomym
+- `v` - otwiera plik w podziale pionowym
 - `m` - zmienia nazwę lub przenosi plik
 - `R` - otwiera okno do zmiany nazwy pliku lub zaznaczonych plików
 - `Ctrl-j` - zaznacza / odznacza plik niżej
 - `Ctrl-k` - zaznacza / odznacza plik wyżej
+- `-` - zaznacza / odznacza plik
 
 # Pluginy
 
   - [fzf-preview.vim]
   - [fzf.vim]
+  - [fern.vim]
   - [git-messenger]
   - [goyo]
   - [gv]
@@ -187,6 +201,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 [vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
 [limelight]: https://github.com/junegunn/limelight.vim
 [goyo]: https://github.com/junegunn/goyo.vim
+[fern.vim]: https://github.com/lambdalisue/fern.vim
 [vim-plug]: https://github.com/junegunn/vim-plug/
 [fzf.vim]: https://github.com/junegunn/fzf.vim/
 [undotree]: https://github.com/mbbill/undotree

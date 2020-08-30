@@ -177,6 +177,7 @@ function! FernInit() abort
     nmap <buffer> n <plug>(fern-action-new-path)
     nmap <buffer> m <Plug>(fern-action-move)
     nmap <buffer> D <Plug>(fern-action-remove)
+    nmap <buffer> R <Plug>(fern-action-rename)
     nmap <buffer><nowait> <C-j> <Plug>(fern-action-mark-toggle)j
     nmap <buffer><nowait> <C-k> k<Plug>(fern-action-mark-toggle)
     nmap <buffer><nowait> -     <Plug>(fern-action-mark-toggle)
