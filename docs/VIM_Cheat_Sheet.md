@@ -44,6 +44,7 @@
     * [Kalkulator w linii komend](#kalkulator-w-linii-komend)
     * [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
     * [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
+* [Podmienienie znaku w całym pliku](#podmienienie-znaku-w-caym-pliku)
 
 <!-- vim-markdown-toc -->
 
@@ -550,3 +551,16 @@ lub `Ctrl-x`, zwiększając lub zmniejszając wartość o `1`.
 14
 15
 ```
+
+## Podmienienie znaku w całym pliku
+
+```
+:%norm cs'"
+```
+
+- `%` wszystkie linie
+- `norm` - tryb wprowadzania komend trybu NORMAL
+- `c` - zmień
+- `s` - otaczane
+- `'` - znak `'`
+- `"` - znakiem `"`
