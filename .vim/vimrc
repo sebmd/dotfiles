@@ -244,11 +244,6 @@ nmap gK 9999gk
 nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
 vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
 
-au FileType fern nmap <leader>sh <Plug>(fern-action-hidden-toggle)
-au FileType fern nmap <leader>nf <Plug>(fern-action-new-file)
-au FileType fern nmap <leader>nd <Plug>(fern-action-new-dir)
-au FileType fern nmap <leader>rm <Plug>(fern-action-remove)
-
 nnoremap <tab> :e #<cr>
 
 cmap <c-h> <left>

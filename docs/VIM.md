@@ -133,6 +133,26 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 ## Mapowanie pluginu commentary
 
  - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
+ 
+ ## Mapowanie pluginu Fern
+ 
+ - `z` - zoom
+ - `!` - pokazuje / chowa ukryte pliki
+ - `fi` - include
+- `fe` - exclude
+- `h` - zwija katalog
+- `l` - rozwija katalog
+- `ENTER` - wchodzi do katalogu
+- `BACKSPACE` - przechodzi do katalogu wyżej
+- `K` - tworzy nowy katalog
+- `N` - tworzy nowy plik
+- `E` - otwiera plik w nowym oknie
+- `D` - usuwa plik
+- `a` - otwiera linię komend `action`
+- `s` - otwiera plik w wybranym oknie
+- `m` - zmienia nazwę lub przenosi plik
+- `Ctrl-j` - zaznacza / odznacza plik niżej
+- `Ctrl-k` - zaznacza / odznacza plik wyżej
 
 # Pluginy
 
