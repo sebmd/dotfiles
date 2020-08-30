@@ -28,6 +28,7 @@ alias ff=firefox
 alias free='free -m'
 alias g=git
 alias ga=$HOME/bin/ga
+alias gd=$HOME/bin/gd
 alias gl=$HOME/bin/gl
 alias gp=$HOME/bin/gp
 alias gpg-agent-restart=$HOME/bin/gpg-agent-restart

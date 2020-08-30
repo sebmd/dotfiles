@@ -12,6 +12,7 @@
     * [Informacje o kluczu SSH](#informacje-o-kluczu-ssh)
     * [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
     * [Agent kluczy](#agent-kluczy)
+* [Case in](#case-in)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -102,7 +103,7 @@ $ readlink -f plik.txt
 $ readlink -f $PWD
 ```
 
-Data i godzina z myślnikami
+Data i godzina oddzielona myślnikami
 
 ```
 DATA=$(date +%F-%T|tr : -)
@@ -163,6 +164,23 @@ Dodanie kucza do agenta
 
 ```
 ssh-add ~/.ssh/klucz_ssh
+```
+
+# Case in
+
+```
+read ODP
+case $ODP in
+    t|T)
+        echo T
+        ;;
+    n|N)
+        echo N
+        ;;
+    *)
+        echo ERROR
+        ;;
+esac
 ```
 
 # TODO

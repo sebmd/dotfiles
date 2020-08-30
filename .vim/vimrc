@@ -19,6 +19,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'preservim/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
+    Plug 'lambdalisue/fern.vim'
+    Plug 'lambdalisue/nerdfont.vim'
+    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    Plug 'lambdalisue/fern-bookmark.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
@@ -147,6 +151,9 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " Disable default mappings
 let g:nnn#set_default_mappings = 0
 
+" Fern
+ let g:fern#renderer = "nerdfont"
+
 " NERDTree
 "autocmd vimenter * NERDTree  " uruchomienie przy starcie NERDTree
 
@@ -237,6 +244,11 @@ nmap gK 9999gk
 nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
 vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
 
+au FileType fern nmap <leader>sh <Plug>(fern-action-hidden-toggle)
+au FileType fern nmap <leader>nf <Plug>(fern-action-new-file)
+au FileType fern nmap <leader>nd <Plug>(fern-action-new-dir)
+au FileType fern nmap <leader>rm <Plug>(fern-action-remove)
+
 nnoremap <tab> :e #<cr>
 
 cmap <c-h> <left>
@@ -293,7 +305,8 @@ nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowa
 nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
 " otwera menadżer plików dla lokalizacji otwartego pliku
-nnoremap <leader>f :sv %:p:h<cr>
+" nnoremap <leader>f :sv %:p:h<cr>
+nnoremap <leader>f :Fern . -drawer -toggle<cr>
 
 nnoremap <leader>u :UndotreeToggle<cr>
 

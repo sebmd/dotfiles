@@ -37,6 +37,13 @@
     * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
 * [Kodowanie ROT13](#kodowanie-rot13)
 * [Rejestry](#rejestry)
+* [Przeniesienie bieżącej linii na początek / koniec pliku](#przeniesienie-biecej-linii-na-pocztek--koniec-pliku)
+* [Skopiowanie wybranej linii do bieżącej lokalizacji kursora](#skopiowanie-wybranej-linii-do-biecej-lokalizacji-kursora)
+* [Otworzenie wszystkich plików w katalogu](#otworzenie-wszystkich-plików-w-katalogu)
+* [Operacje arytmetyczne](#operacje-arytmetyczne)
+    * [Kalkulator w linii komend](#kalkulator-w-linii-komend)
+    * [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
+    * [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
 
 <!-- vim-markdown-toc -->
 
@@ -311,6 +318,17 @@ Potwierdzenie zastąpienia wymaga dodania `/c` na końcu polecenia.
 :%s/nnoremap/nmap/c
 ```
 
+Zastąpienie tekstu z zachowaniem wielkości znaków
+
+```
+:%S/nnoremap/nmap/gi
+```
+
+Czyli jeśli Vim znajdzie `Nnoremap` zastąpi go `Nmap`, jeśli znajdzie `NNOREMAP`
+zastąpi go `NMAP`.
+
+Powtórzenie operacji
+
 - `&` w trybie normal powtarza poprzednie znajdź i zastąp
 - `g&` powtarza ostatnie znajdź i zastąp w całym pliku
 - `:&` powtarza ostatnie znajdź i zastąp w bieżącej linii, umożliwia dodanie
@@ -446,3 +464,89 @@ Wartość poszczególnych rejestrów można wyświetlić za pomocą komendy
 
 W linii komend można każdy z rejestrów wkleic poprzedzając go kombinacja `Ctrl-r`
 np. `Ctrl-r %` wstawi rejest `%` czyli nazwę edytowanego pliku.
+
+## Przeniesienie bieżącej linii na początek / koniec pliku
+
+Przeniesienie na koniec pliku
+
+```
+:.m$
+```
+
+Przeniesienie na początek pliku, tuaj używamy numeru linii czyli `0` jednak
+można użyć dowolnej wartości i linia zostanie przeniesiona do linii, którą
+wybierzemy np. `:.m22` przeniesie linię do linii 22.
+
+```
+:.m0
+```
+
+## Skopiowanie wybranej linii do bieżącej lokalizacji kursora
+
+Kopiuje linie `33` do bieżącej linii
+
+```
+:33co.
+```
+
+Oczywiście zamiast kropki `.` możemy użyć numeru linii i w ten sposób skopiujemy
+wybraną linię do innej linii.
+
+Kopiuje linię `33` do linii `100`.
+
+```
+:33co100
+```
+
+## Otworzenie wszystkich plików w katalogu
+
+Otwiera wszystkie pliki w bieżącej lokalizacji
+
+```
+:args <ctrl-a><ctrl-a>
+```
+
+lub
+
+```
+:args *.md
+```
+
+Otworzenie plików w wybranej ścieżce
+
+```
+:args docs/*.md
+```
+
+## Operacje arytmetyczne
+
+- `Ctrl-a` zwiększa wartość pod kursorem o 1
+- `Ctrl-x` zmniejsza wartość pod kurosrem o 1
+
+Jeśli mamy w linii `18` najerzdżając kursorem na tą wartość przyciskamy `Ctrl-a`
+lub `Ctrl-x`, zwiększając lub zmniejszając wartość o `1`.
+
+### Kalkulator w linii komend
+
+```
+:<ctrl-r> = 2+2
+:4
+```
+
+### Wstawienie do bufora wyniku działania matematycznego
+
+```
+:put=(2+2)*2
+8
+```
+
+### Wstawienie do bufora zakresu liczb w kolumnie
+
+```
+:put=range(11,15)
+11
+12
+13
+14
+15
+```
