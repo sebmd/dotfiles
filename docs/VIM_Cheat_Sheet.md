@@ -16,10 +16,10 @@
 * [Poruszanie się pomiędzy buforami](#poruszanie-si-pomidzy-buforami)
 * [Wyrównanie bieżącej linii względem ekranu](#wyrównanie-biecej-linii-wzgldem-ekranu)
 * [Edycja](#edycja)
-    * [Obiekty tekstowe](#obiekty-tekstowe)
-    * [Mnożnik i zakresy](#mnonik-i-zakresy)
-    * [Praca w linii](#praca-w-linii)
-    * [Przykłady edycji](#przykady-edycji)
+	* [Obiekty tekstowe](#obiekty-tekstowe)
+	* [Mnożnik i zakresy](#mnonik-i-zakresy)
+	* [Praca w linii](#praca-w-linii)
+	* [Przykłady edycji](#przykady-edycji)
 * [Kopiuj / wklej](#kopiuj--wklej)
 * [Wprowadzanie tekstu](#wprowadzanie-tekstu)
 * [Makra](#makra)
@@ -34,17 +34,17 @@
 * [Powtórzenie ostatniej komendy](#powtórzenie-ostatniej-komendy)
 * [Uruchomienie komendy Vim z rejestru czyli schowka Vim](#uruchomienie-komendy-vim-z-rejestru-czyli-schowka-vim)
 * [Praca z oknami](#praca-z-oknami)
-    * [Dzielenie okna](#dzielenie-okna)
-    * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
+	* [Dzielenie okna](#dzielenie-okna)
+	* [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
 * [Kodowanie ROT13](#kodowanie-rot13)
 * [Rejestry](#rejestry)
 * [Przeniesienie bieżącej linii na początek / koniec pliku](#przeniesienie-biecej-linii-na-pocztek--koniec-pliku)
 * [Skopiowanie wybranej linii do bieżącej lokalizacji kursora](#skopiowanie-wybranej-linii-do-biecej-lokalizacji-kursora)
 * [Otworzenie wszystkich plików w katalogu](#otworzenie-wszystkich-plików-w-katalogu)
 * [Operacje arytmetyczne](#operacje-arytmetyczne)
-    * [Kalkulator w linii komend](#kalkulator-w-linii-komend)
-    * [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
-    * [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
+	* [Kalkulator w linii komend](#kalkulator-w-linii-komend)
+	* [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
+	* [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
 * [Podmienienie znaku w całym pliku](#podmienienie-znaku-w-caym-pliku)
 * [Zmiana kierunku zaznaczania w trybie VISUAL](#zmiana-kierunku-zaznaczania-w-trybie-visual)
 * [Zmiana wielkości znaków](#zmiana-wielkoci-znaków)
@@ -69,6 +69,7 @@
 * [Automatyczne uzupełnianie](#automatyczne-uzupenianie)
 * [Usunięcie linii które zaczynają się od znaku komentarza](#usunicie-linii-które-zaczynaj-si-od-znaku-komentarza)
 * [Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL](#przejcie-do-poprzednio-zaznaczonego-tekstu-w-trybie-visual)
+* [Mapowanie funkcji związancyh położeniem edytowanego pliku](#mapowanie-funkcji-zwizancyh-pooeniem-edytowanego-pliku)
 
 <!-- vim-markdown-toc -->
 
@@ -792,4 +793,49 @@ W tym wypadku to znak `#`
 
 ```vim
 gv
+```
+
+## Mapowanie funkcji związancyh położeniem edytowanego pliku
+
+
+Wyśweitla bieżący katalog np. `/home/red/git/dot.files/.vim`
+
+```vim
+map! ,fp <C-R>=expand("%:p:h")<CR>
+```
+
+Wyświetla nazwę edytowanego pliku np. `vimrc`
+
+```vim
+map! ,fn <C-R>=expand("%:t:r")<CR>
+```
+
+Wyświetla katalog oraz nazwę edytowanego pliku np.
+`/home/red/git/dot.files/.vim/vimrc`
+
+```vim
+map! ,fnn <c-r>=expand("%:p")<cr>
+```
+
+Wyświetla w pasku statusu nazwę bieżącego pliku
+
+```vim
+map <leader>pfn :echo expand('%:p')<CR>
+```
+Uruchamia komendę `:e [current_dir]`
+
+```vim
+map ,e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+```
+
+Uruchamia komendę `:split [current_dir]`
+
+```vim
+map ,s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+```
+
+Uruchamia komendę `:vnew [current_dir]`
+
+```vim
+map ,v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 ```
