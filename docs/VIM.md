@@ -56,7 +56,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
  - `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
  - `<leader>cp` - klonuje bieżący paragraf
- - `<leader>ps` - wchodzi / wychodzi w tryb paste
+ - `<leader>pa` - wchodzi / wychodzi w tryb paste
  - `<leader>v` - otwiera plik `vimrc`
  - `<leader>r` - przeładowuje plik `vimrc`
  - `<leader>t` - uruchamia terminal (podział poziomy)
@@ -70,6 +70,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 - `<leader>l` - przechodzi na koniec linii
 - `<leader>s` - uruchamia sprawdzanie pisowni
 - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
+- `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
 
 ## Tryb COMMAND
 

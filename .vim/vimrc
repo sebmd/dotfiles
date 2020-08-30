@@ -337,6 +337,8 @@ nnoremap <leader>gc :GCheckout<cr>
 
 nnoremap <leader>pa :set invpaste paste?<cr>
 
+nnoremap <leader>pr :ProjectFiles<cr>
+
 nnoremap <leader>v :e $MYVIMRC<cr>
 " nnoremap <leader>vv :NERDTreeToggle ~/.vim<cr>
 
@@ -570,6 +572,11 @@ function! RgCurrDir(query, fullscreen)
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
+" ProjectFiles
+function! s:find_git_root()
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
 function! DestractionFree()
     set number!
     set relativenumber!
@@ -622,6 +629,8 @@ command! -bang -nargs=* RgFzf call RgFzf(<q-args>, <bang>0)
 
 command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)
 command! -bang -nargs=* RgCurrDir call RgCurrDir(<q-args>, <bang>0)
+
+command! ProjectFiles execute 'Files' s:find_git_root()
 
 " FZF bez podglądu zawartości pliku
 command! -bang -nargs=* -complete=dir LS
