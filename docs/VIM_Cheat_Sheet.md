@@ -13,6 +13,7 @@
 * [Poruszanie się pomiędzy liniami](#poruszanie-si-pomidzy-liniami)
 * [Poruszanie się po ekranie](#poruszanie-si-po-ekranie)
 * [Przewijanie pliku](#przewijanie-pliku)
+* [Poruszanie się pomiędzy buforami](#poruszanie-si-pomidzy-buforami)
 * [Wyrównanie bieżącej linii względem ekranu](#wyrównanie-biecej-linii-wzgldem-ekranu)
 * [Edycja](#edycja)
     * [Obiekty tekstowe](#obiekty-tekstowe)
@@ -26,7 +27,7 @@
 * [Skopiowanie słowa pod kursorem do linii komend](#skopiowanie-sowa-pod-kursorem-do-linii-komend)
 * [Otworzenie wszystkich plików z bieżącego katalogu](#otworzenie-wszystkich-plików-z-biecego-katalogu)
 * [Skopiowanie całej linii bez znaku końca linii](#skopiowanie-caej-linii-bez-znaku-koca-linii)
-* [Znajdź i zatąp](#znajd-i-zatp)
+* [Znajdź i zastąp](#znajd-i-zastp)
 * [Sortowanie](#sortowanie)
 * [Praca z powłoką systemową](#praca-z-powok-systemow)
 * [Otworzenie pliku na konkretnej linii](#otworzenie-pliku-na-konkretnej-linii)
@@ -45,6 +46,29 @@
     * [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
     * [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
 * [Podmienienie znaku w całym pliku](#podmienienie-znaku-w-caym-pliku)
+* [Zmiana kierunku zaznaczania w trybie VISUAL](#zmiana-kierunku-zaznaczania-w-trybie-visual)
+* [Zmiana wielkości znaków](#zmiana-wielkoci-znaków)
+* [Wyświetlenie historii komend](#wywietlenie-historii-komend)
+* [Wklejanie w trybie INSERT](#wklejanie-w-trybie-insert)
+* [Przeszukiwanie pomocy edytora Vim](#przeszukiwanie-pomocy-edytora-vim)
+* [Dodanie treści innego pliku](#dodanie-treci-innego-pliku)
+* [Usunięcie wszystkich linii](#usunicie-wszystkich-linii)
+* [Test uruchomienia edytora Vim](#test-uruchomienia-edytora-vim)
+* [Lista pluginów i plików startowych](#lista-pluginów-i-plików-startowych)
+* [Zapis pracy edytora i uruchamianych funkcji dla analizy problemów](#zapis-pracy-edytora-i-uruchamianych-funkcji-dla-analizy-problemów)
+* [Otworzenie pliku w tle](#otworzenie-pliku-w-tle)
+* [Przechodzenie pomiędzy znalezionymi błędami pisowni](#przechodzenie-pomidzy-znalezionymi-bdami-pisowni)
+* [Usunięcie co drugą linię](#usunicie-co-drug-lini)
+* [Usunięcie linii zawierających wyrażenie](#usunicie-linii-zawierajcych-wyraenie)
+* [Formatowanie całego pliku](#formatowanie-caego-pliku)
+* [Wprawadzenie wielokrotnie znaku](#wprawadzenie-wielokrotnie-znaku)
+* [Usunięcie wszystkich linii nie zawierających wyrażenia](#usunicie-wszystkich-linii-nie-zawierajcych-wyraenia)
+* [Wyświetlenie skrótów klawiszowych](#wywietlenie-skrótów-klawiszowych)
+* [Plugin tpope/vim-abolish](#plugin-tpopevim-abolish)
+* [Zliczenie wystąpień wyrażenia](#zliczenie-wystpie-wyraenia)
+* [Automatyczne uzupełnianie](#automatyczne-uzupenianie)
+* [Usunięcie linii które zaczynają się od znaku komentarza](#usunicie-linii-które-zaczynaj-si-od-znaku-komentarza)
+* [Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL](#przejcie-do-poprzednio-zaznaczonego-tekstu-w-trybie-visual)
 
 <!-- vim-markdown-toc -->
 
@@ -97,6 +121,8 @@ Ctrl-v u25B8
   niż `$`
 - `g^` - przechodzi do pierwszego znaku w linii pomijając spacje i znak
    tabulatora
+- `g_` - przechodzi do ostatniego znaku w linii ignoruje spacje i tabulatory na
+  końcu linii
 - `f`<znak> - przechodzi do pierwszego wystąpienia znaku
 - `F`<znak> - przechodzi do poprzedniego wystąpienia znaku
 - `t`<znak> - przechodzi znak wcześniej w prawo
@@ -159,6 +185,16 @@ przykład przewinięcie o 6 linii w dół:
 6Ctrl-e
 ```
 
+## Poruszanie się pomiędzy buforami
+
+- `:bn` - następny bufor
+- `:bp` - poprzedni bufor
+- `:bm` - kolejny bufor, który był modyfikowany
+- `:ls` - lista otwartych buforów
+
+Plugin `fzf.vim` posiada funkcę `Buffers`, dzięki której możemy szybko poruszać
+się pomiędzy buforami.
+
 ## Wyrównanie bieżącej linii względem ekranu
 
 - `zt` - ustawia linię na górze ekranu
@@ -206,7 +242,7 @@ Koniec i początek linii
 
 Mapowanie `Y` do działania zgodnego z podobnymi skrótami tj. `D` czy `C`.
 
-```
+```vim
 nnoremap Y y$
 ```
 
@@ -282,11 +318,11 @@ Jeśli chcemy skopiować linię bez tego znaku np. chcąc wkleić linię pomięd
 wyrazy lub do linii komend możemy posłużyć się kombinacją: `$y^` dla ułatwienia
 możemy ją zmapować:
 
-```
+```vim
 nnoremap yr $y^
 ```
 
-## Znajdź i zatąp
+## Znajdź i zastąp
 
 Dostępne parametry
 
@@ -297,31 +333,31 @@ Dostępne parametry
 
 Zastępuje pierwsze wystąpienie szukanego wyrazu w bieżącej linii
 
-```
+```vim
 :s/nnoremap/nmap
 ```
 
 Zastępuje każde wystąpienie szukanego słowa w linii
 
-```
+```vim
 :s/nnoremap/nmap/g
 ```
 
 Zastąpienie tekstu w całym pliku wymaga dodania znaku `%` na początku komendy.
 
-```
+```vim
 :%s/nnoremap/nmap
 ```
 
 Potwierdzenie zastąpienia wymaga dodania `/c` na końcu polecenia.
 
-```
+```vim
 :%s/nnoremap/nmap/c
 ```
 
 Zastąpienie tekstu z zachowaniem wielkości znaków
 
-```
+```vim
 :%S/nnoremap/nmap/gi
 ```
 
@@ -340,36 +376,37 @@ Powtórzenie operacji
 - `:sort` - sortowanie tekstu
 - `:sort!` - odwrotnie sortowanie
 - `:sort i` - ignoruje wielkość znaków
+- `:sort u` - sortuje i usuwa duplikaty
 
 ## Praca z powłoką systemową
 
 Wykonanie polecenia
 
-```
+```vim
 :!ls -alh
 ```
 
 Wykonanie polecenia `uniq` na całym pliku
 
-```
+```vim
 :%!uniq -u
 ```
 
 Wstawienie wyniku polecenia do edytowanego pliku
 
-```
+```vim
 :r!ls -alh
 ```
 
 Innym sposobem jest naciśnięcie dwukrotnie wykrzyknika w trybie NORMAL
 
-```
+```vim
 !!
 ```
 
 Uruchomi się tryb COMMAND z poleceniem:
 
-```
+```vim
 :.!
 ```
 
@@ -380,17 +417,17 @@ wynikiem polecenia systemowego `ls`.
 
 Otworzenie pliku w linii 222
 
-```
+```vim
 :e +222 nazwa_pliku.txt
 ```
 
-```
+```vim
 $ vim +222 nazwa_pliku.txt
 ```
 
 ## Powtórzenie ostatniej komendy
 
-```
+```vim
 @:
 ```
 
@@ -399,7 +436,7 @@ $ vim +222 nazwa_pliku.txt
 Kopiując z bufora linię np. `:r!ls -al` zapisujemy ją w rejestrze `"`, możemy
 użyć tego rejestru do uruchomienie skopiowanego polecenia za pomocą komendy
 
-```
+```vim
 :@"
 ```
 
@@ -424,7 +461,7 @@ pomocą komendy `:reg`
 
 ## Kodowanie ROT13
 
-```
+```vim
 g??
 ```
 
@@ -443,7 +480,7 @@ Grxfg mnxbqbjnal
 Vim posiada kilka rejestrów w których przechowuje kopiowany tekst oraz inne
 wartości np. nazwę edytowanego pliku / bufora.
 
-```
+```vim
 :h registers
 
 1. The unnamed register ""
@@ -460,26 +497,26 @@ wartości np. nazwę edytowanego pliku / bufora.
 
 Wartość poszczególnych rejestrów można wyświetlić za pomocą komendy
 
-```
+```vim
 :reg
 ```
 
-W linii komend można każdy z rejestrów wkleic poprzedzając go kombinacja `Ctrl-r`
-np. `Ctrl-r %` wstawi rejest `%` czyli nazwę edytowanego pliku.
+W linii komend można każdy z rejestrów wkleić poprzedzając go kombinacja `Ctrl-r`
+np. `Ctrl-r %` wstawi rejestr `%` czyli nazwę edytowanego pliku.
 
 ## Przeniesienie bieżącej linii na początek / koniec pliku
 
 Przeniesienie na koniec pliku
 
-```
+```vim
 :.m$
 ```
 
-Przeniesienie na początek pliku, tuaj używamy numeru linii czyli `0` jednak
+Przeniesienie na początek pliku, tutaj używamy numeru linii czyli `0` jednak
 można użyć dowolnej wartości i linia zostanie przeniesiona do linii, którą
 wybierzemy np. `:.m22` przeniesie linię do linii 22.
 
-```
+```vim
 :.m0
 ```
 
@@ -487,7 +524,7 @@ wybierzemy np. `:.m22` przeniesie linię do linii 22.
 
 Kopiuje linie `33` do bieżącej linii
 
-```
+```vim
 :33co.
 ```
 
@@ -496,7 +533,7 @@ wybraną linię do innej linii.
 
 Kopiuje linię `33` do linii `100`.
 
-```
+```vim
 :33co100
 ```
 
@@ -504,47 +541,47 @@ Kopiuje linię `33` do linii `100`.
 
 Otwiera wszystkie pliki w bieżącej lokalizacji
 
-```
+```vim
 :args <ctrl-a><ctrl-a>
 ```
 
 lub
 
-```
+```vim
 :args *.md
 ```
 
 Otworzenie plików w wybranej ścieżce
 
-```
+```vim
 :args docs/*.md
 ```
 
 ## Operacje arytmetyczne
 
 - `Ctrl-a` zwiększa wartość pod kursorem o 1
-- `Ctrl-x` zmniejsza wartość pod kurosrem o 1
+- `Ctrl-x` zmniejsza wartość pod kursorem o 1
 
-Jeśli mamy w linii `18` najerzdżając kursorem na tą wartość przyciskamy `Ctrl-a`
+Jeśli mamy w linii `18` najeżdżając kursorem na tą wartość przyciskamy `Ctrl-a`
 lub `Ctrl-x`, zwiększając lub zmniejszając wartość o `1`.
 
 ### Kalkulator w linii komend
 
-```
+```vim
 :<ctrl-r> = 2+2
 :4
 ```
 
 ### Wstawienie do bufora wyniku działania matematycznego
 
-```
+```vim
 :put=(2+2)*2
 8
 ```
 
 ### Wstawienie do bufora zakresu liczb w kolumnie
 
-```
+```vim
 :put=range(11,15)
 11
 12
@@ -555,7 +592,7 @@ lub `Ctrl-x`, zwiększając lub zmniejszając wartość o `1`.
 
 ## Podmienienie znaku w całym pliku
 
-```
+```vim
 :%norm cs'"
 ```
 
@@ -565,3 +602,194 @@ lub `Ctrl-x`, zwiększając lub zmniejszając wartość o `1`.
 - `s` - otaczane
 - `'` - znak `'`
 - `"` - znakiem `"`
+
+## Zmiana kierunku zaznaczania w trybie VISUAL
+
+Podczas zaznaczania należy nacisnąć `o` żeby zmienić kierunek zaznaczania.
+
+## Zmiana wielkości znaków
+
+- `gu` - zmienia znak na mały
+- `gU` - zmienia znak na wielki
+- `g~` - zamienia znak z wielkiego na mały i odwrotnie
+
+Przykłady
+
+- `guu` - zmienia znaki na małe w całej linii
+- `gUiw` - zmienia znaki na wielkie w wyrazie pod kursorem
+- `g~ip` - zmienia wielkość znaków w całym paragrafie
+
+## Wyświetlenie historii komend
+
+W trybie NORMAL naciskamy `q:`
+W trybie COMMAND naciskamy `Ctrl-f`
+
+Po znalezieniu komendy możemy ją uruchomić naciskając `ENTER` lub skopiować np
+`yy`.
+
+## Wklejanie w trybie INSERT
+
+Będąc w trybie INSERT należy użyć `Ctrl-r nr-rejestru` standardowo rejestr `0`
+jest ostatnim skopiowanym obiektem tekstowym.
+
+## Przeszukiwanie pomocy edytora Vim
+
+```vim
+helpgrep ctrl-r
+```
+
+W rezultacie uzyskamy od 0 do kilku wyników, za pomocą komend `:cnext` oraz
+`:cprev` możemy się poruszać pomiędzy wynikami. A komenda `:copen` otwiera listę
+
+## Dodanie treści innego pliku
+
+```vim
+:!cat nazwa_pliku.txt
+```
+
+```vim
+:r nazwa_pliku.txt
+```
+
+## Usunięcie wszystkich linii
+
+```vim
+:1,$d
+```
+
+lub
+
+```vim
+ggdG
+```
+
+## Test uruchomienia edytora Vim
+
+```bash
+$ vim --startuptime startup.log
+```
+
+## Lista pluginów i plików startowych
+
+```vim
+:scriptnames
+```
+
+## Zapis pracy edytora i uruchamianych funkcji dla analizy problemów
+
+Uruchomienie
+
+```vim
+:profile start profile.log
+:profile func *
+:profile file *
+```
+
+Zatrzymanie
+
+```vim
+:profile pause
+```
+
+## Otworzenie pliku w tle
+
+Plik zostanie otwarty w następnym buforze
+
+```vim
+:bad nazwa_pliku.txt
+```
+
+## Przechodzenie pomiędzy znalezionymi błędami pisowni
+
+```vim
+:set spell
+```
+
+Poruszanie się pomiędzy kolejnymi błędami w pisowni
+
+- `]s` - przeskakuje do następnego błędu
+- `[s` - przeskakuje do poprzedniego błędu
+
+## Usunięcie co drugą linię
+
+Używając funkcji `global` usuniemy co drugą linię w pliku.
+
+```vim
+:g/^/+d
+```
+
+## Usunięcie linii zawierających wyrażenie
+
+```vim
+:g/nazwa_pliku\.txt/d
+```
+
+## Formatowanie całego pliku
+
+```vim
+gg=G
+```
+
+## Wprawadzenie wielokrotnie znaku
+
+Wstawienie 80 znaków `#`
+
+```vim
+80i#<ESC>
+```
+
+## Usunięcie wszystkich linii nie zawierających wyrażenia
+
+Komenda `:v` to skrót od `:vglobal` a ta jest równoznaczna z `:g!`
+
+```vim
+:v/wyrażenie/d
+```
+
+## Wyświetlenie skrótów klawiszowych
+
+```vim
+:map
+```
+
+Plugin `fzf.vim` posiada funkcę `:Maps`, która umożliwia wyszukiwanie.
+
+## Plugin tpope/vim-abolish
+
+- `crc` - zamienia `nazwa_pliku` na `nazwaPliku`
+
+## Zliczenie wystąpień wyrażenia
+
+Zliczenie linii w których występuje `wyrażenie`
+
+```vim
+:%s/wyrażenie//n
+```
+
+Zliczenie wszystkich wystąpień słowa `wyrażenie` czyli zliczy też kilkukrotne
+wystąpienie słowa w jeden linii.
+
+```vim
+:%s/wyrażenie//gn
+```
+
+## Automatyczne uzupełnianie
+
+- `Ctrl-x Ctrl-l` - pozwala uzupełnić całą linię
+- `Ctrl-x Ctrl-f` - pozwala uzupełnić nazwę pliku
+- `Ctrl-n` lub `Ctrl-j` - następna podpowiedź
+- `Ctrl-p` lub `Ctrl-k` - poprzednia podpowiedź
+
+## Usunięcie linii które zaczynają się od znaku komentarza
+
+W tym wypadku to znak `#`
+
+```vim
+:g/^\s*#/d
+```
+
+## Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL
+
+```vim
+gv
+```

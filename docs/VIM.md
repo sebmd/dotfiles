@@ -68,6 +68,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
  - `<leader>h` - przechodzi na początek linii
 - `<leader>l` - przechodzi na koniec linii
+- `<leader>s` - uruchamia sprawdzanie pisowni
 
 ## Tryb COMMAND
 
@@ -129,6 +130,9 @@ Skróty klawiszowe
   - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
   - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
   - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
+  
+  W trybie **VISUAL** po zaznaczeniu tekstu należy nacisnąć `S` a następnie znak
+  którym chcemy otoczyć zaznaczenie po czym naciskamy **ENTER**.
 
 ## Mapowanie pluginu Undotree
 
@@ -186,6 +190,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [vim-colorscheme-manager] - schmaty kolorów
   - [vim-colorscheme-switcher] - przełączanie schematów kolorów
   - [vim-commentary]
+  - [vim-eunuch] - dodaje polecenia systemu Linux np: `Mkdir` czy `Chmod`
   - [vim-fugitive]
   - [vim-markdown-toc] - automatycznie tworzy i aktualizuje spis treści dla plików Markdown
   - [vim-peekaboo]
@@ -196,6 +201,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [vim-surround]
   - [vim-unimpaired]
 
+[vim-eunuch]: https://github.com/tpope/vim-eunuch
 [indentLine]: https://github.com/Yggdroot/indentLine
 [vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
 [vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
