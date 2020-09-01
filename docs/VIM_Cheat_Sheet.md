@@ -70,6 +70,7 @@
 * [Usunięcie linii które zaczynają się od znaku komentarza](#usunicie-linii-które-zaczynaj-si-od-znaku-komentarza)
 * [Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL](#przejcie-do-poprzednio-zaznaczonego-tekstu-w-trybie-visual)
 * [Mapowanie funkcji związancyh położeniem edytowanego pliku](#mapowanie-funkcji-zwizancyh-pooeniem-edytowanego-pliku)
+* [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
 
 <!-- vim-markdown-toc -->
 
@@ -838,4 +839,12 @@ Uruchamia komendę `:vnew [current_dir]`
 
 ```vim
 map ,v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+```
+
+## Zapisanie wyniku polecenia w pliku
+
+```
+:redir > plik.txt
+:version
+:redir END
 ```
