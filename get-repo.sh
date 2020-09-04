@@ -13,11 +13,13 @@ echo -n "Uruchomić skrypt instalacyjny? [T/n]: "
 read ODP
 case $ODP in
     t|T)
+        cd $DOTFILES_DIR
         $DOTFILES_DIR/install.sh
         ;;
     n|N)
         ;;
     *)
+        cd $DOTFILES_DIR
         $DOTFILES_DIR/install.sh
         ;;
 esac
