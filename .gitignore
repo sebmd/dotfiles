@@ -5,10 +5,13 @@
 .vim/viminfo
 .vim/.colorscheme
 .vim/.netrwhist
-bin/lf
+bin/bat
+bin/exa
+bin/fd
 bin/fzf
+bin/gopass
+bin/lf
 bin/rg
 bin/sd
-bin/bat
 notes
 *.swp
