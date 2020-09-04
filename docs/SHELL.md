@@ -13,6 +13,7 @@
     * [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
     * [Agent kluczy](#agent-kluczy)
 * [Case in](#case-in)
+* [for FILE](#for-file)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -181,6 +182,26 @@ case $ODP in
         echo ERROR
         ;;
 esac
+```
+
+# for FILE
+
+Funkcja `for FILE in ...` dodatkowo została wyposażona w mechanizm wykluczający
+niechciane pliki, jest to `egrep -v 'README.md|install.sh'`
+
+```bash
+#!/usr/bin/env bash
+
+DOTFILES_BIN_DIR=$HOME/git/github/dotfiles_bin
+BIN_DIR=$HOME/bin
+
+mkdir -p $DOTFILES_BIN_DIR
+
+git clone https://github.com/sebmd/dotfiles_bin $DOTFILES_BIN_DIR
+
+for FILE in $(ls $DOTFILES_BIN_DIR|egrep -v 'README.md|install.sh'); do
+    ln -sf $DOTFILES_BIN_DIR/$FILE $BIN_DIR/$FILE
+done
 ```
 
 # TODO
