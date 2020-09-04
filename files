@@ -5,6 +5,9 @@
 .config/zathura/zathurarc
 .config/alacritty/alacritty.yml
 .config/kitty
+.config/bspwn
+.config/sxhkd
+.config/polybar
 .vim
 .gnupg/gpg-agent.conf
 bin
