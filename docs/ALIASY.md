@@ -544,15 +544,12 @@ Skrypt `sedi`
 ```bash
 #!/usr/bin/env bash
 
-BAT=$(which bat)
-PREVIEW_SH=$(which preview.sh)
+PREVIEW=$(which preview_dir.sh)
 
-if [ ! -z $BAT ]; then
-    PREVIEW="bat --style=numbers --color=always {}"
-elif [ ! -z $PREVIEW_SH ]; then
-    PREVIEW="preview.sh {}"
+if [ ! -z $PREVIEW ]; then
+    PREVIEW="preview_dir.sh {}"
 else
-    echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+    echo "Brak skryptu 'preview_dir.sh', należy doinstalować jeden z nich"
     exit
 fi
 

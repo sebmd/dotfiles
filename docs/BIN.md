@@ -43,7 +43,7 @@ Opis zawartości katalogu `~/bin`
 - `passf`
 - `passr`
 - `preview.sh` - przydatny przy podglądzie plików
-- `prv_dir.sh`
+- `preview_dir.sh`
 - `psgrep`
 - `pu` - skrót dla `git pull`
 - `push` - skrót dla `git push`
@@ -481,13 +481,13 @@ pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf 
 Skrypt przydatny przy podglądzie plików spod programu `fzf`, źródło:
 https://github.com/junegunn/fzf.vim/blob/master/bin/preview.sh
 
-# Skrypt prv_dir.sh
+# Skrypt preview_dir.sh
 
 ```bash
 #!/usr/bin/env bash
 
 KATALOG=$(readlink -f "$1")
-tree -L 1 $KATALOG
+/usr/bin/tree -L 1 $KATALOG
 ```
 
 # Skrypt psgrep
@@ -565,15 +565,12 @@ fi
 ```bash
 #!/usr/bin/env bash
 
-BAT=$(which bat)
-PREVIEW_SH=$(which preview.sh)
+PREVIEW=$(which preview_dir.sh)
 
-if [ ! -z $BAT ]; then
-    PREVIEW="bat --style=numbers --color=always {}"
-elif [ ! -z $PREVIEW_SH ]; then
-    PREVIEW="preview.sh {}"
+if [ ! -z $PREVIEW ]; then
+    PREVIEW="preview_dir.sh {}"
 else
-    echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+    echo "Brak skryptu 'preview_dir.sh', należy doinstalować jeden z nich"
     exit
 fi
 
