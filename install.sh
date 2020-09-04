@@ -3,7 +3,7 @@
 BACKUP_DIR=$HOME/.backup
 SCRIPT_DIR=$PWD
 BIN_DIR=$HOME/bin
-DOTFILES_BIN_DIR=$HOME/git/dotfiles_bin
+DOTFILES_BIN_DIR=$HOME/git/github/dotfiles_bin
 
 function install_dnf() {
     sudo dnf update
