@@ -1,69 +1,112 @@
-# Bin
+# BIN
 
 Opis zawartości katalogu `~/bin`
 
-- `backup_dir`
+- `backup-dir` - skrypt wykonuje kopię zapasową bieżącego katalogu
+- `batt` - pokazuje stan baterii laptopa
 - `cdb` - wyświetla listę katalogów znajdujących się w pliku `~/.config/bmdirs`, po wybraniu katalogu przechodzi do niego
 - `cdba` - dodaje bieżący katalog do `~/.config/bmdirs`
 - `cdbd` - usuwa bieżący katalog z pliku `~/.config/bmdirs`
 - `cdbe` - włącza edycję pliku `~/.config/bmdirs`
 - `cdf`
+- `clear-gpg-passwd`
 - `cleartemp`
 - `create_symlinks`
 - `DecryptGPG`
 - `DecryptSSL`
 - `EncryptGPG`
 - `EncryptSSL`
-- `funkcje`
+- `fullhd` - ustawia rozdzielczość ekranu na Full HD
+- `funkcje` - przestarzały skrypt tworzący linki symboliczne dla dostępnych funkcji
 - `ga` - skrót dla `git add ; git commit`
+- `gd` - git diff
+- `gl` - git log
 - `gp` - skrót dla `git add ; git commit ; git push`
-- `last_edit`
-- `open_with_fzf`
+- `gpg-agent-restart`
+- `gpg-delete-keys`
+- `gpg-delete-secret-keys`
+- `gpg-edit-key`
+- `gpg-export`
+- `gpg-export-secret-key`
+- `gpg-gen-key`
+- `gpg-list-keys`
+- `gpg-list-keys-short`
+- `gpg-list-secret-keys`
+- `gpg-list-secret-keys-short`
+- `gps`
+- `gsts`
+- `last-edit`
+- `ll`
+- `mkcdir`
+- `open-with-fzf`
 - `otp`
-- `otp_add`
+- `otp-add`
 - `passf`
 - `passr`
+- `preview.sh` - przydatny przy podglądzie plików
+- `prv_dir.sh`
 - `psgrep`
 - `pu` - skrót dla `git pull`
 - `push` - skrót dla `git push`
+- `pwgen` - generator haseł z odpowiednimi parametrami
 - `rgvi`
 - `se`
+- `sedi`
+- `sefi`
 - `suspend`
+- `tree`
 - `vf`
 - `vim_docs`
 - `vim_notes`
 - `vs`
 
-# Funkcja backup_dir
+# Skrypt backup-dir
+
+Skrypt wykonuje kopię zapasową bieżącego katalogu daje możliwość zaszyfrowania
+pliku hasłem.
 
 ```
-function backup_dir() {
-    XZ_OPT=-8
-    SHRED=$(which shred)
-    DATA=$(date +%y%m%d-%H%M)
-    cd $(readlink -f "$PWD")
-    DIR=$(basename "$PWD")
-    cd ..
-    tar -cJf "$DIR"-"$DATA".txz -C . "$DIR"
-    echo "Zapisano $DIR-$DATA.txz w katalogu: $PWD"
+XZ_OPT=-8
+SHRED=$(which shred)
+DATA=$(date +%y%m%d-%H%M)
+cd $(readlink -f "$PWD")
+DIR=$(basename "$PWD")
+cd ..
+tar -cJf "$DIR"-"$DATA".txz -C . "$DIR"
+echo "Zapisano $DIR-$DATA.txz w katalogu: $PWD"
 
-    echo -n "Zaszyfrować plik? (t/N): "
-    read szyfrowanie
+echo -n "Zaszyfrować plik? (t/N): "
+read szyfrowanie
 
-    case $szyfrowanie in
-        t)
-            gpg -c "$DIR"-"$DATA".txz
-            echo "Zapisano "$DIR"-"$DATA".txz.gpg w katalogu "$PWD""
-            if [ $SHRED ]; then
-                shred "$DIR"-"$DATA".txz
-            else
-                rm "$DIR"-"$DATA".txz
-            fi
-            ;;
-        *)
-            ;;
-    esac
-}
+case $szyfrowanie in
+    t)
+        gpg -c "$DIR"-"$DATA".txz
+        echo "Zapisano "$DIR"-"$DATA".txz.gpg w katalogu "$PWD""
+        if [ $SHRED ]; then
+            shred "$DIR"-"$DATA".txz
+        else
+            rm "$DIR"-"$DATA".txz
+        fi
+        ;;
+    *)
+        ;;
+esac
+```
+
+# Skrypt batt
+
+Skrypt batt pokazuje stan baterii
+
+ ```
+    state:               fully-charged
+    percentage:          99%
+```
+
+
+```
+#!/usr/bin/env bash
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
 ```
 
 # Skrypt cdf
@@ -120,119 +163,133 @@ find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
 find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 ```
 
-# Funkcja DecryptGPG
+# Skrypt DecryptGPG
 
-```
-function DecryptGPG() {
-    if [[ $# < 1 ]]; then
-        echo Podaj nazwę pliku do odszyfrowania.
-        echo $ enc plik.txt
-        return 1
-    fi
-    if [ ! -e "$1" ]; then
-        echo Podany plik nie istnieje
-    else
-        nazwa_pliku=$(basename "$1" .gpg)
-        gpg2 -o "$nazwa_pliku" -d "$1"
-    fi
-}
+```bash
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do odszyfrowania.
+    echo $ enc plik.txt
+    return 1
+fi
+if [ ! -e "$1" ]; then
+    echo Podany plik nie istnieje
+else
+    nazwa_pliku=$(basename "$1" .gpg)
+    gpg2 -o "$nazwa_pliku" -d "$1"
+fi
 ```
 
-# Funkcja DecryptSSL
-```
-function DecryptSSL () {
-    if [[ $# < 1 ]]; then
-        echo Podaj nazwę pliku do odszyfrowania.
-        echo $ dec plik.txt.enc
-        return 1
-    fi
-    if [ ! -e $1 ]; then
-        echo "Podany plik ($1) nie istnieje."
-        return 1
-    else
-        openssl aes-256-cbc -d -a -in "$1" -out $(basename $1 .enc);
-    fi
-}
+# Skrypt DecryptSSL
+
+```bash
+ if [[ $# < 1 ]]; then
+     echo Podaj nazwę pliku do odszyfrowania.
+     echo $ dec plik.txt.enc
+     return 1
+ fi
+ if [ ! -e $1 ]; then
+     echo "Podany plik ($1) nie istnieje."
+     return 1
+ else
+     openssl aes-256-cbc -d -a -in "$1" -out $(basename $1 .enc);
+ fi
 ```
 
-# Funkcja EncryptGPG
-```
-function EncryptGPG () {
-    if [[ $# < 1 ]]; then
-        echo Podaj nazwę pliku do zaszyfrowania.
-        echo $ enc plik.txt
-        return 1
-    fi
-    if [ ! -e "$1" ]; then
-        echo Podany plik nie istnieje
-    else
-        gpg2 -c "$1"
-    fi
+# Skrypt EncryptGPG
 
-    echo -n "Usunąć plik źródłowy? (t/N): "
-    read USUNAC
+```bash
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do zaszyfrowania.
+    echo $ enc plik.txt
+    return 1
+fi
+if [ ! -e "$1" ]; then
+    echo Podany plik nie istnieje
+else
+    gpg2 -c "$1"
+fi
 
-    case $USUNAC in
-        t)
-            rm "$1"
-            ;;
-        *)
-            ;;
-    esac
-}
-```
+echo -n "Usunąć plik źródłowy? (t/N): "
+read USUNAC
 
-# Funkcja EncryptSSL
-```
-function EncryptSSL () {
-    if [[ $# < 1 ]]; then
-        echo Podaj nazwę pliku do zaszyfrowania.
-        echo $ enc plik.txt
-        return 1
-    else
-        if [ ! -e $1 ]; then
-            echo Podany plik nie istnieje
-        else
-            openssl aes-256-cbc -a -salt -in "$1" -out "$1.enc";
-        fi
-    fi
-}
+case $USUNAC in
+    t)
+        rm "$1"
+        ;;
+    *)
+        ;;
+esac
 ```
 
-# Funkcja ga
-```
-function ga() {
-    git add -A && git commit -m $DATA
-}
+# Skrypt EncryptSSL
+
+```bash
+ if [[ $# < 1 ]]; then
+     echo Podaj nazwę pliku do zaszyfrowania.
+     echo $ enc plik.txt
+     return 1
+ else
+     if [ ! -e $1 ]; then
+         echo Podany plik nie istnieje
+     else
+         openssl aes-256-cbc -a -salt -in "$1" -out "$1.enc";
+     fi
+ fi
 ```
 
-# Funkcja gp
+# Skrypt ga
+
 ```
-function gp() {
+git add -A && git commit -m $DATA
+```
+
+# Skrypt gp
+
+```bash
+DATA=$(date +%F-%T)
+
+if [ "$(basename $0)" == "gps" ]; then
+    git add -A && git commit -S -m $DATA && git push
+else
     git add -A && git commit -m $DATA && git push
-}
+fi
 ```
 
-# Funkcja last_edit
-```
-function last_edit() {
-    find $HOME -type f -mtime -3 -mtime +4
-    find $HOME -type f -mtime -3
-}
+# Skrypt gps
+
+Skrypt `gps` jest linkiem symbolicznym do skryptu `gp`, uruchamiając go za
+pomocą komendy `gps`, git będzie wymagał podpisania commita za pomocą klucza
+PGP.
+
+```bash
+DATA=$(date +%F-%T)
+
+if [ "$(basename $0)" == "gps" ]; then
+    git add -A && git commit -S -m $DATA && git push
+else
+    git add -A && git commit -m $DATA && git push
+fi
 ```
 
-# Funkcja open_with_fzf
-```
-function open_with_fzf() {
-    fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
-}
+# Skrypt last-edit
+
+```bash
+find $HOME -type f -mtime -3 -mtime +4
+find $HOME -type f -mtime -3
 ```
 
-# Funkcja otp
+# Skrypt open-with-fzf
+
 ```
-function otp() {
-    oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basename {} .gpg \; | fzf)")"
-}
+fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
+```
+
+# Skrypt otp
+
+Skrypt generuje kod jednorazowy pobierając HASH z magazynu programu `pass`.
+
+```
+oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basename {} .gpg \; | fzf)")"
 ```
 
 # Funkcja otp_add
