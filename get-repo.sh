@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-curl https://git.io/JUvRG -fLo $HOME/git/dotfiles.zip --create-dirs
-cd $HOME/git
+DOTFILES_DIR=$HOME/git/github/dotfiles
+WORK_DIR=$(dirname $DOTFILES_DIR)
+
+curl https://git.io/JUvRG -fLo $WORK_DIR/dotfiles.zip --create-dirs
+cd $WORK_DIR
 unzip dotfiles.zip
 rm dotfiles.zip
 mv dotfiles-master dotfiles
@@ -10,13 +13,11 @@ echo -n "Uruchomić skrypt instalacyjny? [T/n]: "
 read ODP
 case $ODP in
     t|T)
-        cd $HOME/git/dotfiles
-        $HOME/git/dotfiles/install.sh
+        $DOTFILES_DIR/install.sh
         ;;
     n|N)
         ;;
     *)
-        cd $HOME/git/dotfiles
-        $HOME/git/dotfiles/install.sh
+        $DOTFILES_DIR/install.sh
         ;;
 esac
