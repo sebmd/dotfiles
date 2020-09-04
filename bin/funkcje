@@ -5,74 +5,11 @@
 DATA=$(date +%F-%T)
 BIN=~/bin
 
-# backup_dir {{{
-function backup_dir() {
-    XZ_OPT=-8
-    SHRED=$(which shred)
-    DATA=$(date +%y%m%d-%H%M)
-    cd $(readlink -f "$PWD")
-    DIR=$(basename "$PWD")
-    cd ..
-    tar -cJf "$DIR"-"$DATA".txz -C . "$DIR"
-    echo "Zapisano $DIR-$DATA.txz w katalogu: $PWD"
-
-    echo -n "Zaszyfrować plik? (t/N): "
-    read szyfrowanie
-
-    case $szyfrowanie in
-        t)
-            gpg -c "$DIR"-"$DATA".txz
-            echo "Zapisano "$DIR"-"$DATA".txz.gpg w katalogu "$PWD""
-            if [ $SHRED ]; then
-                shred "$DIR"-"$DATA".txz
-            else
-                rm "$DIR"-"$DATA".txz
-            fi
-            ;;
-        *)
-            ;;
-    esac
-}
-# backup }}}
-# open_with_fzf {{{
-function open_with_fzf() {
-    fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
-}
-# open_with_fzf }}}
-# rgvi {{{
-function rgvi() {
-    SEARCH=$(sk --ansi -i -c 'rg --color=always --hidden --line-number "{}"' \
-        --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
-        --preview-window=down:50%:hidden)
-    readarray -td: array <<<"$SEARCH"
-    FILE=${array[0]}
-    LINE=${array[1]}
-    ARRAY_NOE=${#array[@]}
-    if [ $ARRAY_NOE -gt 1 ]; then
-        vim $FILE +$LINE
-    fi
-}
-# rgvi }}}
 # vf {{{
 function vf() {
     sk | xargs -r -I % $EDITOR %
 }
 # vf }}}
-# vim_docs {{{
-function vim_docs() {
-    KATALOG=$HOME/docs/
-
-    if [ $# -gt 0 ]; then
-        cd $KATALOG
-        FILE=$(rg "$@" --ignore-file $KATALOG/.ignore | fzf | cut -d : -f 1)
-        if [ -n "$FILE" ]; then
-            vim "$FILE"
-        fi
-    else
-        echo Podaj conajmniej jeden parametr...
-    fi
-}
-# vim_docs }}}
 # vim_notes {{{
 function vim_notes() {
     cd ~/notes
@@ -88,24 +25,6 @@ function vim_notes() {
     fi
 }
 # vim_notes }}}
-# vs {{{
-function vs() {
-    # export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden'
-    # vim $(rg --files --hidden --follow --glob '!venv'|fzf)
-    if [[ $# == 0 ]]; then
-
-        if [ -f $(which bat) ]; then
-            vim "$(fzf -e --preview 'bat --style=numbers --color=always {} | head -500')"
-        else
-            # vim $(fzf)
-            # vim "$(find * | fzf +s --tac)"
-            vim "$(fzf -e --preview 'cat {}')"
-        fi
-    else
-        vim "$@"
-    fi
-}
-# vs }}}
 # create_symlinks {{{
 function create_symlinks() {
     LINKI="$(grep "^function" "$0" | cut -f 2 -d ' ' | cut -f 1 -d\()"
@@ -150,32 +69,8 @@ if [ ! -z "$1" ]; then
 fi
 
 case $(basename $0) in
-    backup_dir)
-        backup_dir
-        ;;
-    last_edit)
-        last_edit
-        ;;
-    open_with_fzf)
-        open_with_fzf
-        ;;
-    otp)
-        otp
-        ;;
-    otp_add)
-        otp_add
-        ;;
-    psgrep)
-        psgrep "$1"
-        ;;
-    rgvi)
-        rgvi
-        ;;
     vf)
         vf
-        ;;
-    vim_docs)
-        vim_docs "$@"
         ;;
     vim_notes)
         vim_notes

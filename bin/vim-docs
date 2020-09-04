@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+KATALOG=$HOME/docs/
+
+if [ $# -gt 0 ]; then
+    cd $KATALOG
+    FILE=$(rg "$@" --ignore-file $KATALOG/.ignore | fzf | cut -d : -f 1)
+    if [ -n "$FILE" ]; then
+        vim "$FILE"
+    fi
+else
+    echo Podaj conajmniej jeden parametr...
+fi
