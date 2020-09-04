@@ -62,7 +62,7 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
 vim -c ":PlugInstall" -c ":qa"
 
 # stworzenie linków symbolicznych w katalogu $HOME/bin
-cd $BIN_DIR && funkcje -i
+# cd $BIN_DIR && funkcje -i
 
 function dotfiles_bin() {
     mkdir -p $DOTFILES_BIN_DIR

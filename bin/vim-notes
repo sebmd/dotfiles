@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cd ~/notes
+SEARCH=$(sk --ansi -i -c 'rg --color=always --line-number "{}"' \
+    --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
+    --preview-window=down:50%:hidden)
+readarray -td: array <<<"$SEARCH"
+FILE=${array[0]}
+LINE=${array[1]}
+ARRAY_NOE=${#array[@]}
+if [ $ARRAY_NOE -gt 1 ]; then
+    vim $FILE +$LINE
+fi

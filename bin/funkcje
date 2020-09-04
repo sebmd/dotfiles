@@ -1,15 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Wywołanie skryptu $0 z parametrem -i tworzy symlinki w katalogu $BIN
 
 DATA=$(date +%F-%T)
 BIN=~/bin
 
-# vf {{{
-function vf() {
-    sk | xargs -r -I % $EDITOR %
-}
-# vf }}}
 # vim_notes {{{
 function vim_notes() {
     cd ~/notes

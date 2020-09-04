@@ -1,1 +1,3 @@
-funkcje
+#!/usr/bin/env bash
+
+sk | xargs -r -I % $EDITOR %
