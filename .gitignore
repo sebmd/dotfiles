@@ -13,5 +13,6 @@ bin/gopass
 bin/lf
 bin/rg
 bin/sd
+bin/sk
 notes
 *.swp
