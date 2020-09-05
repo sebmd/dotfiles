@@ -8,6 +8,7 @@
 .config/bspwm
 .config/sxhkd
 .config/polybar
+.config/rofi
 .vim
 .gnupg/gpg-agent.conf
 .Xresources
