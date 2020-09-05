@@ -95,6 +95,10 @@ Edycja pliku `$HOME/.zshrc`
 vim $HOME/.zshrc
 ```
 
+## .xr
+
+Edycja pliku `$HOME/.Xresource` a następnie przeładowuje plik
+
 ## backup-dir
 
 Link do skryptu `$HOME/bin/backup-dir`

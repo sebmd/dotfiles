@@ -13,6 +13,7 @@ alias .sx="vim ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
 alias .t="vim $HOME/.tmux.conf"
 alias .v="vim -c 'e \$MYVIMRC'"
 alias .z="vim $HOME/.zshrc"
+alias .xr='vim ~/.Xresources && xrdb ~/.Xresources'
 alias backup-dir=$HOME/bin/backup-dir
 alias batt=$HOME/bin/batt
 alias books=$HOME/bin/books
