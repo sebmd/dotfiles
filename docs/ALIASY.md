@@ -110,6 +110,10 @@ Wyświetlenie stanu baterii laptopa
 $HOME/bin/batt
  ```
  
+ ## books
+ 
+ Menu rofi z listą książek z katalog `$HOME/Books`
+ 
 ## cdb
 
 Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmdirs`
@@ -389,6 +393,10 @@ Pokazuje ostatnio edytowane pliki
 ```
 ls -F | grep '*$'
 ```
+
+## menu
+
+Skrypt wyświetlający podręczne menu rofi
 
 ## mkcdir
 

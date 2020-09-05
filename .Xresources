@@ -1,0 +1,170 @@
+! konfiguracja rofi
+rofi.modi:                           ssh,window,drun,run
+rofi.sidebar-mode:                   true
+rofi.terminal:                       /usr/local/bin/st
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+rofi.opacity:                        100
+rofi.width:                          50
+rofi.lines:                          12
+rofi.columns:                        1
+rofi.font:                           hack 12
+rofi.fg:                             #5294E2
+rofi.bg:                             #5d729f
+rofi.fg-active:                      #34405a
+rofi.fg-urgent:                      #34405a
+rofi.hlfg-active:                    #5e73a0
+rofi.hlfg-urgent:                    #5e73a0
+rofi.bg-active:                      #34405a
+rofi.bg-urgent:                      #34405a
+rofi.hlbg-active:                    #5d729f
+rofi.hlbg-urgent:                    #5d729f
+rofi.bgalt:                          #5671a0
+rofi.hlfg:                           #34405a
+rofi.hlbg:                           #34405a
+rofi.bc:                             #789ee1
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+/* rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF */
+/* rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF */
+rofi.color-normal: #353944,  #FFFFFF,  #353944,  #5294E2,  #FFFFFF
+
+! kolory                            background    border
+rofi.color-window:                  #353944,      #404552
+rofi.bw:                            10
+rofi.location:                      0
+rofi.padding:                       20
+rofi.levenshtein-sort:              true
+rofi.case-sensitive:                false
+rofi.fuzzy:                         false
+rofi.line-margin:                   2
+rofi.separator-style:               solid
+rofi.hide-scrollbar:                true
+rofi.markup-rows:                   false
+rofi.scrollbar-width:               8
+
+
+!! The default colors are "Gruvbox":
+st.color0: #1d2021
+st.color1: #cc241d
+st.color2: #98971a
+st.color3: #d79921
+st.color4: #458588
+st.color5: #b16286
+st.color6: #689d6a
+st.color7: #a89984
+! color8 - cursor color
+st.color8: #928374
+st.color9: #fb4934
+st.color10: #b8bb26
+st.color11: #fabd2f
+st.color12: #83a598
+st.color13: #d3869b
+st.color14: #8ec07c
+st.color15: #ebdbb2
+!! Transparency (0-255):
+st.alpha: 0.92
+!! Set a default font and font size as below:
+!!*.font: Monospace-11;
+st*font: Liberation\ Mono:size=12
+
+
+! URXVT FONTS
+!------------------------------------------------
+
+URxvt*font: xft:Droid\ Sans\ Mono\ for\ Powerline:size=12
+URxvt*boldFont: xft:Droid\ Sans\ Mono\ for\ Powerline:bold:size=12
+URxvt*letterSpace: -1
+URxvt*allow_bold: true
+
+
+! URXVT ENABLE LINK SUPPORT
+!------------------------------------------------
+
+!URxvt.perl-ext-common: default,matcher,tabbedex,vtwheel,clipboard
+!tabbed
+!URxvt.matcher.button:   1
+!URxvt.perl-ext:      default,url-select
+!URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.url-select.launcher:   /usr/bin/xdg-open
+!URxvt.url-select.underline: true
+
+!URxvt.perl-ext-common: default,matcher
+!URxvt.url-launcher: /usr/bin/xdg-open
+!URxvt.matcher.button: 1
+
+!disable the fucking bell
+URxvt.insecure:                         false
+
+! URXVT COPY PASTE SHORTCUTS
+!------------------------------------------------
+
+URxvt.keysym.M-c:                       perl:clipboard:copy
+URxvt.keysym.M-v:                       perl:clipboard:pasteq
+
+! URXVT SCROLLBAR AND CURSOR STYLE
+!------------------------------------------------
+
+URxvt*saveLines:                        300000
+URxvt.scrollBar:                        false
+!URxvt*scrollstyle:                     plain
+URxvt*cursorBlink:                      true
+URxvt*cursorUnderline:          true
+URxvt*cursorColor:                      #4e9a06
+
+! URXVT TABS
+!------------------------------------------------
+
+URxvt.tabbedex.autohide:        yes
+URxvt.tabbedex.tabbar-fg:       2
+URxvt.tabbedex.tabbar-bg:       0
+URxvt.tabbedex.tab-fg:          10
+URxvt.tabbedex.tab-bg:          0
+URxvt.tabbedex.title:           yes
+URxvt.tabbedex.new-button:  no
+
+! URXVT FULLSCREEN TOGGLE
+!------------------------------------------------
+
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.perl-ext-common: default,matcher,vtwheel
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+
+!! URXVT COLORS
+!!------------------------------------------------
+!
+urxvt*background:                           [85]#000000
+urxvt*foreground:                            #ADADAD
+urxvt*depth: 32
+urxvt*shading: 50
+! black
+urxvt*.color0:       #333366
+urxnt*.color8:       #333399
+
+! red
+urxvt*.color1:       #6666cc
+urxvt*.color9:       #9999ff
+
+! green
+urxvt*.color2:       #0099cc
+urxvt*.color10:      #00ccff
+
+! yellow
+urxvt*.color3:       #3366cc
+urxvt*.color11:      #6699ff
+
+! blue
+urxvt*.color4:       #006699
+urxvt*.color12:      #0099cc
+
+! magenta
+urxvt*.color5:       #0066ff
+urxvt*.color13:      #0099ff
+
+! cyan
+urxvt*.color6:       #669999
+urxvt*.color14:      #66cccc
+
+! white
+urxvt*.color7:       #99cccc
+urxvt*.color15: #ccffff

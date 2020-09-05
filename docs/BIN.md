@@ -4,6 +4,7 @@ Opis zawartości katalogu `~/bin`
 
 - `backup-dir` - skrypt wykonuje kopię zapasową bieżącego katalogu
 - `batt` - pokazuje stan baterii laptopa
+- `books` - menu rofi z listą książek w katalogu `$HOME/Books`
 - `cdb` - wyświetla listę katalogów znajdujących się w pliku `~/.config/bmdirs`, po wybraniu katalogu przechodzi do niego
 - `cdba` - dodaje bieżący katalog do `~/.config/bmdirs`
 - `cdbd` - usuwa bieżący katalog z pliku `~/.config/bmdirs`
@@ -36,6 +37,7 @@ Opis zawartości katalogu `~/bin`
 - `gsts`
 - `last-edit`
 - `ll`
+- `menu` - podręczne menu rofi
 - `mkcdir`
 - `open-with-fzf`
 - `otp`
@@ -105,6 +107,22 @@ Skrypt batt pokazuje stan baterii
 #!/usr/bin/env bash
 
 upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
+```
+
+# Skrypt books
+
+```bash
+#!/usr/bin/env bash
+
+APP=zathura
+BOOKS_DIR=~/Books
+
+BOOK="$( cd $BOOKS_DIR; find * -name \*.pdf -print | rofi -dmenu \
+        -i -l 20 -matching glob -p "Books ($APP)" )"
+
+if [ -n "$BOOK" ]; then
+    $APP $BOOKS_DIR/"$BOOK"
+fi
 ```
 
 # Skrypt cdb
@@ -417,6 +435,71 @@ find $HOME -type f -mtime -3
 #!/usr/bin/env bash
 
 exa -al --group-directories-first --git --header
+```
+
+# Skrypt menu
+
+```bash
+#!/bin/sh
+
+menu=$(echo -e "Suspend\nReboot
+Monitor Off
+Pulseaudio restart
+bspwm reload
+sxhkd restart
+Polybar restart
+Books
+Wyczyść hasło do agenta GPG
+Pass ROFI\nWyczyść historię schowka
+Edit Menu" | rofi -lines 28 -dmenu -i -p "Wybierz coś")
+
+[ "$menu" == "Suspend" ] && sudo /usr/bin/systemctl suspend
+
+[ "$menu" == "Reboot" ] && sudo reboot
+
+if [ "$menu" == "Monitor Off" ]; then
+    notify-send "Za kilka chwil wyłączę monitor..."
+    sleep 1
+    xset dpms force off
+fi
+
+if [ "$menu" == "Pulseaudio restart" ]; then
+    pacmd exit
+    sleep 1
+    pulseaudio --start
+fi
+
+if [ "$menu" == "bspwm reload" ]; then
+    ~/.config/bspwm/bspwmrc
+    if [ $? == 0 ]; then
+        rofi -e "Przeładowałem bspwm"
+    fi
+fi
+
+if [ "$menu" == "sxhkd restart" ]; then
+    pkill -USR1 -x sxhkd
+    if [ $? == 0 ]; then
+        rofi -e "Ustawienia sxhkd zostały przeładowane"
+    fi
+fi
+
+[ "$menu" == "Wyczyść hasło do agenta GPG" ] && gpg-connect-agent reloadagent /bye
+
+[ "$menu" == "Wyczyść historię schowka" ] && $HOME/bin/clipdel -d ".*"
+
+[ "$menu" == "Pass ROFI" ] && $HOME/bin/passr
+
+[ "$menu" == "Books" ] && $HOME/bin/books
+
+if [ "$menu" == "Polybar restart" ]; then
+    pkill polybar
+    sleep 3
+    polybar example
+fi
+
+if [ "$menu" == "Edit Menu" ]; then
+    st -e vim ~/bin/menu
+fi
 ```
 
 # Skrypt mkcdir

@@ -11,12 +11,14 @@ function install_dnf() {
 }
 
 function install_bspwm() {
-    sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils
+    sudo dnf update
+    sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils \
+    picom dmenu dunst imwheel rofi xterm xclip xsel
 }
 
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
-    read ODP
+    read -r ODP
     case "$ODP" in
         t|T)
             install_dnf

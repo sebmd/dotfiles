@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+APP=zathura
+BOOKS_DIR=~/Books
+
+BOOK="$( cd $BOOKS_DIR; find * -name \*.pdf -print | rofi -dmenu \
+        -i -l 20 -matching glob -p "Books ($APP)" )"
+
+if [ -n "$BOOK" ]; then
+    $APP $BOOKS_DIR/"$BOOK"
+fi

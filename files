@@ -10,4 +10,6 @@
 .config/polybar
 .vim
 .gnupg/gpg-agent.conf
+.Xresources
+.Xresources.themes
 bin
