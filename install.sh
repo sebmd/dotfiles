@@ -10,6 +10,10 @@ function install_dnf() {
     sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
 }
 
+function install_bspwm() {
+    sudo dnf install bspwm sxhkd polybar sakura
+}
+
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
     read ODP
@@ -25,6 +29,23 @@ if [ -f /etc/fedora-release ]; then
             ;;
     esac
 fi
+
+if [ -f /etc/fedora-release ]; then
+    echo -n "Pobrac pakiety dla BSPWM? [T/n] "
+    read -r ODP
+    case "$ODP" in
+        t|T)
+            install_bspwm
+            ;;
+        n|N)
+            echo -n
+            ;;
+        *)
+            install_bspwm
+            ;;
+    esac
+fi
+
 
 # tworzy potrzebne katalogi
 mkdir -p "$BACKUP_DIR"
