@@ -11,7 +11,7 @@ function install_dnf() {
 }
 
 function install_bspwm() {
-    sudo dnf install bspwm sxhkd polybar sakura
+    sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils
 }
 
 if [ -f /etc/fedora-release ]; then
