@@ -5,7 +5,7 @@
 .config/zathura/zathurarc
 .config/alacritty/alacritty.yml
 .config/kitty
-.config/bspwn
+.config/bspwm
 .config/sxhkd
 .config/polybar
 .vim

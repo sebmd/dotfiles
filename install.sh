@@ -1,9 +1,9 @@
 #!/bin/bash
 
-BACKUP_DIR=$HOME/.backup
-SCRIPT_DIR=$PWD
-BIN_DIR=$HOME/bin
-DOTFILES_BIN_DIR=$HOME/git/github/dotfiles_bin
+BACKUP_DIR="$HOME"/.backup
+SCRIPT_DIR="$PWD"
+BIN_DIR="$HOME"/bin
+DOTFILES_BIN_DIR="$HOME"/git/github/dotfiles_bin
 
 function install_dnf() {
     sudo dnf update
@@ -13,7 +13,7 @@ function install_dnf() {
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
     read ODP
-    case $ODP in
+    case "$ODP" in
         t|T)
             install_dnf
             ;;
@@ -27,19 +27,19 @@ if [ -f /etc/fedora-release ]; then
 fi
 
 # tworzy potrzebne katalogi
-mkdir -p $BACKUP_DIR
-mkdir -p $BIN_DIR
-mkdir -p $HOME/.vim
-mkdir -p $HOME/.vim/undo
-mkdir -p $HOME/.vim/view
-mkdir -p $HOME/.vim/viminfo
-mkdir -p $HOME/notes
-mkdir -p $HOME/tmp
-mkdir -p $HOME/.config/zathura
-mkdir -p $HOME/.config/alacritty
-mkdir -p $HOME/.gnupg
+mkdir -p "$BACKUP_DIR"
+mkdir -p "$BIN_DIR"
+mkdir -p "$HOME"/.vim
+mkdir -p "$HOME"/.vim/undo
+mkdir -p "$HOME"/.vim/view
+mkdir -p "$HOME"/.vim/viminfo
+mkdir -p "$HOME"/notes
+mkdir -p "$HOME"/tmp
+mkdir -p "$HOME"/.config/zathura
+mkdir -p "$HOME"/.config/alacritty
+mkdir -p "$HOME"/.gnupg
 
-cd $HOME
+cd "$HOME"
 
 # odczytuje plik 'files' sprawdzając czy odczytany plik z pliku 'files' istnieje
 # i nie jest linkiem symbolicznym, po czym kopiuje go do katalogu $BACKUP_DIR
