@@ -74,9 +74,9 @@ function dotfiles_bin() {
 
 echo
 echo    " ---------------------------------------------  "
-read -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " odp
+read -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " ODP
 
-case $odp in
+case "$ODP" in
     t|T)
         dotfiles_bin
         exit
