@@ -14,5 +14,10 @@ bin/lf
 bin/rg
 bin/sd
 bin/sk
+bin/clipctl
+bin/clipdel
+bin/clipfsck
+bin/clipmenu
+bin/clipmenud
 notes
 *.swp
