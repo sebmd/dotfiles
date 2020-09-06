@@ -12,8 +12,11 @@ super + alt + Return
 super + @space
     dmenu_run
 
-alt = @space
+alt + @space
     dmenu_run
+
+super + d
+    rofi -show run
 
 super + m
     $HOME/bin/menu
