@@ -5,6 +5,7 @@
 .vim/viminfo
 .vim/.colorscheme
 .vim/.netrwhist
+bin/alacritty
 bin/bat
 bin/exa
 bin/fd
