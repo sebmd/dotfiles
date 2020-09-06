@@ -5,7 +5,7 @@ super + Return
 super + shift + Return
     alacritty
 
-super + alt + Return
+alt + Return
     alacritty --class Alacritty,full
 
 # program launcher
@@ -14,7 +14,6 @@ super + @space
 
 alt + @space
     dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
 
 super + d
     rofi -show run
