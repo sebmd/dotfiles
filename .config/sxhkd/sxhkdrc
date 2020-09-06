@@ -2,6 +2,9 @@
 super + Return
     sakura
 
+super + alt + Return
+    alacritty
+
 # program launcher
 super + @space
     dmenu_run
