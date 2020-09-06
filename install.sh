@@ -6,26 +6,26 @@ BIN_DIR="$HOME"/bin
 DOTFILES_BIN_DIR="$HOME"/git/github/dotfiles_bin
 
 download_font () {
-    url="https://raw.githubusercontent.com/wsdjeg/DotFiles/master/local/share/fonts/${1// /%20}"
-    path="$HOME/.fonts/$1"
+    URL="https://raw.githubusercontent.com/wsdjeg/DotFiles/master/local/share/fonts/${1// /%20}"
+    PATH="$HOME/.fonts/$1"
     # Clean up after https://github.com/SpaceVim/SpaceVim/issues/2532
-    if [[ -f "$path" && ! -s "$path" ]]
+    if [[ -f "$PATH" && ! -s "$PATH" ]]
     then
-        rm "$path"
+        rm "$PATH"
     fi
-    if [[ -f "$path" ]]
+    if [[ -f "$PATh" ]]
     then
         echo "Downloaded $1"
     else
         echo "Downloading $1"
-        curl -s -o "$path" "$url"
+        curl -s -o "$PATH" "$URL"
         echo "Downloaded $1"
     fi
 }
 
 install_fonts () {
     if [[ ! -d "$HOME./fonts" ]]; then
-		mkdir -p $HOME/.fonts
+        mkdir -p $HOME/.fonts
     fi
     download_font "DejaVu Sans Mono Bold Oblique for Powerline.ttf"
     download_font "DejaVu Sans Mono Bold for Powerline.ttf"
@@ -93,16 +93,16 @@ fi
 echo -n "Pobrac i zainstalować czcionki [T/n] "
 read -r ODP
 case "$ODP" in
-	t|T)
-		download_font
-		install_fonts
-		;;
-	n|N)
-		;;
-	*)
-		download_font
-		install_fonts
-		;;
+    t|T)
+        download_font
+        install_fonts
+        ;;
+    n|N)
+        ;;
+    *)
+        download_font
+        install_fonts
+        ;;
 esac
 
 # tworzy potrzebne katalogi
@@ -125,17 +125,17 @@ cd "$HOME"
 # następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
 # w redpozytorium dotfiles
 while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
-    if [ ! -L $LINE ]; then
-        if [ -f $LINE ]; then
-            cp -R $LINE $BACKUP_DIR/
+    if [ ! -L "$LINE" ]; then
+        if [ -f "$LINE" ]; then
+            cp -R "$LINE" "$BACKUP_DIR/"
         fi
-        rm -rf $LINE
-        ln -s $SCRIPT_DIR/$LINE $LINE
+        rm -rf "$LINE"
+        ln -s "$SCRIPT_DIR/$LINE" "$LINE"
     fi
 done < "$SCRIPT_DIR/files"
 
 # przygotowanie edytora Vim
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 vim -c ":PlugInstall" -c ":qa"
