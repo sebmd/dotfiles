@@ -12,7 +12,14 @@ się w `~/.config/sxhkd/sxhkdrc`
  - `Alt-SPACJA` - uruchamia program `dmenu_run`
  - `Win-d` - uruchamia `rofi`
  - `Win-m` - uruchamia podręczne menu - `$HOME/bin/menu`
- - `Win-[1-9]` - przełączanie pomiędzy pulpitami od 1-9
+ - `Win-[1-0]` - przełączanie pomiędzy pulpitami od 1-10
+ - `Win-[` - poprzedni pulpit
+ - `Win-]` - następny pulpit
+ - `Win-TAB` - poruszanie się pomiędzy dwoma ostatnio odwiedzanymi pulpitami
+- `Win-[h,j,k,l]` - przełączanie się pomiędzy oknami
+- `Win-c` - następne okno
+- `Win-C` - poprzednie okno
+- ``Win-` `` - przełączaie się pomiędzy dwoma ostatnio odwiedzanymi oknami
 - `Win-ESC` - restartuje `sxhkd`
 - `Win-Alt-r` - restartuje BSPWM
 - `Win-Alt-q` - kończy pracę BSPWM
