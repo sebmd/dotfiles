@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$(dirname $0)
+
 function install-from-file() {
     sudo dnf install $(grep "^[^#]" "$1")
 }
@@ -10,11 +12,19 @@ function fusion() {
 }
 
 function shell() {
-    install-from-file shell
+    install-from-file $SCRIPT_DIR/shell
 }
 
 function net() {
-    install-from-file net
+    install-from-file $SCRIPT_DIR/net
+}
+
+function devel-shell() {
+    install-from-file $SCRIPT_DIR/devel-shell
+}
+
+function xwindow-devel() {
+    install-from-file $SCRIPT_DIR/xwindow-devel
 }
 
 function devel-all() {
@@ -69,5 +79,7 @@ witaj
 pytanie "Czy włączyć repozytorium rpmfusion [T/n] " "fusion" "t"
 pytanie "Zainstalować pakiety dla konsoli tekstowe [T/n] " "shell" "t"
 pytanie "Zainstalować narzędzia sieciowe [T/n] " "net" "t"
+pytanie "Zainstalować pakiety shell-devel [T/n] " "devel-shell" "t"
+pytanie "Zainstalować pakiety xwindow-devel [T/n] " "xwindow-devel" "t"
 pytanie "Uruchomić graficzny menadżer logowania lightdm [T/n] " "lightdm" "t"
 pytanie "Pobrać i zainstalować clipmenu [T/n] " "clipmenu" "t"
