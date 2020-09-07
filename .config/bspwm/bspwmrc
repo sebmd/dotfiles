@@ -1,15 +1,5 @@
 #!/usr/bin/sh
 
-<<<<<<< HEAD
-sxhkd &
-polybar example &
-nm-applet &
-
-bspc monitor -d I II III IV V VI VII VIII IX X
-
-bspc config border_width         2
-bspc config window_gap           0
-=======
 # ~/.config/bspwm/autostart.sh
 $HOME/.config/bspwm/autostart.sh
 
@@ -19,7 +9,6 @@ bspc config border_width        2
 bspc config window_gap          0
 bspc top_padding                0
 bspc bottom_padding             0
->>>>>>> e16141b89c6d943e715245647fd89449309c4670
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
