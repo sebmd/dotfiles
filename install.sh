@@ -1,19 +1,18 @@
 #!/bin/bash
 
-BACKUP_DIR="$HOME"/.backup
+BACKUP_DIR="$HOME/.backup"
 SCRIPT_DIR="$PWD"
-BIN_DIR="$HOME"/bin
-DOTFILES_BIN_DIR="$HOME"/git/github/dotfiles_bin
+BIN_DIR="$HOME/bin"
+DOTFILES_BIN_DIR="$HOME/git/github/dotfiles_bin"
 
-download_font () {
+download_font() {
     URL="https://raw.githubusercontent.com/wsdjeg/DotFiles/master/local/share/fonts/${1// /%20}"
     PATH="$HOME/.fonts/$1"
-    # Clean up after https://github.com/SpaceVim/SpaceVim/issues/2532
     if [[ -f "$PATH" && ! -s "$PATH" ]]
     then
         rm "$PATH"
     fi
-    if [[ -f "$PATh" ]]
+    if [[ -f "$PATH" ]]
     then
         echo "Downloaded $1"
     else
@@ -23,9 +22,9 @@ download_font () {
     fi
 }
 
-install_fonts () {
+install_fonts() {
     if [[ ! -d "$HOME./fonts" ]]; then
-        mkdir -p $HOME/.fonts
+        mkdir -p "$HOME/.fonts"
     fi
     download_font "DejaVu Sans Mono Bold Oblique for Powerline.ttf"
     download_font "DejaVu Sans Mono Bold for Powerline.ttf"
@@ -41,9 +40,9 @@ install_fonts () {
     download_font "symbol.ttf"
     download_font "wingding.ttf"
     echo "Updating font cache, please wait ..."
-    fc-cache -fv > /dev/null
-    mkfontdir "$HOME/.fonts" > /dev/null
-    mkfontscale "$HOME/.fonts" > /dev/null
+    fc-cache -f
+    mkfontdir "$HOME/.fonts"
+    mkfontscale "$HOME/.fonts"
     echo "font cache done!"
 }
 
@@ -94,13 +93,11 @@ echo -n "Pobrac i zainstalować czcionki [T/n] "
 read -r ODP
 case "$ODP" in
     t|T)
-        download_font
         install_fonts
         ;;
     n|N)
         ;;
     *)
-        download_font
         install_fonts
         ;;
 esac
