@@ -7,17 +7,17 @@ DOTFILES_BIN_DIR="$HOME/git/github/dotfiles_bin"
 
 download_font() {
     URL="https://raw.githubusercontent.com/wsdjeg/DotFiles/master/local/share/fonts/${1// /%20}"
-    PATH="$HOME/.fonts/$1"
-    if [[ -f "$PATH" && ! -s "$PATH" ]]
+    FONTS_DIR="$HOME/.fonts/$1"
+    if [[ -f "$FONTS_DIR" && ! -s "$FONTS_DIR" ]]
     then
-        rm "$PATH"
+        rm "$FONTS_DIR"
     fi
-    if [[ -f "$PATH" ]]
+    if [[ -f "$FONTS_DIR" ]]
     then
         echo "Downloaded $1"
     else
         echo "Downloading $1"
-        curl -s -o "$PATH" "$URL"
+        curl -s -o "$FONTS_DIR" "$URL"
         echo "Downloaded $1"
     fi
 }
