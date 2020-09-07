@@ -13,7 +13,7 @@ function install_dnf() {
 function install_bspwm() {
     sudo dnf update
     sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils \
-    picom dmenu dunst imwheel rofi xterm xclip xsel
+    picom dmenu dunst imwheel rofi xterm xclip xsel network-manager-applet
 }
 
 if [ -f /etc/fedora-release ]; then
