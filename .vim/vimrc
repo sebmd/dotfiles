@@ -643,6 +643,9 @@ command! CurTime call CurTime()
 command! PI :PlugInstall
 command! DestractionFree call DestractionFree()
 " --- Autocmd / Funkcje }}}
+" --- Abbr {{{
+abbr abbash #!/usr/bin/env bash<cr><cr>
+" --- Abbr}}}
 " --- Dodatkowe pliki konfiguracyjne {{{
 " jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
 if filereadable(expand("~/.vimrc.local"))
