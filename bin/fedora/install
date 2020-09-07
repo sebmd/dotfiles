@@ -16,15 +16,15 @@ function shell() {
 }
 
 function net() {
-    install-from-file $SCRIPT_DIR/net
+    install-from-file "$SCRIPT_DIR/net"
 }
 
 function devel-shell() {
-    install-from-file $SCRIPT_DIR/devel-shell
+    install-from-file "$SCRIPT_DIR/devel-shell"
 }
 
 function xwindow-devel() {
-    install-from-file $SCRIPT_DIR/xwindow-devel
+    install-from-file "$SCRIPT_DIR/xwindow-devel"
 }
 
 function devel-all() {
@@ -33,10 +33,10 @@ function devel-all() {
 }
 
 function clipmenu() {
-    mkdir -p $HOME/git/github
-    git clone https://github.com/cdown/clipmenu $HOME/git/github/clipmenu
+    mkdir -p "$HOME/git/github"
+    git clone https://github.com/cdown/clipmenu "$HOME/git/github/clipmenu"
     for FILE in $(find $HOME/git/github/clipmenu -maxdepth 1 -executable -type f); do
-        ln -sf $FILE $HOME/bin
+        ln -sf "$FILE" "$HOME/bin"
     done
 }
 
@@ -58,7 +58,7 @@ function pytanie() {
     # $2 - funkcja którą ma uruchomić
     # $3 - standardowa odpowiedź
     echo -n "$1"
-    read ODP
+    read-r  ODP
     case $ODP in
         t|T)
             "$2"
