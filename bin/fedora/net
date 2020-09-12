@@ -1,5 +1,6 @@
 arp-scan
 bridge-utils
+ethtool
 iptraf-ng
 masscan
 mtr

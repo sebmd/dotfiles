@@ -21,6 +21,7 @@ oathtool
 pandoc
 partclone
 pass
+pciutils
 rclone
 restic
 ripgrep
@@ -30,6 +31,7 @@ smartmontools
 srm
 tlp
 tmux
+usbutils
 vim
 w3m
 w3m-img
