@@ -79,10 +79,11 @@ set undofile
 set undolevels=10000
 if has("nvim")
     set viminfo='100,n$HOME/.vim/viminfo/nviminfo
+    set viewdir=$HOME/.vim/view/nvim
 else
     set viminfo+=n$HOME/.vim/viminfo/viminfo
+    set viewdir=$HOME/.vim/view
 endif
-set viewdir=$HOME/.vim/view
 set laststatus=2
 set cmdheight=2
 set list
