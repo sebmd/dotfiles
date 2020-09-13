@@ -82,6 +82,7 @@ if has("nvim")
 else
     set viminfo+=n$HOME/.vim/viminfo/viminfo
 endif
+set viewdir=$HOME/.vim/view
 set laststatus=2
 set cmdheight=2
 set list
