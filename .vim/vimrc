@@ -662,9 +662,9 @@ augroup OpenSSL
     autocmd!
     autocmd BufReadPre,FileReadPre *.crypted set viminfo=
     autocmd BufReadPre,FileReadPre *.crypted set noswapfile noundofile nobackup
-    autocmd BufReadPost   *.crypted :%!openssl enc -d -aes-256-cbc -a -salt
+    autocmd BufReadPost   *.crypted :%!openssl enc -d -aes-256-cbc -a -salt -pbkdf2
     autocmd BufReadPost   *.crypted |redraw!
-    autocmd BufWritePre   *.crypted :%!openssl enc -e -aes-256-cbc -a -salt
+    autocmd BufWritePre   *.crypted :%!openssl enc -e -aes-256-cbc -a -salt -pbkdf2
     autocmd BufWritePost  *.crypted u
     autocmd VimLeave      *.crypted :!clear
 augroup END
