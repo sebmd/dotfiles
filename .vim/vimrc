@@ -48,6 +48,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'tweekmonster/gofmt.vim'
+    Plug 'vuciv/vim-bujo'  " Manage ToDo lists
+    if has('nvim')
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'nvim-lua/completion-nvim'
+    endif
 call plug#end()
 " --- Pluginy }}}
 " --- Ustawienia {{{
@@ -72,7 +78,11 @@ set incsearch
 set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
-set viminfo+=n~/.vim/viminfo/viminfo
+if has("nvim")
+    set viminfo='100,n$HOME/.vim/viminfo/nviminfo
+else
+    set viminfo+=n$HOME/.vim/viminfo/viminfo
+endif
 set laststatus=2
 set cmdheight=2
 set list
@@ -95,7 +105,7 @@ set cursorline
 set colorcolumn=+1
 set background=dark
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
-set completeopt=menuone,longest
+set completeopt=menuone,longest,noselect
 set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
 silent! colorscheme gruvbox
 let g:gruvbox_contrast_dark='hard'
@@ -392,7 +402,7 @@ vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
 
-command Q :q!
+command! Q :q!
 
 autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
 
