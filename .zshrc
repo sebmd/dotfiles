@@ -176,153 +176,15 @@ setopt AUTO_PUSHD        # This makes cd=pushd
 # If we have a glob this will expand it
 setopt GLOB_COMPLETE
 setopt PUSHD_MINUS
-#
-# No more annoying pushd messages...
-# setopt PUSHD_SILENT
-#
-# blank pushd goes to home
-# setopt PUSHD_TO_HOME
-#
-# this will ignore multiple directories for the stack.  Useful?  I dunno.
-# setopt PUSHD_IGNORE_DUPS
-#
-# 10 second wait if you do something that will delete everything.  I wish I'd had this before...
-# setopt RM_STAR_WAIT
-#
-# use magic (this is default, but it can't hurt!)
-# setopt ZLE
-#
-# setopt NO_HUP
-#
-# setopt VI
-#
-# setopt IGNORE_EOF
-#
+
 # If I could disable Ctrl-s completely I would!
 setopt NO_FLOW_CONTROL
 #
 # beeps are annoying
 setopt NO_BEEP
-#
-# Keep echo "station" > station from clobbering station
-# setopt NO_CLOBBER
-#
-# Case insensitive globbing
-# setopt NO_CASE_GLOB
-#
-# Be Reasonable!
-# setopt NUMERIC_GLOB_SORT
-#
+
 # I don't know why I never set this before.
 setopt EXTENDED_GLOB
-#
-# hows about arrays be awesome?  (that is, frew${cool}frew has frew surrounding all the variables, not just first and last
-# setopt RC_EXPAND_PARAM
-#
-# bindkey -M viins '\C-i' complete-word
-#
-# Faster! (?)
-# zstyle ':completion::complete:*' use-cache 1
-#
-# case insensitive completion
-# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-#
-# zstyle ':completion:*' verbose yes
-# zstyle ':completion:*:descriptions' format '%B%d%b'
-# zstyle ':completion:*:messages' format '%d'
-# zstyle ':completion:*:warnings' format 'No matches for: %d'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete
-# zstyle ':completion:*' completer _expand _force_rehash _complete _approximate _ignored
-#
-# generate descriptions with magic.
-# zstyle ':completion:*' auto-description 'specify: %d'
-#
-# Don't prompt for a huge list, page it!
-# zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-#
-# Don't prompt for a huge list, menu it!
-# zstyle ':completion:*:default' menu 'select=0'
-#
-# Have the newer files last so I see them first
-# zstyle ':completion:*' file-sort modification reverse
-#
-# color code completion!!!!  Wohoo!
-# zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
-#
-# unsetopt LIST_AMBIGUOUS
-# setopt  COMPLETE_IN_WORD
-#
-# Separate man page sections.  Neat.
-# zstyle ':completion:*:manuals' separate-sections true
-#
-# Egomaniac!
-# zstyle ':completion:*' list-separator 'fREW'
-#
-# complete with a menu for xwindow ids
-# zstyle ':completion:*:windows' menu on=0
-# zstyle ':completion:*:expand:*' tag-order all-expansions
-#
-# more errors allowed for large words and fewer for small words
-# zstyle ':completion:*:approximate:*' max-errors 'reply=(  $((  ($#PREFIX+$#SUFFIX)/3  ))  )'
-#
-# Errors format
-# zstyle ':completion:*:corrections' format '%B%d (errors %e)%b'
-#
-# Don't complete stuff already on the line
-# zstyle ':completion::*:(rm|vi):*' ignore-line true
-#
-# Don't complete directory we are already in (../here)
-# zstyle ':completion:*' ignore-parents parent pwd
-#
-# zstyle ':completion::approximate*:*' prefix-needed false
-# }}}
-#-------- {{{ Key bindings
-#
-# # Who doesn't want home and end to work?
-# bindkey '\e[1~' beginning-of-line
-# bindkey '\e[4~' end-of-line
-#
-# # Incremental search is elite!
-# bindkey -M vicmd "/" history-incremental-search-backward
-# bindkey -M vicmd "?" history-incremental-search-forward
-#
-# # Search based on what you typed in already
-# bindkey -M vicmd "//" history-beginning-search-backward
-# bindkey -M vicmd "??" history-beginning-search-forward
-#
-# bindkey "\eOP" run-help
-#
-# # oh wow!  This is killer...  try it!
-# bindkey -M vicmd "q" push-line
-#
-# # Ensure that arrow keys work as they should
-# bindkey '\e[A' up-line-or-history
-# bindkey '\e[B' down-line-or-history
-#
-# bindkey '\eOA' up-line-or-history
-# bindkey '\eOB' down-line-or-history
-#
-# bindkey '\e[C' forward-char
-# bindkey '\e[D' backward-char
-#
-# bindkey '\eOC' forward-char
-# bindkey '\eOD' backward-char
-#
-# bindkey -M viins 'jj' vi-cmd-mode
-# bindkey -M vicmd 'u' undo
-#
-# # Rebind the insert key.  I really can't stand what it currently does.
-# bindkey '\e[2~' overwrite-mode
-#
-# # Rebind the delete key. Again, useless.
-# bindkey '\e[3~' delete-char
-#
-# bindkey -M vicmd '!' edit-command-output
-#
-# # it's like, space AND completion.  Gnarlbot.
-# bindkey -M viins ' ' magic-space
-# manpages for keybindings: $man zshzle
 
 # partial history search using up and down arrow keys
 bindkey '^[[A' history-search-backward
