@@ -1,3 +1,31 @@
+# zshrc
+
+if [[ -f ~/.aliases ]]; then
+    source ~/.aliases
+fi
+
+if [[ -f ~/.aliases_prv ]]; then
+    source ~/.aliases_prv
+fi
+
+if [[ -f "$HOME/.zsh/host/$(hostname -s)" ]]; then
+    source "$HOME/.zsh/host/$(hostname -s)"
+fi
+
+export GOPATH=${HOME}/go
+export PATH=$PATH:~/.local/bin
+export PATH="$HOME/nvim/bin:$PATH"
+export TERM=xterm-256color
+export MANPAGER='less -X'  # nie czyści ekranu po wyjściu z man
+export EDITOR="vim"
+
+if [ $DISPLAY ]; then
+    setxkbmap -option caps:escape         # ustawia caps lock jako ESC
+    # xmodmap -e "keycode 62 = Shift_Lock"  # ustawia prawy Shift jako Shift Lock
+    # xmodmap -e "keycode 62 = Caps_Lock"  # ustawia prawy Shift jako Caps Lock
+    xset r rate 280 40
+fi
+
 # get more info: $man zshoptions
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
@@ -21,13 +49,6 @@ HISTORY_IGNORE='([bf]g *|cd ..|cd|l[alsh]#( *)#|less *|vim# *)'
 
 setopt extendedglob
 unsetopt caseglob
-
-if [ $DISPLAY ]; then
-    setxkbmap -option caps:escape         # ustawia caps lock jako ESC
-    # xmodmap -e "keycode 62 = Shift_Lock"  # ustawia prawy Shift jako Shift Lock
-    # xmodmap -e "keycode 62 = Caps_Lock"  # ustawia prawy Shift jako Caps Lock
-    xset r rate 280 40
-fi
 
 # Klawisz Del
 bindkey '\e[3~' delete-char
@@ -121,18 +142,6 @@ zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 
 # when new programs is installed, auto update autocomplete without reloading shell
 zstyle ':completion:*' rehash true
-
-if [[ -f ~/.aliases ]]; then
-    source ~/.aliases
-fi
-
-if [[ -f ~/.aliases_prv ]]; then
-    source ~/.aliases_prv
-fi
-
-if [[ -f "$HOME/.zsh/host/$(hostname -s)" ]]; then
-    source "$HOME/.zsh/host/$(hostname -s)"
-fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zsh/fzf.zsh ] && source ~/.zsh/fzf.zsh
@@ -361,13 +370,6 @@ export GPG_TTY
 #if [ $? = 0 ]; then
     #startx
 #fi
-
-export GOPATH=${HOME}/go
-export PATH=$PATH:~/.local/bin
-export PATH="$HOME/nvim/bin:$PATH"
-export TERM=xterm-256color
-export MANPAGER='less -X'  # nie czyści ekranu po wyjściu z man
-export EDITOR="vim"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C $HOME/minio/mc mc
