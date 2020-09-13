@@ -418,6 +418,10 @@ Otwiera edytor Vim w lokalizacji `$HOME/notes`
 vim -c "e $HOME/notes"
 ```
 
+## nv
+
+Uruchamia edytor Neovim
+
 ## open-with-fzf
 
 Uruchamia skrypt `/home/t3/bin/open-with-fzf`

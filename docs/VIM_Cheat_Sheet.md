@@ -7,6 +7,8 @@
 * [Kilka przydatnych skrótów](#kilka-przydatnych-skrótów)
 * [Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`](#wyrównanie-paragrafu-na-szeroko-80-znaków-lub-warto-parametru-textwidth)
 * [Wprowadzanie znaków UTF-8](#wprowadzanie-znaków-utf-8)
+* [Praca z plikami](#praca-z-plikami)
+* [Zapisywanie pliku](#zapisywanie-pliku)
 * [Poruszanie się w linii](#poruszanie-si-w-linii)
 * [Poruszanie się pomiędzy wyrazami](#poruszanie-si-pomidzy-wyrazami)
 * [Poruszanie się pomiędzy obiektami tekstowymi](#poruszanie-si-pomidzy-obiektami-tekstowymi)
@@ -16,10 +18,10 @@
 * [Poruszanie się pomiędzy buforami](#poruszanie-si-pomidzy-buforami)
 * [Wyrównanie bieżącej linii względem ekranu](#wyrównanie-biecej-linii-wzgldem-ekranu)
 * [Edycja](#edycja)
-	* [Obiekty tekstowe](#obiekty-tekstowe)
-	* [Mnożnik i zakresy](#mnonik-i-zakresy)
-	* [Praca w linii](#praca-w-linii)
-	* [Przykłady edycji](#przykady-edycji)
+    * [Obiekty tekstowe](#obiekty-tekstowe)
+    * [Mnożnik i zakresy](#mnonik-i-zakresy)
+    * [Praca w linii](#praca-w-linii)
+    * [Przykłady edycji](#przykady-edycji)
 * [Kopiuj / wklej](#kopiuj--wklej)
 * [Wprowadzanie tekstu](#wprowadzanie-tekstu)
 * [Makra](#makra)
@@ -34,17 +36,17 @@
 * [Powtórzenie ostatniej komendy](#powtórzenie-ostatniej-komendy)
 * [Uruchomienie komendy Vim z rejestru czyli schowka Vim](#uruchomienie-komendy-vim-z-rejestru-czyli-schowka-vim)
 * [Praca z oknami](#praca-z-oknami)
-	* [Dzielenie okna](#dzielenie-okna)
-	* [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
+    * [Dzielenie okna](#dzielenie-okna)
+    * [Zmiana rozmiaru okna](#zmiana-rozmiaru-okna)
 * [Kodowanie ROT13](#kodowanie-rot13)
 * [Rejestry](#rejestry)
 * [Przeniesienie bieżącej linii na początek / koniec pliku](#przeniesienie-biecej-linii-na-pocztek--koniec-pliku)
 * [Skopiowanie wybranej linii do bieżącej lokalizacji kursora](#skopiowanie-wybranej-linii-do-biecej-lokalizacji-kursora)
 * [Otworzenie wszystkich plików w katalogu](#otworzenie-wszystkich-plików-w-katalogu)
 * [Operacje arytmetyczne](#operacje-arytmetyczne)
-	* [Kalkulator w linii komend](#kalkulator-w-linii-komend)
-	* [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
-	* [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
+    * [Kalkulator w linii komend](#kalkulator-w-linii-komend)
+    * [Wstawienie do bufora wyniku działania matematycznego](#wstawienie-do-bufora-wyniku-dziaania-matematycznego)
+    * [Wstawienie do bufora zakresu liczb w kolumnie](#wstawienie-do-bufora-zakresu-liczb-w-kolumnie)
 * [Podmienienie znaku w całym pliku](#podmienienie-znaku-w-caym-pliku)
 * [Zmiana kierunku zaznaczania w trybie VISUAL](#zmiana-kierunku-zaznaczania-w-trybie-visual)
 * [Zmiana wielkości znaków](#zmiana-wielkoci-znaków)
@@ -61,7 +63,7 @@
 * [Usunięcie co drugą linię](#usunicie-co-drug-lini)
 * [Usunięcie linii zawierających wyrażenie](#usunicie-linii-zawierajcych-wyraenie)
 * [Formatowanie całego pliku](#formatowanie-caego-pliku)
-* [Wprawadzenie wielokrotnie znaku](#wprawadzenie-wielokrotnie-znaku)
+* [Wprowadzenie wielokrotnie znaku](#wprowadzenie-wielokrotnie-znaku)
 * [Usunięcie wszystkich linii nie zawierających wyrażenia](#usunicie-wszystkich-linii-nie-zawierajcych-wyraenia)
 * [Wyświetlenie skrótów klawiszowych](#wywietlenie-skrótów-klawiszowych)
 * [Plugin tpope/vim-abolish](#plugin-tpopevim-abolish)
@@ -69,7 +71,7 @@
 * [Automatyczne uzupełnianie](#automatyczne-uzupenianie)
 * [Usunięcie linii które zaczynają się od znaku komentarza](#usunicie-linii-które-zaczynaj-si-od-znaku-komentarza)
 * [Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL](#przejcie-do-poprzednio-zaznaczonego-tekstu-w-trybie-visual)
-* [Mapowanie funkcji związancyh położeniem edytowanego pliku](#mapowanie-funkcji-zwizancyh-pooeniem-edytowanego-pliku)
+* [Mapowanie funkcji związanych położeniem edytowanego pliku](#mapowanie-funkcji-zwizanych-pooeniem-edytowanego-pliku)
 * [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
 
 <!-- vim-markdown-toc -->
@@ -106,6 +108,52 @@ znaku w tabeli UTF-8 np.
 ```
 Ctrl-v u25B8
 ▸
+```
+
+## Praca z plikami
+
+Otworzenie kilku plików do edycji, każdy kolejny plik zostaje otwarty w kolejnym
+buforze.
+
+```
+$ vim plik-1.txt plik-2.txt
+```
+
+Otworzenie pliku w bieżącym buforze w trybie `COMMAND`
+
+```
+:e plik.txt
+```
+
+## Zapisywanie pliku
+
+Zapisanie pliku
+
+```
+:w
+```
+
+```
+:w nazwa_pliku.txt
+```
+
+Komenda `:update` zapisuje plik wyłącznie wtedy jeśli w pliku zostały
+wprowadzone zmiany.
+
+```
+:update
+```
+
+Zapisanie z użyciem komendy `sudo`
+
+```
+:w !sudo tee %
+```
+
+Zapisanie zakresu linii w innym pliku
+
+```
+:1,5w nowy-plik.txt
 ```
 
 ## Poruszanie się w linii
@@ -732,7 +780,7 @@ Używając funkcji `global` usuniemy co drugą linię w pliku.
 gg=G
 ```
 
-## Wprawadzenie wielokrotnie znaku
+## Wprowadzenie wielokrotnie znaku
 
 Wstawienie 80 znaków `#`
 
@@ -796,10 +844,10 @@ W tym wypadku to znak `#`
 gv
 ```
 
-## Mapowanie funkcji związancyh położeniem edytowanego pliku
+## Mapowanie funkcji związanych położeniem edytowanego pliku
 
 
-Wyśweitla bieżący katalog np. `/home/red/git/dot.files/.vim`
+Wyświetla bieżący katalog np. `/home/red/git/dot.files/.vim`
 
 ```vim
 map! ,fp <C-R>=expand("%:p:h")<CR>
