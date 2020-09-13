@@ -108,7 +108,7 @@ set background=dark
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 set completeopt=menuone,longest,noselect
 set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
-silent! colorscheme gruvbox
+silent! colorscheme gruvbox-material
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
 "let ayucolor="light"  " for light version of theme
