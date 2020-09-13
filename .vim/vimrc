@@ -48,7 +48,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'tweekmonster/gofmt.vim'
     Plug 'vuciv/vim-bujo'  " Manage ToDo lists
     if has('nvim')
         Plug 'neovim/nvim-lspconfig'
