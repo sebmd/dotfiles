@@ -1,5 +1,5 @@
 " zn - rozwija wszystkie zagnieżdżenia
-" zm - zwija wszystkie zagnieżdzenia
+" zm - zwija wszystkie zagnieżdżenia
 " za - zwija / rozwija jedno zagnieżdżenie
 " --- Pluginy {{{
 call plug#begin('~/.vim/plugged')

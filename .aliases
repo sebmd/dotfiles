@@ -61,6 +61,7 @@ alias ll="$HOME/bin/ll"
 alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
 alias menu="$HOME/bin/menu"
 alias mkcdir="source $HOME/bin/mkcdir $1"
+alias mkdir="mkdir -p"
 alias more="less"
 alias n='$EDITOR -c "e $HOME/notes"'
 alias nv=nvim
