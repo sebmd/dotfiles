@@ -12,8 +12,13 @@ then
 fi
 export PATH
 
-if [ -f $HOME/.aliases ]; then
-    . $HOME/.aliases
+export EDITOR=vim
+
+export TEMPDIR="$HOME/tmp"
+
+
+if [[ -f "$HOME/.aliases" ]]; then
+    . "$HOME/.aliases"
 fi
 
 # wyłączenie ctrl-s i ctrl-q
@@ -35,10 +40,6 @@ HISTFILESIZE=100000
 HISTSIZE=100000
 HISTTIMEFORMAT='%F %T'
 PROMPT_COMMAND='history -a'
-
-TEMPDIR=$HOME/tmp
-
-export EDITOR=vim
 
 eval $(ssh-agent)
 eval $(gpg-agent --daemon)

@@ -179,6 +179,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
   - [fern.vim]
   - [fzf-preview.vim]
   - [fzf.vim]
+  - [CtrlSF]
   - [git-messenger]
   - [goyo]
   - [gv]
@@ -231,6 +232,7 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 [vim-colorscheme-switcher]: https://github.com/xolox/vim-colorscheme-switcher
 [vim-colorscheme-manager]: https://github.com/Taverius/vim-colorscheme-manager
 [fzf-preview.vim]:https://github.com/chengzeyi/fzf-preview.vim
+[CtrlSF]:https://github.com/dyng/ctrlsf.vim
 
 # Kolory
 

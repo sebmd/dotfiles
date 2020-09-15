@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'chengzeyi/fzf-preview.vim'
+    Plug 'dyng/ctrlsf.vim'
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
     Plug 'preservim/nerdtree'
