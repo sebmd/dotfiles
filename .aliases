@@ -1,4 +1,4 @@
-[ ! -z "$BASH_VERSION"  ] && shopt -s expand_aliases  # uruchamia dla powłoki BASH
+[ "$BASH_VERSION"  ] && shopt -s expand_aliases  # uruchamia dla powłoki BASH
 
 alias ...="cd ../.."
 alias ..="cd .."
