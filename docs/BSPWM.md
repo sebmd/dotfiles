@@ -3,7 +3,7 @@
 Do obsługi skrótów klawiszowych BSPWM używa SHXKD, plik konfiguracyjny znajduje
 się w `~/.config/sxhkd/sxhkdrc`
 
- ## Skróty klawiszowe
+# Skróty klawiszowe
 
  - `Win-ENTER` - uruchamia terminal (sakura)
  - `Win-Shift-ENTER` - uruchamia terminal (alacritty)
@@ -16,10 +16,10 @@ się w `~/.config/sxhkd/sxhkdrc`
  - `Win-[` - poprzedni pulpit
  - `Win-]` - następny pulpit
  - `Win-TAB` - poruszanie się pomiędzy dwoma ostatnio odwiedzanymi pulpitami
-- `Win-[h,j,k,l]` - przełączanie się pomiędzy oknami
-- `Win-c` - następne okno
-- `Win-C` - poprzednie okno
-- ``Win-` `` - przełączaie się pomiędzy dwoma ostatnio odwiedzanymi oknami
-- `Win-ESC` - restartuje `sxhkd`
-- `Win-Alt-r` - restartuje BSPWM
-- `Win-Alt-q` - kończy pracę BSPWM
+ - `Win-[h,j,k,l]` - przełączanie się pomiędzy oknami
+ - `Win-c` - następne okno
+ - `Win-C` - poprzednie okno
+ - ``Win-` `` - przełączaie się pomiędzy dwoma ostatnio odwiedzanymi oknami
+ - `Win-ESC` - restartuje `sxhkd`
+ - `Win-Alt-r` - restartuje BSPWM
+ - `Win-Alt-q` - kończy pracę BSPWM

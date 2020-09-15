@@ -1,66 +1,66 @@
-# BIN
+# Katalog ~/bin
 
-Opis zawartości katalogu `~/bin`
+<!-- vim-markdown-toc GFM -->
 
-- `backup-dir` - skrypt wykonuje kopię zapasową bieżącego katalogu
-- `batt` - pokazuje stan baterii laptopa
-- `books` - menu rofi z listą książek w katalogu `$HOME/Books`
-- `cdb` - wyświetla listę katalogów znajdujących się w pliku `~/.config/bmdirs`, po wybraniu katalogu przechodzi do niego
-- `cdba` - dodaje bieżący katalog do `~/.config/bmdirs`
-- `cdbd` - usuwa bieżący katalog z pliku `~/.config/bmdirs`
-- `cdf`
-- `clear-gpg-passwd`
-- `cleartemp`
-- `create_symlinks`
-- `DecryptGPG`
-- `DecryptSSL`
-- `EncryptGPG`
-- `EncryptSSL`
-- `fullhd` - ustawia rozdzielczość ekranu na Full HD
-- `funkcje` - przestarzały skrypt tworzący linki symboliczne dla dostępnych funkcji
-- `ga` - skrót dla `git add ; git commit`
-- `gd` - git diff
-- `gl` - git log
-- `gp` - skrót dla `git add ; git commit ; git push`
-- `gpg-agent-restart`
-- `gpg-delete-keys`
-- `gpg-delete-secret-keys`
-- `gpg-edit-key`
-- `gpg-export`
-- `gpg-export-secret-key`
-- `gpg-gen-key`
-- `gpg-list-keys`
-- `gpg-list-keys-short`
-- `gpg-list-secret-keys`
-- `gpg-list-secret-keys-short`
-- `gps`
-- `gsts`
-- `last-edit`
-- `ll`
-- `menu` - podręczne menu rofi
-- `mkcdir`
-- `open-with-fzf`
-- `otp`
-- `otp-add`
-- `passf`
-- `passr`
-- `preview.sh` - przydatny przy podglądzie plików
-- `preview_dir.sh`
-- `psgrep`
-- `pu` - skrót dla `git pull`
-- `push` - skrót dla `git push`
-- `pwgen` - generator haseł z odpowiednimi parametrami
-- `rgvi`
-- `se`
-- `sedi`
-- `sefi`
-- `tree`
-- `vf`
-- `vim-docs`
-- `vim-notes`
-- `vs`
+* [backup-dir](#backup-dir)
+* [batt](#batt)
+* [books](#books)
+* [cdb](#cdb)
+* [cdba](#cdba)
+* [cdbd](#cdbd)
+* [cdf](#cdf)
+* [clear-gpg-passwd](#clear-gpg-passwd)
+* [cleartemp](#cleartemp)
+* [DecryptGPG](#decryptgpg)
+* [DecryptSSL](#decryptssl)
+* [EncryptGPG](#encryptgpg)
+* [EncryptSSL](#encryptssl)
+* [fullhd](#fullhd)
+* [ga](#ga)
+* [gd](#gd)
+* [gl](#gl)
+* [gp](#gp)
+* [gpg-agent-restart](#gpg-agent-restart)
+* [gpg-delete-keys](#gpg-delete-keys)
+* [gpg-delete-secret-keys](#gpg-delete-secret-keys)
+* [gpg-edit-key](#gpg-edit-key)
+* [gpg-export](#gpg-export)
+* [gpg-export-secret-key](#gpg-export-secret-key)
+* [gpg-gen-key](#gpg-gen-key)
+* [gpg-list-keys](#gpg-list-keys)
+* [gpg-list-keys-short](#gpg-list-keys-short)
+* [gpg-list-secret-keys](#gpg-list-secret-keys)
+* [gpg-list-secret-keys-short](#gpg-list-secret-keys-short)
+* [gps](#gps)
+* [gsts](#gsts)
+* [last-edit](#last-edit)
+* [ll](#ll)
+* [menu](#menu)
+* [mkcdir](#mkcdir)
+* [open-with-fzf](#open-with-fzf)
+* [otp](#otp)
+* [otp_add](#otp_add)
+* [passf](#passf)
+* [passr](#passr)
+* [preview.sh](#previewsh)
+* [preview_dir.sh](#preview_dirsh)
+* [psgrep](#psgrep)
+* [pu](#pu)
+* [push](#push)
+* [pwgen](#pwgen)
+* [rgvi](#rgvi)
+* [se](#se)
+* [sedi](#sedi)
+* [sefi](#sefi)
+* [tree](#tree)
+* [vf](#vf)
+* [vim-docs](#vim-docs)
+* [vim-notes](#vim-notes)
+* [vs](#vs)
 
-# Skrypt backup-dir
+<!-- vim-markdown-toc -->
+
+# backup-dir
 
 Skrypt wykonuje kopię zapasową bieżącego katalogu daje możliwość zaszyfrowania
 pliku hasłem.
@@ -93,11 +93,11 @@ case $szyfrowanie in
 esac
 ```
 
-# Skrypt batt
+# batt
 
 Skrypt batt pokazuje stan baterii
 
- ```
+```
     state:               fully-charged
     percentage:          99%
 ```
@@ -109,7 +109,7 @@ Skrypt batt pokazuje stan baterii
 upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
 ```
 
-# Skrypt books
+# books
 
 ```bash
 #!/usr/bin/env bash
@@ -125,7 +125,7 @@ if [ -n "$BOOK" ]; then
 fi
 ```
 
-# Skrypt cdb
+# cdb
 
 ```bash
 #!/usr/bin/env bash
@@ -134,7 +134,7 @@ KATALOG="$(cat ~/.config/bmdirs|fzf --prompt "PWD: $PWD> "|sed "s|~|$HOME|")"
 [ ! -z $KATALOG ] && cd -P -- "$KATALOG"
 ```
 
-# Skrypt cdba
+# cdba
 
 Dodaje bieżący katalog do ~/.config/bmdirs
 
@@ -145,7 +145,7 @@ echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
 sort -o ~/.config/bmdirs ~/.config/bmdirs
 ```
 
-# Skrypt cdbd
+# cdbd
 
 Usuwa bieżący katalog z `~/.config/bmdirs`
 
@@ -157,7 +157,7 @@ sed -i "s|^$KATALOG$||" ~/.config/bmdirs
 sed -i '/^$/d'  ~/.config/bmdirs
 ```
 
-# Skrypt cdf
+# cdf
 
 ```bash
 #!/usr/bin/env bash
@@ -170,7 +170,7 @@ if [ ! -z $KATALOG ]; then
 fi
 ```
 
-# Skrypt clear-gpg-passwd
+# clear-gpg-passwd
 
 ```bash
 #!/usr/bin/env bash
@@ -178,7 +178,7 @@ fi
 gpg-connect-agent reloadagent /bye
 ```
 
-# Skrypt cleartemp
+# cleartemp
 
 Usuwa pliki i katalogi starsze niż 7 dni
 
@@ -187,7 +187,7 @@ find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
 find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 ```
 
-# Skrypt DecryptGPG
+# DecryptGPG
 
 ```bash
 if [[ $# < 1 ]]; then
@@ -203,7 +203,7 @@ else
 fi
 ```
 
-# Skrypt DecryptSSL
+# DecryptSSL
 
 ```bash
  if [[ $# < 1 ]]; then
@@ -219,7 +219,7 @@ fi
  fi
 ```
 
-# Skrypt EncryptGPG
+# EncryptGPG
 
 ```bash
 if [[ $# < 1 ]]; then
@@ -245,7 +245,7 @@ case $USUNAC in
 esac
 ```
 
-# Skrypt EncryptSSL
+# EncryptSSL
 
 ```bash
  if [[ $# < 1 ]]; then
@@ -261,7 +261,7 @@ esac
  fi
 ```
 
-# Skrypt fullhd
+# fullhd
 
 ```bash
 #!/usr/bin/env bash
@@ -274,13 +274,13 @@ xrandr --addmode $MONITOR 1920x1080
 xrandr --output $MONITOR --mode 1920x1080
 ```
 
-# Skrypt ga
+# ga
 
 ```bash
 git add -A && git commit -m $DATA
 ```
 
-# Skrypt gd
+# gd
 
 ```bash
 #!/usr/bin/env bash
@@ -288,7 +288,7 @@ git add -A && git commit -m $DATA
 git diff
 ```
 
-# Skrypt gl
+# gl
 
 Skrypt uruchamia polecenie `git log` z dodatkowymi parametrami.
 
@@ -298,7 +298,7 @@ Skrypt uruchamia polecenie `git log` z dodatkowymi parametrami.
 git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 ```
 
-# Skrypt gp
+# gp
 
 ```bash
 DATA=$(date +%F-%T)
@@ -310,7 +310,7 @@ else
 fi
 ```
 
-# Skrypt gpg-agent-restart
+# gpg-agent-restart
 
 ```bash
 #!/usr/bin/env bash
@@ -318,7 +318,7 @@ fi
 gpg-connect-agent /bye
 ```
 
-# Skrypt gpg-delete-keys
+# gpg-delete-keys
 
 ```bash
 #!/usr/bin/env bash
@@ -326,7 +326,7 @@ gpg-connect-agent /bye
 gpg --delete-keys
 ```
 
-# Skrypt gpg-delete-secret-keys
+# gpg-delete-secret-keys
 
 ```bash
 #!/usr/bin/env bash
@@ -334,7 +334,7 @@ gpg --delete-keys
 gpg --delete-secret-keys
 ```
 
-# Skrypt gpg-edit-key
+# gpg-edit-key
 
 ```bash
 #!/usr/bin/env bash
@@ -342,7 +342,7 @@ gpg --delete-secret-keys
 gpg --edit-key
 ```
 
-# Skrypt gpg-export
+# gpg-export
 
 ```bash
 #!/usr/bin/env bash
@@ -350,7 +350,7 @@ gpg --edit-key
 gpg --armor --export
 ```
 
-# Skrypt gpg-export-secret-key
+# gpg-export-secret-key
 
 ```bash
 #!/usr/bin/env bash
@@ -358,7 +358,7 @@ gpg --armor --export
 gpg --armor --export-secret-keys
 ```
 
-# Skrypt gpg-gen-key
+# gpg-gen-key
 
 ```bash
 #!/usr/bin/env bash
@@ -366,7 +366,7 @@ gpg --armor --export-secret-keys
 gpg --default-new-key-algo rsa4096  --gen-key
 ```
 
-# Skrypt gpg-list-keys
+# gpg-list-keys
 
 ```bash
 #!/usr/bin/env bash
@@ -374,7 +374,7 @@ gpg --default-new-key-algo rsa4096  --gen-key
 gpg --list-keys --keyid-format LONG
 ```
 
-# Skrypt gpg-list-keys-short
+# gpg-list-keys-short
 
 ```bash
 #!/usr/bin/env bash
@@ -382,7 +382,7 @@ gpg --list-keys --keyid-format LONG
 gpg --list-keys --keyid-format SHORT
 ```
 
-# Skrypt gpg-list-secret-keys
+# gpg-list-secret-keys
 
 ```bash
 #!/usr/bin/env bash
@@ -390,7 +390,7 @@ gpg --list-keys --keyid-format SHORT
 gpg --list-secret-keys --keyid-format LONG
 ```
 
-# Skrypt gpg-list-secret-keys-short
+# gpg-list-secret-keys-short
 
 ```bash
 #!/usr/bin/env bash
@@ -398,7 +398,7 @@ gpg --list-secret-keys --keyid-format LONG
 gpg --list-secret-keys --keyid-format SHORT
 ```
 
-# Skrypt gps
+# gps
 
 Skrypt `gps` jest linkiem symbolicznym do skryptu `gp`, uruchamiając go za
 pomocą komendy `gps`, git będzie wymagał podpisania commita za pomocą klucza
@@ -414,7 +414,7 @@ else
 fi
 ```
 
-# Skrypt gsts
+# gsts
 
 ```bash
 #!/usr/bin/env bash
@@ -422,14 +422,14 @@ fi
 git status
 ```
 
-# Skrypt last-edit
+# last-edit
 
 ```bash
 find $HOME -type f -mtime -3 -mtime +4
 find $HOME -type f -mtime -3
 ```
 
-# Skrypt ll
+# ll
 
 ```bash
 #!/usr/bin/env bash
@@ -437,7 +437,7 @@ find $HOME -type f -mtime -3
 exa -al --group-directories-first --git --header
 ```
 
-# Skrypt menu
+# menu
 
 ```bash
 #!/bin/sh
@@ -502,7 +502,7 @@ if [ "$menu" == "Edit Menu" ]; then
 fi
 ```
 
-# Skrypt mkcdir
+# mkcdir
 
 ```bash
 #!/usr/bin/env bash
@@ -512,13 +512,13 @@ mkdir -p "$KAT"
 cd "$KAT"
 ```
 
-# Skrypt open-with-fzf
+# open-with-fzf
 
 ```bash
 fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
 ```
 
-# Skrypt otp
+# otp
 
 Skrypt generuje kod jednorazowy pobierając HASH z magazynu programu `pass`.
 
@@ -526,7 +526,7 @@ Skrypt generuje kod jednorazowy pobierając HASH z magazynu programu `pass`.
 oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basename {} .gpg \; | fzf)")"
 ```
 
-# Skrypt otp_add
+# otp_add
 
 ```bash
 if [ -z $1 ]; then
@@ -539,7 +539,7 @@ else
 fi
 ```
 
-# Skrypt passf
+# passf
 
 ```bash
 #!/usr/bin/env bash
@@ -549,7 +549,7 @@ pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf 
     | fzf --print-query --prompt "Szukaj w bazie PASS") | tr -d '\n' | xclip
 ```
 
-# Skrypt passr
+# passr
 
 ```bash
 #!/usr/bin/env bash
@@ -559,12 +559,12 @@ pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf 
     | rofi -dmenu -i -p "Szukaj w bazie PASS") | tr -d '\n' | xclip
 ```
 
-# Skrypt preview.sh
+# preview.sh
 
 Skrypt przydatny przy podglądzie plików spod programu `fzf`, źródło:
 https://github.com/junegunn/fzf.vim/blob/master/bin/preview.sh
 
-# Skrypt preview_dir.sh
+# preview_dir.sh
 
 ```bash
 #!/usr/bin/env bash
@@ -573,7 +573,7 @@ KATALOG=$(readlink -f "$1")
 /usr/bin/tree -L 1 $KATALOG
 ```
 
-# Skrypt psgrep
+# psgrep
 
 ```bash
 #!/usr/bin/env bash
@@ -581,7 +581,7 @@ KATALOG=$(readlink -f "$1")
 ps ax | grep -i "$1" | grep -v grep
 ```
 
-# Skrypt pu
+# pu
 
 ```bash
 #!/usr/bin/env bash
@@ -589,7 +589,7 @@ ps ax | grep -i "$1" | grep -v grep
 git pull
 ```
 
-# Skrypt push
+# push
 
 ```bash
 #!/usr/bin/env bash
@@ -597,7 +597,7 @@ git pull
 git push
 ```
 
-# Skrypt pwgen
+# pwgen
 
 ```bash
 #!/usr/bin/env bash
@@ -605,7 +605,7 @@ git push
 pwgen -c -s -n -y -1 32
 ```
 
-# Skrypt rgvi
+# rgvi
 
 ```bash
 #!/usr/bin/env bash
@@ -622,7 +622,7 @@ if [ $ARRAY_NOE -gt 1 ]; then
 fi
 ```
 
-# Skrypt se
+# se
 
 ```bash
 #!/usr/bin/env bash
@@ -643,7 +643,7 @@ fi
 [[ $SEARCH ]] && vim $SEARCH
 ```
 
-# Skrypt sedi
+# sedi
 
 ```bash
 #!/usr/bin/env bash
@@ -664,7 +664,7 @@ SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 [[ $SEARCH ]] && vim $SEARCH
 ```
 
-# Skrypt sefi
+# sefi
 
 ```bash
 #!/usr/bin/env bash
@@ -685,7 +685,7 @@ SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 [[ $SEARCH ]] && vim $SEARCH
 ```
 
-# Skrypt tree
+# tree
 
 ```bash
 #!/usr/bin/env bash
@@ -693,7 +693,7 @@ SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 exa -l -a -h -g --git --tree
 ```
 
-# Skrypt vf
+# vf
 
 ```bash
 #!/usr/bin/env bash
@@ -702,7 +702,7 @@ sk | xargs -r -I % $EDITOR %
 ```
 
 
-# Skrypt vim-docs
+# vim-docs
 
 ```bash
 #!/usr/bin/env bash
@@ -720,7 +720,7 @@ else
 fi
 ```
 
-# Skrypt vim-notes
+# vim-notes
 
 ```bash
 #!/usr/bin/env bash
@@ -738,7 +738,7 @@ if [ $ARRAY_NOE -gt 1 ]; then
 fi
 ```
 
-# Skrypt vs
+# vs
 
 ```bash
 #!/usr/bin/env bash
