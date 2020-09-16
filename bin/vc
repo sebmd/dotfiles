@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# vim -u NONE '+au BufWriteCmd vclip %y+ | set nomodified' vclip
+vim -u ~/bin/vc.vim
