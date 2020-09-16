@@ -39,6 +39,7 @@ Wymagane dodatkowe oprogramowanie:
 * [dec](#dec)
 * [DecryptGPG](#decryptgpg)
 * [DecryptSSL](#decryptssl)
+* [detect-os](#detect-os)
 * [df](#df)
 * [enc](#enc)
 * [EncryptGPG](#encryptgpg)
@@ -293,6 +294,10 @@ Skrypt deszyfrujący pliki PGP
 # DecryptSSL
 
 Skrypt deszyfrujący pliki za pomocą OpenSSL
+
+# detect-os
+
+Wyświetla nazwę i wersję dystrybucji - `$HOME/bin/detect-os`
 
 # df
 
