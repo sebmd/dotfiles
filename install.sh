@@ -48,13 +48,14 @@ install_fonts() {
 
 function install_dnf() {
     sudo dnf update
-    sudo dnf install git vim curl exa bat oathtool pass ripgrep skim tmux
+    sudo dnf install git vim curl exa bat oathtool pass ripgrep skim fzf tmux
 }
 
 function install_bspwm() {
     sudo dnf update
     sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils \
-    picom dmenu dunst imwheel rofi xterm xclip xsel network-manager-applet
+    picom dmenu dunst imwheel rofi xterm xclip xsel network-manager-applet \
+    xorg-x11-xinit
 }
 
 if [ -f /etc/fedora-release ]; then
