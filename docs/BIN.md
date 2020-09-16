@@ -13,6 +13,7 @@
 * [cleartemp](#cleartemp)
 * [DecryptGPG](#decryptgpg)
 * [DecryptSSL](#decryptssl)
+* [detect-os](#detect-os)
 * [EncryptGPG](#encryptgpg)
 * [EncryptSSL](#encryptssl)
 * [fullhd](#fullhd)
@@ -217,6 +218,75 @@ fi
  else
      openssl aes-256-cbc -d -a -in "$1" -out $(basename $1 .enc);
  fi
+```
+
+# detect-os
+
+Skrypt wykrywa dystrybucję oraz jej wersję
+
+```
+$ detect-os ver
+32
+```
+
+```
+$ detect-os sys
+Fedora release 32 (Thirty Two)
+```
+
+
+```bash
+#!/usr/bin/env bash
+
+# Wykrywanie systemu Fedora
+if [ -f /etc/fedora-release ]; then
+    read -r fedora < /etc/fedora-release
+    fedora_ver=$(echo "$fedora" | tr -cd '[:digit:][:cntrl:]')
+    system=$fedora
+    system_ver=$fedora_ver
+fi
+
+# Wykrywanie systemu CentOS
+if [ -f /etc/centos-release ]; then
+    read -r centos < /etc/centos-release
+    grep . /etc/centos-release > /dev/null
+    if [ $? -eq 0 ]; then
+        centos_ver=$(echo "$centos" | cut -d. -f1 | tr -cd '[:digit:][:cntrl:]')
+    else
+        centos_ver=$(echo "$centos" | tr -cd '[:digit:][:cntrl:]')
+    fi
+    system=$centos
+    system_ver=$centos_ver
+fi
+
+# Wykruwanie systemu Ubuntu
+if [ -f /etc/lsb-release ]; then
+    source /etc/lsb-release
+    ubuntu=$DISTRIB_ID
+    ubuntu_ver=$DISTRIB_RELEASE
+    system=$ubuntu
+    system_ver=$ubuntu_ver
+fi
+
+case $1 in
+    SYS|sys)
+        echo $system
+        ;;
+    VER|ver)
+        echo $system_ver
+        ;;
+    *)
+        echo
+        echo "################## POMOC #####################"
+        echo
+        echo Dostępne parametry:
+        echo
+        echo $(basename $0) SYS - wyświetla nazwę dystrybucji
+        echo $(basename $0) VER - wyświetla wersję systemu
+        echo
+        echo "##############################################"
+        echo
+esac
 ```
 
 # EncryptGPG
