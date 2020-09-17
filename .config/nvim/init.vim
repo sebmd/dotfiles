@@ -128,11 +128,149 @@ let $BASH_ENV="~/.aliases"
 let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
 let localmapleader="\\"     " klawisz \ ustawiony jako local leader
 
+nnoremap j gj
+nnoremap k gk
+nnoremap J maJ`a
+nnoremap Y y$
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap qq :q<cr>
+nnoremap qs :update<cr>:q<cr>
+nnoremap th :set hlsearch!<cr>
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leadeg>f :Defx .<cr>
-nnoremap th :se hlsearch!<cr>
+
+" usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
+" to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
+noremap x "_x
+noremap X "_X
+
+" mapuje klawisz TAB w trybie insert do zatwierdzenia popowiedzi autouzupełaniania
+inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
+
+nmap gj <plug>(signify-next-hunk)
+nmap gk <plug>(signify-prev-hunk)
+nmap gJ 9999gj
+nmap gK 9999gk
+
+nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
+vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
+
+nnoremap <tab> :e #<cr>
+
+cmap <c-h> <left>
+cmap <c-j> <down>
+cmap <c-k> <up>
+cmap <c-l> <right>
+
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+
+inoremap <c-c> <esc>
+
+nmap <c-h> <c-w><c-h>
+nmap <c-j> <c-w><c-j>
+nmap <c-k> <c-w><c-k>
+nmap <c-l> <c-w><c-l>
+
+" wchodzi do trybu COMMAND
+nnoremap <leader>; :
+
+nnoremap <leader>w :update<cr>
+
+" początek i koniec linii
+nnoremap <leader>h 0
+nnoremap <leader>l $
+
+" Przełączanie się pomiędzy buforami
+nnoremap <leader>, :bp<cr>
+nnoremap <leader>. :bn<cr>
+" ustawia podzielone okno na główne (full screen)
+nnoremap <leader>o :only<cr>
+
+nnoremap <leader>d :DestractionFree<cr>
+
+nnoremap <leader>b :Buffers<cr>
+
+" przechodzi do katalogu w którym znajduje się edytowany plik
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" klonuje paragraf
+nnoremap <leader>cp yap<S-}>p
+
+nnoremap <leader>gc :GCheckout<cr>
+
+nnoremap <leader>pa :set invpaste paste?<cr>
+
+nnoremap <leader>pr :ProjectFiles<cr>
+
+nnoremap <leader>v :e $MYVIMRC<cr>
+" nnoremap <leader>vv :NERDTreeToggle ~/.vim<cr>
+
+nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowana ..."<cr>
+
+nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
+
+nnoremap <leader>g :Rg<cr>
+
+" otwiera menadżer plików dla lokalizacji otwartego pliku
+" nnoremap <leader>f :sv %:p:h<cr>
+nnoremap <leader>f :Fern . -drawer -reveal=% -toggle -width=30<cr>
+
+nnoremap <leader>u :UndotreeToggle<cr>
+
+nnoremap <leader>t :term<cr>
+nnoremap <leader>tv :botright vertical terminal<cr>
+
+" Otwiera i zamyka NERDTreee w bieżącej lokalizacji
+" nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+nnoremap <leader>n :NERDTreeToggleVCS<cr>
+nnoremap <leader>N :NnnPicker '%:p:h'<cr>
+
+" kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
+" bufora
+nnoremap <leader>E !!$SHELL<cr>
+
+" kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
+nnoremap <leader>ve yy:@"<cr>
+
+nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
+
+" Obsługa pluginu vim-surround
+" <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
+noremap <leader>sw :norm ysiw
+" <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
+noremap <leader>sW :norm ysiW
+" <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
+noremap <leader>sp :norm ysip
+" <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
+noremap <leader>ss :norm yss
+" <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
+noremap <leader>sd :norm ds
+
+" \fnn wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
+nnoremap <localleader>f :echo expand("%:p")<cr>
+
+" kopiuj / wklej do schowka systemowego
+vnoremap <c-c> "*y :let @+=@*<cr>
+nnoremap <c-c> "*y :let @+=@*<cr>
+map <c-p> "+P
+
+command! Q :q!
+
+autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
+
+autocmd Filetype help nnoremap <leader>l <c-]>
+autocmd Filetype help nnoremap <leader>h <c-t>
+
+autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
+autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
 " --- Mapowanie klawiszy }}}
 " --- Ustawienia pluginów {{{
 " Startify
@@ -190,6 +328,117 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
+" indentLine
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" nnn
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+
+" Fern
+let g:fern#renderer = "nerdfont"
+let g:fern#disable_default_mappings   = 1
+" let g:fern#disable_drawer_auto_quit   = 1
+" let g:fern#disable_viewer_hide_cursor = 1
+
+function! FernInit() abort
+    " wyłączenie pluginu quick-scope, który okazjonalnie wiesza plugin Fern
+    let g:qs_enable=0
+
+    " wyłącza plugin indentLine
+    let g:indentLine_enabled = 0
+
+    " mapowanie
+    nmap <buffer><nowait> <cr> <plug>(fern-action-open-or-enter)
+    nmap <buffer><nowait> <bs> <plug>(fern-action-leave)
+    nmap <buffer> ! <plug>(fern-action-hidden-toggle)
+    nmap <buffer> v <plug>(fern-action-open:vsplit)
+    nmap <buffer> s <plug>(fern-action-open:split)
+    nmap <buffer> h <plug>(fern-action-collapse)
+    nmap <buffer> l <plug>(fern-action-expand)
+    nmap <buffer> f <plug>(fern-action-new-file)
+    nmap <buffer> d <plug>(fern-action-new-directory)
+    nmap <buffer> n <plug>(fern-action-new-path)
+    nmap <buffer> m <Plug>(fern-action-move)
+    nmap <buffer> D <Plug>(fern-action-remove)
+    nmap <buffer> R <Plug>(fern-action-rename)
+    nmap <buffer><nowait> <C-j> <Plug>(fern-action-mark-toggle)j
+    nmap <buffer><nowait> <C-k> k<Plug>(fern-action-mark-toggle)
+    nmap <buffer><nowait> -     <Plug>(fern-action-mark-toggle)
+    vmap <buffer><nowait> -     <Plug>(fern-action-mark-toggle)
+endfunction
+
+augroup FernGroup
+    autocmd!
+    autocmd FileType fern call FernInit()
+augroup END
+
+" quick-scope
+let g:qs_buftype_blacklist = ['terminal', 'nofile', 'fern']
+
+" NERDTree
+"autocmd vimenter * NERDTree  " uruchomienie przy starcie NERDTree
+
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeNaturalSort = 1
+let g:NERDTreeBookmarkFile = '$HOME/.vim/NERDTreeBookmarks'
+let g:NERDTreeQuitOnOpen = 3
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 33
+let g:NERDTreeAutoDeleteBuffer=1
+
+" NERDTree-GIT
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Ignored"   : "☒",
+    \ "Unknown"   : "?"
+    \ }
+
+" Goyo
+function! s:goyo_enter()
+    if executable('tmux') && strlen($TMUX)
+        silent !tmux set status off
+        silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+    endif
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+    Limelight
+endfunction
+
+function! s:goyo_leave()
+    if executable('tmux') && strlen($TMUX)
+        silent !tmux set status on
+        silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+    endif
+    set showmode
+    set showcmd
+    set scrolloff=5
+    Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Defx
 let g:defx_icons_enable_syntax_highlight    = 1
@@ -468,5 +717,5 @@ let g:which_key_map.b = {
     \ }
 " --- Ustawienia pluginów }}}
 " --- Komendy {{{
-command! PI PlugInstall<cr>
+command! PI PlugInstall
 " --- Komendy }}}
