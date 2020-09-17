@@ -47,12 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vuciv/vim-bujo'  " Manage ToDo lists
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
-    Plug 'Shougo/denite.nvim'
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'Shougo/deoppet.nvim'
-    Plug 'Shougo/defx.nvim'
+    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'kristijanhusak/defx-icons'
     Plug 'sainnhe/gruvbox-material'
     Plug 'glidenote/memolist.vim'
@@ -531,6 +526,7 @@ call defx#custom#option('_', {
     \ 'resume': 1,
     \ })
 
+" Memolist
 " suffix type (default markdown)
 let g:memolist_memo_suffix = "md"
 
@@ -595,6 +591,7 @@ let g:which_key_map[';'] = [ ':Commands'          , 'commands'        ]
 let g:which_key_map['='] = [ '<C-W>='             , 'balance windows' ]
 let g:which_key_map['S'] = [ ':Startify'          , 'start screen'    ]
 let g:which_key_map['T'] = [ ':Rg'                , 'search text'     ]
+let g:which_key_map['D'] = [ ':Defx .'            , 'Defx'            ]
 let g:which_key_map['N'] = [ ':NnnPicker'         , 'nnn n³'          ]
 let g:which_key_map['n'] = [ ':NERDTreeToggleVCS' , 'NERDTree'        ]
 let g:which_key_map['f'] = [ ':Files'             , 'search files'    ]
@@ -858,13 +855,13 @@ let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
 abbr abbash #!/usr/bin/env bash<cr><cr>
 " --- Abbr}}}
 " --- Dodatkowe pliki konfiguracyjne {{{
-" jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
-if filereadable(expand("~/.vimrc.local"))
-    source ~/.vimrc.local
+" jeśli istnieje plik ~/.nvim.local to odczytuje jego zawartość
+if filereadable(expand("~/.nvim.local"))
+    source ~/.nvim.local
 endif
 
-" jeśli istnieje plik ~/.vim/vimrc.local to odczytuje jego zawartość
-if filereadable(expand("~/.vim/vimrc.local"))
-    source ~/.vim/vimrc.local
+" jeśli istnieje plik ~/.config/nvim/nvim.local to odczytuje jego zawartość
+if filereadable(expand("~/.config/nvim/nvim.local"))
+    source ~/.config/nvim/nvim.local
 endif
 " --- Dodatkowe pliki konfiguracyjne }}}
