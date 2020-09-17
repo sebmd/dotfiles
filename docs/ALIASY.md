@@ -21,6 +21,7 @@ Wymagane dodatkowe oprogramowanie:
 * [.d](#d)
 * [.g](#g)
 * [.h](#h)
+* [.nv](#nv)
 * [.s](#s)
 * [.sx](#sx)
 * [.t](#t)
@@ -72,7 +73,7 @@ Wymagane dodatkowe oprogramowanie:
 * [mkcdir](#mkcdir)
 * [more](#more)
 * [n](#n)
-* [nv](#nv)
+* [nv](#nv-1)
 * [open-with-fzf](#open-with-fzf)
 * [otp-add](#otp-add)
 * [otp](#otp)
@@ -162,6 +163,10 @@ Edycja pliku `$HOME/.gitconfig`
 # .h
 
 Przechodzi do katalogu domowego `$HOME`
+
+# .nv
+
+Edycja pliku konfiguracyjnego neovim `$HOME/.config/nvim/init.vim`
 
 # .s
 
