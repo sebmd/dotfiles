@@ -60,7 +60,7 @@ function parse_git_dirty {
     fi
 }
 
-PS1='\[\e[0m\][\[\e[0;38;5;220m\]\!\[\e[0m\]]\[\e[0m\][\[\e[0;92m\]$?\[\e[0m\]]\[\e[0m\][\[\e[0m\]\u\[\e[0m\]@\[\e[0m\]\H\[\e[m\] \[\e[0m\]\w\[\e[0m\]]\[\e[0m\]$(parse_git_branch)\$\[\e[m\] \[\e0'
+PS1='\[\e[0m\][\[\e[0;38;5;220m\]\!\[\e[0m\]]\[\e[0m\][\[\e[0;38;5;33m\]$?\[\e[0m\]]\[\e[0m\][\[\e[0m\]\u\[\e[0m\]@\[\e[0m\]\H\[\e[m\] \[\e[0;38;5;45m\]\w\[\e[0m\]]\[\e[0;38;5;82m\]$(parse_git_branch)\$\[\e[m\] \[\e0'
 
 # wczytuje plik $HOME/.aliases jeśli istnieje
 [ "$HOME/.aliases" ] && source "$HOME/.aliases"
