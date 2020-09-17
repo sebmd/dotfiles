@@ -725,6 +725,8 @@ au VimEnter ?* silent! loadview
 let ftToIgnore = [ 'GV', 'git', 'fern' ]
 autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | lcd %:p:h
 
+autocmd FileType git nofoldenable
+
 " przeładowanie .vimrc po zapisaniu pliku
 autocmd! BufWritePost $MYVIMRC source % | redraw
 
