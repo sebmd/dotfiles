@@ -136,6 +136,9 @@ done < "$SCRIPT_DIR/files"
 curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+mkdir -p "$HOME/.config/nvim/autoload"
+cp "$HOME/.vim/autoload/plug.vim" "$HOME/.config/nvim/autoload"
+
 vim -c ":PlugInstall" -c ":qa"
 
 # stworzenie linków symbolicznych w katalogu $HOME/bin
