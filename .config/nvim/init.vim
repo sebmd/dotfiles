@@ -738,7 +738,9 @@ function! LoadSession()
 endfunction
 
 " Adding automatons for when entering or leaving Vim
-au VimEnter * nested :call LoadSession()
+if(argc() == 0)
+  au VimEnter * nested :call LoadSession()
+endif
 au VimLeave * :call MakeSession()
 
 " przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
