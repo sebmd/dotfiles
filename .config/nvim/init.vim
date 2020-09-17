@@ -83,7 +83,7 @@ se undodir=~/.vim/undo
 se undofile
 se undolevels=10000
 se viminfo='100,n$HOME/.vim/viminfo/nviminfo
-se viewdir=$HOME/.vim/view/nvim
+se viewdir=$HOME/.config/nvim/view
 se laststatus=2
 se cmdheight=2
 se list
@@ -716,6 +716,174 @@ let g:which_key_map.b = {
     \ '?' : ['Buffers'   , 'fzf-buffer'         ],
     \ }
 " --- Ustawienia pluginów }}}
-" --- Komendy {{{
+" --- Autocmd / Funkcje {{{
+function! MakeSession()
+  let b:sessiondir = $HOME . "/.config/nvim/sessions" . getcwd()
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  let b:filename = b:sessiondir . '/session.vim'
+  exe "mksession! " . b:filename
+endfunction
+
+function! LoadSession()
+  let b:sessiondir = $HOME . "/.config/nvim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+" Adding automatons for when entering or leaving Vim
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call MakeSession()
+
+" przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
+" pliki typu git i GV, którym sprawia to problem
+let ftToIgnore = [ 'GV', 'git', 'fern' ]
+autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | lcd %:p:h
+
+" przeładowanie .vimrc po zapisaniu pliku
+autocmd! BufWritePost $MYVIMRC source % | redraw
+
+" Modyfikacja komendy Rg z pluginem FZF.vim
+" Przeszukiwanie zawartości plików
+function! RgFzf(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" Modyfikacja komendy Rg dla $NOTES_DIR z pluginem FZF.vim
+" Przeszukiwanie zawartości plików
+function! RgNotes(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $HOME/notes || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" Przeszukiwanie zawartości plików w bieżącej lokalizacji
+function! RgCurrDir(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s $PWD || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+" ProjectFiles
+function! s:find_git_root()
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+function! DestractionFree()
+    set number!
+    set relativenumber!
+    set list!
+    if match(&runtimepath, 'indentLine') != -1  " sprawdza czy plugin indentLine jest zainstalowany
+        IndentLinesToggle
+    endif
+    if &cursorline
+        set nocursorline
+    else
+        set cursorline
+    endif
+    if &colorcolumn == "+1"
+        set colorcolumn=
+    else
+        set colorcolumn=+1
+    endif
+endfunction
+
+function InsertLogEntry()
+    normal! o# <temat> <data>
+    execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
+    normal! 0f<d7l
+    execute ':startinsert'
+endfunction
+
+function! FileTime()
+    let filename=expand('%:p')
+    let msg=""
+    let msg=msg."Mod: ".strftime("%F %T",getftime(filename))." ".filename
+    echom msg
+endfunction
+
+function! CurTime()
+    let ftime=""
+    let ftime=ftime." ".strftime("Teraz jest: %F %T")
+    echom ftime
+    " return ftime
+endfunction
+
+" FZF z podglądem zawartości pliku
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" FZF w $NOTES_DIR z podglądem zawartości pliku
+command! -bang -nargs=? -complete=dir Notes
+    \ call fzf#vim#files('$HOME/notes', fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline', '--prompt=Notes> ']}), <bang>0)
+
+command! -bang -nargs=* RgFzf call RgFzf(<q-args>, <bang>0)
+
+command! -bang -nargs=* RgNotes call RgNotes(<q-args>, <bang>0)
+command! -bang -nargs=* RgCurrDir call RgCurrDir(<q-args>, <bang>0)
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
+" FZF bez podglądu zawartości pliku
+command! -bang -nargs=* -complete=dir LS
+    \ call fzf#run(fzf#wrap({'source': 'ls', 'dir': <q-args>}, <bang>0))
+
+command! InsertLogEntry call InsertLogEntry()
+command! Log :e ~/notes/log.md
+command! FileTime call FileTime()
+command! CurTime call CurTime()
 command! PI PlugInstall
-" --- Komendy }}}
+command! DestractionFree call DestractionFree()
+" --- Autocmd / Funkcje }}}
+" --- Szyfrowanie {{{
+" Szyfrowanie OpenSSL
+augroup OpenSSL
+    autocmd!
+    autocmd BufReadPre,FileReadPre *.crypted set viminfo=
+    autocmd BufReadPre,FileReadPre *.crypted set noswapfile noundofile nobackup
+    autocmd BufReadPost   *.crypted :%!openssl enc -d -aes-256-cbc -a -salt -pbkdf2
+    autocmd BufReadPost   *.crypted |redraw!
+    autocmd BufWritePre   *.crypted :%!openssl enc -e -aes-256-cbc -a -salt -pbkdf2
+    autocmd BufWritePost  *.crypted u
+    autocmd VimLeave      *.crypted :!clear
+augroup END
+
+" Parametry dla plików z rozszerzeniem .gpg
+autocmd BufEnter *.md.gpg set notermguicolors!
+
+" Szyfrowanie GPG
+let g:GPGPreferSymmetric = 0
+let g:GPGUseAgent = 1
+let g:GPGPreferArmor = 1
+" let g:GPGPreferSign = 1
+let g:GPGDefaultRecipients = ["0xID_KLUCZA"]  " gpg --list-keys --keyid-format LONG
+let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
+" --- Szyfrowanie }}}
+" --- Abbr {{{
+abbr abbash #!/usr/bin/env bash<cr><cr>
+" --- Abbr}}}
+" --- Dodatkowe pliki konfiguracyjne {{{
+" jeśli istnieje plik ~/.vimrc.local to odczytuje jego zawartość
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
+" jeśli istnieje plik ~/.vim/vimrc.local to odczytuje jego zawartość
+if filereadable(expand("~/.vim/vimrc.local"))
+    source ~/.vim/vimrc.local
+endif
+" --- Dodatkowe pliki konfiguracyjne }}}
