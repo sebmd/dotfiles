@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'chengzeyi/fzf-preview.vim'
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
     Plug 'dyng/ctrlsf.vim'
     Plug 'mbbill/undotree'
     Plug 'mhinz/vim-startify'
