@@ -73,6 +73,7 @@ Wymagane dodatkowe oprogramowanie:
 * [mkcdir](#mkcdir)
 * [more](#more)
 * [n](#n)
+* [no](#no)
 * [nv](#nv-1)
 * [open-with-fzf](#open-with-fzf)
 * [otp-add](#otp-add)
@@ -527,6 +528,10 @@ Tworzy katalog a następnie przechodzi do niego
 Zastępuje program `more` programem `less`
 
 # n
+
+Uruchamia edytor neovim
+
+# no
 
 Otwiera edytor Vim w lokalizacji `$HOME/notes`
 
