@@ -11,6 +11,7 @@ bin/exa
 bin/fd
 bin/fzf
 bin/gopass
+bin/maple
 bin/lf
 bin/rg
 bin/sd
