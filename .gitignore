@@ -9,6 +9,7 @@ bin/alacritty
 bin/bat
 bin/exa
 bin/fd
+bin/gh
 bin/fzf
 bin/gopass
 bin/maple
