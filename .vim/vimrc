@@ -19,10 +19,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-startify'  " ekran startowy
     Plug 'preservim/nerdtree'  " menadżer plików
     Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
-    Plug 'lambdalisue/fern.vim'  " menadżer plików
-    Plug 'lambdalisue/nerdfont.vim'
-    Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-    Plug 'lambdalisue/fern-bookmark.vim'
+    " Plug 'mcchrish/nnn.vim'
+    " Plug 'lambdalisue/fern.vim'  " menadżer plików
+    " Plug 'lambdalisue/nerdfont.vim'
+    " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+    " Plug 'lambdalisue/fern-bookmark.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
@@ -40,10 +41,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-eunuch'
     Plug 'tmsvg/pear-tree'  " automatyczne zamykanie "", '', ()
     Plug 'vim-scripts/AutoComplPop'  " automatyczne podpowiedzi
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Plug 'ycm-core/YouCompleteMe'  " automatyczne podpowiedzi
     Plug 'dense-analysis/ale'
     Plug 'liuchengxu/vim-which-key'
-    Plug 'mcchrish/nnn.vim'
     Plug 'unblevable/quick-scope'
     Plug 'easymotion/vim-easymotion'
     Plug 'Yggdroot/indentLine'
