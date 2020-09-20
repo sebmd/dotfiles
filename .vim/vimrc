@@ -49,6 +49,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'lifepillar/vim-cheat40'
     Plug 'vimwiki/vimwiki'
     Plug 'glidenote/memolist.vim'
     Plug 'vuciv/vim-bujo'
