@@ -27,6 +27,12 @@
     * [vimwiki](#vimwiki)
     * [vim-bujo](#vim-bujo)
     * [vim-markdown-toc](#vim-markdown-toc)
+* [Git](#git)
+    * [gv.vim](#gvvim)
+    * [vim-signify](#vim-signify)
+    * [vim-fugitive](#vim-fugitive)
+    * [git-messenger.vim](#git-messengervim)
+    * [fzf-checkout.vim](#fzf-checkoutvim)
 * [Inne](#inne)
     * [FZF](#fzf)
     * [fzf.vim](#fzfvim)
@@ -36,22 +42,17 @@
     * [ctrlsf.vim](#ctrlsfvim)
     * [vim-easymotion](#vim-easymotion)
     * [goyo.vim](#goyovim)
-    * [gv.vim](#gvvim)
     * [limelight.vim](#limelightvim)
     * [vim-peekaboo](#vim-peekaboo)
     * [vim-cheat40](#vim-cheat40)
     * [vim-clap](#vim-clap)
     * [vim-which-key](#vim-which-key)
     * [undotree](#undotree)
-    * [vim-signify](#vim-signify)
     * [vim-startify](#vim-startify)
-    * [git-messenger.vim](#git-messengervim)
-    * [fzf-checkout.vim](#fzf-checkoutvim)
     * [pear-tree](#pear-tree)
     * [vim-abolish](#vim-abolish)
     * [vim-commentary](#vim-commentary)
     * [vim-eunuch](#vim-eunuch)
-    * [vim-fugitive](#vim-fugitive)
     * [vim-repeat](#vim-repeat)
     * [vim-surround](#vim-surround)
     * [vim-unimpaired](#vim-unimpaired)
@@ -109,7 +110,6 @@ Instalacja
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 ```
-
 
 # Autouzupełnianie
 
@@ -231,6 +231,43 @@ Generowanie spisu treści
 :GenTocGFM
 ```
 
+# Git
+
+## gv.vim
+
+Instalacja
+```
+Plug 'junegunn/gv.vim'
+```
+
+## vim-signify
+
+Instalacja
+```
+Plug 'mhinz/vim-signify'
+```
+
+## vim-fugitive
+
+Instalacja
+```
+Plug 'tpope/vim-fugitive'
+```
+
+## git-messenger.vim
+
+Instalacja
+```
+Plug 'rhysd/git-messenger.vim'
+```
+
+## fzf-checkout.vim
+
+Instalacja
+```
+Plug 'stsewd/fzf-checkout.vim'
+```
+
 # Inne
 
 ## FZF
@@ -239,7 +276,6 @@ Instalacja
 ```
 Plug 'junegunn/fzf'
 ```
-
 
 ## fzf.vim
 
@@ -290,13 +326,6 @@ Instalacja
 Plug 'junegunn/goyo.vim'
 ```
 
-## gv.vim
-
-Instalacja
-```
-Plug 'junegunn/gv.vim'
-```
-
 ## limelight.vim
 
 Instalacja
@@ -339,32 +368,11 @@ Instalacja
 Plug 'mbbill/undotree'
 ```
 
-## vim-signify
-
-Instalacja
-```
-Plug 'mhinz/vim-signify'
-```
-
 ## vim-startify
 
 Instalacja
 ```
 Plug 'mhinz/vim-startify'
-```
-
-## git-messenger.vim
-
-Instalacja
-```
-Plug 'rhysd/git-messenger.vim'
-```
-
-## fzf-checkout.vim
-
-Instalacja
-```
-Plug 'stsewd/fzf-checkout.vim'
 ```
 
 ## pear-tree
@@ -393,13 +401,6 @@ Plug 'tpope/vim-commentary'
 Instalacja
 ```
 Plug 'tpope/vim-eunuch'
-```
-
-## vim-fugitive
-
-Instalacja
-```
-Plug 'tpope/vim-fugitive'
 ```
 
 ## vim-repeat
