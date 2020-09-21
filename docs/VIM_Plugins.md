@@ -29,35 +29,35 @@
     * [vim-markdown-toc](#vim-markdown-toc)
 * [Inne](#inne)
     * [FZF](#fzf)
-    * [junegunn/fzf.vim](#junegunnfzfvim)
-    * [chengzeyi/fzf-preview.vim](#chengzeyifzf-previewvim)
-    * [Yggdroot/indentLine](#yggdrootindentline)
-    * [dense-analysis/ale](#dense-analysisale)
-    * [dyng/ctrlsf.vim](#dyngctrlsfvim)
-    * [easymotion/vim-easymotion](#easymotionvim-easymotion)
-    * [junegunn/goyo.vim](#junegunngoyovim)
-    * [junegunn/gv.vim](#junegunngvvim)
-    * [junegunn/limelight.vim](#junegunnlimelightvim)
-    * [junegunn/vim-peekaboo](#junegunnvim-peekaboo)
-    * [lifepillar/vim-cheat40](#lifepillarvim-cheat40)
-    * [liuchengxu/vim-clap](#liuchengxuvim-clap)
-    * [liuchengxu/vim-which-key](#liuchengxuvim-which-key)
-    * [mbbill/undotree](#mbbillundotree)
-    * [mhinz/vim-signify](#mhinzvim-signify)
-    * [mhinz/vim-startify](#mhinzvim-startify)
-    * [rhysd/git-messenger.vim](#rhysdgit-messengervim)
-    * [stsewd/fzf-checkout.vim](#stsewdfzf-checkoutvim)
-    * [tmsvg/pear-tree](#tmsvgpear-tree)
-    * [tpope/vim-abolish](#tpopevim-abolish)
-    * [tpope/vim-commentary](#tpopevim-commentary)
-    * [tpope/vim-eunuch](#tpopevim-eunuch)
-    * [tpope/vim-fugitive](#tpopevim-fugitive)
-    * [tpope/vim-repeat](#tpopevim-repeat)
-    * [tpope/vim-surround](#tpopevim-surround)
-    * [tpope/vim-unimpaired](#tpopevim-unimpaired)
-    * [unblevable/quick-scope](#unblevablequick-scope)
-    * [vim-airline/vim-airline](#vim-airlinevim-airline)
-    * [vim-airline/vim-airline-themes](#vim-airlinevim-airline-themes)
+    * [fzf.vim](#fzfvim)
+    * [fzf-preview.vim](#fzf-previewvim)
+    * [indentLine](#indentline)
+    * [ale](#ale)
+    * [ctrlsf.vim](#ctrlsfvim)
+    * [vim-easymotion](#vim-easymotion)
+    * [goyo.vim](#goyovim)
+    * [gv.vim](#gvvim)
+    * [limelight.vim](#limelightvim)
+    * [vim-peekaboo](#vim-peekaboo)
+    * [vim-cheat40](#vim-cheat40)
+    * [vim-clap](#vim-clap)
+    * [vim-which-key](#vim-which-key)
+    * [undotree](#undotree)
+    * [vim-signify](#vim-signify)
+    * [vim-startify](#vim-startify)
+    * [git-messenger.vim](#git-messengervim)
+    * [fzf-checkout.vim](#fzf-checkoutvim)
+    * [pear-tree](#pear-tree)
+    * [vim-abolish](#vim-abolish)
+    * [vim-commentary](#vim-commentary)
+    * [vim-eunuch](#vim-eunuch)
+    * [vim-fugitive](#vim-fugitive)
+    * [vim-repeat](#vim-repeat)
+    * [vim-surround](#vim-surround)
+    * [vim-unimpaired](#vim-unimpaired)
+    * [quick-scope](#quick-scope)
+    * [vim-airline](#vim-airline)
+    * [vim-airline-themes](#vim-airline-themes)
 
 <!-- vim-markdown-toc -->
 
@@ -241,60 +241,209 @@ Plug 'junegunn/fzf'
 ```
 
 
-## junegunn/fzf.vim
+## fzf.vim
 
-## chengzeyi/fzf-preview.vim
+Instalacja
+```
+Plug 'junegunn/fzf.vim'
+```
 
-## Yggdroot/indentLine
+## fzf-preview.vim
 
-## dense-analysis/ale
+Instalacja
+```
+Plug 'chengzeyi/fzf-preview.vim'
+```
 
-## dyng/ctrlsf.vim
+## indentLine
 
-## easymotion/vim-easymotion
+Instalacja
+```
+Plug 'Yggdroot/indentLine'
+```
 
-## junegunn/goyo.vim
+## ale
 
-## junegunn/gv.vim
+Instalacja
+```
+Plug 'dense-analysis/ale'
+```
 
-## junegunn/limelight.vim
+## ctrlsf.vim
 
-## junegunn/vim-peekaboo
+Instalacja
+```
+Plug 'dyng/ctrlsf.vim'
+```
 
-## lifepillar/vim-cheat40
+## vim-easymotion
 
-## liuchengxu/vim-clap
+Instalacja
+```
+Plug 'easymotion/vim-easymotion'
+```
 
-## liuchengxu/vim-which-key
+## goyo.vim
 
-## mbbill/undotree
+Instalacja
+```
+Plug 'junegunn/goyo.vim'
+```
 
-## mhinz/vim-signify
+## gv.vim
 
-## mhinz/vim-startify
+Instalacja
+```
+Plug 'junegunn/gv.vim'
+```
 
-## rhysd/git-messenger.vim
+## limelight.vim
 
-## stsewd/fzf-checkout.vim
+Instalacja
+```
+Plug 'junegunn/limelight.vim'
+```
 
-## tmsvg/pear-tree
+## vim-peekaboo
 
-## tpope/vim-abolish
+Instalacja
+```
+Plug 'junegunn/vim-peekaboo'
+```
 
-## tpope/vim-commentary
+## vim-cheat40
 
-## tpope/vim-eunuch
+Instalacja
+```
+Plug 'lifepillar/vim-cheat40'
+```
 
-## tpope/vim-fugitive
+## vim-clap
 
-## tpope/vim-repeat
+Instalacja
+```
+Plug 'liuchengxu/vim-clap'
+```
 
-## tpope/vim-surround
+## vim-which-key
 
-## tpope/vim-unimpaired
+Instalacja
+```
+Plug 'liuchengxu/vim-which-key'
+```
 
-## unblevable/quick-scope
+## undotree
 
-## vim-airline/vim-airline
+Instalacja
+```
+Plug 'mbbill/undotree'
+```
 
-## vim-airline/vim-airline-themes
+## vim-signify
+
+Instalacja
+```
+Plug 'mhinz/vim-signify'
+```
+
+## vim-startify
+
+Instalacja
+```
+Plug 'mhinz/vim-startify'
+```
+
+## git-messenger.vim
+
+Instalacja
+```
+Plug 'rhysd/git-messenger.vim'
+```
+
+## fzf-checkout.vim
+
+Instalacja
+```
+Plug 'stsewd/fzf-checkout.vim'
+```
+
+## pear-tree
+
+Instalacja
+```
+Plug 'tmsvg/pear-tree'
+```
+
+## vim-abolish
+
+Instalacja
+```
+Plug 'tpope/vim-abolish'
+```
+
+## vim-commentary
+
+Instalacja
+```
+Plug 'tpope/vim-commentary'
+```
+
+## vim-eunuch
+
+Instalacja
+```
+Plug 'tpope/vim-eunuch'
+```
+
+## vim-fugitive
+
+Instalacja
+```
+Plug 'tpope/vim-fugitive'
+```
+
+## vim-repeat
+
+Instalacja
+```
+Plug 'tpope/vim-repeat'
+```
+
+## vim-surround
+
+Instalacja
+```
+Plug 'tpope/vim-surround'
+```
+
+## vim-unimpaired
+
+Instalacja
+```
+Plug 'tpope/vim-unimpaired'
+```
+
+## quick-scope
+
+Instalacja
+```
+Plug 'unblevable/quick-scope'
+```
+
+## vim-airline
+
+Linia statusu
+
+Instalacja
+```
+Plug 'vim-airline/vim-airline'
+```
+
+## vim-airline-themes
+
+Tematy dla linii statusu
+
+Instalacja
+```
+Plug 'vim-airline/vim-airline-themes'
+```
