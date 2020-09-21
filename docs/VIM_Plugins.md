@@ -124,6 +124,8 @@ Plug 'vim-scripts/AutoComplPop'
 
 Do pracy pluginu jest wymagany `nodejs`
 
+- https://github.com/neoclide/coc.nvim
+
 Instalacja
 ```
 Plug 'neoclide/coc.nvim'
