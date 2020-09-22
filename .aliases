@@ -99,6 +99,7 @@ alias sysstop="sudo systemctl stop"
 alias t=tmux
 alias ta="tmux atta"
 alias tree="$HOME/bin/tree"
+alias update="sudo dnf update"
 alias v=vim
 alias vf="$HOME/bin/vf"
 alias vim-docs="$HOME/bin/vim-docs"
