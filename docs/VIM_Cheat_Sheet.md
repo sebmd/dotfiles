@@ -42,6 +42,7 @@
 * [Rejestry](#rejestry)
 * [Przeniesienie bieżącej linii na początek / koniec pliku](#przeniesienie-biecej-linii-na-pocztek--koniec-pliku)
 * [Skopiowanie wybranej linii do bieżącej lokalizacji kursora](#skopiowanie-wybranej-linii-do-biecej-lokalizacji-kursora)
+* [Skopiowqanie / przeniesienie zakresu linii w inne miejsce](#skopiowqanie--przeniesienie-zakresu-linii-w-inne-miejsce)
 * [Otworzenie wszystkich plików w katalogu](#otworzenie-wszystkich-plików-w-katalogu)
 * [Operacje arytmetyczne](#operacje-arytmetyczne)
     * [Kalkulator w linii komend](#kalkulator-w-linii-komend)
@@ -585,6 +586,22 @@ Kopiuje linię `33` do linii `100`.
 
 ```vim
 :33co100
+```
+
+# Skopiowqanie / przeniesienie zakresu linii w inne miejsce
+
+Polecenie `t` to skrót od polecenie `copy`.
+
+Skopiowanie linii od 1 do 3 na koniec pliku
+
+```vim
+:1,3t$
+```
+
+Przeniesienie bieżącej linii oraz następnych dwóch na początek pliku
+
+```vim
+:.,+2m0
 ```
 
 # Otworzenie wszystkich plików w katalogu
