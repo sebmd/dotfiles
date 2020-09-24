@@ -6,6 +6,7 @@
 * [Polecenie fd](#polecenie-fd)
 * [Zmienne specjalne](#zmienne-specjalne)
 * [Sprawdzenie czy skrypt został uruchomiony w trybie graficznym](#sprawdzenie-czy-skrypt-zosta-uruchomiony-w-trybie-graficznym)
+* [Różnica pomiędzy [] a [[]]](#rónica-pomidzy--a-)
 * [Przekierowanie wszystki komunikatów do /dev/null](#przekierowanie-wszystki-komunikatów-do-devnull)
 * [Wykonanie różnych zadań w zależności od nazwy skryptu](#wykonanie-rónych-zada-w-zalenoci-od-nazwy-skryptu)
 * [Różności](#rónoci)
@@ -16,6 +17,9 @@
     * [Agent kluczy](#agent-kluczy)
 * [Case in](#case-in)
 * [for FILE](#for-file)
+* [Generowanie zakresu liczb z poprzedzającym 0](#generowanie-zakresu-liczb-z-poprzedzajcym-0)
+* [Sprawdzenie czy komenda istnieje](#sprawdzenie-czy-komenda-istnieje)
+* [Wyszukiwanie za pomocą ripgrep (rg)](#wyszukiwanie-za-pomoc-ripgrep-rg)
 * [TODO](#todo)
 
 <!-- vim-markdown-toc -->
@@ -66,6 +70,10 @@ else
     htop
 fi
 ```
+
+# Różnica pomiędzy [] a [[]]
+
+- http://mywiki.wooledge.org/BashFAQ/031
 
 # Przekierowanie wszystki komunikatów do /dev/null
 
@@ -205,6 +213,48 @@ for FILE in $(ls $DOTFILES_BIN_DIR|egrep -v 'README.md|install.sh'); do
     ln -sf $DOTFILES_BIN_DIR/$FILE $BIN_DIR/$FILE
 done
 ```
+
+# Generowanie zakresu liczb z poprzedzającym 0
+
+```
+seq -f "%03g" 1 10
+
+001
+...
+010
+```
+
+# Sprawdzenie czy komenda istnieje
+
+```
+if [[ ! $(command -v broot) ]]; then
+    echo "BŁĄD: Brak programu broot."
+    exit
+fi
+```
+
+# Wyszukiwanie za pomocą ripgrep (rg)
+
+Wyszukiwanie wyrazu we wszystkich plikach bieżącego katalogu
+
+```
+rg wyraz
+```
+
+Wyszukiwanie wyrazu w pliku
+
+```
+rg wyraz plik.txt
+```
+
+Wyszukiwanie wyrazu w katalogu
+
+```
+rg wyraz katalog/
+```
+
+
+
 
 # TODO
 

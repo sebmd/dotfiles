@@ -84,7 +84,8 @@
 # Kilka przydatnych skrótów
 
  - `<ctrl-g>` - wyświetla informacje o pliku w tym jego nazwę
- - `g <ctrl-g>` - wyświetla trochę więcej informacji o pliku słów w pliku
+ - `g <ctrl-g>` - wyświetla trochę więcej informacji o pliku słów w pliku, ta
+   funkcja działa również na zaznaczeniu
  - `:x` - zapisanie pliku i wyjście
  - `:term` - uruchomienie terminala systemowego
  - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
