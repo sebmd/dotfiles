@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/AutoComplPop'  " automatyczne podpowiedzi
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Plug 'ycm-core/YouCompleteMe'  " automatyczne podpowiedzi
+    " Plug 'fatih/vim-go'
     Plug 'dense-analysis/ale'
     Plug 'liuchengxu/vim-which-key'
     Plug 'unblevable/quick-scope'
