@@ -384,6 +384,22 @@ Instalacja
 Plug 'tmsvg/pear-tree'
 ```
 
+URL: https://github.com/tmsvg/pear-tree
+
+Konfiguracja
+
+```vim
+let g:pear_tree_pairs = {
+    \ '('  : {'closer': ')'},
+    \ '['  : {'closer': ']'},
+    \ '{'  : {'closer': '}'},
+    \ "'"  : {'closer': "'"},
+    \ '"'  : {'closer': '"'},
+    \ '`'  : {'closer': '`'},
+    \ '```': {'closer': '```'}
+    \ }
+```
+
 ## vim-abolish
 
 Instalacja
