@@ -129,6 +129,17 @@ endif
 let $BASH_ENV="~/.aliases"
 " --- Ustawienia }}}
 " --- Ustawienia plugiów {{{
+" Pear tree
+let g:pear_tree_pairs = {
+    \ '('  : {'closer': ')'},
+    \ '['  : {'closer': ']'},
+    \ '{'  : {'closer': '}'},
+    \ "'"  : {'closer': "'"},
+    \ '"'  : {'closer': '"'},
+    \ '`'  : {'closer': '`'},
+    \ '```': {'closer': '```'}
+    \ }
+
 " Startify
 let g:startify_session_dir = '~/.vim/startify_session'
 
