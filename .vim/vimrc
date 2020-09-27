@@ -457,6 +457,17 @@ vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
 
+" <leader>sn kopiuje linię / zaznaczenie do pliku ~/notes/notatki.md
+" <leader>sN przenosi linię / zaznaczenie do pliku ~/notes/notatki.md
+" <leader>en otwiera plik ~/notes/notatki.md
+" <leader>Fn wyszukiwanie plików z podglądem w katalogu ~/notes/
+nnoremap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+nnoremap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+vmap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+vmap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+nnoremap <leader>en :e ~/notes/notatki.md<cr>
+nnoremap <leader>Fn :Notes<cr>
+
 cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
 command! Q :q!
