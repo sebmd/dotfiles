@@ -106,9 +106,9 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 
 ## Obsługa notatek w katalogu ~/notes/
 
- - `:RgNotes` - przeszukiwanie plików w katalogu `~/notes/`
- - `:Notes` - wyszukiwanie plików w katalogu `~/notes/`
- - `:Log` - edycja pliku `~/notes/log.md`
+- `:RgNotes` - przeszukiwanie plików w katalogu `~/notes/`
+- `:Notes` - wyszukiwanie plików w katalogu `~/notes/`
+- `:Log` - edycja pliku `~/notes/log.md`
 - `<leader>sn` - kopiuje linię / zaznaczenie do pliku `~/notes/notatki.md`
 - `<leader>sN` - przenosi linię / zaznaczenie do pliku `~/notes/notatki.md`
 - `<leader>e` - otwiera plik `~/notes/ + bieżąca data`
