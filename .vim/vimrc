@@ -437,8 +437,6 @@ nnoremap <leader>E !!$SHELL<cr>
 " kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
 nnoremap <leader>ve yy:@"<cr>
 
-nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
-
 " Obsługa pluginu vim-surround
 " <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
 noremap <leader>sw :norm ysiw
@@ -461,12 +459,14 @@ map <c-p> "+P
 
 " <leader>sn kopiuje linię / zaznaczenie do pliku ~/notes/notatki.md
 " <leader>sN przenosi linię / zaznaczenie do pliku ~/notes/notatki.md
+" <leader>e otwiera plik ~/notes/ + bieżąca data
 " <leader>en otwiera plik ~/notes/notatki.md
 " <leader>Fn wyszukiwanie plików z podglądem w katalogu ~/notes/
 nnoremap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
 nnoremap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
 vmap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
 vmap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
 nnoremap <leader>en :e ~/notes/notatki.md<cr>
 nnoremap <leader>Fn :Notes<cr>
 
