@@ -191,14 +191,12 @@ let g:fern#default_hidden = 1
 
 autocmd Filetype fern set nornu
 autocmd Filetype fern set nonu
+ " wyłączenie pluginu quick-scope, który okazjonalnie wiesza plugin Fern
+ autocmd Filetype fern let g:qs_enable=0
+" wyłącza plugin indentLine
+autocmd Filetype fern let g:indentLine_enabled = 0
 
 function! FernInit() abort
-    " wyłączenie pluginu quick-scope, który okazjonalnie wiesza plugin Fern
-    let g:qs_enable=0
-
-    " wyłącza plugin indentLine
-    let g:indentLine_enabled = 0
-
     " mapowanie
     nmap <buffer><nowait> <cr> <plug>(fern-action-open-or-enter)
     nmap <buffer><nowait> <bs> <plug>(fern-action-leave)
