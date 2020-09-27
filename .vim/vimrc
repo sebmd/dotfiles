@@ -411,6 +411,8 @@ nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
 
 nnoremap <leader>g :Rg<cr>
 
+nnoremap <leader>gp :!cd $(dirname $(readlink -m %)) && ~/bin/gp<cr>:e<cr>
+
 " otwiera menadżer plików dla lokalizacji otwartego pliku
 " nnoremap <leader>f :sv %:p:h<cr>
 nnoremap <leader>f :Fern . -drawer -reveal=% -toggle -width=30<cr>
@@ -454,6 +456,8 @@ nnoremap <localleader>f :echo expand("%:p")<cr>
 vnoremap <c-c> "*y :let @+=@*<cr>
 nnoremap <c-c> "*y :let @+=@*<cr>
 map <c-p> "+P
+
+cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
 command! Q :q!
 
@@ -678,6 +682,10 @@ function! CurTime()
     let ftime=ftime." ".strftime("Teraz jest: %F %T")
     echom ftime
     " return ftime
+endfunction
+
+function! CurrentFileDir()
+    return "e " . expand("%:p:h") . "/"
 endfunction
 
 " FZF z podglądem zawartości pliku
