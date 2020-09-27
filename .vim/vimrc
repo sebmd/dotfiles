@@ -738,6 +738,29 @@ command! ProjectFiles execute 'Files' s:find_git_root()
 command! -bang -nargs=* -complete=dir LS
     \ call fzf#run(fzf#wrap({'source': 'ls', 'dir': <q-args>}, <bang>0))
 
+" Usuwa pliki .swp
+function! DeleteSwapFile()
+    write
+    let l:output = ''
+    redir => l:output
+    silent exec ':sw'
+    redir END
+    let l:current_swap_file = substitute(l:output, '\n', '', '')
+    let l:base = substitute(l:current_swap_file, '\v\.\w+$', '', '')
+    let l:swap_files = split(glob(l:base.'\.s*'))
+    " delete all except the current swap file
+    for l:swap_file in l:swap_files
+        if !empty(glob(l:swap_file)) && l:swap_file != l:current_swap_file
+            call delete(l:swap_file)
+            echo "swap file removed: ".l:swap_file
+        endif
+    endfor
+    " Reset swap file extension to `.swp`.
+    set swf! | set swf!
+    echo "Reset swap file extension for file: ".expand('%')
+endfunction
+
+command! DeleteSwapFile call DeleteSwapFile()
 command! InsertLogEntry call InsertLogEntry()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
