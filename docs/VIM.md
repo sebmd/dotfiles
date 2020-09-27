@@ -7,6 +7,8 @@
     * [Klawisz LEADER](#klawisz-leader)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
+    * [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
+    * [Obsługa notatek w katalogu ~/notes/](#obsuga-notatek-w-katalogu-notes)
     * [Autouzupełnianie](#autouzupenianie)
     * [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
     * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
@@ -86,7 +88,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-k>` - przechodzi o jedną linię w górę
  - `<ctrl-j>` - przechodzi o jedną linię w dół
  
- ## Praca z plikami Markdown i Vimwiki
+## Praca z plikami Markdown i Vimwiki
 
 - `,m` - wstawia nagłówek pierwszego stopnia oraz bieżącą datę i godzinę
 - `,n` - wstawia `----`
@@ -99,6 +101,20 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 - `,4` - wstawia nagłówek stopnia czwartego `####`
 - `,c` - wstawia blok kodu
 - `,t` - wstawia bieżącą datę i godzinę np. 2020-09-27 22:08:02
+- `:GenTocGFM` - generuje spis treści
+- `:UpdateToc` - aktualizuje spis treści wygenerowany za pomocą `GenTocGFM`
+
+## Obsługa notatek w katalogu ~/notes/
+
+ - `:RgNotes` - przeszukiwanie plików w katalogu `~/notes/`
+ - `:Notes` - wyszukiwanie plików w katalogu `~/notes/`
+ - `:Log` - edycja pliku `~/notes/log.md`
+- `<leader>sn` - kopiuje linię / zaznaczenie do pliku `~/notes/notatki.md`
+- `<leader>sN` - przenosi linię / zaznaczenie do pliku `~/notes/notatki.md`
+- `<leader>e` - otwiera plik `~/notes/ + bieżąca data`
+- `<leader>en` - otwiera plik `~/notes/notatki.md`
+- `<leader>Fn` wyszukiwanie plików z podglądem w katalogu `~/notes/` uruchamia
+  polecenie `:Notes`
 
 ## Autouzupełnianie
 
