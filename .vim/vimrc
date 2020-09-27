@@ -461,7 +461,24 @@ cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
 command! Q :q!
 
-autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
+autocmd filetype python nnoremap <f5> :w <bar> :!python3 % <cr>
+
+autocmd Filetype markdown,vimwiki inoremap ,m <esc>:InsertLogEntry<cr>
+autocmd Filetype markdown,vimwiki nnoremap ,m :InsertLogEntry<cr>
+autocmd Filetype markdown,vimwiki inoremap ,, <esc>/<++><cr>"_c4l
+autocmd Filetype markdown,vimwiki inoremap ,n ----<cr>
+autocmd Filetype markdown,vimwiki inoremap ,b ****<space><++><esc>F*hi
+autocmd Filetype markdown,vimwiki inoremap ,s ~~~~<space><++><esc>F~hi
+autocmd Filetype markdown,vimwiki inoremap ,e **<++><esc>F*i
+autocmd Filetype markdown,vimwiki inoremap ,h ====<space><++><esc>F=hi
+autocmd Filetype markdown,vimwiki inoremap ,i ![](<++>)<++><esc>F[a
+autocmd Filetype markdown,vimwiki inoremap ,a [](<++>)<++><esc>F[a
+autocmd Filetype markdown,vimwiki inoremap ,1 #<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,2 ##<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,3 ###<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,4 ####<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,l --------<cr>
+autocmd Filetype markdown,vimwiki inoremap ,c ```<cr>```<cr><esc>O
 
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
