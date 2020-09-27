@@ -326,7 +326,9 @@ nnoremap Y y$
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap qq :q<cr>
-nnoremap qs :update<cr>:q<cr>
+nnoremap qw :update<cr>:q<cr>
+" nnoremap gh 0
+" nnoremap gl $
 
 " usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
 " to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
@@ -358,6 +360,9 @@ inoremap <c-l> <right>
 
 inoremap <c-c> <esc>
 
+inoremap <c-s> <esc>:update<cr>a
+nnoremap <c-s> :update<cr>
+
 nmap <c-h> <c-w><c-h>
 nmap <c-j> <c-w><c-j>
 nmap <c-k> <c-w><c-k>
@@ -375,6 +380,9 @@ nnoremap <leader>l $
 " Przełączanie się pomiędzy buforami
 nnoremap <leader>, :bp<cr>
 nnoremap <leader>. :bn<cr>
+nnoremap <esc>h :bp<cr>
+nnoremap <esc>l :bn<cr>
+
 " ustawia podzielone okno na główne (full screen)
 nnoremap <leader>o :only<cr>
 
