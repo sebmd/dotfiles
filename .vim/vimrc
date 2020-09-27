@@ -493,6 +493,7 @@ autocmd Filetype markdown,vimwiki inoremap ,3 ###<space><cr><cr><++><esc>2kA
 autocmd Filetype markdown,vimwiki inoremap ,4 ####<space><cr><cr><++><esc>2kA
 autocmd Filetype markdown,vimwiki inoremap ,l --------<cr>
 autocmd Filetype markdown,vimwiki inoremap ,c ```<cr>```<cr><esc>O
+autocmd Filetype markdown,vimwiki inoremap ,t <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr><esc>
 
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>

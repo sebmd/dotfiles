@@ -85,6 +85,20 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
  - `<ctrl-k>` - przechodzi o jedną linię w górę
  - `<ctrl-j>` - przechodzi o jedną linię w dół
+ 
+ ## Praca z plikami Markdown i Vimwiki
+
+- `,m` - wstawia nagłówek pierwszego stopnia oraz bieżącą datę i godzinę
+- `,n` - wstawia `----`
+- `,b` - wstawia `**** ****` np. ****Pogrubiony**** ***Pogrubiony***
+- `,s` - wstawia `~~ ~~` np. ~~wyraz~~
+- `,e` - wstawia `* *` *wyraz*
+- `,1` - wstawia nagłówek stopnia pierwszego `#`
+- `,2` - wstawia nagłówek stopnia drugiego `##`
+- `,3` - wstawia nagłówek stopnia trzeciego `###`
+- `,4` - wstawia nagłówek stopnia czwartego `####`
+- `,c` - wstawia blok kodu
+- `,t` - wstawia bieżącą datę i godzinę np. 2020-09-27 22:08:02
 
 ## Autouzupełnianie
 
