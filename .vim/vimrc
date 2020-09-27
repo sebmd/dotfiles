@@ -461,7 +461,8 @@ cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
 command! Q :q!
 
-autocmd filetype python nnoremap <f5> :w <bar> :!python3 % <cr>
+autocmd filetype python nnoremap <leader>5 :w <bar> :!python3 % <cr>
+autocmd filetype go nnoremap <leader>5 :w <bar> :GoRun<cr>
 
 autocmd Filetype markdown,vimwiki inoremap ,m <esc>:InsertLogEntry<cr>
 autocmd Filetype markdown,vimwiki nnoremap ,m :InsertLogEntry<cr>
