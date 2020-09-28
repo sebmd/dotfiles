@@ -1,6 +1,6 @@
 # .bashrc
 
-[ "/etc/bashrc" ] && source "/etc/bashrc"
+[ -f "/etc/bashrc" ] && . "/etc/bashrc"
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then

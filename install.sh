@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 BACKUP_DIR="$HOME/.backup"
 SCRIPT_DIR="$PWD"
