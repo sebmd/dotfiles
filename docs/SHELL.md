@@ -18,6 +18,7 @@
 * [Case in](#case-in)
 * [for FILE](#for-file)
 * [Wyświetlenie wartości zmiennej](#wywietlenie-wartoci-zmiennej)
+* [Pobranie daty modyfikacji pliku](#pobranie-daty-modyfikacji-pliku)
 * [Generowanie zakresu liczb z poprzedzającym 0](#generowanie-zakresu-liczb-z-poprzedzajcym-0)
 * [Sprawdzenie czy komenda istnieje](#sprawdzenie-czy-komenda-istnieje)
 * [Wyszukiwanie za pomocą ripgrep (rg)](#wyszukiwanie-za-pomoc-ripgrep-rg)
@@ -242,9 +243,16 @@ echo "${zmienna:8:3}"
 zmi
 ```
 
+# Pobranie daty modyfikacji pliku
+
+```bash
+stat -c '%y' ~/temp/tdrop|cut -f 1 -d ' '
+2020-09-29
+```
+
 # Generowanie zakresu liczb z poprzedzającym 0
 
-```
+```bash
 seq -f "%03g" 1 10
 
 001
@@ -254,7 +262,7 @@ seq -f "%03g" 1 10
 
 # Sprawdzenie czy komenda istnieje
 
-```
+```bash
 if [[ ! $(command -v broot) ]]; then
     echo "BŁĄD: Brak programu broot."
     exit
