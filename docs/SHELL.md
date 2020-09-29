@@ -17,17 +17,17 @@
     * [Agent kluczy](#agent-kluczy)
 * [Case in](#case-in)
 * [for FILE](#for-file)
+* [Wyświetlenie wartości zmiennej](#wywietlenie-wartoci-zmiennej)
 * [Generowanie zakresu liczb z poprzedzającym 0](#generowanie-zakresu-liczb-z-poprzedzajcym-0)
 * [Sprawdzenie czy komenda istnieje](#sprawdzenie-czy-komenda-istnieje)
 * [Wyszukiwanie za pomocą ripgrep (rg)](#wyszukiwanie-za-pomoc-ripgrep-rg)
-* [TODO](#todo)
 
 <!-- vim-markdown-toc -->
 
 # Przydatne narzędzia
 
 - [fzf](https://github.com/junegunn/fzf)
-- [sk -skim](https://github.com/lotabout/skim)
+- [sk - skim](https://github.com/lotabout/skim)
 - [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
 - [sd](https://github.com/chmln/sd)
 - [fd - fd-find](https://github.com/sharkdp/fd)
@@ -214,6 +214,34 @@ for FILE in $(ls $DOTFILES_BIN_DIR|egrep -v 'README.md|install.sh'); do
 done
 ```
 
+```bash
+for FILE in **/**; do
+    echo "$FILE"
+done
+```
+
+```bash
+for FILE in *.md
+do
+    echo "$FILE"
+done
+```
+
+# Wyświetlenie wartości zmiennej
+
+```bash
+ZMIENNA="wartość zmiennej"
+
+echo "$ZMIENNA"
+wartość zmiennej
+
+echo "${ZMIENNA:8}"
+zmiennej
+
+echo "${zmienna:8:3}"
+zmi
+```
+
 # Generowanie zakresu liczb z poprzedzającym 0
 
 ```
@@ -252,19 +280,3 @@ Wyszukiwanie wyrazu w katalogu
 ```
 rg wyraz katalog/
 ```
-
-
-
-
-# TODO
-
-- [fzf](https://github.com/junegunn/fzf)
-- [sk -skim](https://github.com/lotabout/skim)
-- [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
-- [sd](https://github.com/chmln/sd)
-- [fd - fd-find](https://github.com/sharkdp/fd)
-- test
-- if
-- case
-- bat
-- exa

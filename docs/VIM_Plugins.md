@@ -1,6 +1,5 @@
 # Pluginy
 
-
 <!-- vim-markdown-toc GFM -->
 
 * [Schematy kolorów](#schematy-kolorów)
@@ -34,7 +33,7 @@
     * [git-messenger.vim](#git-messengervim)
     * [fzf-checkout.vim](#fzf-checkoutvim)
 * [Inne](#inne)
-    * [FZF](#fzf)
+    * [fzf](#fzf)
     * [fzf.vim](#fzfvim)
     * [fzf-preview.vim](#fzf-previewvim)
     * [indentLine](#indentline)
@@ -59,6 +58,7 @@
     * [quick-scope](#quick-scope)
     * [vim-airline](#vim-airline)
     * [vim-airline-themes](#vim-airline-themes)
+    * [vim-go](#vim-go)
 
 <!-- vim-markdown-toc -->
 
@@ -272,11 +272,11 @@ Plug 'stsewd/fzf-checkout.vim'
 
 # Inne
 
-## FZF
+## fzf
 
 Instalacja
 ```
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 ```
 
 ## fzf.vim
@@ -465,4 +465,10 @@ Tematy dla linii statusu
 Instalacja
 ```
 Plug 'vim-airline/vim-airline-themes'
+```
+
+## vim-go
+
+```
+Plug 'fatih/vim-go'
 ```
