@@ -89,3 +89,7 @@ eval $(ssh-agent)
 eval $(gpg-agent --daemon)
 GPG_TTY=$(tty)
 export GPG_TTY
+export GPG_ID=''
+
+# To polecenie powinno być uruchamiane jako ostatnie w pliku ~/.bashrc
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

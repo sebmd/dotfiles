@@ -55,6 +55,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki'
     Plug 'glidenote/memolist.vim'
     Plug 'vuciv/vim-bujo'
+    Plug 'jamessan/vim-gnupg'
 call plug#end()
 " --- Pluginy }}}
 " --- Ustawienia {{{
@@ -797,7 +798,10 @@ let g:GPGPreferSymmetric = 0
 let g:GPGUseAgent = 1
 let g:GPGPreferArmor = 1
 " let g:GPGPreferSign = 1
-let g:GPGDefaultRecipients = ["0xID_KLUCZA"]  " gpg --list-keys --keyid-format LONG
+" zmieną g:GPGDefaultRecipients można ustawić jako [$GPG_ID] wtedy ID klucza
+" będzie pobierany ze zmiennej systemowej ustawionej w pliku ~/.bashrc lub mieć
+" postać tekstu np. ['0xID_KLUCZ']
+let g:GPGDefaultRecipients = [$GPG_ID]  " gpg --list-keys --keyid-format LONG
 let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
 " --- Szyfrowanie }}}
 " --- Abbr {{{
