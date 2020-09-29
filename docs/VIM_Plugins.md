@@ -59,6 +59,7 @@
     * [vim-airline](#vim-airline)
     * [vim-airline-themes](#vim-airline-themes)
     * [vim-go](#vim-go)
+    * [vim-gnupg](#vim-gnupg)
 
 <!-- vim-markdown-toc -->
 
@@ -471,4 +472,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 ```
 Plug 'fatih/vim-go'
+```
+
+##  vim-gnupg
+
+```vim
+Plug 'jamessan/vim-gnupg'
 ```

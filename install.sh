@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+shopt -s nocasematch
+
 BACKUP_DIR="$HOME/.backup"
 SCRIPT_DIR="$PWD"
 BIN_DIR="$HOME/bin"
@@ -60,48 +62,57 @@ function install_bspwm() {
 
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
-    read -r ODP
+    read -r -n 1 ODP
     case "$ODP" in
-        t|T)
+        t|y)
+            echo
             install_dnf
             ;;
-        n|N)
+        n)
             echo -n
             ;;
         *)
+            echo
             install_dnf
             ;;
     esac
+    echo
 fi
 
 if [ -f /etc/fedora-release ]; then
     echo -n "Pobrac pakiety dla BSPWM? [T/n] "
-    read -r ODP
+    read -r -n 1 ODP
     case "$ODP" in
-        t|T)
+        t|y)
+            echo
             install_bspwm
             ;;
-        n|N)
+        n)
             echo -n
             ;;
         *)
+            echo
             install_bspwm
             ;;
     esac
+    echo
 fi
 
 echo -n "Pobrac i zainstalować czcionki [T/n] "
-read -r ODP
+read -r -n 1 ODP
 case "$ODP" in
-    t|T)
+    t|y)
+        echo
         install_fonts
         ;;
-    n|N)
+    n)
         ;;
     *)
+        echo
         install_fonts
         ;;
 esac
+echo
 
 # tworzy potrzebne katalogi
 mkdir -p "$BACKUP_DIR"
@@ -154,18 +165,21 @@ function dotfiles_bin() {
 
 echo
 echo    " ---------------------------------------------  "
-read -r -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " ODP
+read -r -n 1 -p "Pobrać repozytorium z plikami binarnymi? [T/n]: " ODP
 
 case "$ODP" in
-    t|T)
+    t|y)
+        echo
         dotfiles_bin
         exit
         ;;
-    n|N)
+    n)
+        echo
         echo "Zły wybór ;)"
         exit
         ;;
     *)
+        echo
         dotfiles_bin
         exit
         ;;
