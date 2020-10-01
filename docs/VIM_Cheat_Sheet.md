@@ -74,6 +74,7 @@
 * [Przejście do poprzednio zaznaczonego tekstu w trybie VISUAL](#przejcie-do-poprzednio-zaznaczonego-tekstu-w-trybie-visual)
 * [Mapowanie funkcji związanych położeniem edytowanego pliku](#mapowanie-funkcji-zwizanych-pooeniem-edytowanego-pliku)
 * [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
+* [Poruszanie się w trybie INSERT](#poruszanie-si-w-trybie-insert)
 
 <!-- vim-markdown-toc -->
 
@@ -913,4 +914,12 @@ map ,v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 :redir > plik.txt
 :version
 :redir END
+```
+
+# Poruszanie się w trybie INSERT
+
+Użycie skrótu `Ctrl-o` a następnie np. `b` cofa się na początek wyrazu, skrót
+zastępuje: `ESC`, `b`, `i`
+```
+ctrl-o b
 ```
