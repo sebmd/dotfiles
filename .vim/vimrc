@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Taverius/vim-colorscheme-manager'  " menadżer kolorów
     Plug 'xolox/vim-misc'  " wymagany dle pluginu vim-colorscheme-switcher
     Plug 'xolox/vim-colorscheme-switcher'  " przełączanie kolorów
+    Plug 'luochen1990/rainbow'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'chengzeyi/fzf-preview.vim'
@@ -19,6 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhinz/vim-startify'  " ekran startowy
     Plug 'preservim/nerdtree'  " menadżer plików
     Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
+    Plug 'ryanoasis/vim-devicons'
     " Plug 'mcchrish/nnn.vim'
     Plug 'lambdalisue/fern.vim'  " menadżer plików
     Plug 'lambdalisue/nerdfont.vim'
@@ -130,6 +132,9 @@ endif
 let $BASH_ENV="~/.aliases"
 " --- Ustawienia }}}
 " --- Ustawienia plugiów {{{
+" Rainbow
+let g:rainbow_active = 1
+
 " Pear tree
 let g:pear_tree_pairs = {
     \ '('  : {'closer': ')'},
@@ -330,8 +335,12 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap qq :q<cr>
 nnoremap qw :update<cr>:q<cr>
+" odtwarza nagrane makro a
+nnoremap Q @a
+vnoremap Q :norm @a<cr>
 " nnoremap gh 0
 " nnoremap gl $
+" inore kj <esc>
 
 " usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
 " to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
@@ -374,6 +383,10 @@ nmap <c-l> <c-w><c-l>
 " wchodzi do trybu COMMAND
 nnoremap <leader>; :
 
+" wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 80 znaków 'gqap'
+nnoremap <leader>a =ip gqap
+
+" zapisanie pliku jeśli zostały wprowadzone zmiany
 nnoremap <leader>w :update<cr>
 
 " początek i koniec linii
@@ -769,6 +782,8 @@ command! FileTime call FileTime()
 command! CurTime call CurTime()
 command! PI :PlugInstall
 command! DestractionFree call DestractionFree()
+command! CreateGist :!gh gist create %
+command! CreateGistPublic !gh gist create % -p
 " --- Autocmd / Funkcje }}}
 " --- Szyfrowanie {{{
 " Szyfrowanie OpenSSL
