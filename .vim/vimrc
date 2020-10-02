@@ -463,8 +463,22 @@ noremap <leader>ss :norm yss
 " <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
 noremap <leader>sd :norm ds
 
-" \fnn wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
+" map! ustawia skróty dla trybu COMMAND
+" Wyśweitla bieżący katalog np. /home/user/git/dot.files/.vim
+map! ,fp <c-r>=expand("%:p:h")<cr>
+
+" Wyświetla nazwę edytowanego pliku np. vimrc
+map! ,fn <c-r>=expand("%:t:r")<cr>
+
+" Wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
+map! ,fnn <c-r>=expand("%:p")<cr>
+
+" \f wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
 nnoremap <localleader>f :echo expand("%:p")<cr>
+
+nnoremap ,e :e <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap ,s :sp <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap ,v :vs <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 " kopiuj / wklej do schowka systemowego
 vnoremap <c-c> "*y :let @+=@*<cr>
