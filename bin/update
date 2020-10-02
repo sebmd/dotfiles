@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+SYSTEM=$("$HOME"/bin/detect-os sys)
+
+if [ "$SYSTEM" == "Fedora" ]
+then
+    UPD_CMD="sudo dnf update"
+fi
+
+if [ "$TMUX" ]
+then
+    $UPD_CMD
+else
+    tmux -2 new -s SysUpdate "$UPD_CMD"
+fi
+
