@@ -494,7 +494,7 @@ nnoremap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'no
 nnoremap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
 vmap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
 vmap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
-nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr><bar>:InsertLogEntry<cr>
+nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr><bar>:InsertDiaryHeader<cr>
 nnoremap <leader>en :e ~/notes/notatki.md<cr>
 nnoremap <leader>Fn :Notes<cr>
 
@@ -730,6 +730,15 @@ function InsertLogEntry()
     execute ':startinsert'
 endfunction
 
+function InsertDiaryHeader()
+    normal! o# <temat> <data>
+    execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
+    normal! 0f<d7l
+    normal! kdd
+    normal! 02l
+    execute ':startinsert'
+endfunction
+
 function! FileTime()
     let filename=expand('%:p')
     let msg=""
@@ -791,6 +800,7 @@ endfunction
 
 command! DeleteSwapFile call DeleteSwapFile()
 command! InsertLogEntry call InsertLogEntry()
+command! InsertDiaryHeader call InsertDiaryHeader()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
 command! CurTime call CurTime()
