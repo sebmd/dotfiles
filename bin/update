@@ -7,6 +7,16 @@ then
     UPD_CMD="sudo dnf update"
 fi
 
+if [ "$SYSTEM" == "CentOS" ]
+then
+    UPD_CMD="sudo yum update"
+fi
+
+if [ "$SYSTEM" == "Ubuntu" ]
+then
+    UPD_CMD="sudo apt update"
+fi
+
 if [ "$TMUX" ]
 then
     $UPD_CMD
