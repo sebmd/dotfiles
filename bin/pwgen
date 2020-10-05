@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-pwgen -c -s -n -y -1 32

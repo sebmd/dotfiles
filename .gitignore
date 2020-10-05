@@ -11,6 +11,8 @@ bin/exa
 bin/fd
 bin/broot
 bin/gh
+bin/lazygit
+bin/ion
 bin/fzf
 bin/gopass
 bin/maple
