@@ -13,6 +13,13 @@
 * [Zarządzanie oknami](#zarzdzanie-oknami)
 * [Użycie Shift-Strzałki do zmiany sesji](#uycie-shift-strzaki-do-zmiany-sesji)
 * [Przeładowanie konfiguracji tmux](#przeadowanie-konfiguracji-tmux)
+* [Uruchomienie tmux z wybraną nazwą sesji](#uruchomienie-tmux-z-wybran-nazw-sesji)
+* [Lista sesji](#lista-sesji)
+* [Podłączenie do wybranej sesji](#podczenie-do-wybranej-sesji)
+* [Przełączanie się pomiędzy sesjami](#przeczanie-si-pomidzy-sesjami)
+* [Zamkninięcie wybranej sesji](#zamkninicie-wybranej-sesji)
+* [Zamknięcie wszystkich sesji](#zamknicie-wszystkich-sesji)
+* [Uruchomienie polecenia przy uruchomieniu nowej sesji](#uruchomienie-polecenia-przy-uruchomieniu-nowej-sesji)
 
 <!-- vim-markdown-toc -->
 
@@ -84,3 +91,50 @@ Użycie Ctrl-Strzałki do zmiany okna
 # Przeładowanie konfiguracji tmux
 
   * `Prefix-r` przeładowanie konfiguracji tmux
+
+# Uruchomienie tmux z wybraną nazwą sesji
+
+```
+tmux new -s nazwa_sesji
+```
+
+# Lista sesji
+
+```
+tmux ls
+```
+
+# Podłączenie do wybranej sesji
+
+```
+tmux a -t nazwa_sesji
+```
+
+# Przełączanie się pomiędzy sesjami
+
+```
+tmux switch -t nazwa_sesji
+```
+
+
+# Zamkninięcie wybranej sesji
+
+```
+tmux kill-session -t nazwa_sesji
+```
+
+# Zamknięcie wszystkich sesji
+
+```
+tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
+```
+
+# Uruchomienie polecenia przy uruchomieniu nowej sesji
+
+Dodatkowo po uruchomienie nowej sesji zostaje otwarte kolejne okno z kolejnym
+poleceniem.
+
+```
+tmux new-session -s OpenVPN -d '/usr/local/sbin/openvpn --cd /etc/openvpn --client-config-dir /etc/openvpn/ccd --config server.conf'
+tmux new-window -t OpenVPN '~/bin/log.sh'
+```
