@@ -238,11 +238,14 @@ Fedora release 32 (Thirty Two)
 ```bash
 #!/usr/bin/env bash
 
+shopt -s nocasematch
+
 # Wykrywanie systemu Fedora
 if [ -f /etc/fedora-release ]; then
     read -r fedora < /etc/fedora-release
     fedora_ver=$(echo "$fedora" | tr -cd '[:digit:][:cntrl:]')
-    system=$fedora
+    system="Fedora"
+    system_full=$fedora
     system_ver=$fedora_ver
 fi
 
@@ -255,7 +258,8 @@ if [ -f /etc/centos-release ]; then
     else
         centos_ver=$(echo "$centos" | tr -cd '[:digit:][:cntrl:]')
     fi
-    system=$centos
+    system="CentOS"
+    system_full=$centos
     system_ver=$centos_ver
 fi
 
@@ -264,27 +268,33 @@ if [ -f /etc/lsb-release ]; then
     source /etc/lsb-release
     ubuntu=$DISTRIB_ID
     ubuntu_ver=$DISTRIB_RELEASE
-    system=$ubuntu
+    system="Ubuntu"
+    system_full=$ubuntu
     system_ver=$ubuntu_ver
 fi
 
 case $1 in
-    SYS|sys)
+    sys)
         echo $system
         ;;
-    VER|ver)
+    sys-full)
+        echo $system_full
+        ;;
+    ver)
         echo $system_ver
         ;;
     *)
         echo
-        echo "################## POMOC #####################"
+        echo "############################## POMOC #################################"
         echo
         echo Dostępne parametry:
         echo
-        echo $(basename $0) SYS - wyświetla nazwę dystrybucji
-        echo $(basename $0) VER - wyświetla wersję systemu
+        echo "$(basename $0) sys      - wyświetla nazwę dystrybucji"
+        echo "$(basename $0) sys-full - wyśweitla nazwę dystrybucji i wersję systemu"
+        echo "$(basename $0) ver      - wyświetla wersję systemu"
         echo
-        echo "##############################################"
+        echo
+        "###########################################################################"
         echo
 esac
 ```
