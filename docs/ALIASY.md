@@ -10,6 +10,8 @@ Wymagane dodatkowe oprogramowanie:
  - `skim`
  - `pass`
  - `rofi` / `dmenu`
+ 
+# Spis treści
 
 <!-- vim-markdown-toc GFM -->
 
@@ -20,16 +22,20 @@ Wymagane dodatkowe oprogramowanie:
 * [.bs](#bs)
 * [.d](#d)
 * [.g](#g)
+* [.git](#git)
 * [.h](#h)
+* [.n](#n)
 * [.nv](#nv)
 * [.s](#s)
+* [.src](#src)
 * [.sx](#sx)
 * [.t](#t)
 * [.v](#v)
-* [.z](#z)
 * [.xr](#xr)
+* [.z](#z)
 * [backup-dir](#backup-dir)
 * [batt](#batt)
+* [books](#books)
 * [cdb](#cdb)
 * [cdba](#cdba)
 * [cdbd](#cdbd)
@@ -72,7 +78,7 @@ Wymagane dodatkowe oprogramowanie:
 * [menu](#menu)
 * [mkcdir](#mkcdir)
 * [more](#more)
-* [n](#n)
+* [n](#n-1)
 * [no](#no)
 * [nv](#nv-1)
 * [open-with-fzf](#open-with-fzf)
@@ -132,6 +138,10 @@ Edycja aliasów `$HOME/.aliases`
  ```
  vim $HOME/.aliases && source $HOME/.aliases
  ```
+ 
+ # .ala
+
+ Edycja pliku konfiguracyjnego alacritty
 
 # .b
 
@@ -161,9 +171,19 @@ cd $HOME/git/dotfiles
 
 Edycja pliku `$HOME/.gitconfig`
 
+# .git
+
+Przechodzi do katalogu `$HOME/git`
+
 # .h
 
 Przechodzi do katalogu domowego `$HOME`
+
+# .n
+
+Edycja pliku konfiguracyjnego edytora Neovim
+
+`$HOME/.config/nvim/init.vim`
 
 # .nv
 
@@ -176,6 +196,10 @@ Edycja pliku `$HOME/.ssh/config`
 ```
 vim $HOME/.ssh/config
 ```
+
+# .src
+
+Przechodzi do katalogu `$HOME/src`
 
 # .sx
 
@@ -200,6 +224,10 @@ Edycja pliku edytora Vim
 vim -c 'e \$MYVIMRC'
 ```
 
+# .xr
+
+Edycja pliku `$HOME/.Xresource` a następnie przeładowuje plik
+
 # .z
 
 Edycja pliku `$HOME/.zshrc`
@@ -208,10 +236,6 @@ Edycja pliku `$HOME/.zshrc`
 vim $HOME/.zshrc
 ```
 
-# .xr
-
-Edycja pliku `$HOME/.Xresource` a następnie przeładowuje plik
-
 # backup-dir
 
 Link do skryptu `$HOME/bin/backup-dir`
@@ -219,7 +243,7 @@ Link do skryptu `$HOME/bin/backup-dir`
 Skrypt wykonuje kopię zapasową bieżącego katalogu wraz z możliwością szyfrowania
 za pomocą PGP
 
-#  batt
+# batt
 
 Wyświetlenie stanu baterii laptopa
 
@@ -227,7 +251,7 @@ Wyświetlenie stanu baterii laptopa
 $HOME/bin/batt
 ```
 
- # books
+# books
 
  Menu rofi z listą książek z katalog `$HOME/Books`
 
@@ -730,7 +754,7 @@ Usypia komputer
 sudo systemctl suspend
 ```
 
-#  sysdis
+# sysdis
 
 Deaktywuje usługę
 
