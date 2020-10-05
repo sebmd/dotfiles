@@ -8,7 +8,7 @@ if [[ ! $(command -v pwgen) ]]; then
 fi
 
 if [ $DISPLAY ]; then
-    pwgen -c -s -n -y -1 32 | xclip -sel clip && xclip -sel clip -o
+    pwgen -c -s -n -B -1 32 | xclip -sel clip && xclip -sel clip -o
 else
-    pwgen -c -s -n -y -1 32
+    pwgen -c -s -n -B -1 32
 fi
