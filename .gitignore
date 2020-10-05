@@ -13,6 +13,7 @@ bin/broot
 bin/gh
 bin/lazygit
 bin/ion
+bin/glow
 bin/fzf
 bin/gopass
 bin/maple
