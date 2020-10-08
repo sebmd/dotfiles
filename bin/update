@@ -21,6 +21,6 @@ if [ "$TMUX" ]
 then
     $UPD_CMD
 else
-    tmux -2 new -s SysUpdate "$UPD_CMD"
+    tmux -2 new -s SysUpdate "$UPD_CMD ; read -r -p 'Naciśnij coś... '"
 fi
 
