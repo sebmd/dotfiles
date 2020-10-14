@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
     Plug 'junegunn/vim-peekaboo'  " pokazuje zawartość rejestrów (schowka)
+    Plug 'vim-scripts/YankRing.vim' " :YRShow pokazuje ostatnio kopiowany tekst
     Plug 'tpope/vim-commentary'  " dodaje znak komentarza dla różnych plików
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -392,6 +393,8 @@ nnoremap <leader>w :update<cr>
 " początek i koniec linii
 nnoremap <leader>h 0
 nnoremap <leader>l $
+
+nnoremap <leader>y :YRShow<cr>
 
 " Przełączanie się pomiędzy buforami
 nnoremap <leader>, :bp<cr>
