@@ -476,8 +476,8 @@ map! ,fn <c-r>=expand("%:t:r")<cr>
 " Wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
 map! ,fnn <c-r>=expand("%:p")<cr>
 
-" \f wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
-nnoremap <localleader>f :echo expand("%:p")<cr>
+" \F wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
+nnoremap <localleader>F :echo expand("%:p")<cr>
 
 nnoremap ,e :e <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nnoremap ,s :sp <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
@@ -542,28 +542,61 @@ let g:which_key_map['S'] = [ ':Startify'          , 'start screen'    ]
 let g:which_key_map['T'] = [ ':Rg'                , 'search text'     ]
 let g:which_key_map['N'] = [ ':NnnPicker'         , 'nnn n³'          ]
 let g:which_key_map['n'] = [ ':NERDTreeToggleVCS' , 'NERDTree'        ]
-let g:which_key_map['f'] = [ ':Files'             , 'search files'    ]
 let g:which_key_map['h'] = [ '<C-W>s'             , 'split below'     ]
 let g:which_key_map['v'] = [ '<C-W>v'             , 'split right'     ]
 let g:which_key_map['z'] = [ 'Goyo'               , 'zen'             ]
 let g:which_key_map['q'] = [ 'q'                  , 'quit vim'        ]
 let g:which_key_map['x'] = [ 'x'                  , 'save & quit vim' ]
 
-" t - toggle
-" d - dot.files
-" s - search
-" g - git
-" w - windows
 " b - buffers
+" c - colors
+" d - dot.files
+" f - files
+" g - git
+" s - search
+" t - toggle
+" w - windows
+
+" b buffers
+let g:which_key_map.b = {
+    \ 'name' : '+buffer' ,
+    \ '1' : ['b1'        , 'buffer 1'           ],
+    \ '2' : ['b2'        , 'buffer 2'           ],
+    \ 'd' : ['bd'        , 'delete-buffer'      ],
+    \ 'f' : ['bfirst'    , 'first-buffer'       ],
+    \ 'h' : ['Startify'  , 'home-buffer'        ],
+    \ 'l' : ['blast'     , 'last-buffer'        ],
+    \ 'n' : ['bnext'     , 'next-buffer'        ],
+    \ 'p' : ['bprevious' , 'previous-buffer'    ],
+    \ '?' : ['Buffers'   , 'fzf-buffer'         ],
+    \ }
+
+" c colors
+let g:which_key_map.c = {
+    \ 'name' : '+colors',
+    \ 'l'  : [':Colors'                 , 'Lista FZF'           ],
+    \ 'a'  : [':colo ayu'               , 'ayu'                 ],
+    \ 'dt' : [':colo base16-darktooth'  , 'darktooth'           ],
+    \ 'g'  : [':colo gruvbox'           , 'gruvbox'             ],
+    \ 'gm' : [':colo gruvbox-material'  , 'gruvbox-material'    ],
+    \ }
 
 " d dot.files
 let g:which_key_map.d = {
     \ 'name' : '+dot.files',
-    \ 'v' : [':e $MYVIMRC'                      , 'vimrc'               ],
-    \ 'b' : [':e ~/.bashrc'                     , 'bashrc'              ],
-    \ 'z' : [':e ~/.zshrc'                      , 'zshrc'               ],
+    \ 'v' : [':e $MYVIMRC'  , 'vimrc'  ],
+    \ 'b' : [':e ~/.bashrc' , 'bashrc' ],
+    \ 'z' : [':e ~/.zshrc'  , 'zshrc'  ],
     \ }
 
+" f files
+let g:which_key_map.f = {
+    \ 'name' : '+files',
+    \ 's'  : [':w' , 'save'         ],
+    \ 'x'  : [':x' , 'save & exit'  ],
+    \ }
+
+" t toggle
 let g:which_key_map.t = {
     \ 'name' : '+toggle',
     \ 'p' : [':set paste!'             , 'toggle paste'             ],
@@ -646,19 +679,6 @@ let g:which_key_map['w'] = {
     \ 's' : ['<C-W>s'     , 'split-window-below'    ],
     \ 'v' : ['<C-W>v'     , 'split-window-below'    ],
     \ '?' : ['Windows'    , 'fzf-window'            ],
-    \ }
-
-let g:which_key_map.b = {
-    \ 'name' : '+buffer' ,
-    \ '1' : ['b1'        , 'buffer 1'           ],
-    \ '2' : ['b2'        , 'buffer 2'           ],
-    \ 'd' : ['bd'        , 'delete-buffer'      ],
-    \ 'f' : ['bfirst'    , 'first-buffer'       ],
-    \ 'h' : ['Startify'  , 'home-buffer'        ],
-    \ 'l' : ['blast'     , 'last-buffer'        ],
-    \ 'n' : ['bnext'     , 'next-buffer'        ],
-    \ 'p' : ['bprevious' , 'previous-buffer'    ],
-    \ '?' : ['Buffers'   , 'fzf-buffer'         ],
     \ }
 " --- Mapowanie klawiszy }}}
 " --- Autocmd / Funkcje {{{
