@@ -592,8 +592,8 @@ let g:which_key_map.d = {
 " f files
 let g:which_key_map.f = {
     \ 'name' : '+files',
-    \ 's'  : [':w' , 'save'         ],
-    \ 'x'  : [':x' , 'save & exit'  ],
+    \ 's'  : [':w' , 'save'             ],
+    \ 'x'  : [':x' , 'save & quit Vim'  ],
     \ }
 
 " t toggle
