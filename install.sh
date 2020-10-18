@@ -139,7 +139,7 @@ while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
             cp -R "$LINE" "$BACKUP_DIR/"
         fi
         rm -rf "$LINE"
-        ln -s "$SCRIPT_DIR/$LINE" "$LINE"
+        ln -sf "$SCRIPT_DIR/$LINE" "$LINE"
     fi
 done < "$SCRIPT_DIR/files"
 
