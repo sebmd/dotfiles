@@ -4,7 +4,6 @@ ARR[0]=$HOME/.aliases
 ARR[1]=$HOME/.config/alacritty/alacritty.yml
 ARR[2]=$HOME/.bashrc
 ARR[3]=$HOME/.config/bspwm/bspwmrc
-ARR[4]=$HOME/git/github/dotfiles
 ARR[5]=$HOME/.gitconfig
 ARR[6]=$HOME/.config/nvim/init.vim
 ARR[7]=$HOME/.ssh/config
