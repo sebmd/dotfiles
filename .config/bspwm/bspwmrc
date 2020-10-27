@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 # ~/.config/bspwm/autostart.sh
 $HOME/.config/bspwm/autostart.sh
