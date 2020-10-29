@@ -1,6 +1,6 @@
 # VIM Cheat Sheet
 
-*2020-10-29 20:44:56*
+*2020-10-29 21:07:14*
 
 <!-- vim-markdown-toc GFM -->
 
@@ -77,6 +77,7 @@
 * [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
 * [Poruszanie się w trybie INSERT](#poruszanie-si-w-trybie-insert)
 * [Zliczanie wystąpienia słowa w pliku](#zliczanie-wystpienia-sowa-w-pliku)
+* [Wyświetlenie informacji o pliku](#wywietlenie-informacji-o-pliku)
 * [Pobranie treści ze strony i przejście do edycji](#pobranie-treci-ze-strony-i-przejcie-do-edycji)
 * [Utworzenie brakującego katalgou](#utworzenie-brakujcego-katalgou)
 * [Wstawienie daty i godziny w linii numer 2](#wstawienie-daty-i-godziny-w-linii-numer-2)
@@ -90,9 +91,6 @@
 
 # Kilka przydatnych skrótów
 
- - `<ctrl-g>` - wyświetla informacje o pliku w tym jego nazwę
- - `g <ctrl-g>` - wyświetla trochę więcej informacji o pliku słów w pliku, ta
-   funkcja działa również na zaznaczeniu
  - `:x` - zapisanie pliku i wyjście
  - `:term` - uruchomienie terminala systemowego
  - `:e ++ff=dos` - zamienia znak końca linii (`^M`) DOS2Unix
@@ -935,6 +933,25 @@ ctrl-o b
 ```vim
 :%s/Szukane wyrażenie//n
 1 match on 1 line
+```
+
+# Wyświetlenie informacji o pliku
+
+
+ - `<ctrl-g>` - wyświetla informacje o pliku w tym jego nazwę
+ - `g <ctrl-g>` - wyświetla trochę więcej informacji o pliku słów w pliku, ta
+   funkcja działa również na zaznaczeniu
+
+Wersja podstawowa
+
+```
+"VIM_Cheat_Sheet.md" [Modified] 979 lines --96%--
+```
+
+Wersja szczegółowa
+
+```
+Col 1 of 20-18; Line 951 of 991; Word 3266 of 3380; Char 23723 of 24529; Byte 24393 of 25226
 ```
 
 # Pobranie treści ze strony i przejście do edycji
