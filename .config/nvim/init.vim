@@ -136,6 +136,8 @@ nnoremap th :set hlsearch!<cr>
 nnoremap <leader>v :e $MYVIMRC<cr>
 nnoremap <leader>r :source $MYVIMRC<cr>
 nnoremap <leadeg>f :Defx .<cr>
+nnoremap zn zm
+nnoremap zm zn
 
 " usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
 " to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
@@ -333,6 +335,8 @@ let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_fileTypeExclude = [ "vimwiki", "help", "undotree", "diff", "nerdtree" ]
+let g:indentLine_bufTypeExclude = [ "help", "terminal" ]
 
 " nnn
 " Disable default mappings
