@@ -1,10 +1,11 @@
 # VIM Cheat Sheet
 
-*2020-10-29 21:07:14*
+*2020-10-29 21:40:50*
 
 <!-- vim-markdown-toc GFM -->
 
 * [Przydatne strony pomocy](#przydatne-strony-pomocy)
+* [Podpowiedzi dla komendy help](#podpowiedzi-dla-komendy-help)
 * [Kilka przydatnych skrótów](#kilka-przydatnych-skrótów)
 * [Wyrównanie paragrafu na szerokość 80 znaków lub wartość parametru `textwidth`](#wyrównanie-paragrafu-na-szeroko-80-znaków-lub-warto-parametru-textwidth)
 * [Wprowadzanie znaków UTF-8](#wprowadzanie-znaków-utf-8)
@@ -88,6 +89,17 @@
 # Przydatne strony pomocy
 
  - obiekty tekstowe - `:help text-objects`
+
+# Podpowiedzi dla komendy help
+
+Kiedy użyjemy komendy `:help` a następnie użyjemy skrótu `Ctrl-d` zostanie
+wyświetlona lista dostępnych stron podręcznika, możemy też wprowadzić
+kilka początkowych znaków szukanej pomocy, co zawęzi podpowiedzi.
+
+Więcej o używaniu pomocy w edytorze Vim możemy znaleźć na stronach:
+
+- `:help help`
+- `:help help-context`
 
 # Kilka przydatnych skrótów
 
@@ -281,7 +293,9 @@ Pomoc: `:help text-objects`
  - `yy` - kopiuje całą linię
  - `dd` - usuwa całą linię
  - `cc` - wycina całą linię i przechodzi w tryb **INSERT**
- 
+ - `[<space>` - wstawia pustą linię powyżej
+ - `]<space>` - wstawia pustą linię poniżej
+
  Określenie obiektu na którym chcemy wykonać operację
 
  - `dw` - usunięcie od kursora do końca wyrazu
@@ -825,7 +839,13 @@ Komenda `:v` to skrót od `:vglobal` a ta jest równoznaczna z `:g!`
 :map
 ```
 
-Plugin `fzf.vim` posiada funkcę `:Maps`, która umożliwia wyszukiwanie.
+Możemy też wyświetlić listę skrótów klawiszowych dla klawisza **leader**
+
+```vim
+:map <leader>
+```
+
+Plugin `fzf.vim` posiada funkcję `:Maps`, która umożliwia wyszukiwanie.
 
 # Plugin tpope/vim-abolish
 
