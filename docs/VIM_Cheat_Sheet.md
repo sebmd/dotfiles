@@ -1,6 +1,6 @@
 # VIM Cheat Sheet
 
-*2020-10-29 20:17:13*
+*2020-10-29 20:44:56*
 
 <!-- vim-markdown-toc GFM -->
 
@@ -80,6 +80,7 @@
 * [Pobranie treści ze strony i przejście do edycji](#pobranie-treci-ze-strony-i-przejcie-do-edycji)
 * [Utworzenie brakującego katalgou](#utworzenie-brakujcego-katalgou)
 * [Wstawienie daty i godziny w linii numer 2](#wstawienie-daty-i-godziny-w-linii-numer-2)
+* [Wykrycie systemu operacyjnego](#wykrycie-systemu-operacyjnego)
 
 <!-- vim-markdown-toc -->
 
@@ -961,4 +962,12 @@ Ponowne użycie `<leader>z` aktualizuje datę
 
 ```vim
 nnoremap <leader>z ma2GD<esc>:r!date +"\%F \%T"<cr>I*<esc>A*<esc>kdd`a
-``````
+```
+
+# Wykrycie systemu operacyjnego
+
+```vim
+if system('uname') =~ "Linux"
+    echo 'Wykryłem system Linux'
+endif
+```
