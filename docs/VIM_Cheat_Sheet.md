@@ -1,5 +1,6 @@
 # VIM Cheat Sheet
 
+*2020-10-29 20:17:13*
 
 <!-- vim-markdown-toc GFM -->
 
@@ -76,6 +77,9 @@
 * [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
 * [Poruszanie się w trybie INSERT](#poruszanie-si-w-trybie-insert)
 * [Zliczanie wystąpienia słowa w pliku](#zliczanie-wystpienia-sowa-w-pliku)
+* [Pobranie treści ze strony i przejście do edycji](#pobranie-treci-ze-strony-i-przejcie-do-edycji)
+* [Utworzenie brakującego katalgou](#utworzenie-brakujcego-katalgou)
+* [Wstawienie daty i godziny w linii numer 2](#wstawienie-daty-i-godziny-w-linii-numer-2)
 
 <!-- vim-markdown-toc -->
 
@@ -931,3 +935,30 @@ ctrl-o b
 :%s/Szukane wyrażenie//n
 1 match on 1 line
 ```
+
+# Pobranie treści ze strony i przejście do edycji
+
+```bash
+curl -sL https://git.io/JULqp | vim -
+```
+
+# Utworzenie brakującego katalgou
+
+W przypadku kiedy otwieramy plik w katalogu, którego nie ma, to przy
+próbie zapisu wystąpi błąd zapisu. Możemy taki katalog utworzyć samodzielnie
+podając pełną ścieżkę lub skorzystać z automatycznego wprowadzenia nazwy.
+
+```vim
+:!mkdir -p %:h
+```
+
+# Wstawienie daty i godziny w linii numer 2
+
+Użycie `ma` oraz `` `a `` pozwala na zaznaczenie i wrócenie do miejsca w pliku w
+którym się znajdujemy.
+
+Ponowne użycie `<leader>z` aktualizuje datę
+
+```vim
+nnoremap <leader>z ma2GD<esc>:r!date +"\%F \%T"<cr>I*<esc>A*<esc>kdd`a
+``````
