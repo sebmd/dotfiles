@@ -75,6 +75,7 @@
 * [Mapowanie funkcji związanych położeniem edytowanego pliku](#mapowanie-funkcji-zwizanych-pooeniem-edytowanego-pliku)
 * [Zapisanie wyniku polecenia w pliku](#zapisanie-wyniku-polecenia-w-pliku)
 * [Poruszanie się w trybie INSERT](#poruszanie-si-w-trybie-insert)
+* [Zliczanie wystąpienia słowa w pliku](#zliczanie-wystpienia-sowa-w-pliku)
 
 <!-- vim-markdown-toc -->
 
@@ -922,4 +923,11 @@ Użycie skrótu `Ctrl-o` a następnie np. `b` cofa się na początek wyrazu, skr
 zastępuje: `ESC`, `b`, `i`
 ```
 ctrl-o b
+```
+
+# Zliczanie wystąpienia słowa w pliku
+
+```vim
+:%s/Szukane wyrażenie//n
+1 match on 1 line
 ```
