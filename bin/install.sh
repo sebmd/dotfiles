@@ -1,1 +1,1 @@
-/home/t3/git/github/dotfiles_bin/install.sh
+/home/red/git/github/dotfiles_bin/install.sh
