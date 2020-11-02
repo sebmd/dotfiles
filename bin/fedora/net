@@ -4,8 +4,11 @@ ethtool
 iptraf-ng
 masscan
 mtr
+NetworkManager-openvpn
+NetworkManager-openvpn-gnome
 nmap
 nmap-ncat
+openvpn
 socat
 tcpdump
 wireshark-cli
