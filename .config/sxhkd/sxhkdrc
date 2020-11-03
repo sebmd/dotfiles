@@ -136,3 +136,7 @@ super + F5
 
 super + F6
     light -A 10
+
+super + c
+    ~/bin/clipmenu
+

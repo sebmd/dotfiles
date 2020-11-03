@@ -26,5 +26,10 @@ bin/clipdel
 bin/clipfsck
 bin/clipmenu
 bin/clipmenud
+bin/clipdelete
+bin/clipnotify
+bin/st
+bin/st-copyout
+bin/st-urlhandler
 notes
 *.swp

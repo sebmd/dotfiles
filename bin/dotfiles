@@ -1,17 +1,33 @@
 #!/usr/bin/env bash
 
-ARR[0]=$HOME/.aliases
-ARR[1]=$HOME/.config/alacritty/alacritty.yml
-ARR[2]=$HOME/.bashrc
-ARR[3]=$HOME/.config/bspwm/bspwmrc
-ARR[5]=$HOME/.gitconfig
-ARR[6]=$HOME/.config/nvim/init.vim
-ARR[7]=$HOME/.ssh/config
-ARR[8]=$HOME/.config/sxhkd/sxhkdrc
-ARR[9]=$HOME/.tmux.conf
-ARR[10]=$HOME/.vim/vimrc
-ARR[11]=$HOME/.Xresources
-ARR[12]=$HOME/.zshrc
+#ARR[0]=$HOME/.aliases
+#ARR[1]=$HOME/.config/alacritty/alacritty.yml
+#ARR[2]=$HOME/.bashrc
+#ARR[3]=$HOME/.config/bspwm/bspwmrc
+#ARR[5]=$HOME/.gitconfig
+#ARR[6]=$HOME/.config/nvim/init.vim
+#ARR[7]=$HOME/.ssh/config
+#ARR[8]=$HOME/.config/sxhkd/sxhkdrc
+#ARR[9]=$HOME/.tmux.conf
+#ARR[10]=$HOME/.vim/vimrc
+#ARR[11]=$HOME/.Xresources
+#ARR[12]=$HOME/.zshrc
+
+ARR=(
+    ~/.aliases
+    ~/.config/alacritty/alacritty.yml
+    ~/.config/bspwm/autostart.sh
+    ~/.config/bspwm/bspwmrc
+    ~/.bashrc
+    ~/.gitconfig
+    ~/.config/nvim/init.vim
+    ~/.ssh/config
+    ~/.config/sxhkd/sxhkdrc
+    ~/.tmux.conf
+    ~/.vim/vimrc
+    ~/.Xresources
+    ~/.zshrc
+    )
 
 PLIK=$(printf '%s\n' "${ARR[@]}"|fzf)
 
