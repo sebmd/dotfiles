@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+VIMWIKI=$HOME/vimwiki
+
+BAT=$(which bat)
+PREVIEW_SH=$(which preview.sh)
+
+if [ ! -z $BAT ]; then
+    PREVIEW="bat --style=numbers --color=always {}"
+elif [ ! -z $PREVIEW_SH ]; then
+    PREVIEW="preview.sh {}"
+else
+    echo "Brak programu 'bat' i skryptu 'preview'"
+    exit
+fi
+
+
+function wiki_find() {
+    cd $VIMWIKI
+    SEARCH=$(fd --type f | sk --exact --tac --prompt="Wyszukaj pliku: " \
+        --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+        --preview-window=down:50%)
+    [[ $SEARCH ]] && vim $SEARCH
+}
+
+function wiki_grep() {
+    cd $VIMWIKI
+    SEARCH=$(sk --ansi -i -c 'rg --color=always --line-number "{}"' \
+        --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
+        --preview-window=down:50%)
+    readarray -td: array <<<"$SEARCH"
+    FILE=${array[0]}
+    LINE=${array[1]}
+    ARRAY_NOE=${#array[@]}
+    if [ $ARRAY_NOE -gt 1 ]; then
+        vim $FILE +$LINE
+    fi
+}
+
+function help() {
+    echo
+    echo "$(basename $0) - bez parametru włącza Index Vimwiki"
+    echo "$(basename $0) g / grep - przeszukuje pliki"
+    echo "$(basename $0) f / find - szuka plików"
+    echo
+}
+
+if [ $# -eq 0 ]; then
+    vim -c :VimwikiIndex
+elif [[ ($1 == "-g") || ($1 == "g") || ($1 == "grep") ]]; then
+    wiki_grep
+elif [[ ($1 == "-f") || ($1 == "f") || ($1 == "find") ]]; then
+    wiki_find
+elif [[ ($1 == "-h") || ($1 == "--help") || ($1 == "h" ) ]]; then
+    help
+fi
