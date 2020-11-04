@@ -104,14 +104,15 @@ Wymagane dodatkowe oprogramowanie:
 * [Szyfrowanie / hasła](#szyfrowanie--hasa)
     * [otp-add](#otp-add)
     * [otp](#otp)
-    * [p / pass](#p--pass)
+    * [p](#p)
+    * [pass](#pass)
     * [passf](#passf)
     * [passr](#passr)
     * [pwgen](#pwgen)
     * [dec](#dec)
+    * [enc](#enc)
     * [DecryptGPG](#decryptgpg)
     * [DecryptSSL](#decryptssl)
-    * [enc](#enc)
     * [EncryptGPG](#encryptgpg)
     * [EncryptSSL](#encryptssl)
     * [clear-gpg-passwd](#clear-gpg-passwd)
@@ -120,7 +121,8 @@ Wymagane dodatkowe oprogramowanie:
     * [gpg-delete-secret-keys](#gpg-delete-secret-keys)
     * [gpg-edit-key](#gpg-edit-key)
     * [gpg-export-secret-key](#gpg-export-secret-key)
-    * [gpg-export-key](#gpg-export-key)
+    * [gpg-export](#gpg-export)
+    * [gpg-gen-key](#gpg-gen-key)
     * [gpg-list-keys-short](#gpg-list-keys-short)
     * [gpg-list-keys](#gpg-list-keys)
     * [gpg-list-secret-keys-short](#gpg-list-secret-keys-short)
@@ -131,24 +133,24 @@ Wymagane dodatkowe oprogramowanie:
     * [sysena](#sysena)
     * [sysstart](#sysstart)
     * [sysstop](#sysstop)
+    * [reboot](#reboot)
     * [batt](#batt)
 * [Wyszukiwanie i przeszukiwanie](#wyszukiwanie-i-przeszukiwanie)
-    * [last-edit](#last-edit)
-    * [fdh](#fdh)
-    * [nv](#nv-1)
-    * [open-with-fzf](#open-with-fzf)
     * [rgvi](#rgvi)
     * [se](#se)
     * [sedi](#sedi)
     * [sefi](#sefi)
     * [vf](#vf)
-    * [vim-docs](#vim-docs)
-    * [vim-notes](#vim-notes)
     * [vs](#vs)
+    * [last-edit](#last-edit)
+    * [open-with-fzf](#open-with-fzf)
+    * [fdh](#fdh)
 * [Notatki](#notatki)
     * [wiki](#wiki)
     * [diary](#diary)
     * [no](#no)
+    * [vim-docs](#vim-docs)
+    * [vim-notes](#vim-notes)
 
 <!-- vim-markdown-toc -->
 
@@ -709,9 +711,13 @@ Dodaje skrót HASH do bazy `pass`
 
 Wyświetla kod jednorazowy, którego HASH jest przechowywany w bazie `pass`
 
-## p / pass
+## p
 
-Uruchamia program `pass` bez zapisywania polecenia w historii
+Uruchamia program `gopass` bez zapisywania polecenia w historii
+
+## pass
+
+Uruchamia program `gopass` bez zapisywania polecenia w historii
 
 ## passf
 
@@ -754,14 +760,6 @@ Deszyfruje plik za pomocą GPG
 $HOME/bin/DecryptGPG
 ```
 
-## DecryptGPG
-
-Skrypt deszyfrujący pliki PGP
-
-## DecryptSSL
-
-Skrypt deszyfrujący pliki za pomocą OpenSSL
-
 ## enc
 
 Szyfruje plik za pomocą GPG
@@ -769,6 +767,14 @@ Szyfruje plik za pomocą GPG
 ```
 $HOME/bin/EncryptGPG
 ```
+
+## DecryptGPG
+
+Skrypt deszyfrujący pliki PGP
+
+## DecryptSSL
+
+Skrypt deszyfrujący pliki za pomocą OpenSSL
 
 ## EncryptGPG
 
@@ -806,9 +812,13 @@ Edytuje wybrany klucz
 
 Eksportuje klucz prywatny
 
-## gpg-export-key
+## gpg-export
 
 Eksportuj klucz publiczny
+
+## gpg-gen-key
+
+Generuje parę kluczy PGP
 
 ## gpg-list-keys-short
 
@@ -825,6 +835,8 @@ Wyświetla listę kluczy prywatnych w formacie SHORT
 ## gpg-list-secret-keys
 
 Wyświetla listę kluczy prywatnych w formacie LONG
+
+------
 
 # systemctl, zarządzanie energią
 
@@ -868,6 +880,12 @@ Zatrzymuje usługę
 sudo systemctl stop"
 ```
 
+## reboot
+
+```
+sudo reboot
+```
+
 ## batt
 
 Wyświetlenie stanu baterii laptopa
@@ -876,23 +894,9 @@ Wyświetlenie stanu baterii laptopa
 $HOME/bin/batt
 ```
 
+------
+
 # Wyszukiwanie i przeszukiwanie
-
-## last-edit
-
-Pokazuje ostatnio edytowane pliki
-
-## fdh
-
-Uruchamia polecenie `fd` z parametrem `--hidden`
-
-## nv
-
-Uruchamia edytor Neovim
-
-## open-with-fzf
-
-Uruchamia skrypt `/home/t3/bin/open-with-fzf`
 
 ## rgvi
 
@@ -1002,46 +1006,6 @@ Skrytp `$HOME/bin/vf`
 sk | xargs -r -I % $EDITOR %
 ```
 
-## vim-docs
-
-Skrypt `vim-docs`
-
-```bash
-#!/usr/bin/env bash
-
-KATALOG=$HOME/docs/
-
-if [ $# -gt 0 ]; then
-    cd $KATALOG
-    FILE=$(rg "$@" --ignore-file $KATALOG/.ignore | fzf | cut -d : -f 1)
-    if [ -n "$FILE" ]; then
-        vim "$FILE"
-    fi
-else
-    echo Podaj conajmniej jeden parametr...
-fi
-```
-
-## vim-notes
-
-Skrypt `vim-notes`
-
-```bash
-#!/usr/bin/env bash
-
-cd ~/notes
-SEARCH=$(sk --ansi -i -c 'rg --color=always --line-number "{}"' \
-    --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
-    --preview-window=down:50%:hidden)
-readarray -td: array <<<"$SEARCH"
-FILE=${array[0]}
-LINE=${array[1]}
-ARRAY_NOE=${#array[@]}
-if [ $ARRAY_NOE -gt 1 ]; then
-    vim $FILE +$LINE
-fi
-```
-
 ## vs
 
 Skrypt `vs` uruchamia w bieżącej lokalizacji polecenie `fzf` z podglądem plików,
@@ -1065,6 +1029,18 @@ else
     vim "$@"
 fi
 ```
+
+## last-edit
+
+Pokazuje ostatnio edytowane pliki
+
+## open-with-fzf
+
+Uruchamia skrypt `/home/t3/bin/open-with-fzf`
+
+## fdh
+
+Uruchamia polecenie `fd` z parametrem `--hidden`
 
 # Notatki
 
@@ -1143,5 +1119,45 @@ Otwiera edytor Vim w lokalizacji `$HOME/notes`
 
 ```
 vim -c "e $HOME/notes"
+```
+
+## vim-docs
+
+Skrypt `vim-docs`
+
+```bash
+#!/usr/bin/env bash
+
+KATALOG=$HOME/docs/
+
+if [ $# -gt 0 ]; then
+    cd $KATALOG
+    FILE=$(rg "$@" --ignore-file $KATALOG/.ignore | fzf | cut -d : -f 1)
+    if [ -n "$FILE" ]; then
+        vim "$FILE"
+    fi
+else
+    echo Podaj conajmniej jeden parametr...
+fi
+```
+
+## vim-notes
+
+Skrypt `vim-notes`
+
+```bash
+#!/usr/bin/env bash
+
+cd ~/notes
+SEARCH=$(sk --ansi -i -c 'rg --color=always --line-number "{}"' \
+    --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
+    --preview-window=down:50%:hidden)
+readarray -td: array <<<"$SEARCH"
+FILE=${array[0]}
+LINE=${array[1]}
+ARRAY_NOE=${#array[@]}
+if [ $ARRAY_NOE -gt 1 ]; then
+    vim $FILE +$LINE
+fi
 ```
 
