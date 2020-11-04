@@ -2,6 +2,7 @@
 .bashrc
 .config/alacritty/alacritty.yml
 .config/bspwm
+.config/fish/config.fish
 .config/kitty
 .config/nvim/init.vim
 .config/polybar

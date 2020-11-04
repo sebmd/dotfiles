@@ -125,6 +125,7 @@ mkdir -p "$HOME/notes"
 mkdir -p "$HOME/tmp"
 mkdir -p "$HOME/.config/zathura"
 mkdir -p "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config/fish"
 mkdir -p "$HOME/.gnupg"
 
 cd "$HOME"
@@ -162,6 +163,30 @@ function dotfiles_bin() {
         ln -sf "$DOTFILES_BIN_DIR/$FILE" "$BIN_DIR/$FILE"
     done
 }
+
+# Instalacja clipmenu i clipnotify
+# function clipboard() {
+#     # pobranie repozytorium clipmenu
+#     curl -fLo "$HOME/git/src/clipmenu/clipmenu.tar.gz" --create-dirs \
+#         https://github.com/cdown/clipmenu/archive/6.2.0.tar.gz
+#     cd "$HOME/git/src/clipmenu"
+#     tar zxvf clipmenu.tar.gz
+
+#     # pobranie clipnotify
+#     curl -fLo "$HOME/git/src/clipnotify/clipnotify.tar.gz" --create-dirs \
+#         https://github.com/cdown/clipnotify/archive/master.tar.gz
+#     cd "$HOME/git/src/clipnotify"
+#     tar zxvf clipnotify.tar.gz
+
+#     # kompilacja clipnotify
+#     cd
+#     make
+#     cp ~/bin/
+
+#     # linki symboliczne do ~/bin/
+#     ln -sf ~/git/clipmenu
+#     ln -sf ~/git/clipnotify
+# }
 
 echo
 echo    " ---------------------------------------------  "

@@ -10,6 +10,7 @@ Wymagane dodatkowe oprogramowanie:
  - `skim`
  - `pass`
  - `rofi` / `dmenu`
+ - `bat` lub `preview.sh` z programu FZF
  
 # Spis treści
 
@@ -677,7 +678,11 @@ fi
 
 # se
 
-Skrypt `se`
+Skrypt `se` przeszukuje bieżący katalog pod kątem plików i katalogów,
+wyświetlając na podglądzie zawartość plików, w przypadku katalogów nie pokazuje
+ich zawartości.
+
+Skrypt `se` po wyborze pliku / katalogu otwiera jego zawartość w edytorze Vim.
 
 ```bash
 #!/usr/bin/env bash
@@ -700,7 +705,10 @@ fi
 
 # sedi
 
-Skrypt `sedi`
+Skrypt `sedi` przeszukuje bieżący katalog pod kątem katalogów, wyświetlając na
+podglądzie drzewo podkatalogów.
+
+Skrypt `sedi` po wyborze katalogu otwiera jego zawartość w edytorze Vim.
 
 ```bash
 #!/usr/bin/env bash
@@ -722,6 +730,11 @@ SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 ```
 
 # sefi
+
+Skrypt `sefi` przeszukuje bieżący katalog pod kątem plików, wyświetlając na
+podglądzie ich zawartość.
+
+Skrypt `sefi` po wyborze pliku otwiera jego zawartość w edytorze Vim.
 
 ```bash
 #!/usr/bin/env bash

@@ -8,6 +8,9 @@ export EDITOR=vim
 
 export TEMPDIR="$HOME/tmp"
 
+export TODO="$HOME/vimwiki/todo/inbox.md"
+export VIMWIKI="$HOME/vimwiki"
+
 # export PS1="[\u@\h:\w]\\$ \d\[$(tput sgr0)\]"
 # get current branch in git repo
 function parse_git_branch() {

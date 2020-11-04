@@ -1,7 +1,10 @@
+# Aliasy
+# ~/git/github/dotfiles/docs/ALIASY.md
+
 [ "$BASH_VERSION"  ] && shopt -s expand_aliases  # uruchamia dla powłoki BASH
 
-alias ...="cd ../.."
-alias ..="cd .."
+# Pliki konfiguracyjne
+
 alias .a="$EDITOR $HOME/.aliases && source $HOME/.aliases"
 alias .ala="$EDITOR /home/t3/.config/alacritty/alacritty.yml"
 alias .b="$EDITOR $HOME/.bashrc"
@@ -11,6 +14,7 @@ alias .df="$HOME/bin/dotfiles"
 alias .g="$EDITOR $HOME/.gitconfig"
 alias .git="cd $HOME/git"
 alias .h="cd $HOME"
+alias .kh="$EDITOR $HOME/.ssh/known_hosts"
 alias .n="nvim $HOME/.config/nvim/init.vim"
 alias .nv="nvim -c 'e \$MYVIMRC'"
 alias .s="$EDITOR $HOME/.ssh/config"
@@ -20,42 +24,116 @@ alias .t="$EDITOR $HOME/.tmux.conf"
 alias .v="$EDITOR -c 'e \$MYVIMRC'"
 alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
 alias .z="$EDITOR $HOME/.zshrc"
-alias 644f="find . -type f -exec chmod 644 {} \;"
-alias 755d="find . -type d -exec chmod 755 {} \;"
-alias backup-dir="$HOME/bin/backup-dir"
-alias batt="$HOME/bin/batt"
-alias books="$HOME/bin/books"
-alias c="clear"
+
+# Pakiety
+
+alias di="sudo dnf install"
+alias dr="sudo dnf remove"
+alias ds="$HOME/bin/ds"
+alias update="$HOME/bin/update"
+
+# Pliki i katalogi
+
+alias ...="cd ../.."
+alias ..="cd .."
 alias cdb="source ~/bin/cdb"
 alias cdba="source ~/bin/cdba"
 alias cdbd="source ~/bin/cdbd"
 alias cdbe="$EDITOR ~/.config/bmdirs"
+alias cdd='cd $(ls -d */ | cut -d '/' -f 1 | fzf)'
 alias cdf="source $HOME/bin/cdf"
-alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
-alias clearterp="$HOME/bin/cleartemp"
-alias dec="$HOME/bin/DecryptGPG"
-alias DecryptGPG="$HOME/bin/DecryptGPG"
-alias DecryptSSL="$HOME/bin/DecryptSSL"
-alias detect-os="$HOME/bin/detect-os"
+
+alias dchmod="find . -type d -exec chmod 755 {} \;"
+alias fchmod="find . -type f -exec chmod 644 {} \;"
+
+alias ll="$HOME/bin/ll"
+alias l="ll"
+alias f="ls -A|wc -l"
+
+alias md="mkcdir"
+alias mkcdir="source $HOME/bin/mkcdir $1"
+alias mkdir="mkdir -p"
+
+alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
+
+alias tree="$HOME/bin/tree"
+
+alias cleartemp="$HOME/bin/cleartemp"
+
+# Kopie zapasowe
+
+alias backup-dir="$HOME/bin/backup-dir"
+
+# System plików / pamięć
+
 alias df="df -h"
 alias dfr="df -h /"
-alias di="sudo dnf install"
-alias dr="sudo dnf remove"
-alias ds="$HOME/bin/ds"
-alias enc="$HOME/bin/EncryptGPG"
-alias EncryptGPG="$HOME/bin/EncryptGPG"
-alias EncryptSSL="$HOME/bin/EncryptSSL"
-alias f="ls -A|wc -l"
-alias fdh="fd --hidden"
-alias ff="firefox"
 alias free="free -m"
+alias cryptsetup="sudo cryptsetup"
+
+# ROFI / dmenu
+
+alias books="$HOME/bin/books"
+alias menu="$HOME/bin/menu"
+
+# Skróty do programów
+
+alias c="clear"
+alias ff="firefox"
+alias h="history"
+alias more="less"
+alias n="nvim"
+alias q=exit
+alias so=source
+alias svim="sudo vim"
+alias t=tmux
+alias ta="tmux atta"
+alias v=vim
+alias vim="vim"
+
+# Procesy
+
+alias k="kill"
+alias pg="$HOME/bin/psgrep"
+alias psgrep="$HOME/bin/psgrep"
+
+# Inne
+
+alias detect-os="$HOME/bin/detect-os"
 alias fullhd="$HOME/bin/fullhd"
+
+# Git
+
 alias g="git"
-alias gdiff="git diff"
 alias ga="$HOME/bin/ga"
 alias gd="$HOME/bin/gd"
+alias gdiff="git diff"
 alias gl="$HOME/bin/gl"
 alias gp="$HOME/bin/gp"
+alias gps="$HOME/bin/gps"
+alias gsts="$HOME/bin/gsts"
+alias pu="$HOME/bin/pu"
+alias push="$HOME/bin/push"
+
+# Szyfrowanie / hasła
+
+alias otp-add="$HOME/bin/otp-add"
+alias otp="$HOME/bin/otp"
+alias p=" gopass"
+alias pass=" gopass"
+alias passf="$HOME/bin/passf"
+alias passr="$HOME/bin/passr"
+
+alias pwgen="$HOME/bin/pwgen.sh"
+
+alias dec="$HOME/bin/DecryptGPG"
+alias enc="$HOME/bin/EncryptGPG"
+alias DecryptGPG="$HOME/bin/DecryptGPG"
+alias DecryptSSL="$HOME/bin/DecryptSSL"
+alias EncryptGPG="$HOME/bin/EncryptGPG"
+alias EncryptSSL="$HOME/bin/EncryptSSL"
+
+alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
 alias gpg-agent-restart="$HOME/bin/gpg-agent-restart"
 alias gpg-delete-keys="$HOME/bin/gpg-delete-keys"
 alias gpg-delete-secret-keys="$HOME/bin/gpg-delete-secret-keys"
@@ -67,50 +145,38 @@ alias gpg-list-keys-short="$HOME/bin/gpg-list-keys-short"
 alias gpg-list-keys="$HOME/bin/gpg-list-keys"
 alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
 alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
-alias gps="$HOME/bin/gps"
-alias gsts="$HOME/bin/gsts"
-alias h="history"
-alias k="kill"
-alias l="ll"
-alias last-edit="$HOME/bin/last-edit"
-alias ll="$HOME/bin/ll"
-alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
-alias md="mkcdir"
-alias menu="$HOME/bin/menu"
-alias mkcdir="source $HOME/bin/mkcdir $1"
-alias mkdir="mkdir -p"
-alias more="less"
-alias n=nvim
-alias no='$EDITOR -c "e $HOME/notes"'
-alias open-with-fzf="$HOME/bin/open-with-fzf"
-alias otp-add="$HOME/bin/otp-add"
-alias otp="$HOME/bin/otp"
-alias p=" gopass"
-alias pass=" gopass"
-alias passf="$HOME/bin/passf"
-alias passr="$HOME/bin/passr"
-alias pg="$HOME/bin/psgrep"
-alias psgrep="$HOME/bin/psgrep"
-alias pu="$HOME/bin/pu"
-alias push="$HOME/bin/push"
-alias pwgen="$HOME/bin/pwgen.sh"
-alias q=exit
-alias rgvi="$HOME/bin/rgvi"
-alias se="$HOME/bin/se"
-alias sedi="$HOME/bin/sedi"
-alias sefi="$HOME/bin/sefi"
-alias so=source
+
+# systemctl, zarządzanie energią
+
 alias suspend="sudo systemctl suspend"
 alias sysdis="sudo systemctl disable"
 alias sysena="sudo systemctl enable"
 alias sysstart="sudo systemctl start"
 alias sysstop="sudo systemctl stop"
-alias t=tmux
-alias ta="tmux atta"
-alias tree="$HOME/bin/tree"
-alias update="$HOME/bin/update"
-alias v=vim
-alias vf="$HOME/bin/vf"
-alias vimrc=".v"
-alias vrc=".v"
+
+alias reboot="sudo reboot"
+alias batt="$HOME/bin/batt"
+
+# Wyszukiwanie i przeszukiwanie
+
+alias rgvi="$HOME/bin/rgvi"
+alias se="$HOME/bin/se"
+alias sedi="$HOME/bin/sedi"
+alias sefi="$HOME/bin/sefi"
 alias vs="$HOME/bin/vs"
+alias vf="$HOME/bin/vf"
+
+alias last-edit="$HOME/bin/last-edit"
+alias open-with-fzf="$HOME/bin/open-with-fzf"
+
+alias fdh="fd --hidden"
+
+# Notatki
+
+alias diary="$EDITOR -c :VimwikiMakeDiaryNote"
+alias diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
+alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
+alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
+alias td="$EDITOR $TODO"
+
+alias no='$EDITOR -c "e $HOME/notes"'
