@@ -12,6 +12,8 @@ Wymagane dodatkowe oprogramowanie:
  - `rofi` / `dmenu`
  - `bat` lub `preview.sh` z programu FZF
  
+ ------
+ 
 # Spis treści
 
 <!-- vim-markdown-toc GFM -->
@@ -154,6 +156,8 @@ Wymagane dodatkowe oprogramowanie:
 
 <!-- vim-markdown-toc -->
 
+------
+
 # Pliki konfiguracyjne
 
 ## .a
@@ -248,6 +252,8 @@ Edycja pliku `$HOME/.zshrc`
 vim $HOME/.zshrc
 ```
 
+------
+
 # Pakiety
 
 ## di
@@ -277,6 +283,8 @@ Skrypt aktualizacyjny uruchamiany w sesji Tmux
 ```
 $HOME/bin/update
 ```
+
+------
 
 # Pliki i katalogi
 
@@ -428,6 +436,8 @@ Link do skryptu `$HOME/bin/cleartemp`
 
 Czyści pliki tymczasowe
 
+------
+
 # Kopie zapasowe
 
 ## backup-dir
@@ -436,6 +446,8 @@ Link do skryptu `$HOME/bin/backup-dir`
 
 Skrypt wykonuje kopię zapasową bieżącego katalogu wraz z możliwością szyfrowania
 za pomocą PGP
+
+------
 
 # System plików / pamięć
 
@@ -467,6 +479,8 @@ free -m
 sudo cryptsetup
 ```
 
+------
+
 # ROFI / dmenu
 
 ## books
@@ -476,6 +490,8 @@ sudo cryptsetup
 ## menu
 
 Skrypt wyświetlający podręczne menu rofi
+
+------
 
 # Skróty do programów
 
@@ -541,6 +557,8 @@ Uruchamia program `vim`
 
 Alias do `vim`
 
+------
+
 # Procesy
 
 ## k
@@ -579,6 +597,8 @@ Skrypt `$HOME/bin/psgrep`
 ps ax | grep -i "$1" | grep -v grep
 ```
 
+------
+
 # Inne
 
 ## detect-os
@@ -588,6 +608,8 @@ Wyświetla nazwę i wersję dystrybucji - `$HOME/bin/detect-os`
 ## fullhd
 
 Ustawia rozdzielczość Full HD
+
+------
 
 # Git
 
@@ -700,6 +722,8 @@ Uruchamia polecenie `git pull`
 ## push
 
 Uruchamia polecenie `git push`
+
+------
 
 # Szyfrowanie / hasła
 
@@ -1042,6 +1066,8 @@ Uruchamia skrypt `/home/t3/bin/open-with-fzf`
 
 Uruchamia polecenie `fd` z parametrem `--hidden`
 
+------
+
 # Notatki
 
 ## wiki
@@ -1160,4 +1186,3 @@ if [ $ARRAY_NOE -gt 1 ]; then
     vim $FILE +$LINE
 fi
 ```
-
