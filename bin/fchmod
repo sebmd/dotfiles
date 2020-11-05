@@ -3,7 +3,7 @@
 FD=$(which fd)
 
 if [ ! -z $FD ]; then
-    fd --hidden -t f -x chmod 644
+    fd -H -I -t f -x chmod 644
 else
     find . -type f -exec chmod 644 {} \;
 fi
