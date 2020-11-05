@@ -7,7 +7,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-## Instalacja tematu Yarn z Ubuntu dla Gnome
+## Instalacja tematu Yaru z Ubuntu dla Gnome
 
 ```
 dnf install gnome-shell-theme-yaru yaru-theme
