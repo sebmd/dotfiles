@@ -164,7 +164,7 @@ Wymagane dodatkowe oprogramowanie:
 
 Edycja aliasów `$HOME/.aliases`
  
- ```
+ ```bash
  vim $HOME/.aliases && source $HOME/.aliases
  ```
  
@@ -176,7 +176,7 @@ Edycja aliasów `$HOME/.aliases`
 
 Edycja pliku `$HOME/.bashrc`
 
-```
+```bash
 vim $HOME/.bashrc
 ```
 
@@ -184,7 +184,7 @@ vim $HOME/.bashrc
 
 Edycja pliku BSPWM `$HOME/.config/bspwm/bspwmrc`
 
-```
+```bash
 vim $HOME/.config/bspwm/bspwmrc
 ```
 
@@ -214,13 +214,13 @@ Edycja pliku konfiguracyjnego neovim `$HOME/.config/nvim/init.vim`
 
 Edycja pliku `$HOME/.ssh/config`
 
-```
+```bash
 vim $HOME/.ssh/config
 ```
 
 ## .sx
 
-```
+```bash
 vim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd
 ```
 
@@ -228,7 +228,7 @@ vim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd
 
 Edycja pliku `$HOME/.tmux.comf`
 
-```
+```bash
 vim $HOME/.tmux.conf
 ```
 
@@ -236,7 +236,7 @@ vim $HOME/.tmux.conf
 
 Edycja pliku edytora Vim
 
-```
+```bash
 vim -c 'e \$MYVIMRC'
 ```
 
@@ -248,7 +248,7 @@ Edycja pliku `$HOME/.Xresource` a następnie przeładowuje plik
 
 Edycja pliku `$HOME/.zshrc`
 
-```
+```bash
 vim $HOME/.zshrc
 ```
 
@@ -258,13 +258,13 @@ vim $HOME/.zshrc
 
 ## di
 
-```
+```bash
 sudo dnf install
 ```
 
 ## dr
 
-```
+```bash
 sudo dnf remove
 ```
 
@@ -272,7 +272,7 @@ sudo dnf remove
 
 Wyszukuje za pomocą FZF pakietów a następnie przechodzi do instalacji
 
-```
+```bash
 $HOME/bin/ds
 ```
 
@@ -280,7 +280,7 @@ $HOME/bin/ds
 
 Skrypt aktualizacyjny uruchamiany w sesji Tmux
 
-```
+```bash
 $HOME/bin/update
 ```
 
@@ -292,7 +292,7 @@ $HOME/bin/update
 
 Przechodzi dwa katalogi wyżej
 
-```
+```bash
 cd ../..
 ```
 
@@ -300,7 +300,7 @@ cd ../..
 
 Przechodzi jeden katalog wyżej
 
-```
+```bash
 cd ..
 ```
 
@@ -308,7 +308,7 @@ cd ..
 
 Przechodzi do katalogu `$HOME/git/dotfiles`
 
-```
+```bash
 cd $HOME/git/dotfiles
 ```
 
@@ -328,7 +328,7 @@ Przechodzi do katalogu `$HOME/src`
 
 Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmdirs`
 
-```
+```bash
 source ~/bin/cdb && cdb"
 ```
 
@@ -336,7 +336,7 @@ source ~/bin/cdb && cdb"
 
 Dodatnie bieżącego katalogu do pliku `$HOME/.config/bmdirs`
 
-```
+```bash
 source ~/bin/cdba && cdba"
 ```
 
@@ -344,7 +344,7 @@ source ~/bin/cdba && cdba"
 
 Usunięcie bieżącego katalogu z pliku `$HOME/.config/bmdirs`
 
-```
+```bash
 source ~/bin/cdbd && cdbd
 ```
 
@@ -352,7 +352,7 @@ source ~/bin/cdbd && cdbd
 
 Edycja pliku `$HOME/.config/bmdirs`
 
-```
+```bash
 vim ~/.config/bmdirs
 ```
 
@@ -360,7 +360,7 @@ vim ~/.config/bmdirs
 
 Poruszanie się pomiędzy katalogami za pomocą FZF
 
-```
+```bash
 source $HOME/bin/cdf
 ```
 
@@ -368,23 +368,39 @@ source $HOME/bin/cdf
 
 Nadaje odpowiednie uprawnienia dla katalogów `755`
 
-```
-find . -type d -exec chmod 755 {} \;
+```bash
+#!/usr/bin/env bash
+
+FD=$(which fd)
+
+if [ ! -z $FD ]; then
+    fd --hidden -t d -x chmod 755
+else
+    find . -type d -exec chmod 755 {} \;
+fi
 ```
 
 ## fchmod
 
 Nadaje odpowiednie uprawnienia dla katalogów `644`
 
-```
-find . -type f -exec chmod 644 {} \;
+```bash
+#!/usr/bin/env bash
+
+FD=$(which fd)
+
+if [ ! -z $FD ]; then
+    fd --hidden -t f -x chmod 644
+else
+    find . -type f -exec chmod 644 {} \;
+fi
 ```
 
 ## ll
 
 Uruchamia polecenie `exa` z dodatkowymi parametrami
 
-```
+```bash
 exa -al --group-directories-first --git --header
 ```
 
@@ -396,7 +412,7 @@ Jest to alias do `ll`
 
 Wyświetla liczbę katalogów w bieżącej lokalizacji
 
-```
+```bash
 ls -A|wc -l
 ```
 
@@ -410,7 +426,7 @@ Tworzy katalog a następnie przechodzi do niego
 
 ## mkdir
 
-```
+```bash
 mkdir -p
 ```
 
@@ -418,7 +434,7 @@ mkdir -p
 
  Pokazuje pliki wykonywalne w bieżącej lokalizacji
  
-```
+```bash
 ls -F | grep '*$'
 ```
 
@@ -455,13 +471,13 @@ za pomocą PGP
 
 Wyświetla wolną przestrzeń na dyskach w bardziej ludzki sposób
 
-```
+```bash
 df -h
 ```
 
 ## dfr
 
-```
+```bash
 df -h /
 ```
 
@@ -469,13 +485,13 @@ df -h /
 
 Wyświetla informacje dotyczące pamięci operacyjnej RAM i pliku wymiany w bardziej ludzki sposób
 
-```
+```bash
 free -m
 ```
 
 ## cryptsetup
 
-```
+```bash
 sudo cryptsetup
 ```
 
@@ -499,7 +515,7 @@ Skrypt wyświetlający podręczne menu rofi
 
 Czyści ekran
 
-```
+```bash
 clear
 ```
 
@@ -515,7 +531,7 @@ firefox
 
 Uruchamia polecenie `history`
 
-```
+```bash
 history
 ```
 
@@ -537,7 +553,7 @@ Uruchamia polecenie `source`
 
 ## svim
 
-```
+```bash
 sudo vim
 ```
 
@@ -565,7 +581,7 @@ Alias do `vim`
 
 Alias dla polecenia `kill`
 
-```
+```bash
 kill
 ```
 
@@ -583,7 +599,7 @@ ps ax | grep -i "$1" | grep -v grep
 
 Przykład:
 
-```
+```bash
 $ pg vim
 ```
 
@@ -682,7 +698,7 @@ Ustawia rozdzielczość Full HD
 
 Uruchamia polecenie `git`
 
-```
+```bash
 git
 ```
 
@@ -690,7 +706,7 @@ git
 
 Uruchamia skrypt `$HOME/bin/ga`
 
-```
+```bash
 ~/bin/ga
 ```
 
@@ -718,7 +734,7 @@ Uruchamia skrypt `$HOME/bin/gl` - wyświetlający zmiany w repozytorium Git
 
 Źródło:
 
-```
+```bash
 git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 ```
 
@@ -727,6 +743,7 @@ git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) -
 Uruchamia skrypt `$HOME/bin/gp`
 
 Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
+
 - `git add -A`
 - `git commit`
 - `git push`
@@ -735,7 +752,7 @@ W wersji `gps` jest podpisywany commit za pomocą klucza GPG
 
 Źródło:
 
-```
+```bash
 #!/usr/bin/env bash
 
 DATA=$(date +%F-%T)
@@ -752,6 +769,7 @@ fi
 Uruchamia skrypt `$HOME/bin/gps` który jest linkiem symbolicznym do pliku `$HOME/bin/gp`
 
 Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
+
 - `git add -A`
 - `git commit`
 - `git push`
@@ -760,7 +778,7 @@ W wersji `gps` jest podpisywany commit za pomocą klucza GPG
 
 Źródło
 
-```
+```bash
 #!/usr/bin/env bash
 
 DATA=$(date +%F-%T)
@@ -776,7 +794,7 @@ fi
 
 Uruchamia skrypt `$HOME/bin/gsts`
 
-```
+```bash
 git status
 ```
 
@@ -864,7 +882,7 @@ pwgen -c -s -n -y -1 32"
 
 Deszyfruje plik za pomocą GPG
 
-```
+```bash
 $HOME/bin/DecryptGPG
 ```
 
@@ -872,7 +890,7 @@ $HOME/bin/DecryptGPG
 
 Szyfruje plik za pomocą GPG
 
-```
+```bash
 $HOME/bin/EncryptGPG
 ```
 
@@ -896,7 +914,7 @@ Skrypt szyfrujący za pomocą SSL
 
 Czyści zapamiętane hasło przez agenta GPG
 
-```
+```bash
 gpg-connect-agent reloadagent /bye"
 ```
 
@@ -952,7 +970,7 @@ Wyświetla listę kluczy prywatnych w formacie LONG
 
 Usypia komputer
 
-```
+```bash
 sudo systemctl suspend
 ```
 
@@ -960,7 +978,7 @@ sudo systemctl suspend
 
 Deaktywuje usługę
 
-```
+```bash
 sudo systemctl disable
 ```
 
@@ -968,7 +986,7 @@ sudo systemctl disable
 
 Aktywuje usługę
 
-```
+```bash
 sudo systemctl enable
 ```
 
@@ -976,7 +994,7 @@ sudo systemctl enable
 
 Uruchamia usługę
 
-```
+```bash
 sudo systemctl start"
 ```
 
@@ -984,13 +1002,13 @@ sudo systemctl start"
 
 Zatrzymuje usługę
 
-```
+```bash
 sudo systemctl stop"
 ```
 
 ## reboot
 
-```
+```bash
 sudo reboot
 ```
 
@@ -998,7 +1016,7 @@ sudo reboot
 
 Wyświetlenie stanu baterii laptopa
 
-```
+```bash
 $HOME/bin/batt
 ```
 
@@ -1227,7 +1245,7 @@ Uruchamia dziennik na bieżący dzień
 
 Otwiera edytor Vim w lokalizacji `$HOME/notes`
 
-```
+```bash
 vim -c "e $HOME/notes"
 ```
 

@@ -42,8 +42,8 @@ alias cdbd="source ~/bin/cdbd"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cdf="source $HOME/bin/cdf"
 
-alias dchmod="find . -type d -exec chmod 755 {} \;"
-alias fchmod="find . -type f -exec chmod 644 {} \;"
+alias dchmod="$HOME/bin/dchmod"
+alias fchmod="$HOME/bin/fchmod"
 
 alias ll="$HOME/bin/ll"
 alias l="ll"
