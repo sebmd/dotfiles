@@ -144,6 +144,42 @@ while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
     fi
 done < "$SCRIPT_DIR/files"
 
+# Instalacja clipmenu i clipnotify
+function clipboard() {
+    # pobranie repozytorium clipmenu
+    curl -fLo "$HOME/git/src/clipmenu.tar.gz" --create-dirs \
+        https://github.com/cdown/clipmenu/archive/6.2.0.tar.gz
+    cd $HOME/git/src
+    mkdir clipmenu
+    tar zxvf clipmenu.tar.gz -C clipmenu --strip-components=1
+    cd clipmenu
+    ln -s $PWD/clipctl $HOME/bin/
+    ln -s $PWD/clipdel $HOME/bin/
+    ln -s $PWD/clipfsck $HOME/bin/
+    ln -s $PWD/clipmenu $HOME/bin/
+    ln -s $PWD/clipmenud $HOME/bin/
+
+    rm ../clipmenu.tar.gz
+
+    # pobranie clipnotify
+    curl -fLo "$HOME/git/src/clipnotify.tar.gz" --create-dirs \
+        https://github.com/cdown/clipnotify/archive/master.tar.gz
+    cd "$HOME/git/src/"
+    mkdir clipnotify
+    tar zxvf clipnotify.tar.gz -C clipnotify --strip-components=1
+
+    # kompilacja clipnotify
+    cd clipnotify
+    make
+
+    # linki symboliczne do ~/bin/
+    ln -s $PWD/clipnotify $HOME/bin/
+
+    rm ../clipnotify.tar.gz
+}
+
+clipboard
+
 # przygotowanie edytora Vim
 curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -163,30 +199,6 @@ function dotfiles_bin() {
         ln -sf "$DOTFILES_BIN_DIR/$FILE" "$BIN_DIR/$FILE"
     done
 }
-
-# Instalacja clipmenu i clipnotify
-# function clipboard() {
-#     # pobranie repozytorium clipmenu
-#     curl -fLo "$HOME/git/src/clipmenu/clipmenu.tar.gz" --create-dirs \
-#         https://github.com/cdown/clipmenu/archive/6.2.0.tar.gz
-#     cd "$HOME/git/src/clipmenu"
-#     tar zxvf clipmenu.tar.gz
-
-#     # pobranie clipnotify
-#     curl -fLo "$HOME/git/src/clipnotify/clipnotify.tar.gz" --create-dirs \
-#         https://github.com/cdown/clipnotify/archive/master.tar.gz
-#     cd "$HOME/git/src/clipnotify"
-#     tar zxvf clipnotify.tar.gz
-
-#     # kompilacja clipnotify
-#     cd
-#     make
-#     cp ~/bin/
-
-#     # linki symboliczne do ~/bin/
-#     ln -sf ~/git/clipmenu
-#     ln -sf ~/git/clipnotify
-# }
 
 echo
 echo    " ---------------------------------------------  "
