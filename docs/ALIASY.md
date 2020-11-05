@@ -1044,17 +1044,91 @@ $HOME/bin/EncryptGPG
 
 Skrypt deszyfrujący pliki PGP
 
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do odszyfrowania.
+    echo $ enc plik.txt
+    return 1
+fi
+if [ ! -e "$1" ]; then
+    echo Podany plik nie istnieje
+else
+    nazwa_pliku=$(basename "$1" .gpg)
+    gpg2 -o "$nazwa_pliku" -d "$1"
+fi
+```
+
 ## DecryptSSL
 
 Skrypt deszyfrujący pliki za pomocą OpenSSL
+
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do odszyfrowania.
+    echo $ dec plik.txt.enc
+    return 1
+fi
+if [ ! -e $1 ]; then
+    echo "Podany plik ($1) nie istnieje."
+    return 1
+else
+    openssl aes-256-cbc -d -a -in "$1" -out $(basename $1 .enc);
+fi
+```
 
 ## EncryptGPG
 
 Skrypt szyfrujący za pomocą PGP
 
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do zaszyfrowania.
+    echo $ enc plik.txt
+    return 1
+fi
+if [ ! -e "$1" ]; then
+    echo Podany plik nie istnieje
+else
+    gpg2 -c "$1"
+fi
+
+echo -n "Usunąć plik źródłowy? (t/N): "
+read USUNAC
+
+case $USUNAC in
+    t)
+        rm "$1"
+        ;;
+    *)
+        ;;
+esac
+```
+
 ## EncryptSSL
 
 Skrypt szyfrujący za pomocą SSL
+
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do zaszyfrowania.
+    echo $ enc plik.txt
+    return 1
+else
+    if [ ! -e $1 ]; then
+        echo Podany plik nie istnieje
+    else
+        openssl aes-256-cbc -a -salt -in "$1" -out "$1.enc";
+    fi
+fi
+```
 
 ## clear-gpg-passwd
 
@@ -1068,45 +1142,111 @@ gpg-connect-agent reloadagent /bye"
 
 Restartuje agenta GPG
 
+```bash
+#!/usr/bin/env bash
+
+gpg-connect-agent /bye
+```
+
 ## gpg-delete-keys
 
 Usuwa klucz z magazynu kluczy
+
+```bash
+#!/usr/bin/env bash
+
+gpg --delete-keys
+```
 
 ## gpg-delete-secret-keys
 
 Usuwa klucze prywatne z magazynu kluczy
 
+```bash
+#!/usr/bin/env bash
+
+gpg --delete-secret-keys
+```
+
 ## gpg-edit-key
 
 Edytuje wybrany klucz
+
+```bash
+#!/usr/bin/env bash
+
+gpg --edit-key
+```
 
 ## gpg-export-secret-key
 
 Eksportuje klucz prywatny
 
+```bash
+#!/usr/bin/env bash
+
+gpg --armor --export-secret-keys
+```
+
 ## gpg-export
 
 Eksportuj klucz publiczny
+
+```bash
+#!/usr/bin/env bash
+
+gpg --armor --export
+```
 
 ## gpg-gen-key
 
 Generuje parę kluczy PGP
 
+```bash
+#!/usr/bin/env bash
+
+gpg --default-new-key-algo rsa4096 --gen-key
+```
+
 ## gpg-list-keys-short
 
 Wyświetla listę kluczy w formacie SHORT
+
+```bash
+#!/usr/bin/env bash
+
+gpg --list-keys --keyid-format SHORT
+```
 
 ## gpg-list-keys
 
 Wyświetla listę kluczy w formacie LONG
 
+```bash
+#!/usr/bin/env bash
+
+gpg --list-keys --keyid-format LONG
+```
+
 ## gpg-list-secret-keys-short
 
 Wyświetla listę kluczy prywatnych w formacie SHORT
 
+```bash
+#!/usr/bin/env bash
+
+gpg --list-secret-keys --keyid-format SHORT
+```
+
 ## gpg-list-secret-keys
 
 Wyświetla listę kluczy prywatnych w formacie LONG
+
+```bash
+#!/usr/bin/env bash
+
+gpg --list-secret-keys --keyid-format LONG
+```
 
 ------
 
