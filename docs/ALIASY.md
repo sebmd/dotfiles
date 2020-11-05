@@ -170,7 +170,7 @@ Edycja aliasów `$HOME/.aliases`
  
 ## .ala
 
- Edycja pliku konfiguracyjnego alacritty
+ Edycja pliku konfiguracyjnego alacritty `$HOME/.config/alacritty/alacritty.yml`
 
 ## .b
 
@@ -276,12 +276,110 @@ Wyszukuje za pomocą FZF pakietów a następnie przechodzi do instalacji
 $HOME/bin/ds
 ```
 
+Skrypt pobiera listę pakietów z pliku `~/temp/dnf-list.txt`, ten natomiast jest
+generowany za pomocą zadania cron.
+
+Zadanie crontab `~/bin/cron/dnf-list.sh`
+
+
+```bash
+#!/usr/bin/env bash
+
+PAKIETY_LISTA=~/temp/dnf-list.txt
+DATA=$(date +%F)
+
+function pobierz() {
+    sudo dnf update --refresh --assumeno
+    dnf list -q | cut -f 1 -d' ' > $PAKIETY_LISTA
+    sed -i 1d $PAKIETY_LISTA
+    sed -i /Available/d $PAKIETY_LISTA
+ }
+
+if [ ! -d ~/temp ]; then
+    mkdir -p ~/temp
+fi
+
+if [ ! -f $PAKIETY_LISTA ]; then
+    pobierz
+    exit
+else
+    PAKIETY_DATA=$(stat -c %w $PAKIETY_LISTA|cut -f 1 -d ' ')
+fi
+
+if [ "$PAKIETY_DATA" != "$DATA" ]; then
+    pobierz
+fi
+```
+
+Źródło skryptu `~/bin/ds`
+
+```bash
+#!/usr/bin/env bash
+
+shopt -s nocasematch
+
+if [ $(which sk) ]; then
+    FUZZY="sk"
+elif [ $(which fzf) ]; then
+    FUZZY="fzf"
+fi
+
+# PAKIET=$(dnf search "$1" | "$FUZZY")
+PAKIET=$(cat ~/temp/dnf-list.txt | "$FUZZY")
+if [ -n "$PAKIET" ]; then
+    PAKIET=$(echo "$PAKIET" | cut -f 1 -d : | tr -d '[:space:]')
+    echo -n "Zainstalować $PAKIET [T/n]: "
+    read -r ODP
+    case $ODP in
+        t)
+            sudo dnf install $PAKIET
+            ;;
+        n)
+            echo "OK, narka ;)"
+            ;;
+        *)
+            sudo dnf install $PAKIET
+            ;;
+    esac
+fi
+```
+
 ## update
 
 Skrypt aktualizacyjny uruchamiany w sesji Tmux
 
 ```bash
 $HOME/bin/update
+```
+
+Źródło skryptu `$HOME/bin/update`
+
+```bash
+#!/usr/bin/env bash
+
+SYSTEM=$("$HOME"/bin/detect-os sys)
+
+if [ "$SYSTEM" == "Fedora" ]
+then
+    UPD_CMD="sudo dnf update"
+fi
+
+if [ "$SYSTEM" == "CentOS" ]
+then
+    UPD_CMD="sudo yum update"
+fi
+
+if [ "$SYSTEM" == "Ubuntu" ]
+then
+    UPD_CMD="sudo apt update"
+fi
+
+if [ "$TMUX" ]
+then
+    $UPD_CMD
+else
+    tmux -2 new -s SysUpdate "$UPD_CMD ; read -r -p 'Naciśnij coś... '"
+fi
 ```
 
 ------
@@ -332,6 +430,13 @@ Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmd
 source ~/bin/cdb && cdb"
 ```
 
+```bash
+#!/usr/bin/env bash
+
+KATALOG="$(cat ~/.config/bmdirs|fzf --prompt "PWD: $PWD> "|sed "s|~|$HOME|")"
+[ ! -z $KATALOG ] && cd -P -- "$KATALOG"
+```
+
 ## cdba
 
 Dodatnie bieżącego katalogu do pliku `$HOME/.config/bmdirs`
@@ -340,12 +445,27 @@ Dodatnie bieżącego katalogu do pliku `$HOME/.config/bmdirs`
 source ~/bin/cdba && cdba"
 ```
 
+```bash
+#!/usr/bin/env bash
+
+echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
+sort -o ~/.config/bmdirs ~/.config/bmdirs
+```
+
 ## cdbd
 
 Usunięcie bieżącego katalogu z pliku `$HOME/.config/bmdirs`
 
 ```bash
 source ~/bin/cdbd && cdbd
+```
+
+```bash
+#!/usr/bin/env bash
+
+KATALOG=$(echo $PWD | sed "s|$HOME|~|")
+sed -i "s|^$KATALOG$||" ~/.config/bmdirs
+sed -i '/^$/d'  ~/.config/bmdirs
 ```
 
 ## cdbe
@@ -364,6 +484,17 @@ Poruszanie się pomiędzy katalogami za pomocą FZF
 source $HOME/bin/cdf
 ```
 
+```bash
+#!/usr/bin/env bash
+
+cd $HOME
+KATALOG="$(fd -t d | fzf --preview="fd --full-path {}")"
+
+if [ ! -z $KATALOG ]; then
+    cd "$KATALOG"
+fi
+```
+
 ## dchmod
 
 Nadaje odpowiednie uprawnienia dla katalogów `755`
@@ -374,7 +505,7 @@ Nadaje odpowiednie uprawnienia dla katalogów `755`
 FD=$(which fd)
 
 if [ ! -z $FD ]; then
-    fd --hidden -t d -x chmod 755
+    fd -H -I -t d -x chmod 755
 else
     find . -type d -exec chmod 755 {} \;
 fi
@@ -390,7 +521,7 @@ Nadaje odpowiednie uprawnienia dla katalogów `644`
 FD=$(which fd)
 
 if [ ! -z $FD ]; then
-    fd --hidden -t f -x chmod 644
+    fd -H -I -t f -x chmod 644
 else
     find . -type f -exec chmod 644 {} \;
 fi
@@ -424,6 +555,14 @@ Alias dla `mkcdir`
 
 Tworzy katalog a następnie przechodzi do niego
 
+```bash
+#!/usr/bin/env bash
+
+KAT="$1"
+mkdir -p "$KAT"
+cd "$KAT"
+```
+
 ## mkdir
 
 ```bash
@@ -451,6 +590,13 @@ exa -l -a -h -g --git --tree"
 Link do skryptu `$HOME/bin/cleartemp`
 
 Czyści pliki tymczasowe
+
+```bash
+#!/usr/bin/env bash
+
+find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
+find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
+```
 
 ------
 
