@@ -731,9 +731,28 @@ Uruchamia polecenie `git push`
 
 Dodaje skrót HASH do bazy `pass`
 
+```bash
+#!/usr/bin/env bash
+
+if [ -z $1 ]; then
+    echo
+    echo Podaj nazwę konta.
+    echo
+else
+    NAZWA=$(echo "$@" | tr ' ' '-')
+    pass edit otp/$NAZWA
+fi
+```
+
 ## otp
 
 Wyświetla kod jednorazowy, którego HASH jest przechowywany w bazie `pass`
+
+```bash
+#!/usr/bin/env bash
+
+oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basename {} .gpg \; | fzf)")"
+```
 
 ## p
 
