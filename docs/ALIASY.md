@@ -605,6 +605,71 @@ ps ax | grep -i "$1" | grep -v grep
 
 Wyświetla nazwę i wersję dystrybucji - `$HOME/bin/detect-os`
 
+
+```bash
+#!/usr/bin/env bash
+
+shopt -s nocasematch
+
+# Wykrywanie systemu Fedora
+if [ -f /etc/fedora-release ]; then
+    read -r fedora < /etc/fedora-release
+    fedora_ver=$(echo "$fedora" | tr -cd '[:digit:][:cntrl:]')
+    system="Fedora"
+    system_full=$fedora
+    system_ver=$fedora_ver
+fi
+
+# Wykrywanie systemu CentOS
+if [ -f /etc/centos-release ]; then
+    read -r centos < /etc/centos-release
+    grep . /etc/centos-release > /dev/null
+    if [ $? -eq 0 ]; then
+        centos_ver=$(echo "$centos" | cut -d. -f1 | tr -cd '[:digit:][:cntrl:]')
+    else
+        centos_ver=$(echo "$centos" | tr -cd '[:digit:][:cntrl:]')
+    fi
+    system="CentOS"
+    system_full=$centos
+    system_ver=$centos_ver
+fi
+
+# Wykruwanie systemu Ubuntu
+if [ -f /etc/lsb-release ]; then
+    source /etc/lsb-release
+    ubuntu=$DISTRIB_ID
+    ubuntu_ver=$DISTRIB_RELEASE
+    system="Ubuntu"
+    system_full=$ubuntu
+    system_ver=$ubuntu_ver
+fi
+
+case $1 in
+    sys)
+        echo $system
+        ;;
+    sys-full)
+        echo $system_full
+        ;;
+    ver)
+        echo $system_ver
+        ;;
+    *)
+        echo
+        echo "############################## POMOC #################################"
+        echo
+        echo Dostępne parametry:
+        echo
+        echo "$(basename $0) sys      - wyświetla nazwę dystrybucji"
+        echo "$(basename $0) sys-full - wyśweitla nazwę dystrybucji i wersję systemu"
+        echo "$(basename $0) ver      - wyświetla wersję systemu"
+        echo
+        echo
+        "###########################################################################"
+        echo
+esac
+```
+
 ## fullhd
 
 Ustawia rozdzielczość Full HD
