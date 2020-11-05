@@ -11,6 +11,7 @@
 .config/zathura/zathurarc
 .gnupg/gpg-agent.conf
 .tmux.conf
+.vars
 .vim
 .Xresources
 .Xresources.themes

@@ -2,14 +2,7 @@
 
 [ -f "/etc/bashrc" ] && . "/etc/bashrc"
 
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-
-export EDITOR=vim
-
-export TEMPDIR="$HOME/tmp"
-
-export TODO="$HOME/vimwiki/todo/inbox.md"
-export VIMWIKI="$HOME/vimwiki"
+[ -f "$HOME/.vars" ] && . "$HOME/.vars"
 
 # export PS1="[\u@\h:\w]\\$ \d\[$(tput sgr0)\]"
 # get current branch in git repo
