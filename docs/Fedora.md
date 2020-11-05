@@ -79,3 +79,10 @@ IP4.ROUTE[4]:                           dst = 192.168.1.0/24, nh = 0.0.0.0, mt =
 IP4.ROUTE[5]:                           dst = 0.0.0.0/0, nh = 192.168.1.1, mt = 100
 IP4.DNS[1]:                             192.168.1.1
 ```
+
+## Instalacja RPM Fusion
+
+```
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
