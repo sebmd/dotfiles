@@ -19,6 +19,16 @@ dnf install gnome-shell-theme-yaru yaru-theme
 dnf install gnome-shell-extension-pop-shell
 ```
 
+## Zmiana pulpitu w Gnome > 4
+
+W Gnome Settings w sekcji skróty klawiszowe można ustawić skróty dla
+maksymalnie 4 pulpitów, jeśli chcemy przełączyć się na 5 i kolejne
+należy z linii poleceń wykonać polecenie:
+
+```
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 '["<Super>5"]'
+```
+
 ## Ustawienie nazwy systemu
 
 ```
