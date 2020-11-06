@@ -44,6 +44,12 @@ konfiguracji.
  - `<ctrl-l>` - przechodzi do okna po prawej
  - `<ctrl-j>` - przechodzi do okna niżej
  - `<ctrl-k>` - przechodzi do okna wyżej
+ - `dh` - usuwa od kursora do początku linii
+ - `dl` - usuwa od kursora do końca linii
+ - `gh` - przechodzi na początek linii
+ - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
+ - `<leader>h` - przechodzi na początek linii
+ - `<leader>l` - przechodzi na koniec linii
 
 ## Klawisz LEADER
 

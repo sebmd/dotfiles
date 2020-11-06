@@ -391,8 +391,14 @@ nnoremap <leader>a =ip gqap
 nnoremap <leader>w :update<cr>
 
 " początek i koniec linii
+nnoremap gh 0
+nnoremap gl $
 nnoremap <leader>h 0
 nnoremap <leader>l $
+
+" kasowanie od kursora do początku lub końca linii
+nnoremap dh d0
+nnoremap dl d^
 
 nnoremap <leader>y :YRShow<cr>
 
