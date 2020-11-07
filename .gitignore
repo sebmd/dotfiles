@@ -15,12 +15,14 @@ bin/lazygit
 bin/ion
 bin/glow
 bin/fzf
+bin/fzf-tmux
 bin/gopass
 bin/maple
 bin/lf
 bin/rg
 bin/sd
 bin/sk
+bin/sk-tmux
 bin/clipctl
 bin/clipdel
 bin/clipfsck
@@ -31,5 +33,7 @@ bin/clipnotify
 bin/st
 bin/st-copyout
 bin/st-urlhandler
+bin/st.info
+bin/dwm
 notes
 *.swp

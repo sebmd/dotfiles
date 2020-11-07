@@ -339,8 +339,6 @@ nnoremap qw :update<cr>:q<cr>
 " odtwarza nagrane makro a
 nnoremap Q @a
 vnoremap Q :norm @a<cr>
-" nnoremap gh 0
-" nnoremap gl $
 " inore kj <esc>
 
 " usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
