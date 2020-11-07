@@ -10,6 +10,9 @@ bin/bat
 bin/exa
 bin/fd
 bin/broot
+bin/dmenu
+bin/dmenu_path
+bin/dmenu_run
 bin/gh
 bin/lazygit
 bin/ion
