@@ -183,6 +183,7 @@ Zapisanie zakresu linii w innym pliku
  - `12h` - 12 znaków w lewo
  - `12|` - przejście do 12 kolumny wiersza
  - `0` - początek linii
+ - `^` - początek linii, pomija spacje na początku linii
  - `$` - koniec linii
  - `g0` - w przypadku zawijanych linii przechodzi na początek danej linii, inaczej
    niż `0`
