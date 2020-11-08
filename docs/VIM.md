@@ -4,7 +4,7 @@
 
 * [Konfiguracja](#konfiguracja)
 * [Niestandardowe mapowanie klawiszy](#niestandardowe-mapowanie-klawiszy)
-    * [Klawisz LEADER](#klawisz-leader)
+    * [Tryb NORMAL](#tryb-normal)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
     * [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
@@ -35,10 +35,17 @@ konfiguracji.
 
 # Niestandardowe mapowanie klawiszy
 
+## Tryb NORMAL
+
+Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
+LEADER jest klawisz `SPACJA`
+
+Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
+
  - `th` - wyłącza podświetlanie wyszukiwanego tekstu
  - `qq` - wychodzi z edytora zastępuje `:q`
  - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
- - `Q` - wychodzi z edytora bez zapisania zmian `:q!`
+ - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
  - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
  - `<ctrl-h>` - przechodzi do okna po lewej
  - `<ctrl-l>` - przechodzi do okna po prawej
@@ -50,14 +57,6 @@ konfiguracji.
  - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
  - `<leader>h` - przechodzi na początek linii
  - `<leader>l` - przechodzi na koniec linii
-
-## Klawisz LEADER
-
-Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
-LEADER jest klawisz `SPACJA`
-
-Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
-
  - `<leader>;` - wchodzi do trybu komend - `:`
  - `<leader>,` - przechodzi do poprzedniego bufora
  - `<leader>.` - przechodzi do następnego bufora
