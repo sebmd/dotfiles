@@ -15,6 +15,7 @@ cd $HOME/git/dotfiles
 
 # Informacje dodatkowe
 
+   - [Fedora po instalacji](docs/Fedora.md)
    - [Vim - opis konfiguracji, skróty klawiszowe](docs/VIM.md)
    - [Vim Cheat Sheet](docs/VIM_Cheat_Sheet.md)
    - [Aliasy Shell](docs/ALIASY.md)

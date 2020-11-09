@@ -29,12 +29,6 @@ należy z linii poleceń wykonać polecenie:
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-5 '["<Super>5"]'
 ```
 
-## Ustawienie nazwy systemu
-
-```
- hostnamectl set-hostname fedora.lan
-```
-
 ## Kopia zapasowa zainstalowanych pakietów
 
 Lista pakietów zainstalowaych przez użytkownika bez zależności.
@@ -45,6 +39,40 @@ dnf history userinstalled > pakiety-userinstalled.txt
 Lista zainstalowanych pakietów
 ```
 dnf list installed > pakiety-installed.txt
+```
+
+## Instalacja środowiska graficznego BSPWM oraz oprogramowania dodatkowego
+
+- `bspwm` - menadżer okien
+- `sxhkd` - obsługa skrótów klawiszowych
+- `imwheel` - ustawienie myszki
+- `picom` - kompozytor - efekty graficzne (przezroczystość)
+- `dunst` - powiadomienia systemowe
+- `polybar` - pasek stanu
+- `dmenu` - uruchamianie programów
+- `rofi` - uruchamianie programów
+- `sakura` - emulator terminala
+- `xsel` - obsługa schowka systemowego
+- `xclip` - obsługa schowka systemowego
+
+```
+sudo dnf install bspwn \
+    shxkd \
+    imwheel \
+    picom \
+    dunst \
+    polybar \
+    dmenu \
+    rofi \
+    sakura \
+    xsel \
+    xclip
+```
+
+## Ustawienie nazwy systemu
+
+```
+ hostnamectl set-hostname fedora.lan
 ```
 
 ## Konfiguracja sieciowa
