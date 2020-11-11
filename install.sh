@@ -7,6 +7,17 @@ SCRIPT_DIR="$PWD"
 BIN_DIR="$HOME/bin"
 DOTFILES_BIN_DIR="$HOME/git/github/dotfiles_bin"
 
+if [ -f /etc/fedora-release ]; then
+    FEDORA=yes
+else
+    echo
+    echo "To repozytorium jest przygotowane dla systemu Fedora jeśli uruchomiłeś"
+    echo "na innej dystrybucji nie zostaną zainstalowane dodakowe pakiety."
+    echo
+    echo -n "Naciśnij ANY Key."
+    read
+fi
+
 download_font() {
     URL="https://raw.githubusercontent.com/wsdjeg/DotFiles/master/local/share/fonts/${1// /%20}"
     FONTS_DIR="$HOME/.fonts/$1"
@@ -74,27 +85,35 @@ function install_dm() {
     echo "2) GDM"
     echo "3) LightDM"
     echo
-    echo -n "Wybierz menadżer logowania [1]:" 
+    echo -n "Wybierz menadżer logowania [1]: " 
     read -r
     case $REPLY in
         1)
             sudo dnf install sddm
+            DM=sddm
             ;;
         2)
             sudo dnf install gdm
+            DM=gdm
             ;;
         3)
-            sudo dnf install LightDM
+            sudo dnf install lightdm
+            DM=lightdm
             ;;
         *)
-            sudo dnf install SDDM
+            sudo dnf install sddm
+            DM=sddm
             ;;
     esac
+    systemctl get-default|grep multi > /dev/null
+    if [ $? -eq 0 ]; then
+        sudo systemctl set-default graphical.target
+    fi
+    sudo systemctl enable $DM
 }
 
-install_dm
 
-if [ -f /etc/fedora-release ]; then
+if [ $FEDORA ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
     read -r -n 1 ODP
     case "$ODP" in
@@ -113,7 +132,7 @@ if [ -f /etc/fedora-release ]; then
     echo
 fi
 
-if [ -f /etc/fedora-release ]; then
+if [ $FEDORA ]; then
     echo -n "Pobrac pakiety dla BSPWM? [T/n] "
     read -r -n 1 ODP
     case "$ODP" in
@@ -127,6 +146,26 @@ if [ -f /etc/fedora-release ]; then
         *)
             echo
             install_bspwm
+            ;;
+    esac
+    echo
+fi
+
+
+if [ $FEDORA ]; then
+    echo -n "Zainstalować menadżer logowania [T/n] "
+    read -r -n 1 ODP
+    case "$ODP" in
+        t|y)
+            echo
+            install_dm
+            ;;
+        n)
+            echo -n
+            ;;
+        *)
+            echo
+            install_dm
             ;;
     esac
     echo
@@ -195,13 +234,14 @@ function clipboard() {
 
     rm ../clipmenu.tar.gz
 
+    echo
     echo "Do działania clipmenud wymagany jest program clipnotify, możesz go"
     echo "zainstalować pobierając pakiety binarne z repozytorium"
     echo "https://github.com/sebmd/dotfiles_bin lub skompilować ze źródeł"
     echo "pobierając je ze strony https://github.com/cdown/clipnotify"
     echo "Więcej na temat kompilacji w docs/Kompilacja.md"
     echo
-    echo "Naciśnij ANY Key."
+    echo -n "Naciśnij ANY Key."
     read
 }
 
