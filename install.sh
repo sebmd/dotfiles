@@ -63,7 +63,8 @@ function install_bspwm() {
     install_xorg
     sudo dnf install bspwm sxhkd polybar sakura picom dmenu rofi dunst imwheel \
         xclip xsel network-manager-applet firefox sxiv zathura-pdf-mupdf \
-        xdotool pinentry-gnome3 Thunar
+        xdotool pinentry-gnome3 Thunar thunar-archive-plugin thunar-volman \
+        thunar-vfs thunar-vcs-plugin gvfs
 }
 
 if [ -f /etc/fedora-release ]; then
