@@ -3,11 +3,11 @@
 DOTFILES_DIR=$HOME/git/github/dotfiles
 WORK_DIR=$(dirname $DOTFILES_DIR)
 
-curl https://git.io/JUvRG -fLo $WORK_DIR/dotfiles.zip --create-dirs
+mkdir -p $DOTFILES_DIR
+curl https://git.io/JkIaZ -fLo $WORK_DIR/dotfiles.tgz
 cd $WORK_DIR
-unzip dotfiles.zip
-rm dotfiles.zip
-mv dotfiles-master dotfiles
+tar zxvf dotfiles.tgz -C $DOTFILES_DIR --strip-components=1
+rm dotfiles.tgz
 
 echo -n "Uruchomić skrypt instalacyjny? [T/n]: "
 read ODP
