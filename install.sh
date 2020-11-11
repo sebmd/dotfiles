@@ -67,6 +67,33 @@ function install_bspwm() {
         thunar-vfs thunar-vcs-plugin gvfs
 }
 
+function install_dm() {
+    echo "Menadzęr logowania"
+    echo
+    echo "1) SDDM"
+    echo "2) GDM"
+    echo "3) LightDM"
+    echo
+    echo -n "Wybierz menadżer logowania [1]:" 
+    read -r
+    case $REPLY in
+        1)
+            sudo dnf install sddm
+            ;;
+        2)
+            sudo dnf install gdm
+            ;;
+        3)
+            sudo dnf install LightDM
+            ;;
+        *)
+            sudo dnf install SDDM
+            ;;
+    esac
+}
+
+install_dm
+
 if [ -f /etc/fedora-release ]; then
     echo -n "Wykryłem system Fedora, czy chcesz zainstalować wymagane pakiety? [T/n] "
     read -r -n 1 ODP
@@ -168,21 +195,14 @@ function clipboard() {
 
     rm ../clipmenu.tar.gz
 
-    # pobranie i kompilacja clipnotify
-    # curl -fLo "$HOME/git/src/clipnotify.tar.gz" --create-dirs \
-    #     https://github.com/cdown/clipnotify/archive/master.tar.gz
-    # cd "$HOME/git/src/"
-    # mkdir clipnotify
-    # tar zxvf clipnotify.tar.gz -C clipnotify --strip-components=1
-
-    # # kompilacja clipnotify
-    # cd clipnotify
-    # make
-
-    # # linki symboliczne do ~/bin/
-    # ln -s $PWD/clipnotify $HOME/bin/
-
-    # rm ../clipnotify.tar.gz
+    echo "Do działania clipmenud wymagany jest program clipnotify, możesz go"
+    echo "zainstalować pobierając pakiety binarne z repozytorium"
+    echo "https://github.com/sebmd/dotfiles_bin lub skompilować ze źródeł"
+    echo "pobierając je ze strony https://github.com/cdown/clipnotify"
+    echo "Więcej na temat kompilacji w docs/Kompilacja.md"
+    echo
+    echo "Naciśnij ANY Key."
+    read
 }
 
 clipboard
