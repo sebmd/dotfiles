@@ -6,7 +6,7 @@
 # Pliki konfiguracyjne
 
 alias .a="$EDITOR $HOME/.aliases && source $HOME/.aliases"
-alias .ala="$EDITOR /home/t3/.config/alacritty/alacritty.yml"
+alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
 alias .b="$EDITOR $HOME/.bashrc"
 alias .bs="$EDITOR ~/.config/bspwm/bspwmrc"
 alias .df="$HOME/bin/dotfiles"
