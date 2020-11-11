@@ -165,21 +165,21 @@ function clipboard() {
 
     rm ../clipmenu.tar.gz
 
-    # pobranie clipnotify
-    curl -fLo "$HOME/git/src/clipnotify.tar.gz" --create-dirs \
-        https://github.com/cdown/clipnotify/archive/master.tar.gz
-    cd "$HOME/git/src/"
-    mkdir clipnotify
-    tar zxvf clipnotify.tar.gz -C clipnotify --strip-components=1
+    # pobranie i kompilacja clipnotify
+    # curl -fLo "$HOME/git/src/clipnotify.tar.gz" --create-dirs \
+    #     https://github.com/cdown/clipnotify/archive/master.tar.gz
+    # cd "$HOME/git/src/"
+    # mkdir clipnotify
+    # tar zxvf clipnotify.tar.gz -C clipnotify --strip-components=1
 
-    # kompilacja clipnotify
-    cd clipnotify
-    make
+    # # kompilacja clipnotify
+    # cd clipnotify
+    # make
 
-    # linki symboliczne do ~/bin/
-    ln -s $PWD/clipnotify $HOME/bin/
+    # # linki symboliczne do ~/bin/
+    # ln -s $PWD/clipnotify $HOME/bin/
 
-    rm ../clipnotify.tar.gz
+    # rm ../clipnotify.tar.gz
 }
 
 clipboard
