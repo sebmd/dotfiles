@@ -5,10 +5,6 @@ env:
 
   title: Alacritty
 
-  class:
-    instance: Alacritty
-    general: Alacritty
-
 scrolling:
   history: 10000
   multiplier: 3
