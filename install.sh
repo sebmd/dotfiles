@@ -53,11 +53,15 @@ function install_dnf() {
     sudo dnf install git vim curl exa bat oathtool pass ripgrep skim fzf tmux
 }
 
+function install_xorg() {
+    sudo dnf install xorg-x11-server-utils xorg-x11-xinit xterm
+}
+
 function install_bspwm() {
     sudo dnf update
-    sudo dnf install bspwm sxhkd polybar sakura xorg-x11-server-utils \
-    picom dmenu dunst imwheel rofi xterm xclip xsel network-manager-applet \
-    xorg-x11-xinit
+    install_xorg
+    sudo dnf install bspwm sxhkd polybar sakura picom dmenu rofi dunst imwheel \
+        xclip xsel network-manager-applet
 }
 
 if [ -f /etc/fedora-release ]; then
