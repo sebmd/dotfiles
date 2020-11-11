@@ -10,6 +10,7 @@
 .config/sxhkd
 .config/zathura/zathurarc
 .gnupg/gpg-agent.conf
+.config/dunst
 .tmux.conf
 .vars
 .vim
