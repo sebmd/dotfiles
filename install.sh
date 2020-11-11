@@ -54,7 +54,8 @@ function install_dnf() {
 }
 
 function install_xorg() {
-    sudo dnf install xorg-x11-server-utils xorg-x11-xinit xterm
+    sudo dnf install xorg-x11-server-Xorg xorg-x11-server-utils xorg-x11-xinit \
+        xterm
 }
 
 function install_bspwm() {
