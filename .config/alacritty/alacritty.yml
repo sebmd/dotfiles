@@ -28,6 +28,8 @@ font:
     family: Source Code Pro
     style:  Bold Italic
 
+# Schmaty kolorów
+# https://github.com/aaron-williamson/base16-alacritty
 colors:
   primary:
     background: '0x282828'
