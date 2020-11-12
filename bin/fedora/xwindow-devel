@@ -1,3 +1,6 @@
 harfbuzz-devel
 libX11-devel
 libXft-devel
+gtk3-devel
+gtk+-devel
+gtk+extra-devel

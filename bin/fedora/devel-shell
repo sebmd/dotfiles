@@ -13,6 +13,7 @@ cmake
 flex
 gcc
 gcc-c++
+gettext-devel
 glibc-static
 gnutls-devel
 golang
