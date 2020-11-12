@@ -55,7 +55,7 @@ alias mkdir="mkdir -p"
 
 alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
 
-alias tree="$HOME/bin/tree"
+alias exa-tree="$HOME/bin/exa-tree"
 
 alias cleartemp="$HOME/bin/cleartemp"
 
