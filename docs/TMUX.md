@@ -62,8 +62,8 @@ Użycie prefiksu + hjkl
 
 # Zamiana paneli miejscami
 
-    * `Prefix-{` - przesuwa panel na lewo
-    * `Prefix-}` - przesuwa panel na prawo
+  * `Prefix-{` - przesuwa panel na lewo
+  * `Prefix-}` - przesuwa panel na prawo
 
 # Utworznie nowego okna
 
