@@ -288,3 +288,25 @@ Wyszukiwanie wyrazu w katalogu
 ```
 rg wyraz katalog/
 ```
+
+Wyszukiwanie plików w których znajduje się znak `#` a następnie słowo `bash`
+
+```
+rg "#.*bash*"
+```
+
+Wyświetlenie dodatkowych linii przed i po wystąpieniem wyszukiwanego wyrazu
+
+- `-A #` liczba linii wyświetlanych po wystąpieniu szukanego słowa
+- `-B #` liczba linii wyświetlanych przed wystąpieniu szukanego słowa
+- `-C #` liczba linii wyświetlanych przed i po wystąpieniu szukanego słowa
+
+```
+rg -A 2 -B 3 słowo
+```
+
+Wyszukiwanie w plikach i katalogach ukrytych zaczynających się od `.`
+
+```
+rg --hidden github
+```
