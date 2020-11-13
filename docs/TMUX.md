@@ -7,6 +7,7 @@
 * [Odłączenie się od bieżącej sesji](#odczenie-si-od-biecej-sesji)
 * [Dzielenie okna na panele](#dzielenie-okna-na-panele)
 * [Poruszanie się pomiędzy panelami](#poruszanie-si-pomidzy-panelami)
+* [Zamiana paneli miejscami](#zamiana-paneli-miejscami)
 * [Utworznie nowego okna](#utworznie-nowego-okna)
 * [Zmiana nazwy okna](#zmiana-nazwy-okna)
 * [Przechodzenie pomiędzy oknami](#przechodzenie-pomidzy-oknami)
@@ -58,6 +59,11 @@ Użycie prefiksu + hjkl
   * `Prefix-j` - przechodzi do panelu na dole
   * `Prefix-k` - przechodzi do panelu na górze - aktualnie nie działa
   * `Prefix-l` - przechodzi do panelu po prawej
+
+# Zamiana paneli miejscami
+
+    * `Prefix-{` - przesuwa panel na lewo
+    * `Prefix-}` - przesuwa panel na prawo
 
 # Utworznie nowego okna
 
