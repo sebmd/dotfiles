@@ -35,6 +35,7 @@ bin/lf
 bin/maple
 bin/rg
 bin/sd
+bin/signal
 bin/sk
 bin/sk-tmux
 bin/st
