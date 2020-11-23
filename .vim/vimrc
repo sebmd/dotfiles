@@ -21,7 +21,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'  " menadżer plików
     Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
     Plug 'ryanoasis/vim-devicons'
-    " Plug 'mcchrish/nnn.vim'
     Plug 'lambdalisue/fern.vim'  " menadżer plików
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
@@ -84,8 +83,8 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
 if has("nvim")
-    set viminfo='100,n$HOME/.vim/viminfo/nviminfo
-    set viewdir=$HOME/.vim/view/nvim
+    set viminfo='100,n$HOME/.config/nvim/viminfo/viminfo
+    set viewdir=$HOME/.config/nvim/view
 else
     set viminfo+=n$HOME/.vim/viminfo/viminfo
     set viewdir=$HOME/.vim/view
@@ -133,6 +132,9 @@ endif
 let $BASH_ENV="~/.aliases"
 " --- Ustawienia }}}
 " --- Ustawienia plugiów {{{
+" YankRing
+" let g:yankring_clipboard_monitor=0
+
 " Rainbow
 let g:rainbow_active = 1
 
@@ -184,10 +186,6 @@ let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-" nnn
-" Disable default mappings
-let g:nnn#set_default_mappings = 0
 
 " Fern
 let g:fern#renderer = "nerdfont"
@@ -382,7 +380,7 @@ nmap <c-l> <c-w><c-l>
 " wchodzi do trybu COMMAND
 nnoremap <leader>; :
 
-" wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długośc 80 znaków 'gqap'
+" wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 80 znaków 'gqap'
 nnoremap <leader>a =ip gqap
 
 " zapisanie pliku jeśli zostały wprowadzone zmiany
@@ -544,7 +542,6 @@ let g:which_key_map[';'] = [ ':Commands'          , 'commands'        ]
 let g:which_key_map['='] = [ '<C-W>='             , 'balance windows' ]
 let g:which_key_map['S'] = [ ':Startify'          , 'start screen'    ]
 let g:which_key_map['T'] = [ ':Rg'                , 'search text'     ]
-let g:which_key_map['N'] = [ ':NnnPicker'         , 'nnn n³'          ]
 let g:which_key_map['n'] = [ ':NERDTreeToggleVCS' , 'NERDTree'        ]
 let g:which_key_map['h'] = [ '<C-W>s'             , 'split below'     ]
 let g:which_key_map['v'] = [ '<C-W>v'             , 'split right'     ]
