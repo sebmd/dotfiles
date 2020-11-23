@@ -279,7 +279,7 @@ case "$ODP" in
         ;;
     n)
         echo
-        echo "Zły wybór ;)"
+        echo "OK"
         exit
         ;;
     *)
