@@ -687,7 +687,7 @@ let g:which_key_map['w'] = {
 " --- Mapowanie klawiszy }}}
 " --- Autocmd / Funkcje {{{
 autocmd BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
+autocmd BufWinEnter ?* silent! loadview
 
 " przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
 " pliki typu git i GV, którym sprawia to problem
