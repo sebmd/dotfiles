@@ -134,6 +134,7 @@ let $BASH_ENV="~/.aliases"
 " --- Ustawienia plugiów {{{
 " YankRing
 " let g:yankring_clipboard_monitor=0
+let g:yankring_history_dir = '$VIM'
 
 " Rainbow
 let g:rainbow_active = 1
