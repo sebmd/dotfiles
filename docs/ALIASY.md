@@ -452,7 +452,7 @@ mkdir -p
 ls -F | grep '*$'
 ```
 
-## tree
+## exa-tree
 
 Zastępuje polecenie `tree` polecenie `exa`
 
@@ -1402,6 +1402,30 @@ Uruchamia dziennik na bieżący dzień
 :VimwikiMakeDiaryNote
 ```
 
+## diary-before
+
+Uruchamia dziennik na poprzedni dzień
+
+```
+diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
+```
+
+## diary-next
+
+Uruchamia dziennik na następny dzień
+
+```
+alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
+```
+
+## diary-index
+
+Uruchamia listę dzienników
+
+```
+alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
+```
+
 ## no
 
 Otwiera edytor Vim w lokalizacji `$HOME/notes`
@@ -1410,42 +1434,8 @@ Otwiera edytor Vim w lokalizacji `$HOME/notes`
 vim -c "e $HOME/notes"
 ```
 
-## vim-docs
+## td
 
-Skrypt `vim-docs`
-
-```bash
-#!/usr/bin/env bash
-
-KATALOG=$HOME/docs/
-
-if [ $# -gt 0 ]; then
-    cd $KATALOG
-    FILE=$(rg "$@" --ignore-file $KATALOG/.ignore | fzf | cut -d : -f 1)
-    if [ -n "$FILE" ]; then
-        vim "$FILE"
-    fi
-else
-    echo Podaj conajmniej jeden parametr...
-fi
 ```
-
-## vim-notes
-
-Skrypt `vim-notes`
-
-```bash
-#!/usr/bin/env bash
-
-cd ~/notes
-SEARCH=$(sk --ansi -i -c 'rg --color=always --line-number "{}"' \
-    --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
-    --preview-window=down:50%:hidden)
-readarray -td: array <<<"$SEARCH"
-FILE=${array[0]}
-LINE=${array[1]}
-ARRAY_NOE=${#array[@]}
-if [ $ARRAY_NOE -gt 1 ]; then
-    vim $FILE +$LINE
-fi
+alias td="$EDITOR $TODO"
 ```
