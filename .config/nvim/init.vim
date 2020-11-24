@@ -937,3 +937,17 @@ let g:GPGPreferArmor = 1
 let g:GPGDefaultRecipients = [$GPG_ID]  " gpg --list-keys --keyid-format LONG
 let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
 " --- Szyfrowanie }}}
+" --- Abbr {{{
+abbr abbash #!/usr/bin/env bash<cr><cr>
+" --- Abbr}}}
+" --- Dodatkowe pliki konfiguracyjne {{{
+" jeśli istnieje plik ~/.config/nvim/init.local to odczytuje jego zawartość
+if filereadable(expand("~/.config/nvim/init.local"))
+    source ~/.config/nvim/init.local
+endif
+
+" jeśli istnieje plik ~/.config/nvim/local.init to odczytuje jego zawartość
+if filereadable(expand("~/.config/nvim/local.init"))
+    source ~/.config/nvim/local.init
+endif
+" --- Dodatkowe pliki konfiguracyjne }}}
