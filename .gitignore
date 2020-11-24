@@ -43,3 +43,4 @@ bin/st-copyout
 bin/st-urlhandler
 bin/st.info
 notes
+.vim/yankring_history*
