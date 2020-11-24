@@ -1,33 +1,36 @@
+" zn - rozwija wszystkie zagnieżdżenia
+" zm - zwija wszystkie zagnieżdżenia
+" za - zwija / rozwija jedno zagnieżdżenie
 " --- Pluginy {{{
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'gruvbox-community/gruvbox'
-    Plug 'pearofducks/ansible-vim'
-    Plug 'dense-analysis/ale'
-    Plug 'sainnhe/gruvbox-material'
-    Plug 'chriskempson/base16-vim'
-    Plug 'flazz/vim-colorschemes'
-    Plug 'Taverius/vim-colorscheme-manager'
-    Plug 'xolox/vim-misc'               " wymagany dle pluginu vim-colorscheme-switcher
-    Plug 'xolox/vim-colorscheme-switcher'
+    Plug 'gruvbox-community/gruvbox'  " kolor
+    Plug 'sainnhe/gruvbox-material'  " kolor
+    Plug 'chriskempson/base16-vim'  " kolor
+    Plug 'flazz/vim-colorschemes'  " kolor
+    Plug 'Taverius/vim-colorscheme-manager'  " menadżer kolorów
+    Plug 'xolox/vim-misc'  " wymagany dle pluginu vim-colorscheme-switcher
+    Plug 'xolox/vim-colorscheme-switcher'  " przełączanie kolorów
+    Plug 'luochen1990/rainbow'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'chengzeyi/fzf-preview.vim'
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
     Plug 'dyng/ctrlsf.vim'
     Plug 'mbbill/undotree'
-    Plug 'mhinz/vim-startify'
-    Plug 'preservim/nerdtree'
+    Plug 'mhinz/vim-startify'  " ekran startowy
+    Plug 'preservim/nerdtree'  " menadżer plików
     Plug 'Xuyuanp/nerdtree-git-plugin'  " integracja NERDTree z GIT
-    Plug 'lambdalisue/fern.vim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'lambdalisue/fern.vim'  " menadżer plików
     Plug 'lambdalisue/nerdfont.vim'
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
     Plug 'lambdalisue/fern-bookmark.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
-    Plug 'vimwiki/vimwiki'
-    Plug 'junegunn/vim-peekaboo'
-    Plug 'tpope/vim-commentary'
+    Plug 'junegunn/vim-peekaboo'  " pokazuje zawartość rejestrów (schowka)
+    Plug 'vim-scripts/YankRing.vim' " :YRShow pokazuje ostatnio kopiowany tekst
+    Plug 'tpope/vim-commentary'  " dodaje znak komentarza dla różnych plików
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
@@ -38,78 +41,87 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'rhysd/git-messenger.vim'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-eunuch'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'vim-scripts/AutoComplPop'
+    Plug 'tmsvg/pear-tree'  " automatyczne zamykanie "", '', ()
+    Plug 'vim-scripts/AutoComplPop'  " automatyczne podpowiedzi
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'ycm-core/YouCompleteMe'  " automatyczne podpowiedzi
+    " Plug 'fatih/vim-go'
+    Plug 'dense-analysis/ale'
     Plug 'liuchengxu/vim-which-key'
-    Plug 'mcchrish/nnn.vim'
     Plug 'unblevable/quick-scope'
     Plug 'easymotion/vim-easymotion'
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'vuciv/vim-bujo'  " Manage ToDo lists
-    Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'kristijanhusak/defx-icons'
-    Plug 'sainnhe/gruvbox-material'
+    Plug 'lifepillar/vim-cheat40'
+    Plug 'vimwiki/vimwiki'
     Plug 'glidenote/memolist.vim'
+    Plug 'vuciv/vim-bujo'
+    Plug 'jamessan/vim-gnupg'
 call plug#end()
 " --- Pluginy }}}
 " --- Ustawienia {{{
-set nocompatible
-filetype plugin indent on
-syntax enable
-se rnu nu
-se ts=4 sw=4 sts=4 et sta
-se wildmenu
-se wildmode=list:longest,full
-se foldmethod=marker
-se foldcolumn=1
-se splitright
-se splitbelow
-se backspace=indent,eol,start
-se clipboard=unnamedplus
-se mouse=a
-se hidden
-se noshowmode
-se nowrap
-se smartcase
-se incsearch
-se timeoutlen=500
-se undodir=~/.vim/undo
-se undofile
-se undolevels=10000
-se viminfo='100,n$HOME/.vim/viminfo/nviminfo
-se viewdir=$HOME/.config/nvim/view
-se laststatus=2
-se cmdheight=2
-se list
-se listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-se listchars=nbsp:⦸
-se listchars+=tab:▸\ ,
-se listchars+=extends:»
-se listchars+=precedes:«
-se listchars+=trail:•
-se listchars+=eol:¬
-se fillchars+=vert:\ 
-se showbreak=↪
-se scrolloff=5
-se autochdir
+set nocompatible                " wyłączenie wstecznej kompatybilności z edytorem vi
+syntax on                       " podkreślanie składni
+set nu rnu                      " number, relativenumber
+set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, smarttab
+set wildmenu
+set wildmode=list:longest,full
+set foldmethod=marker
+set foldcolumn=1
+set splitright
+set splitbelow
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set mouse=a
+set hidden
+set noshowmode
+set nowrap
+set smartcase
+set incsearch
+set undodir=~/.vim/undo
+set undofile
+set undolevels=10000
+if has("nvim")
+    set viminfo='100,n$HOME/.config/nvim/viminfo/viminfo
+    set viewdir=$HOME/.config/nvim/view
+else
+    set viminfo+=n$HOME/.vim/viminfo/viminfo
+    set viewdir=$HOME/.vim/view
+    set cm=blowfish2
+    "set key=dupa123
+endif
+set laststatus=2
+set cmdheight=2
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=nbsp:⦸
+set listchars+=tab:▸\ ,
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=trail:•
+set listchars+=eol:¬
+set fillchars+=vert:\ 
+set showbreak=↪
+set scrolloff=5
+set autochdir
 setlocal spelllang=pl
-se lazyredraw  " szybciej wykonuje makra
-se encoding=utf-8
-se textwidth=80
-se cursorline
-se colorcolumn=+1
-se background=dark
-se complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
-se completeopt=menuone,longest,noselect
-se shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
-silent! colo gruvbox-material
+set lazyredraw  " szybciej wykonuje makra
+set encoding=utf-8
+set textwidth=80
+set cursorline
+set colorcolumn=+1
+set background=dark
+set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
+set completeopt=menuone,longest,noselect
+set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
+silent! colorscheme gruvbox-material
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_invert_selection='0'
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
 let ayucolor="dark"   " for dark version of theme
+
 set termguicolors
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -118,159 +130,25 @@ endif
 " daje możliwość uruchamiania aliasów z poziomu edytora Vim
 " wymaga dodania w pliku ~/.aliases: shopt -s expand_aliases
 let $BASH_ENV="~/.aliases"
-
 " --- Ustawienia }}}
-" --- Mapowanie klawiszy {{{
-let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
-let localmapleader="\\"     " klawisz \ ustawiony jako local leader
+" --- Ustawienia plugiów {{{
+" YankRing
+" let g:yankring_clipboard_monitor=0
 
-nnoremap j gj
-nnoremap k gk
-nnoremap J maJ`a
-nnoremap Y y$
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap qq :q<cr>
-nnoremap qs :update<cr>:q<cr>
-nnoremap th :set hlsearch!<cr>
-nnoremap <leader>v :e $MYVIMRC<cr>
-nnoremap <leader>r :source $MYVIMRC<cr>
-nnoremap <leadeg>f :Defx .<cr>
-nnoremap zn zm
-nnoremap zm zn
+" Rainbow
+let g:rainbow_active = 1
 
-" usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
-" to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
-noremap x "_x
-noremap X "_X
+" Pear tree
+let g:pear_tree_pairs = {
+    \ '('  : {'closer': ')'},
+    \ '['  : {'closer': ']'},
+    \ '{'  : {'closer': '}'},
+    \ "'"  : {'closer': "'"},
+    \ '"'  : {'closer': '"'},
+    \ '`'  : {'closer': '`'},
+    \ '```': {'closer': '```'}
+    \ }
 
-" mapuje klawisz TAB w trybie insert do zatwierdzenia popowiedzi autouzupełaniania
-inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
-
-nmap gj <plug>(signify-next-hunk)
-nmap gk <plug>(signify-prev-hunk)
-nmap gJ 9999gj
-nmap gK 9999gk
-
-nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
-vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
-
-nnoremap <tab> :e #<cr>
-
-cmap <c-h> <left>
-cmap <c-j> <down>
-cmap <c-k> <up>
-cmap <c-l> <right>
-
-inoremap <c-h> <left>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-l> <right>
-
-inoremap <c-c> <esc>
-
-nmap <c-h> <c-w><c-h>
-nmap <c-j> <c-w><c-j>
-nmap <c-k> <c-w><c-k>
-nmap <c-l> <c-w><c-l>
-
-" wchodzi do trybu COMMAND
-nnoremap <leader>; :
-
-nnoremap <leader>w :update<cr>
-
-" początek i koniec linii
-nnoremap <leader>h 0
-nnoremap <leader>l $
-
-" Przełączanie się pomiędzy buforami
-nnoremap <leader>, :bp<cr>
-nnoremap <leader>. :bn<cr>
-" ustawia podzielone okno na główne (full screen)
-nnoremap <leader>o :only<cr>
-
-nnoremap <leader>d :DestractionFree<cr>
-
-nnoremap <leader>b :Buffers<cr>
-
-" przechodzi do katalogu w którym znajduje się edytowany plik
-nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" klonuje paragraf
-nnoremap <leader>cp yap<S-}>p
-
-nnoremap <leader>gc :GCheckout<cr>
-
-nnoremap <leader>pa :set invpaste paste?<cr>
-
-nnoremap <leader>pr :ProjectFiles<cr>
-
-nnoremap <leader>v :e $MYVIMRC<cr>
-" nnoremap <leader>vv :NERDTreeToggle ~/.vim<cr>
-
-nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowana ..."<cr>
-
-nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
-
-nnoremap <leader>g :Rg<cr>
-
-" otwiera menadżer plików dla lokalizacji otwartego pliku
-" nnoremap <leader>f :sv %:p:h<cr>
-nnoremap <leader>f :Fern . -drawer -reveal=% -toggle -width=30<cr>
-
-nnoremap <leader>u :UndotreeToggle<cr>
-
-nnoremap <leader>t :term<cr>
-nnoremap <leader>tv :botright vertical terminal<cr>
-
-" Otwiera i zamyka NERDTreee w bieżącej lokalizacji
-" nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
-
-nnoremap <leader>n :NERDTreeToggleVCS<cr>
-nnoremap <leader>N :NnnPicker '%:p:h'<cr>
-
-" kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
-" bufora
-nnoremap <leader>E !!$SHELL<cr>
-
-" kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
-nnoremap <leader>ve yy:@"<cr>
-
-nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr>
-
-" Obsługa pluginu vim-surround
-" <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
-noremap <leader>sw :norm ysiw
-" <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
-noremap <leader>sW :norm ysiW
-" <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
-noremap <leader>sp :norm ysip
-" <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
-noremap <leader>ss :norm yss
-" <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
-noremap <leader>sd :norm ds
-
-" \fnn wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
-nnoremap <localleader>f :echo expand("%:p")<cr>
-
-" kopiuj / wklej do schowka systemowego
-vnoremap <c-c> "*y :let @+=@*<cr>
-nnoremap <c-c> "*y :let @+=@*<cr>
-map <c-p> "+P
-
-command! Q :q!
-
-autocmd Filetype markdown,vimwiki inoremap ,i <esc>:InsertLogEntry<cr>
-
-autocmd Filetype help nnoremap <leader>l <c-]>
-autocmd Filetype help nnoremap <leader>h <c-t>
-
-autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
-autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
-autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
-autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
-" --- Mapowanie klawiszy }}}
-" --- Ustawienia pluginów {{{
 " Startify
 let g:startify_session_dir = '~/.vim/startify_session'
 
@@ -296,22 +174,10 @@ let g:startify_custom_header = [
     \ '--------------------------'
     \ ]
 
-" airline
-let g:airline_theme='lucius'
-let g:airline#extensions#tabline#enabled = 1
+" FZF
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
 
-" Vimwiki
-let wiki = {}
-let wiki.path = '~/vimwiki'
-let wiki.ext = '.md'
-let wiki.syntax = 'markdown'
-let wiki.nested_syntax = { 'python': 'python', 'sh': 'sh' }
-
-let g:vimwiki_list = [wiki]
-let g:vimwiki_table_mappings = 0
-let g:vimwiki_listsyms = '✗○◐●✓'
-
-" fzf
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -327,26 +193,73 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
+" Memolist
+" suffix type (default markdown)
+let g:memolist_memo_suffix = "md"
+
+" date format (default %Y-%m-%d %H:%M)
+" let g:memolist_memo_date = "%Y-%m-%d %H:%M"
+" let g:memolist_memo_date = "epoch"
+" let g:memolist_memo_date = "%D %T"
+let g:memolist_memo_date = "%F %T"
+
+" tags prompt (default 0)
+let g:memolist_prompt_tags = 0
+
+" categories prompt (default 0)
+let g:memolist_prompt_categories = 0
+
+" use fzf (default 0)
+let g:memolist_fzf = 1
+
+" remove filename prefix (default 0)
+let g:memolist_filename_prefix_none = 0
+
+" use denite (default 0)
+" let g:memolist_denite = 1
+
+" use arbitrary denite source (default is 'file_rec')
+" let g:memolist_denite_source = "anything"
+
+" use arbitrary denite option (default is empty)
+" let g:memolist_denite_option = "anything"
+
+" use various Ex commands (default '')
+let g:memolist_ex_cmd = 'Clap files'
+
+" use delimiter of array in yaml front matter (default is ' ')
+let g:memolist_delimiter_yaml_array = ','
+
+" use when get items from yaml front matter
+" first line string pattern of yaml front matter (default "==========")
+let g:memolist_delimiter_yaml_start = "---"
+
+" last line string pattern of yaml front matter (default "- - -")
+let g:memolist_delimiter_yaml_end  = "---"
 
 " indentLine
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+let g:indentLine_setColors = 0
 let g:indentLine_fileTypeExclude = [ "vimwiki", "help", "undotree", "diff", "nerdtree" ]
 let g:indentLine_bufTypeExclude = [ "help", "terminal" ]
-
-" nnn
-" Disable default mappings
-let g:nnn#set_default_mappings = 0
 
 " Fern
 let g:fern#renderer = "nerdfont"
 let g:fern#disable_default_mappings   = 1
+let g:fern#default_hidden = 1
 " let g:fern#disable_drawer_auto_quit   = 1
 " let g:fern#disable_viewer_hide_cursor = 1
+
+autocmd Filetype fern set nornu
+autocmd Filetype fern set nonu
+" wyłączenie pluginu quick-scope, który okazjonalnie wiesza plugin Fern
+autocmd Filetype fern let g:qs_enable=0
+" wyłącza plugin indentLine
+autocmd Filetype fern let g:indentLine_enabled = 0
 
 function! FernInit() abort
     " wyłączenie pluginu quick-scope, który okazjonalnie wiesza plugin Fern
@@ -440,141 +353,25 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-" Defx
-let g:defx_icons_enable_syntax_highlight    = 1
-let g:defx_icons_column_length              = 1
-let g:defx_icons_directory_icon             = ''
-let g:defx_icons_mark_icon                  = '*'
-let g:defx_icons_copy_icon                  = ''
-let g:defx_icons_move_icon                  = ''
-let g:defx_icons_parent_icon                = ''
-let g:defx_icons_default_icon               = ''
-let g:defx_icons_directory_symlink_icon     = ''
-let g:defx_icons_root_opened_tree_icon      = ''
-let g:defx_icons_nested_opened_tree_icon    = ''
-let g:defx_icons_nested_closed_tree_icon    = ''
+" Vimwiki
+let wiki = {}
+let wiki.path = '~/vimwiki'
+let wiki.ext = '.md'
+let wiki.syntax = 'markdown'
+let wiki.nested_syntax = { 'python': 'python', 'sh': 'sh' }
 
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
-    " Define mappings
-    nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
-    nnoremap <silent><buffer><expr> c
-        \ defx#do_action('copy')
-    nnoremap <silent><buffer><expr> m
-        \ defx#do_action('move')
-    nnoremap <silent><buffer><expr> p
-        \ defx#do_action('paste')
-    nnoremap <silent><buffer><expr> l
-        \ defx#do_action('open')
-    nnoremap <silent><buffer><expr> E
-        \ defx#do_action('open', 'vsplit')
-    nnoremap <silent><buffer><expr> P
-        \ defx#do_action('preview')
-    nnoremap <silent><buffer><expr> o
-        \ defx#do_action('open_tree', 'toggle')
-    nnoremap <silent><buffer><expr> K
-        \ defx#do_action('new_directory')
-    nnoremap <silent><buffer><expr> N
-        \ defx#do_action('new_file')
-    nnoremap <silent><buffer><expr> M
-        \ defx#do_action('new_multiple_files')
-    nnoremap <silent><buffer><expr> C
-        \ defx#do_action('toggle_columns',
-        \                'mark:indent:icon:filename:type:size:time')
-    nnoremap <silent><buffer><expr> S
-        \ defx#do_action('toggle_sort', 'time')
-    nnoremap <silent><buffer><expr> d
-        \ defx#do_action('remove')
-    nnoremap <silent><buffer><expr> r
-        \ defx#do_action('rename')
-    nnoremap <silent><buffer><expr> !
-        \ defx#do_action('execute_command')
-    nnoremap <silent><buffer><expr> x
-        \ defx#do_action('execute_system')
-    nnoremap <silent><buffer><expr> yy
-        \ defx#do_action('yank_path')
-    nnoremap <silent><buffer><expr> .
-        \ defx#do_action('toggle_ignored_files')
-    nnoremap <silent><buffer><expr> ;
-        \ defx#do_action('repeat')
-    nnoremap <silent><buffer><expr> h
-        \ defx#do_action('cd', ['..'])
-    nnoremap <silent><buffer><expr> ~
-        \ defx#do_action('cd')
-    nnoremap <silent><buffer><expr> q
-        \ defx#do_action('quit')
-    nnoremap <silent><buffer><expr> <Space>
-        \ defx#do_action('toggle_select') . 'j'
-    nnoremap <silent><buffer><expr> *
-        \ defx#do_action('toggle_select_all')
-    nnoremap <silent><buffer><expr> j
-        \ line('.') == line('$') ? 'gg' : 'j'
-    nnoremap <silent><buffer><expr> k
-        \ line('.') == 1 ? 'G' : 'k'
-    nnoremap <silent><buffer><expr> <C-l>
-        \ defx#do_action('redraw')
-    nnoremap <silent><buffer><expr> <C-g>
-        \ defx#do_action('print')
-    nnoremap <silent><buffer><expr> cd
-        \ defx#do_action('change_vim_cwd')
-endfunction
+let g:vimwiki_list = [wiki]
+let g:vimwiki_table_mappings = 0
+let g:vimwiki_listsyms = '✗○◐●✓'
 
-call defx#custom#option('_', {
-    \ 'winwidth': 71,
-    \ 'split': 'vertical',
-    \ 'direction': 'topleft',
-    \ 'show_ignored_files': 0,
-    \ 'buffer_name': 'defx',
-    \ 'columns': 'mark:indent:icons:filename:type:size:time',
-    \ 'toggle': 1,
-    \ 'resume': 1,
-    \ })
+" airline
+let g:airline_theme='lucius'
+let g:airline#extensions#tabline#enabled = 1
 
-" Memolist
-" suffix type (default markdown)
-let g:memolist_memo_suffix = "md"
-
-" date format (default %Y-%m-%d %H:%M)
-" let g:memolist_memo_date = "%Y-%m-%d %H:%M"
-" let g:memolist_memo_date = "epoch"
-" let g:memolist_memo_date = "%D %T"
-let g:memolist_memo_date = "%F %T"
-
-" tags prompt (default 0)
-let g:memolist_prompt_tags = 0
-
-" categories prompt (default 0)
-let g:memolist_prompt_categories = 0
-
-" use fzf (default 0)
-let g:memolist_fzf = 1
-
-" remove filename prefix (default 0)
-let g:memolist_filename_prefix_none = 0
-
-" use denite (default 0)
-" let g:memolist_denite = 1
-
-" use arbitrary denite source (default is 'file_rec')
-" let g:memolist_denite_source = "anything"
-
-" use arbitrary denite option (default is empty)
-" let g:memolist_denite_option = "anything"
-
-" use various Ex commands (default '')
-let g:memolist_ex_cmd = 'Defx'
-" let g:memolist_ex_cmd = 'Clap files'
-
-" use delimiter of array in yaml front matter (default is ' ')
-let g:memolist_delimiter_yaml_array = ','
-
-" use when get items from yaml front matter
-" first line string pattern of yaml front matter (default "==========")
-let g:memolist_delimiter_yaml_start = "---"
-
-" last line string pattern of yaml front matter (default "- - -")
-let g:memolist_delimiter_yaml_end  = "---"
+" netrw
+let g:netrw_browse_split=2
+let g:netrw_banner=0
+let g:netrw_winsize=25
 
 " vim-which-key
 silent! call which_key#register('\', "g:which_key_map")
@@ -589,6 +386,221 @@ hi default link WhichKey            Operator
 hi default link WhichKeySeparator   DiffAdded
 hi default link WhichKeyGroup       Identifier
 hi default link WhichKeyDesc        Function
+" --- Ustawienia plugiów }}}
+" --- Mapowanie klawiszy {{{
+let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
+let localmapleader="\\"     " klawisz \ ustawiony jako local leader
+
+nnoremap th :set hlsearch!<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap J maJ`a
+nnoremap Y y$
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap qq :q<cr>
+nnoremap qw :update<cr>:q<cr>
+" odtwarza nagrane makro a
+nnoremap Q @a
+vnoremap Q :norm @a<cr>
+" inore kj <esc>
+
+" usuwanie pojedynczych znaków nie nadpisuje zawartości schowka, rejestr `_` jest
+" to rejestr typu blackhole czyli wszystko co tam trafia znika bezpowrotnie
+noremap x "_x
+noremap X "_X
+
+" mapuje klawisz TAB w trybie insert do zatwierdzenia popowiedzi autouzupełaniania
+inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
+
+nmap gj <plug>(signify-next-hunk)
+nmap gk <plug>(signify-prev-hunk)
+nmap gJ 9999gj
+nmap gK 9999gk
+
+nnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
+vnoremap <c-_> :Commentary<cr> " <c-_> mapuje kombinacje klawiszy <c-/>
+
+nnoremap <tab> :e #<cr>
+
+cmap <c-h> <left>
+cmap <c-j> <down>
+cmap <c-k> <up>
+cmap <c-l> <right>
+
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+
+inoremap <c-c> <esc>
+
+inoremap <c-s> <esc>:update<cr>a
+nnoremap <c-s> :update<cr>
+
+nmap <c-h> <c-w><c-h>
+nmap <c-j> <c-w><c-j>
+nmap <c-k> <c-w><c-k>
+nmap <c-l> <c-w><c-l>
+
+" wchodzi do trybu COMMAND
+nnoremap <leader>; :
+
+" wyrównanie paragrafu '=ip' dodatkowo zawija tekst na długość 80 znaków 'gqap'
+nnoremap <leader>a =ip gqap
+
+" zapisanie pliku jeśli zostały wprowadzone zmiany
+nnoremap <leader>w :update<cr>
+
+" początek i koniec linii
+nnoremap gh 0
+nnoremap gl $
+nnoremap <leader>h 0
+nnoremap <leader>l $
+
+" kasowanie od kursora do początku lub końca linii
+nnoremap dh d0
+nnoremap dl d^
+
+nnoremap <leader>y :YRShow<cr>
+
+" Przełączanie się pomiędzy buforami
+nnoremap <leader>, :bp<cr>
+nnoremap <leader>. :bn<cr>
+nnoremap <esc>h :bp<cr>
+nnoremap <esc>l :bn<cr>
+
+" ustawia podzielone okno na główne (full screen)
+nnoremap <leader>o :only<cr>
+
+nnoremap <leader>d :DestractionFree<cr>
+
+nnoremap <leader>b :Buffers<cr>
+
+" przechodzi do katalogu w którym znajduje się edytowany plik
+nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" klonuje paragraf
+nnoremap <leader>cp yap<S-}>p
+
+nnoremap <leader>gc :GCheckout<cr>
+
+nnoremap <leader>pa :set invpaste paste?<cr>
+
+nnoremap <leader>pr :ProjectFiles<cr>
+
+nnoremap <leader>v :e $MYVIMRC<cr>
+" nnoremap <leader>vv :NERDTreeToggle ~/.vim<cr>
+
+nnoremap <leader>r :source $MYVIMRC<cr>:echom "Konfiguracja została przeładowana ..."<cr>
+
+nnoremap <leader>s :setlocal spell! spell? spelllang=pl<cr>
+
+nnoremap <leader>g :Rg<cr>
+
+nnoremap <leader>gp :!cd $(dirname $(readlink -m %)) && ~/bin/gp<cr>:e<cr>
+
+" otwiera menadżer plików dla lokalizacji otwartego pliku
+" nnoremap <leader>f :sv %:p:h<cr>
+nnoremap <leader>f :Fern . -drawer -reveal=% -toggle -width=30<cr>
+
+nnoremap <leader>u :UndotreeToggle<cr>
+
+nnoremap <leader>t :term<cr>
+nnoremap <leader>tv :botright vertical terminal<cr>
+
+" Otwiera i zamyka NERDTreee w bieżącej lokalizacji
+" nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+
+nnoremap <leader>n :NERDTreeToggleVCS<cr>
+nnoremap <leader>N :NnnPicker '%:p:h'<cr>
+
+" kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
+" bufora
+nnoremap <leader>E !!$SHELL<cr>
+
+" kopiuje bieżącą linię i wykonuje w linii komend Vim np. :qa!
+nnoremap <leader>ve yy:@"<cr>
+
+" Obsługa pluginu vim-surround
+" <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
+noremap <leader>sw :norm ysiw
+" <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
+noremap <leader>sW :norm ysiW
+" <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
+noremap <leader>sp :norm ysip
+" <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
+noremap <leader>ss :norm yss
+" <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
+noremap <leader>sd :norm ds
+
+" map! ustawia skróty dla trybu COMMAND
+" Wyśweitla bieżący katalog np. /home/user/git/dot.files/.vim
+map! ,fp <c-r>=expand("%:p:h")<cr>
+
+" Wyświetla nazwę edytowanego pliku np. vimrc
+map! ,fn <c-r>=expand("%:t:r")<cr>
+
+" Wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
+map! ,fnn <c-r>=expand("%:p")<cr>
+
+" \F wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
+nnoremap <localleader>F :echo expand("%:p")<cr>
+
+nnoremap ,e :e <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap ,s :sp <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nnoremap ,v :vs <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
+
+" kopiuj / wklej do schowka systemowego
+vnoremap <c-c> "*y :let @+=@*<cr>
+nnoremap <c-c> "*y :let @+=@*<cr>
+map <c-p> "+P
+
+" <leader>sn kopiuje linię / zaznaczenie do pliku ~/notes/notatki.md
+" <leader>sN przenosi linię / zaznaczenie do pliku ~/notes/notatki.md
+" <leader>e otwiera plik ~/notes/ + bieżąca data
+" <leader>en otwiera plik ~/notes/notatki.md
+" <leader>Fn wyszukiwanie plików z podglądem w katalogu ~/notes/
+nnoremap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+nnoremap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+vmap <leader>sn :y<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+vmap <leader>sN :d<cr>:cd ~/notes/<cr>:call writefile(getreg('@', 1, 1), 'notatki.md', 'a')<cr>:cd %:p:h<cr>
+nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr><bar>:InsertDiaryHeader<cr>
+nnoremap <leader>en :e ~/notes/notatki.md<cr>
+nnoremap <leader>Fn :Notes<cr>
+
+cnoremap $c e <c-\>eCurrentFileDir()<cr>
+
+command! Q :q!
+
+autocmd filetype python nnoremap <leader>5 :w <bar> :!python3 % <cr>
+autocmd filetype go nnoremap <leader>5 :w <bar> :GoRun<cr>
+
+autocmd Filetype markdown,vimwiki inoremap ,m <esc>:InsertLogEntry<cr>
+autocmd Filetype markdown,vimwiki nnoremap ,m :InsertLogEntry<cr>
+autocmd Filetype markdown,vimwiki inoremap ,, <esc>/<++><cr>"_c4l
+autocmd Filetype markdown,vimwiki inoremap ,n ----<cr>
+autocmd Filetype markdown,vimwiki inoremap ,b ****<space><++><esc>F*hi
+autocmd Filetype markdown,vimwiki inoremap ,s ~~~~<space><++><esc>F~hi
+autocmd Filetype markdown,vimwiki inoremap ,e **<++><esc>F*i
+autocmd Filetype markdown,vimwiki inoremap ,h ====<space><++><esc>F=hi
+autocmd Filetype markdown,vimwiki inoremap ,i ![](<++>)<++><esc>F[a
+autocmd Filetype markdown,vimwiki inoremap ,a [](<++>)<++><esc>F[a
+autocmd Filetype markdown,vimwiki inoremap ,1 #<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,2 ##<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,3 ###<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,4 ####<space><cr><cr><++><esc>2kA
+autocmd Filetype markdown,vimwiki inoremap ,l --------<cr>
+autocmd Filetype markdown,vimwiki inoremap ,c ```<cr>```<cr><esc>O
+autocmd Filetype markdown,vimwiki inoremap ,t <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr><esc>
+
+autocmd Filetype help nnoremap <leader>l <c-]>
+autocmd Filetype help nnoremap <leader>h <c-t>
+
+autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
+autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
+autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
 
 " Pierwsze mapowanie dla '\'
 let g:which_key_map['/'] = [ 'Commentary'         , 'comment'         ]
@@ -596,31 +608,62 @@ let g:which_key_map[';'] = [ ':Commands'          , 'commands'        ]
 let g:which_key_map['='] = [ '<C-W>='             , 'balance windows' ]
 let g:which_key_map['S'] = [ ':Startify'          , 'start screen'    ]
 let g:which_key_map['T'] = [ ':Rg'                , 'search text'     ]
-let g:which_key_map['D'] = [ ':Defx .'            , 'Defx'            ]
-let g:which_key_map['N'] = [ ':NnnPicker'         , 'nnn n³'          ]
 let g:which_key_map['n'] = [ ':NERDTreeToggleVCS' , 'NERDTree'        ]
-let g:which_key_map['f'] = [ ':Files'             , 'search files'    ]
 let g:which_key_map['h'] = [ '<C-W>s'             , 'split below'     ]
 let g:which_key_map['v'] = [ '<C-W>v'             , 'split right'     ]
 let g:which_key_map['z'] = [ 'Goyo'               , 'zen'             ]
 let g:which_key_map['q'] = [ 'q'                  , 'quit vim'        ]
 let g:which_key_map['x'] = [ 'x'                  , 'save & quit vim' ]
 
-" t - toggle
-" d - dot.files
-" s - search
-" g - git
-" w - windows
 " b - buffers
+" c - colors
+" d - dot.files
+" f - files
+" g - git
+" s - search
+" t - toggle
+" w - windows
+
+" b buffers
+let g:which_key_map.b = {
+    \ 'name' : '+buffer' ,
+    \ '1' : ['b1'        , 'buffer 1'           ],
+    \ '2' : ['b2'        , 'buffer 2'           ],
+    \ 'd' : ['bd'        , 'delete-buffer'      ],
+    \ 'f' : ['bfirst'    , 'first-buffer'       ],
+    \ 'h' : ['Startify'  , 'home-buffer'        ],
+    \ 'l' : ['blast'     , 'last-buffer'        ],
+    \ 'n' : ['bnext'     , 'next-buffer'        ],
+    \ 'p' : ['bprevious' , 'previous-buffer'    ],
+    \ '?' : ['Buffers'   , 'fzf-buffer'         ],
+    \ }
+
+" c colors
+let g:which_key_map.c = {
+    \ 'name' : '+colors',
+    \ 'l'  : [':Colors'                 , 'Lista FZF'           ],
+    \ 'a'  : [':colo ayu'               , 'ayu'                 ],
+    \ 'dt' : [':colo base16-darktooth'  , 'darktooth'           ],
+    \ 'g'  : [':colo gruvbox'           , 'gruvbox'             ],
+    \ 'gm' : [':colo gruvbox-material'  , 'gruvbox-material'    ],
+    \ }
 
 " d dot.files
 let g:which_key_map.d = {
     \ 'name' : '+dot.files',
-    \ 'v' : [':e $MYVIMRC'                      , 'vimrc'               ],
-    \ 'b' : [':e ~/.bashrc'                     , 'bashrc'              ],
-    \ 'z' : [':e ~/.zshrc'                      , 'zshrc'               ],
+    \ 'v' : [':e $MYVIMRC'  , 'vimrc'  ],
+    \ 'b' : [':e ~/.bashrc' , 'bashrc' ],
+    \ 'z' : [':e ~/.zshrc'  , 'zshrc'  ],
     \ }
 
+" f files
+let g:which_key_map.f = {
+    \ 'name' : '+files',
+    \ 's'  : [':w' , 'save'             ],
+    \ 'x'  : [':x' , 'save & quit Vim'  ],
+    \ }
+
+" t toggle
 let g:which_key_map.t = {
     \ 'name' : '+toggle',
     \ 'p' : [':set paste!'             , 'toggle paste'             ],
@@ -630,6 +673,7 @@ let g:which_key_map.t = {
     \ 'P' : [':let @/ = ""'            , 'remove search highlight'  ],
     \ }
 
+" s search
 let g:which_key_map.s = {
     \ 'name' : '+search',
     \ '/' : [':History/'     , 'history'            ],
@@ -704,30 +748,17 @@ let g:which_key_map['w'] = {
     \ 'v' : ['<C-W>v'     , 'split-window-below'    ],
     \ '?' : ['Windows'    , 'fzf-window'            ],
     \ }
-
-let g:which_key_map.b = {
-    \ 'name' : '+buffer' ,
-    \ '1' : ['b1'        , 'buffer 1'           ],
-    \ '2' : ['b2'        , 'buffer 2'           ],
-    \ 'd' : ['bd'        , 'delete-buffer'      ],
-    \ 'f' : ['bfirst'    , 'first-buffer'       ],
-    \ 'h' : ['Startify'  , 'home-buffer'        ],
-    \ 'l' : ['blast'     , 'last-buffer'        ],
-    \ 'n' : ['bnext'     , 'next-buffer'        ],
-    \ 'p' : ['bprevious' , 'previous-buffer'    ],
-    \ '?' : ['Buffers'   , 'fzf-buffer'         ],
-    \ }
-" --- Ustawienia pluginów }}}
+" --- Mapowanie klawiszy }}}
 " --- Autocmd / Funkcje {{{
-au VimLeave ?* mkview
-au VimEnter ?* silent! loadview
+autocmd BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent! loadview
+
+autocmd FileType git nofoldenable
 
 " przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
 " pliki typu git i GV, którym sprawia to problem
 let ftToIgnore = [ 'GV', 'git', 'fern' ]
 autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | lcd %:p:h
-
-autocmd FileType git nofoldenable
 
 " przeładowanie .vimrc po zapisaniu pliku
 autocmd! BufWritePost $MYVIMRC source % | redraw
@@ -792,6 +823,15 @@ function InsertLogEntry()
     execute ':startinsert'
 endfunction
 
+function InsertDiaryHeader()
+    normal! o# <temat> <data>
+    execute ':s/<data>/\=strftime("%Y-%m-%d %H:%M:%S")/'
+    normal! 0f<d7l
+    normal! kdd
+    normal! 02l
+    execute ':startinsert'
+endfunction
+
 function! FileTime()
     let filename=expand('%:p')
     let msg=""
@@ -804,6 +844,10 @@ function! CurTime()
     let ftime=ftime." ".strftime("Teraz jest: %F %T")
     echom ftime
     " return ftime
+endfunction
+
+function! CurrentFileDir()
+    return "e " . expand("%:p:h") . "/"
 endfunction
 
 " FZF z podglądem zawartości pliku
@@ -825,12 +869,38 @@ command! ProjectFiles execute 'Files' s:find_git_root()
 command! -bang -nargs=* -complete=dir LS
     \ call fzf#run(fzf#wrap({'source': 'ls', 'dir': <q-args>}, <bang>0))
 
+" Usuwa pliki .swp
+function! DeleteSwapFile()
+    write
+    let l:output = ''
+    redir => l:output
+    silent exec ':sw'
+    redir END
+    let l:current_swap_file = substitute(l:output, '\n', '', '')
+    let l:base = substitute(l:current_swap_file, '\v\.\w+$', '', '')
+    let l:swap_files = split(glob(l:base.'\.s*'))
+    " delete all except the current swap file
+    for l:swap_file in l:swap_files
+        if !empty(glob(l:swap_file)) && l:swap_file != l:current_swap_file
+            call delete(l:swap_file)
+            echo "swap file removed: ".l:swap_file
+        endif
+    endfor
+    " Reset swap file extension to `.swp`.
+    set swf! | set swf!
+    echo "Reset swap file extension for file: ".expand('%')
+endfunction
+
+command! DeleteSwapFile call DeleteSwapFile()
 command! InsertLogEntry call InsertLogEntry()
+command! InsertDiaryHeader call InsertDiaryHeader()
 command! Log :e ~/notes/log.md
 command! FileTime call FileTime()
 command! CurTime call CurTime()
-command! PI PlugInstall
+command! PI :PlugInstall
 command! DestractionFree call DestractionFree()
+command! CreateGist :!gh gist create %
+command! CreateGistPublic !gh gist create % -p
 " --- Autocmd / Funkcje }}}
 " --- Szyfrowanie {{{
 " Szyfrowanie OpenSSL
@@ -845,6 +915,13 @@ augroup OpenSSL
     autocmd VimLeave      *.crypted :!clear
 augroup END
 
+" Parametry dla plików z rozszerzeniem .vienc przy standardowym szyfrowaniu
+augroup VIMCRYPT
+    autocmd!
+    autocmd BufReadPre,FileReadPre *.vienc set viminfo=
+    autocmd BufReadPre,FileReadPre *.vienc set noswapfile noundofile nobackup
+augroup END
+
 " Parametry dla plików z rozszerzeniem .gpg
 autocmd BufEnter *.md.gpg set notermguicolors!
 
@@ -853,20 +930,9 @@ let g:GPGPreferSymmetric = 0
 let g:GPGUseAgent = 1
 let g:GPGPreferArmor = 1
 " let g:GPGPreferSign = 1
-let g:GPGDefaultRecipients = ["0xID_KLUCZA"]  " gpg --list-keys --keyid-format LONG
+" zmieną g:GPGDefaultRecipients można ustawić jako [$GPG_ID] wtedy ID klucza
+" będzie pobierany ze zmiennej systemowej ustawionej w pliku ~/.bashrc lub mieć
+" postać tekstu np. ['0xID_KLUCZ']
+let g:GPGDefaultRecipients = [$GPG_ID]  " gpg --list-keys --keyid-format LONG
 let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
 " --- Szyfrowanie }}}
-" --- Abbr {{{
-abbr abbash #!/usr/bin/env bash<cr><cr>
-" --- Abbr}}}
-" --- Dodatkowe pliki konfiguracyjne {{{
-" jeśli istnieje plik ~/.nvim.local to odczytuje jego zawartość
-if filereadable(expand("~/.nvim.local"))
-    source ~/.nvim.local
-endif
-
-" jeśli istnieje plik ~/.config/nvim/nvim.local to odczytuje jego zawartość
-if filereadable(expand("~/.config/nvim/nvim.local"))
-    source ~/.config/nvim/nvim.local
-endif
-" --- Dodatkowe pliki konfiguracyjne }}}
