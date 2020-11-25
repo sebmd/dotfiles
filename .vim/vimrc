@@ -756,6 +756,8 @@ autocmd BufWinEnter ?* silent! loadview
 
 autocmd FileType git nofoldenable
 
+autocmd FileType text set filetype=markdown
+
 " przechodzi do katalogu w którym znajduje się otwarty bufor dodatkowo ignoruje
 " pliki typu git i GV, którym sprawia to problem
 let ftToIgnore = [ 'GV', 'git', 'fern' ]
