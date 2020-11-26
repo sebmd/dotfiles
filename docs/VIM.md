@@ -44,94 +44,113 @@ LEADER jest klawisz `SPACJA`**
 
 **Zmiany zachowania standardowych skrótów**
 
- - `j` - zmapowany jako skrót `gj`
- - `k` - zmapowany jako skrót `gk`
- - `gj` - przechodzi do następnej zmiany w pliku, jeśli ten jest w repozytorium
- Git, jest to funkcjonalność pluginu Signify
- - `gk` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
- Git, jest to funkcjonalność pluginu Signify
- - `gJ` - przechodzi do ostatniej zmiany w pliku, jeśli ten jest w repozytorium
- Git, jest to funkcjonalność pluginu Signify
- - `gK` - przechodzi do pierwszej zmiany w pliku, jeśli ten jest w repozytorium
- Git, jest to funkcjonalność pluginu Signify
- - `J` - łączy dwie linie nie zmieniając pozycji kursora
- - `Y` - kopiuje od kursora do końca linii
- - `n` - zmapowany jako `nzz`
- - `N` - zmapowany jako `Nzz`
- - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
- - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
- - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
+- `j` - zmapowany jako skrót `gj`
+- `k` - zmapowany jako skrót `gk`
+- `gj` - przechodzi do następnej zmiany w pliku, jeśli ten jest w repozytorium
+  Git, jest to funkcjonalność pluginu Signify
+- `gk` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
+  Git, jest to funkcjonalność pluginu Signify
+- `gJ` - przechodzi do ostatniej zmiany w pliku, jeśli ten jest w repozytorium
+  Git, jest to funkcjonalność pluginu Signify
+- `gK` - przechodzi do pierwszej zmiany w pliku, jeśli ten jest w repozytorium
+  Git, jest to funkcjonalność pluginu Signify
+- `J` - łączy dwie linie nie zmieniając pozycji kursora
+- `Y` - kopiuje od kursora do końca linii
+- `n` - zmapowany jako `nzz`
+- `N` - zmapowany jako `Nzz`
+- `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
+- `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
+- `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
 
 **Podstawowe skróty**
 
- - `th` - wyłącza podświetlanie wyszukiwanego tekstu
- - `qq` - wychodzi z edytora zastępuje `:q`
- - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
- - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
- - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
- - `dh` - usuwa od kursora do początku linii - `d0`
- - `dl` - usuwa od kursora do końca linii - `d$`
- - `gh` - przechodzi na początek linii
- - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
- - `<ctrl-/>` - wstawia znak komentarza na początku linii, jest to
- funkcjonalność pluginu Commentary
- - `<esc>h` - przechodzi do poprzedniego bufora
- - `<esc>l` - przechodzi do następnego bufora
-
+- `th` - wyłącza podświetlanie wyszukiwanego tekstu
+- `qq` - wychodzi z edytora zastępuje `:q`
+- `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
+- `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
+- `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
+- `dh` - usuwa od kursora do początku linii - `d0`
+- `dl` - usuwa od kursora do końca linii - `d$`
+- `gh` - przechodzi na początek linii
+- `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
+- `<ctrl-/>` - wstawia znak komentarza na początku linii, jest to
+  funkcjonalność pluginu Commentary
+- `<esc>h` - przechodzi do poprzedniego bufora
+- `<esc>l` - przechodzi do następnego bufora
 
 **Klawisz LEADER**
 
- - `<leader>h` - przechodzi na początek linii
- - `<leader>l` - przechodzi na koniec linii
- - `<leader>;` - wchodzi do trybu komend - `:`
- - `<leader>,` - przechodzi do poprzedniego bufora
- - `<leader>.` - przechodzi do następnego bufora
- - `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
- - `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
- - `<leader>cp` - klonuje bieżący paragraf
- - `<leader>pa` - wchodzi / wychodzi w tryb paste
- - `<leader>v` - otwiera plik `vimrc`
- - `<leader>r` - przeładowuje plik `vimrc`
- - `<leader>t` - uruchamia terminal (podział poziomy)
- - `<leader>tv` - uruchamia terminal (podział pionowy)
- - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
- - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
- - `<leader>w` - zapisuje plik ` :update`
- - `<leader>s` - uruchamia sprawdzanie pisowni
- - `<leader>a` - wyrównuje paragraf `=ip` i zawija linie na długość 80 znaków `gqap`
- - `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
- - `<leader>d` - uruchamia funkcję `DestractionFree`
- - `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
- - `<leader>gp` - uruchamia skrypt `~/bin/gp` dodaje plik do repozytorium Git,
- następnie wykonuje commit i push.
- - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
- - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
- - `<leader>gc` - uruchamia polecenie `:GCheckout`
- - `<leader>u` - uruchamia plugin Undotree
- - `<leader>y` - uruchamia polecenie `:YRShow`
+- `<leader>h` - przechodzi na początek linii
+- `<leader>l` - przechodzi na koniec linii
+- `<leader>;` - wchodzi do trybu komend - `:`
+- `<leader>,` - przechodzi do poprzedniego bufora
+- `<leader>.` - przechodzi do następnego bufora
+- `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
+- `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
+- `<leader>cp` - klonuje bieżący paragraf
+- `<leader>pa` - wchodzi / wychodzi w tryb paste
+- `<leader>v` - otwiera plik `vimrc`
+- `<leader>r` - przeładowuje plik `vimrc`
+- `<leader>t` - uruchamia terminal (podział poziomy)
+- `<leader>tv` - uruchamia terminal (podział pionowy)
+- `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
+- `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
+- `<leader>w` - zapisuje plik ` :update`
+- `<leader>s` - uruchamia sprawdzanie pisowni
+- `<leader>a` - wyrównuje paragraf `=ip` i zawija linie na długość 80 znaków `gqap`
+- `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
+- `<leader>d` - uruchamia funkcję `DestractionFree`
+- `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
+- `<leader>gp` - uruchamia skrypt `~/bin/gp` dodaje plik do repozytorium Git,
+  następnie wykonuje commit i push.
+- `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
+- `<leader>gc` - uruchamia polecenie `:GCheckout`
+- `<leader>u` - uruchamia plugin Undotree
+- `<leader>y` - uruchamia polecenie `:YRShow`
 
-**Poruszanie się pomiędzy oknami**
+**Bufory**
 
- - `<ctrl-h>` - przechodzi do okna po lewej
- - `<ctrl-l>` - przechodzi do okna po prawej
- - `<ctrl-j>` - przechodzi do okna niżej
- - `<ctrl-k>` - przechodzi do okna wyżej
+- `:bd` - zamknięcie bufora
+- `:bn` - następny bufor
+- `:bp` - poprzedni bufor
+- `:buffers` - lista buforów
+- `:badd [nazwa bufora]` - otwiera pusty bufor o wybranej nazwie
+
+Niestandardowe Skróty
+
+- `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
+- `<leader>,` - przechodzi do poprzedniego bufora
+- `<leader>.` - przechodzi do następnego bufora
+- `<esc>h` - przechodzi do poprzedniego bufora
+- `<esc>l` - przechodzi do następnego bufora
+
+**Okna**
+
+- `:vs` - otworzenie nowego okna z podziałem pionowym z tym samym plikiem
+- `:sp` - otworzenie nowego okna z podziałem poziomym z tym samym plikiem
+- `:vnew` - otworzenie nowego okna z podziałem pionowym - pusty bufor
+- `:new` - otworzenie nowego okna z podzialem poziomym - pusty bufor
+- `<ctrl-h>` - przechodzi do okna po lewej, standardowo `<ctrl-w>h`
+- `<ctrl-l>` - przechodzi do okna po prawej, standardowo `<ctrl-w>l`
+- `<ctrl-j>` - przechodzi do okna niżej, standardowo `<ctrl-w>j`
+- `<ctrl-k>` - przechodzi do okna wyżej, standardowo `<ctrl-w>k`
+- `<ctrl-w>r` - zamiana okien miejscami
 
 ## Tryb COMMAND
 
- - `<ctrl-h>` - przechodzi o jeden znak w lewo
- - `<ctrl-l>` - przechodzi o jeden znak w prawo
- - `<ctrl-k>` - poruszanie się po historii komend w górę
- - `<ctrl-j>` - poruszanie się po historii komend w dół
+- `<ctrl-h>` - przechodzi o jeden znak w lewo
+- `<ctrl-l>` - przechodzi o jeden znak w prawo
+- `<ctrl-k>` - poruszanie się po historii komend w górę
+- `<ctrl-j>` - poruszanie się po historii komend w dół
 
 ## Tryb INSERT
 
- - `<ctrl-h>` - przechodzi o jeden znak w lewo
- - `<ctrl-l>` - przechodzi o jeden znak w prawo
- - `<ctrl-k>` - przechodzi o jedną linię w górę
- - `<ctrl-j>` - przechodzi o jedną linię w dół
- - `<ctrl-c>` - zastępuje klawisz ESC
- - `<ctrl-s>` - zapisuje zmiany w pliku `:update`
+- `<ctrl-h>` - przechodzi o jeden znak w lewo
+- `<ctrl-l>` - przechodzi o jeden znak w prawo
+- `<ctrl-k>` - przechodzi o jedną linię w górę
+- `<ctrl-j>` - przechodzi o jedną linię w dół
+- `<ctrl-c>` - zastępuje klawisz ESC
+- `<ctrl-s>` - zapisuje zmiany w pliku `:update`
 
 ## Praca z plikami
 
@@ -149,7 +168,7 @@ LEADER jest klawisz `SPACJA`**
 - `,fn` - wstawia nazwę edytowanego pliku `VIM.md`
 - `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia `VIM`
 - `,fnn` - wstawia pełną ścieżkę wraz z nazwą edytowanego pliku
- `/home/user/git/github/dotfiles/docs/VIM.md`
+  `/home/user/git/github/dotfiles/docs/VIM.md`
 
 ## Praca z plikami Markdown i Vimwiki
 
@@ -204,95 +223,95 @@ inoremap <expr> <TAB> pumvisible() ? "<C-y>":"<TAB>"
 
 Skróty klawiszowe
 
- - `Ctrl-n` przechodzi do słowa niżej
- - `Ctrl-p` przechodzi do słowa wyżej
- - `Ctrl-y` zatwierdza wybraną podpowiedź
- - `Ctrl-e` opuszcza okno podpowiedzi
- - `<TAB>` - zatwierdza wybraną podpowiedź
+- `Ctrl-n` przechodzi do słowa niżej
+- `Ctrl-p` przechodzi do słowa wyżej
+- `Ctrl-y` zatwierdza wybraną podpowiedź
+- `Ctrl-e` opuszcza okno podpowiedzi
+- `<TAB>` - zatwierdza wybraną podpowiedź
 
 ## Mapowanie pluginu NERDTree
 
- - `<leader>n` - uruchamia menadżer plików NERDTree
+- `<leader>n` - uruchamia menadżer plików NERDTree
 
 ## Obsługa pluginu vim-surround
 
- - `<leader>sw` - czeka na wprowadzenie znaku, którym otoczy wyraz
- - `<leader>sW` - czeka na wprowadzenie znaku, którym otoczy WYRAZ
- - `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
- - `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
- - `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
+- `<leader>sw` - czeka na wprowadzenie znaku, którym otoczy wyraz
+- `<leader>sW` - czeka na wprowadzenie znaku, którym otoczy WYRAZ
+- `<leader>sp` - czeka na wprowadzenie znaku, który otoczy paragraf
+- `<leader>ss` - czeka na wprowadzenie znaku, którym otoczy linię
+- `<leader>sd` - czeka na wprowadzenie znaku, którym zostanie usunięty
 
 W trybie **VISUAL** po zaznaczeniu tekstu należy nacisnąć `S` a następnie znak,
 którym chcemy otoczyć zaznaczenie po czym naciskamy **ENTER**.
 
 ## Mapowanie pluginu Undotree
 
- - `<leader>u` - uruchamia plugin Undotree
+- `<leader>u` - uruchamia plugin Undotree
 
 ## Mapowanie pluginu signify
 
 Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 
- - `gj` - przechodzi do kolejnej zmiany w pliku
- - `gk` - przechodzi do poprzedniej zmiany w pliku
- - `gJ` - przechodzi do ostatniej linii gdzie wystąpiła zmiana w pliku
- - `gK` - przechodzi do pierwszej linii gdzie wystąpiła zmiana w pliku
+- `gj` - przechodzi do kolejnej zmiany w pliku
+- `gk` - przechodzi do poprzedniej zmiany w pliku
+- `gJ` - przechodzi do ostatniej linii gdzie wystąpiła zmiana w pliku
+- `gK` - przechodzi do pierwszej linii gdzie wystąpiła zmiana w pliku
 
 ## Mapowanie pluginu commentary
 
- - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
+- `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
 
 ## Mapowanie pluginu Fern
 
- - `a` - otwiera linię komend `action`
- - `!` - pokazuje / chowa ukryte pliki
- - `h` - zwija katalog
- - `l` - rozwija katalog
- - `ENTER` - wchodzi do katalogu
- - `BACKSPACE` - przechodzi do katalogu wyżej
- - `d` - tworzy nowy katalog
- - `f` - tworzy nowy plik
- - `n` - tworzy nowy plik / katalog / ścieżkę
- - `E` - otwiera plik w nowym oknie
- - `D` - usuwa plik
- - `s` - otwiera plik w podziale poziomym
- - `v` - otwiera plik w podziale pionowym
- - `m` - zmienia nazwę lub przenosi plik
- - `R` - otwiera okno do zmiany nazwy pliku lub zaznaczonych plików
- - `Ctrl-j` - zaznacza / odznacza plik niżej
- - `Ctrl-k` - zaznacza / odznacza plik wyżej
- - `-` - zaznacza / odznacza plik
+- `a` - otwiera linię komend `action`
+- `!` - pokazuje / chowa ukryte pliki
+- `h` - zwija katalog
+- `l` - rozwija katalog
+- `ENTER` - wchodzi do katalogu
+- `BACKSPACE` - przechodzi do katalogu wyżej
+- `d` - tworzy nowy katalog
+- `f` - tworzy nowy plik
+- `n` - tworzy nowy plik / katalog / ścieżkę
+- `E` - otwiera plik w nowym oknie
+- `D` - usuwa plik
+- `s` - otwiera plik w podziale poziomym
+- `v` - otwiera plik w podziale pionowym
+- `m` - zmienia nazwę lub przenosi plik
+- `R` - otwiera okno do zmiany nazwy pliku lub zaznaczonych plików
+- `Ctrl-j` - zaznacza / odznacza plik niżej
+- `Ctrl-k` - zaznacza / odznacza plik wyżej
+- `-` - zaznacza / odznacza plik
 
 # Pluginy
 
- - [fern.vim]
- - [fzf-preview.vim]
- - [fzf.vim]
- - [CtrlSF]
- - [git-messenger]
- - [goyo]
- - [gv]
- - [indentLine]
- - [limelight]
- - [nerdtree-git-plugin] - rozszerzenie dla NERDTree
- - [NERDTree] - menadżer plików
- - [quick-scope]
- - [undotree] - drzewo zmian
- - [vim-abolish]
- - [vim-airline] - linia statusu
- - [vim-colorscheme-manager] - schmaty kolorów
- - [vim-colorscheme-switcher] - przełączanie schematów kolorów
- - [vim-commentary]
- - [vim-eunuch] - dodaje polecenia systemu Linux np: `Mkdir` czy `Chmod`
- - [vim-fugitive]
- - [vim-markdown-toc] - automatycznie tworzy i aktualizuje spis treści dla plików Markdown
- - [vim-peekaboo]
- - [vim-plug] - zarządzanie pluginami
- - [vim-repeat] - dodatkowe obiekty tekstowe na których można używać powtórzeń `.`
- - [vim-signify] - pokazuje zmiany w pliku względem popzedniej wersji w repozytorium Git
- - [vim-startify] - ekran startowy
- - [vim-surround]
- - [vim-unimpaired]
+- [fern.vim]
+- [fzf-preview.vim]
+- [fzf.vim]
+- [CtrlSF]
+- [git-messenger]
+- [goyo]
+- [gv]
+- [indentLine]
+- [limelight]
+- [nerdtree-git-plugin] - rozszerzenie dla NERDTree
+- [NERDTree] - menadżer plików
+- [quick-scope]
+- [undotree] - drzewo zmian
+- [vim-abolish]
+- [vim-airline] - linia statusu
+- [vim-colorscheme-manager] - schmaty kolorów
+- [vim-colorscheme-switcher] - przełączanie schematów kolorów
+- [vim-commentary]
+- [vim-eunuch] - dodaje polecenia systemu Linux np: `Mkdir` czy `Chmod`
+- [vim-fugitive]
+- [vim-markdown-toc] - automatycznie tworzy i aktualizuje spis treści dla plików Markdown
+- [vim-peekaboo]
+- [vim-plug] - zarządzanie pluginami
+- [vim-repeat] - dodatkowe obiekty tekstowe na których można używać powtórzeń `.`
+- [vim-signify] - pokazuje zmiany w pliku względem popzedniej wersji w repozytorium Git
+- [vim-startify] - ekran startowy
+- [vim-surround]
+- [vim-unimpaired]
 
 [vim-abolish]: https://github.com/tpope/vim-abolish
 [vim-eunuch]: https://github.com/tpope/vim-eunuch
@@ -325,20 +344,20 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 
 # Kolory
 
- - `F8` - przełącza na kolejny schemat kolorów
- - `Shift-F8` - przełącza na poprzedni schemat kolorów
- - `F9` - banuje schemat kolorów
- - `:Colors` - wyszukiwarka schematów kolorów
+- `F8` - przełącza na kolejny schemat kolorów
+- `Shift-F8` - przełącza na poprzedni schemat kolorów
+- `F9` - banuje schemat kolorów
+- `:Colors` - wyszukiwarka schematów kolorów
 
 # Funkcje niestandardowe
 
- - `RgFzf` - przeszukiwanie plików
- - `RgNotes` - przeszukiwanie plików w katalogu `~/notes`
- - `InsertLogEntry` - wstawia nagłówek MARKDOWN wraz aktualną datą i godziną
- - `FileTime` - pokazuje datę modyfikacji pliku
- - `CurTime` - pokazuje aktualną datę i godzinę
- - `LS` - lista plików w bieżącej lokalizacji
- - `Log` - otwiera plik `~/notes/log.md`
+- `RgFzf` - przeszukiwanie plików
+- `RgNotes` - przeszukiwanie plików w katalogu `~/notes`
+- `InsertLogEntry` - wstawia nagłówek MARKDOWN wraz aktualną datą i godziną
+- `FileTime` - pokazuje datę modyfikacji pliku
+- `CurTime` - pokazuje aktualną datę i godzinę
+- `LS` - lista plików w bieżącej lokalizacji
+- `Log` - otwiera plik `~/notes/log.md`
 
 # Komendy pluginu FZF
 
@@ -397,16 +416,16 @@ let g:fzf_preview_window = 'right:60%'
 
 Do zarządzania sesjami służy plugin Startify
 
- - `SSave [nazwa-sesji]` - zapisanie sesji
- - `SLoad [nazwa-sesji]` - odtworzenie sesji
- - `SClose` - zakończenie sesji
- - `SDelete [nazwa-sesji]` - usunięcie sesji
+- `SSave [nazwa-sesji]` - zapisanie sesji
+- `SLoad [nazwa-sesji]` - odtworzenie sesji
+- `SClose` - zakończenie sesji
+- `SDelete [nazwa-sesji]` - usunięcie sesji
 
 # Plugin vim-unimpaired
 
- - https://github.com/tpope/vim-unimpaired
+- https://github.com/tpope/vim-unimpaired
 
- - `[<space>` - wstawia pustą linię powyżej
- - `]<space>` - wstawia pustą linię poniżej
- - `yox` - wyróżnia położenie kursora w linii i w kolumnie `:set cursorline!` oraz
-   `:set cursorcolumn!`
+- `[<space>` - wstawia pustą linię powyżej
+- `]<space>` - wstawia pustą linię poniżej
+- `yox` - wyróżnia położenie kursora w linii i w kolumnie `:set cursorline!` oraz
+  `:set cursorcolumn!`
