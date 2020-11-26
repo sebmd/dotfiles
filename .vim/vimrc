@@ -366,8 +366,15 @@ let g:vimwiki_table_mappings = 0
 let g:vimwiki_listsyms = '✗○◐●✓'
 
 " airline
-let g:airline_theme='lucius'
+let g:airline_theme='base16_tomorrow'
+
+" airline górna belka
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" default jsformatter unique_tail unique_tail_improved
+let g:airline#extensions#tabline#formatter = 'default'
 
 " netrw
 let g:netrw_browse_split=2
