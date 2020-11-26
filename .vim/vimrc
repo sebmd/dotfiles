@@ -468,7 +468,7 @@ nnoremap <leader>l $
 
 " kasowanie od kursora do początku lub końca linii
 nnoremap dh d0
-nnoremap dl d^
+nnoremap dl d$
 
 nnoremap <leader>y :YRShow<cr>
 

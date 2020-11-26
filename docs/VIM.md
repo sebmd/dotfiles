@@ -42,19 +42,39 @@ LEADER jest klawisz `SPACJA`
 
 Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 
+**Zmiany zachowania standardowych skrótów**
+
+ - `j` - zmapowany jako skrót `gj`
+ - `k` - zmapowany jako skrót `gk`
+ - `J` - łączy dwie linie nie zmieniając pozycji kursora
+ - `Y` - kopiuje od kursora do końca linii
+ - `n` - zmapowany jako `nzz`
+ - `N` - zmapowany jako `Nzz`
+ - `Q` - odtwarza makro **a**
+ - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
+ - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
+
+**Podstawowe skróty**
+
  - `th` - wyłącza podświetlanie wyszukiwanego tekstu
  - `qq` - wychodzi z edytora zastępuje `:q`
  - `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
  - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
  - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
+ - `dh` - usuwa od kursora do początku linii - `d0`
+ - `dl` - usuwa od kursora do końca linii - `d$`
+ - `gh` - przechodzi na początek linii
+ - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
+
+**Poruszanie się pomiędzy oknami**
+
  - `<ctrl-h>` - przechodzi do okna po lewej
  - `<ctrl-l>` - przechodzi do okna po prawej
  - `<ctrl-j>` - przechodzi do okna niżej
  - `<ctrl-k>` - przechodzi do okna wyżej
- - `dh` - usuwa od kursora do początku linii
- - `dl` - usuwa od kursora do końca linii
- - `gh` - przechodzi na początek linii
- - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
+
+**Klawisz LEADER**
+
  - `<leader>h` - przechodzi na początek linii
  - `<leader>l` - przechodzi na koniec linii
  - `<leader>;` - wchodzi do trybu komend - `:`
@@ -73,8 +93,6 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
  - `<leader>w` - zapisuje plik ` :update`
  - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
- - `<leader>h` - przechodzi na początek linii
- - `<leader>l` - przechodzi na koniec linii
  - `<leader>s` - uruchamia sprawdzanie pisowni
  - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
  - `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
@@ -356,4 +374,3 @@ Do zarządzania sesjami służy plugin Startify
  - `]<space>` - wstawia pustą linię poniżej
  - `yox` - wyróżnia położenie kursora w linii i w kolumnie `:set cursorline!` oraz
    `:set cursorcolumn!`
- - `yos` - włącza sprawdzanie pisowni
