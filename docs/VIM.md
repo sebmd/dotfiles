@@ -46,11 +46,15 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 
  - `j` - zmapowany jako skrót `gj`
  - `k` - zmapowany jako skrót `gk`
+ - `gj` - przechodzi do następnej zmiany w pliku, jeśli ten jest w repozytorium
+ Git, jest to funkcjonalność pluginu Signify
+ - `gj` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
+ Git, jest to funkcjonalność pluginu Signify
  - `J` - łączy dwie linie nie zmieniając pozycji kursora
  - `Y` - kopiuje od kursora do końca linii
  - `n` - zmapowany jako `nzz`
  - `N` - zmapowany jako `Nzz`
- - `Q` - odtwarza makro **a**
+ - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
  - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
  - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
 
