@@ -48,7 +48,11 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `k` - zmapowany jako skrót `gk`
  - `gj` - przechodzi do następnej zmiany w pliku, jeśli ten jest w repozytorium
  Git, jest to funkcjonalność pluginu Signify
- - `gj` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
+ - `gk` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
+ Git, jest to funkcjonalność pluginu Signify
+ - `gJ` - przechodzi do ostatniej zmiany w pliku, jeśli ten jest w repozytorium
+ Git, jest to funkcjonalność pluginu Signify
+ - `gK` - przechodzi do pierwszej zmiany w pliku, jeśli ten jest w repozytorium
  Git, jest to funkcjonalność pluginu Signify
  - `J` - łączy dwie linie nie zmieniając pozycji kursora
  - `Y` - kopiuje od kursora do końca linii
@@ -57,6 +61,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
  - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
  - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
+ - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
 
 **Podstawowe skróty**
 
@@ -69,13 +74,10 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `dl` - usuwa od kursora do końca linii - `d$`
  - `gh` - przechodzi na początek linii
  - `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
-
-**Poruszanie się pomiędzy oknami**
-
- - `<ctrl-h>` - przechodzi do okna po lewej
- - `<ctrl-l>` - przechodzi do okna po prawej
- - `<ctrl-j>` - przechodzi do okna niżej
- - `<ctrl-k>` - przechodzi do okna wyżej
+ - `<ctrl-/>` - wstawia znak komentarza na początku linii, jest to
+ funkcjonalność pluginu Commentary
+ - `<esc>h` - przechodzi do poprzedniego bufora
+ - `<esc>l` - przechodzi do następnego bufora
 
 **Klawisz LEADER**
 
@@ -100,6 +102,22 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>s` - uruchamia sprawdzanie pisowni
  - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
  - `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
+ - `<leader>a` - wyrównuje paragraf `=ip` i zawija linie na długość 80 znaków `gqap`
+ - `<leader>y` - uruchamia polecenie `:YRShow`
+ - `<leader>d` - uruchamia funkcję `DestractionFree`
+ - `<leader>gc` - uruchamia polecenie `:GCheckout`
+ - `<leader>gp` - uruchamia skrypt `~/bin/gp` dodaje plik do repozytorium Git,
+ następnie wykonuje commit i push.
+ - `<leader>f` - uruchamia menadżer plików Fern
+ - `<lewejr>u` - uruchamia plugin Undotree
+ - `<leader>n` - uruchamia menadżer NERDTree
+
+**Poruszanie się pomiędzy oknami**
+
+ - `<ctrl-h>` - przechodzi do okna po lewej
+ - `<ctrl-l>` - przechodzi do okna po prawej
+ - `<ctrl-j>` - przechodzi do okna niżej
+ - `<ctrl-k>` - przechodzi do okna wyżej
 
 ## Tryb COMMAND
 
@@ -114,7 +132,9 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-l>` - przechodzi o jeden znak w prawo
  - `<ctrl-k>` - przechodzi o jedną linię w górę
  - `<ctrl-j>` - przechodzi o jedną linię w dół
- 
+ - `<ctrl-c>` - zastępuje klawisz ESC
+ - `<ctrl-s>` - zapisuje zmiany w pliku `:update`
+
 ## Praca z plikami Markdown i Vimwiki
 
 - `,m` - wstawia nagłówek pierwszego stopnia oraz bieżącą datę i godzinę

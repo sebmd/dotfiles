@@ -521,7 +521,7 @@ nnoremap <leader>tv :botright vertical terminal<cr>
 " nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 nnoremap <leader>n :NERDTreeToggleVCS<cr>
-nnoremap <leader>N :NnnPicker '%:p:h'<cr>
+" nnoremap <leader>N :NnnPicker '%:p:h'<cr>
 
 " kopiuje bieżącą linię i uruchamia jako polecenie systemowe, wynik wkleja do
 " bufora
