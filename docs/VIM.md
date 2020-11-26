@@ -66,7 +66,7 @@ LEADER jest klawisz `SPACJA`**
 
 - `th` - wyłącza podświetlanie wyszukiwanego tekstu
 - `qq` - wychodzi z edytora zastępuje `:q`
-- `qs` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
+- `qw` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
 - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
 - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
 - `dh` - usuwa od kursora do początku linii - `d0`
@@ -142,6 +142,7 @@ Niestandardowe Skróty
 - `<ctrl-l>` - przechodzi o jeden znak w prawo
 - `<ctrl-k>` - poruszanie się po historii komend w górę
 - `<ctrl-j>` - poruszanie się po historii komend w dół
+- `<leader>;` - wchodzi w tryb komend
 
 ## Tryb INSERT
 
