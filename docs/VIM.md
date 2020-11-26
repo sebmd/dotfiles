@@ -145,10 +145,9 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
 
 **Tryb INSERT i COMMAND**
 
-- `,fp` - wstawia ścieżkę bieżącego katalogu w linię komend
- `/home/user/git/github/dotfiles/docs`
-- `,fn` - wstawia nazwę edytowanego pliku w linię komend `VIM.md`
-- `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia w linię komend `VIM.md`
+- `,fp` - wstawia ścieżkę bieżącego katalogu `/home/user/git/github/dotfiles/docs`
+- `,fn` - wstawia nazwę edytowanego pliku `VIM.md`
+- `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia `VIM`
 - `,fnn` - wstawia pełną ścieżkę wraz z nazwą edytowanego pliku
  `/home/user/git/github/dotfiles/docs/VIM.md`
 
