@@ -37,10 +37,10 @@ konfiguracji.
 
 ## Tryb NORMAL
 
-Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
-LEADER jest klawisz `SPACJA`
+**Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
+LEADER jest klawisz `SPACJA`**
 
-Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
+**Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`**
 
 **Zmiany zachowania standardowych skrótów**
 
