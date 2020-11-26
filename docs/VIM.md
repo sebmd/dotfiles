@@ -7,11 +7,11 @@
     * [Tryb NORMAL](#tryb-normal)
     * [Tryb COMMAND](#tryb-command)
     * [Tryb INSERT](#tryb-insert)
+    * [Praca z plikami](#praca-z-plikami)
     * [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
     * [Obsługa notatek w katalogu ~/notes/](#obsuga-notatek-w-katalogu-notes)
     * [Autouzupełnianie](#autouzupenianie)
     * [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
-    * [Mapowanie pluginu NNN.vim](#mapowanie-pluginu-nnnvim)
     * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
     * [Mapowanie pluginu Undotree](#mapowanie-pluginu-undotree)
     * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
@@ -61,7 +61,6 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
  - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
  - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
- - `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
 
 **Podstawowe skróty**
 
@@ -78,6 +77,7 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  funkcjonalność pluginu Commentary
  - `<esc>h` - przechodzi do poprzedniego bufora
  - `<esc>l` - przechodzi do następnego bufora
+
 
 **Klawisz LEADER**
 
@@ -96,21 +96,19 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<leader>tv` - uruchamia terminal (podział pionowy)
  - `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
  - `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
- - `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
  - `<leader>w` - zapisuje plik ` :update`
- - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
  - `<leader>s` - uruchamia sprawdzanie pisowni
- - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
- - `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
  - `<leader>a` - wyrównuje paragraf `=ip` i zawija linie na długość 80 znaków `gqap`
- - `<leader>y` - uruchamia polecenie `:YRShow`
+ - `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
  - `<leader>d` - uruchamia funkcję `DestractionFree`
- - `<leader>gc` - uruchamia polecenie `:GCheckout`
+ - `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
  - `<leader>gp` - uruchamia skrypt `~/bin/gp` dodaje plik do repozytorium Git,
  następnie wykonuje commit i push.
- - `<leader>f` - uruchamia menadżer plików Fern
- - `<lewejr>u` - uruchamia plugin Undotree
- - `<leader>n` - uruchamia menadżer NERDTree
+ - `<leader>b` - uruchamia polecenie `:Buffers` jest to funkcja pluginu `fzf.vim`
+ - `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
+ - `<leader>gc` - uruchamia polecenie `:GCheckout`
+ - `<leader>u` - uruchamia plugin Undotree
+ - `<leader>y` - uruchamia polecenie `:YRShow`
 
 **Poruszanie się pomiędzy oknami**
 
@@ -134,6 +132,25 @@ Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`
  - `<ctrl-j>` - przechodzi o jedną linię w dół
  - `<ctrl-c>` - zastępuje klawisz ESC
  - `<ctrl-s>` - zapisuje zmiany w pliku `:update`
+
+## Praca z plikami
+
+**Tryb NORMAL**
+
+- `<leader>f` - uruchamia menadżer plików Fern
+- `<leader>n` - uruchamia menadżer NERDTree
+- `,e` - otwiera bieżącą lokalizację w menadżerze plików
+- `,s` - otwiera bieżącą lokalizację w menadżerze plików - podział w poziomie
+- `,v` - otwiera bieżącą lokalizację w menadżerze plików - podział w pionie
+
+**Tryb INSERT i COMMAND**
+
+- `,fp` - wstawia ścieżkę bieżącego katalogu w linię komend
+ `/home/user/git/github/dotfiles/docs`
+- `,fn` - wstawia nazwę edytowanego pliku w linię komend `VIM.md`
+- `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia w linię komend `VIM.md`
+- `,fnn` - wstawia pełną ścieżkę wraz z nazwą edytowanego pliku
+ `/home/user/git/github/dotfiles/docs/VIM.md`
 
 ## Praca z plikami Markdown i Vimwiki
 
@@ -197,10 +214,6 @@ Skróty klawiszowe
 ## Mapowanie pluginu NERDTree
 
  - `<leader>n` - uruchamia menadżer plików NERDTree
-
-## Mapowanie pluginu NNN.vim
-
- - `<leader>N` - uruchamia menadżer plików NNN
 
 ## Obsługa pluginu vim-surround
 

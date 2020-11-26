@@ -546,8 +546,11 @@ noremap <leader>sd :norm ds
 " Wyśweitla bieżący katalog np. /home/user/git/dot.files/.vim
 map! ,fp <c-r>=expand("%:p:h")<cr>
 
-" Wyświetla nazwę edytowanego pliku np. vimrc
-map! ,fn <c-r>=expand("%:t:r")<cr>
+" Wyświetla nazwę edytowanego pliku np. VIM.md
+map! ,fn <c-r>=expand("%:t")<cr>
+
+" Wyświetla nazwę edytowanego pliku np. VIM bez rozszerzenia
+map! ,fnr <c-r>=expand("%:t:r")<cr>
 
 " Wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
 map! ,fnn <c-r>=expand("%:p")<cr>
