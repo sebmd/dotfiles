@@ -174,6 +174,7 @@ Niestandardowe Skróty
 ## Praca z plikami Markdown i Vimwiki
 
 - `,m` - wstawia nagłówek pierwszego stopnia oraz bieżącą datę i godzinę
+- `,,` - wyszukuje znacznia `<++>`
 - `,n` - wstawia `----`
 - `,b` - wstawia `**** ****` np. ****wyraz****
 - `,s` - wstawia `~~ ~~` np. ~~wyraz~~

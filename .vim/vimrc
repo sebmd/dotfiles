@@ -122,6 +122,22 @@ let g:gruvbox_invert_selection='0'
 "let ayucolor="mirage" " for mirage version of theme
 let ayucolor="dark"   " for dark version of theme
 
+" Gruvbox mod
+" hi PreProc guifg=#e78a4e
+" hi PreCondit guifg=#e78a4e
+" hi Number guifg=#e78a4e
+" hi Float guifg=#e78a4e
+" hi Boolean guifg=#e78a4e
+" hi Include guifg=#e78a4e
+" hi Define guifg=#e78a4e
+" hi QuickFix guifg=#e78a4e
+" hi QuickFixLine guifg=#e78a4e
+" hi Purple guifg=#e78a4e
+" hi PurpleBold guifg=#e78a4e
+" hi PurpleItalic guifg=#e78a4e
+" hi SpellRare term=reverse cterm=underline ctermfg=175 gui=underline guifg=#e78a4e guisp=#d3869b
+" hi WildMenu ctermfg=109 ctermbg=236 guifg=#7daea3 guibg=#32302f
+
 set termguicolors
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
