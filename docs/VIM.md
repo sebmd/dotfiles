@@ -311,8 +311,8 @@ Koniec i początek linii
 - `yy` - kopiuje całą linię
 - `dd` - usuwa / wycina całą linię
 - `cc` - usuwa / wycina całą linię i przechodzi do trybu **INSERT**
-- `Y`  - kopiuje od kursora do końca linii ** * **
- 
+- `Y`  - kopiuje od kursora do końca linii * * *
+
 
 # Praca z plikami
 
