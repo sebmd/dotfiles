@@ -6,10 +6,16 @@
 * [Tryb NORMAL](#tryb-normal)
     * [Wyjście i zapisanie](#wyjcie-i-zapisanie)
     * [Poruszanie się w linii](#poruszanie-si-w-linii)
-    * [Poruszanie się po pliku](#poruszanie-si-po-pliku)
+    * [Poruszanie się po pliku (pomiędzy liniami)](#poruszanie-si-po-pliku-pomidzy-liniami)
+    * [Obiekty tekstowe](#obiekty-tekstowe)
+    * [Poruszanie się po ekranie](#poruszanie-si-po-ekranie)
+    * [Przewijanie pliku](#przewijanie-pliku)
+    * [Bufory](#bufory)
     * [Zmiany zachowania standardowych skrótów](#zmiany-zachowania-standardowych-skrótów)
 * [Tryb COMMAND](#tryb-command)
 * [Tryb INSERT](#tryb-insert)
+* [Edycja](#edycja)
+    * [Kopiuj i wkleja](#kopiuj-i-wkleja)
 * [Praca z plikami](#praca-z-plikami)
 * [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
 * [Obsługa notatek w katalogu ~/notes/](#obsuga-notatek-w-katalogu-notes)
@@ -103,11 +109,71 @@ tryb INSERT czyli:
 - `,` - przechodzi do poprzedniego wystąpienia szukanego wcześniej znaku za
    pomocą `t/T/f/F`
 
-## Poruszanie się po pliku
+## Poruszanie się po pliku (pomiędzy liniami)
 
+- `j` - linia w dół
+- `k` - linia w górę
+- `gg` - przechodzi do pierwszej linii
+- `G` - przechodzi do ostatniej linii
+- `12%` - przechodzi do 12% długości pliku
 - `gi` - przechodzi do miejsca ostatniej edycji, jednocześnie wchodząc w tryb
   **INSERT**
 - `` `^ `` - przechodzi do miejsca ostatniej edycji
+
+## Obiekty tekstowe
+
+Pomoc: `:help text-objects`
+
+ - `w` - wyraz
+ - `W` - WYRAZ
+ - `s` - zdanie
+ - `p` - paragraf
+ - `()[]{}` - blok
+
+- `%` - poruszanie się pomiędzy otwarciem i zamknięciem nawiasów `{}()[]`
+- `(, )` - poruszanie się pomiędzy zdaniami
+- `{, }` - poruszanie się pomiędzy paragrafami (pustymi liniami)
+
+
+## Poruszanie się po ekranie
+
+W przypadku `H` i `L` ma znaczenie parametr `set scrolloff` gdzie ustalamy
+offset przy przewijaniu ekranu, czyli ile linii dodatkowo widać podczas
+przewijania ekranu.
+
+ - `H` - przechodzi na górę ekranu
+ - `M` - przechodzi na środek ekranu
+ - `L` - przechodzi na dół ekranu
+
+## Przewijanie pliku
+
+ - `Ctrl-e` - przewija o jedną linię w górę
+ - `Ctrl-y` - przewija o jedną linię w dół
+ - `Ctrl-d` - przewija o pół ekranu w dół
+ - `Ctrl-u` - przewija o pół ekranu w górę
+ - `Ctrl-f` - przewija o cały ekran w dół
+ - `Ctrl-b` - przewija o cały ekran w górę
+
+Wszystkie te kombinację możemy poprzedzić liczbą powtórzeń danej operacji. Na
+przykład przewinięcie o 6 linii w dół:
+
+```
+6Ctrl-e
+```
+
+## Bufory
+
+- `:bd` - zamknięcie bufora
+- `:bn` - następny bufor
+- `:bp` - poprzedni bufor
+- `:bm` - kolejny bufor, który był modyfikowany
+- `:buffers` / `ls` - lista buforów
+- `:badd [nazwa bufora]` - otwiera pusty bufor o wybranej nazwie
+
+Bufory i Pluginy
+
+- `:Buffers` - interaktywna lista buforów
+- `<leader>b` - uruchamia polecenie `:Buffers`
 
 ## Zmiany zachowania standardowych skrótów
 
@@ -176,14 +242,6 @@ tryb INSERT czyli:
 - `<leader>u` - uruchamia plugin Undotree
 - `<leader>y` - uruchamia polecenie `:YRShow`
 
-**Bufory**
-
-- `:bd` - zamknięcie bufora
-- `:bn` - następny bufor
-- `:bp` - poprzedni bufor
-- `:buffers` - lista buforów
-- `:badd [nazwa bufora]` - otwiera pusty bufor o wybranej nazwie
-
 Niestandardowe Skróty
 
 - `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
@@ -214,12 +272,47 @@ Niestandardowe Skróty
 
 # Tryb INSERT
 
+Wejście do trybu **INSERT**
+
+- `i` - wchodzi w tryb **INSERT**, wprowadza tekst przed kursorem
+- `a` - wchodzi w tryb **INSERT**, wprowadza tekst za kursorem
+
+**Dodatkowe skróty**
+
 - `<ctrl-h>` - przechodzi o jeden znak w lewo
 - `<ctrl-l>` - przechodzi o jeden znak w prawo
 - `<ctrl-k>` - przechodzi o jedną linię w górę
 - `<ctrl-j>` - przechodzi o jedną linię w dół
 - `<ctrl-c>` - zastępuje klawisz ESC
 - `<ctrl-s>` - zapisuje zmiany w pliku `:update`
+
+# Edycja
+
+- `diw` - usuwa wyraz pod kursorem bez spacji za nim
+- `daw` - usuwa wyraz pod kursorem wraz ze spacją za nim
+- `ciw` - usuwa wyraz pod kursorem bez spacji za nim i przechodzi w tryb
+  **INSERT**
+- `caw` - usuwa wyraz pod kursorem wraz ze spacją za nim i przechodzi w tryb
+  **INSERT**
+- `dw` - usunięcie od kursora do końca wyrazu
+- `dW` - usunięcie od kursora do końca WYRAZU
+- `dap` - usunięcie całego paragrafu + dodatkowa linia
+- `dip` - usunięcie całego paragrafu
+
+Koniec i początek linii
+
+ - `d$` - usunięcie od kursora do końca linii
+ - `d^` - usunięcie od kursora do początku linii
+ - `D`  - usunięcie od kursora do końca linii zamiennik `d$`
+ - `C`  - usunięcie od kursora do końca linii wejście w tryb INSERT
+
+## Kopiuj i wkleja
+
+- `yy` - kopiuje całą linię
+- `dd` - usuwa / wycina całą linię
+- `cc` - usuwa / wycina całą linię i przechodzi do trybu **INSERT**
+- `Y`  - kopiuje od kursora do końca linii ** * **
+ 
 
 # Praca z plikami
 
