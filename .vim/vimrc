@@ -548,32 +548,32 @@ nnoremap <leader>ve yy:@"<cr>
 
 " Obsługa pluginu vim-surround
 " <leader>sw czeka na wprowadzenie znaku, którym otoczy wyraz
-noremap <leader>sw :norm ysiw
 " <leader>sW czeka na wprowadzenie znaku, którym otoczy WYRAZ
-noremap <leader>sW :norm ysiW
 " <leader>sp czeka na wprowadzenie znaku, który otoczy paragraf
-noremap <leader>sp :norm ysip
 " <leader>ss czeka na wprowadzenie znaku, którym otoczy linię
-noremap <leader>ss :norm yss
 " <leader>sd czeka na wprowadzenie znaku, którym zostanie usunięty
+noremap <leader>sw :norm ysiw
+noremap <leader>sW :norm ysiW
+noremap <leader>sp :norm ysip
+noremap <leader>ss :norm yss
 noremap <leader>sd :norm ds
 
 " map! ustawia skróty dla trybu COMMAND
-" Wyśweitla bieżący katalog np. /home/user/git/dot.files/.vim
+" ,fp wyśweitla bieżący katalog np. /home/user/git/dot.files/.vim
+" ,fn wyświetla nazwę edytowanego pliku np. VIM.md
+" ,fnr wyświetla nazwę edytowanego pliku np. VIM bez rozszerzenia
+" ,fnn wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
 map! ,fp <c-r>=expand("%:p:h")<cr>
-
-" Wyświetla nazwę edytowanego pliku np. VIM.md
 map! ,fn <c-r>=expand("%:t")<cr>
-
-" Wyświetla nazwę edytowanego pliku np. VIM bez rozszerzenia
 map! ,fnr <c-r>=expand("%:t:r")<cr>
-
-" Wyświetla katalog oraz nazwę edytowanego pliku np. /home/user/git/dot.files/.vim/vimrc
 map! ,fnn <c-r>=expand("%:p")<cr>
 
 " \F wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
 nnoremap <localleader>F :echo expand("%:p")<cr>
 
+" ,e uruchamia polecenie :e nazwa_pliku
+" ,s uruchamia polecenie :sp nazwa_pliku
+" ,v uruchamia polecenie :vs nazwa pliku
 nnoremap ,e :e <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nnoremap ,s :sp <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nnoremap ,v :vs <c-r>=escape(expand("%:p:h"), ' ') . '/'<cr>

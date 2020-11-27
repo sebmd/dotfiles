@@ -3,20 +3,23 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Konfiguracja](#konfiguracja)
-* [Niestandardowe mapowanie klawiszy](#niestandardowe-mapowanie-klawiszy)
-    * [Tryb NORMAL](#tryb-normal)
-    * [Tryb COMMAND](#tryb-command)
-    * [Tryb INSERT](#tryb-insert)
-    * [Praca z plikami](#praca-z-plikami)
-    * [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
-    * [Obsługa notatek w katalogu ~/notes/](#obsuga-notatek-w-katalogu-notes)
-    * [Autouzupełnianie](#autouzupenianie)
-    * [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
-    * [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
-    * [Mapowanie pluginu Undotree](#mapowanie-pluginu-undotree)
-    * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
-    * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
-    * [Mapowanie pluginu Fern](#mapowanie-pluginu-fern)
+* [Tryb NORMAL](#tryb-normal)
+    * [Wyjście i zapisanie](#wyjcie-i-zapisanie)
+    * [Poruszanie się w linii](#poruszanie-si-w-linii)
+    * [Poruszanie się po pliku](#poruszanie-si-po-pliku)
+    * [Zmiany zachowania standardowych skrótów](#zmiany-zachowania-standardowych-skrótów)
+* [Tryb COMMAND](#tryb-command)
+* [Tryb INSERT](#tryb-insert)
+* [Praca z plikami](#praca-z-plikami)
+* [Praca z plikami Markdown i Vimwiki](#praca-z-plikami-markdown-i-vimwiki)
+* [Obsługa notatek w katalogu ~/notes/](#obsuga-notatek-w-katalogu-notes)
+* [Autouzupełnianie](#autouzupenianie)
+* [Mapowanie pluginu NERDTree](#mapowanie-pluginu-nerdtree)
+* [Obsługa pluginu vim-surround](#obsuga-pluginu-vim-surround)
+* [Mapowanie pluginu Undotree](#mapowanie-pluginu-undotree)
+* [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
+* [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
+* [Mapowanie pluginu Fern](#mapowanie-pluginu-fern)
 * [Pluginy](#pluginy)
 * [Kolory](#kolory)
 * [Funkcje niestandardowe](#funkcje-niestandardowe)
@@ -33,16 +36,80 @@ Dodatkową konfigurację można wprowadzać w plikach `~/.vimrc.local`
 lub `~/.vim/vimrc.local`, dzięki czemu nie trzeba modyfikować oryginalnej
 konfiguracji.
 
-# Niestandardowe mapowanie klawiszy
-
-## Tryb NORMAL
-
 **Standardowo klawiszem LEADER jest znak `\` natomiast w tej konfiguracji klawiszem
 LEADER jest klawisz `SPACJA`**
 
 **Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`**
 
-**Zmiany zachowania standardowych skrótów**
+# Tryb NORMAL
+
+## Wyjście i zapisanie
+
+- `:q` - wyjście bez zapisania pliku
+- `:q!` - wyjście bez zapsisania pliku nawet jeśli zostały wprowadzone zmiany
+- `:x` - zapisanie i wyjście
+- `:wq` - zapisanie i wyjście
+
+## Poruszanie się w linii
+
+**Poruszanie się pomiędzy wyrazami**
+
+Poruszając się w linii mamy doczynienia z dwoma definicjami: wyraz oraz WYRAZ,
+wyraz może oznaczać też pojedyncze znaki natomiast WYRAZ pomija znaki
+specjalne i traktuje je jako jedną całość np. 'sss' jest traktowane jak
+trzy wyrazy lub jeden WYRAZ.
+
+- `h` - jeden znak w lewo
+- `l` - jeden znak w prawo
+- `w` - przechodzi do pierwszego znaku kolejnego wyrazu
+- `W` - przechodzi do pierwszego znaku kolejnego WYRAZU
+- `b` - przechodzi do pierwszego znaku poprzedniego wyrazu
+- `B` - przechodzi do pierwszego znaku poprzedniego WYRAZU
+- `ge` - przechodzi na koniec poprzedniego wyrazu
+- `gE` - przechodzi na koniec poprzedniego WYRAZU
+
+Warto wyuczyć sobie pewnego rodzaju zachowania np. przejście na koniec wyrazu i
+wejście w tryb INSERT lub przejście na początek poprzedniego wyrazu i wejście w
+tryb INSERT czyli:
+
+- `ea` - przechodzi na koniec wyrazu i wchodzi w tryb INSERT
+- `bi` - przechodzi na początek poprzedniego wyrazu i wchodzi w tryb INSERT
+- `wi` - przechodzi na początek następnego wyrazu i wchodzi w tryb INSERT
+- `gea` - przechodzi na koniec poprzedniego wyrazu i wchodzi w tryb INSERT
+
+**Początek i koniec linii**
+
+- `0` - początek linii
+- `^` - początek linii, pomija spację na początku linii
+- `^` - początek linii, pomija spacje na początku linii
+- `$` - koniec linii
+- `g0` - w przypadku zawijanych linii przechodzi na początek danej linii, inaczej
+   niż `0`
+- `g$` - w przypadku zawijanych linii przechodzi na koniec danej linii, inaczej
+   niż `$`
+- `g^` - przechodzi do pierwszego znaku w linii pomijając spacje i znak
+   tabulatora
+- `g_` - przechodzi do ostatniego znaku w linii ignoruje spacje i tabulatory na
+   końcu linii
+
+**Wyszukiwanie w linii**
+
+- `f`<znak> - przechodzi do pierwszego wystąpienia znaku
+- `F`<znak> - przechodzi do poprzedniego wystąpienia znaku
+- `t`<znak> - przechodzi znak wcześniej w prawo
+- `T`<znak> - przechodzi znak wcześniej w lewo
+- `;` - przechodzi do kolejnego wystąpienia szukanego wcześniej znaku za pomocą
+   `t/T/f/F`
+- `,` - przechodzi do poprzedniego wystąpienia szukanego wcześniej znaku za
+   pomocą `t/T/f/F`
+
+## Poruszanie się po pliku
+
+- `gi` - przechodzi do miejsca ostatniej edycji, jednocześnie wchodząc w tryb
+  **INSERT**
+- ` ^ `` - przechodzi do miejsca ostatniej edycji
+
+## Zmiany zachowania standardowych skrótów
 
 - `j` - zmapowany jako skrót `gj`
 - `k` - zmapowany jako skrót `gk`
@@ -59,6 +126,7 @@ LEADER jest klawisz `SPACJA`**
 - `n` - zmapowany jako `nzz`
 - `N` - zmapowany jako `Nzz`
 - `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
+- `Q` - w trybie komend zamyka edytor bez zapisywania `:q!`
 - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
 - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
 
@@ -136,7 +204,7 @@ Niestandardowe Skróty
 - `<ctrl-k>` - przechodzi do okna wyżej, standardowo `<ctrl-w>k`
 - `<ctrl-w>r` - zamiana okien miejscami
 
-## Tryb COMMAND
+# Tryb COMMAND
 
 - `<ctrl-h>` - przechodzi o jeden znak w lewo
 - `<ctrl-l>` - przechodzi o jeden znak w prawo
@@ -144,7 +212,7 @@ Niestandardowe Skróty
 - `<ctrl-j>` - poruszanie się po historii komend w dół
 - `<leader>;` - wchodzi w tryb komend
 
-## Tryb INSERT
+# Tryb INSERT
 
 - `<ctrl-h>` - przechodzi o jeden znak w lewo
 - `<ctrl-l>` - przechodzi o jeden znak w prawo
@@ -153,7 +221,7 @@ Niestandardowe Skróty
 - `<ctrl-c>` - zastępuje klawisz ESC
 - `<ctrl-s>` - zapisuje zmiany w pliku `:update`
 
-## Praca z plikami
+# Praca z plikami
 
 **Tryb NORMAL**
 
@@ -162,6 +230,7 @@ Niestandardowe Skróty
 - `,e` - otwiera bieżącą lokalizację w menadżerze plików
 - `,s` - otwiera bieżącą lokalizację w menadżerze plików - podział w poziomie
 - `,v` - otwiera bieżącą lokalizację w menadżerze plików - podział w pionie
+- `\F` - wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
 
 **Tryb INSERT i COMMAND**
 
@@ -170,8 +239,9 @@ Niestandardowe Skróty
 - `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia `VIM`
 - `,fnn` - wstawia pełną ścieżkę wraz z nazwą edytowanego pliku
   `/home/user/git/github/dotfiles/docs/VIM.md`
+- `$c` - w trybie COMMAND uruchamia polecenie `:e nazwa_pliku`
 
-## Praca z plikami Markdown i Vimwiki
+# Praca z plikami Markdown i Vimwiki
 
 - `,m` - wstawia nagłówek pierwszego stopnia oraz bieżącą datę i godzinę
 - `,,` - wyszukuje znacznia `<++>`
@@ -188,7 +258,7 @@ Niestandardowe Skróty
 - `:GenTocGFM` - generuje spis treści
 - `:UpdateToc` - aktualizuje spis treści wygenerowany za pomocą `GenTocGFM`
 
-## Obsługa notatek w katalogu ~/notes/
+# Obsługa notatek w katalogu ~/notes/
 
 - `:RgNotes` - przeszukiwanie plików w katalogu `~/notes/`
 - `:Notes` - wyszukiwanie plików w katalogu `~/notes/`
@@ -200,7 +270,7 @@ Niestandardowe Skróty
 - `<leader>Fn` wyszukiwanie plików z podglądem w katalogu `~/notes/` uruchamia
   polecenie `:Notes`
 
-## Autouzupełnianie
+# Autouzupełnianie
 
 Plugin AutoComplPop pokazuje okno podpowiedzi na podstawie słów z otwartych
 buforów. Dodatkowo używając `Ctrl-p` podczas wprowadzania uruchamia podpowiedzi
@@ -231,11 +301,11 @@ Skróty klawiszowe
 - `Ctrl-e` opuszcza okno podpowiedzi
 - `<TAB>` - zatwierdza wybraną podpowiedź
 
-## Mapowanie pluginu NERDTree
+# Mapowanie pluginu NERDTree
 
 - `<leader>n` - uruchamia menadżer plików NERDTree
 
-## Obsługa pluginu vim-surround
+# Obsługa pluginu vim-surround
 
 - `<leader>sw` - czeka na wprowadzenie znaku, którym otoczy wyraz
 - `<leader>sW` - czeka na wprowadzenie znaku, którym otoczy WYRAZ
@@ -246,11 +316,11 @@ Skróty klawiszowe
 W trybie **VISUAL** po zaznaczeniu tekstu należy nacisnąć `S` a następnie znak,
 którym chcemy otoczyć zaznaczenie po czym naciskamy **ENTER**.
 
-## Mapowanie pluginu Undotree
+# Mapowanie pluginu Undotree
 
 - `<leader>u` - uruchamia plugin Undotree
 
-## Mapowanie pluginu signify
+# Mapowanie pluginu signify
 
 Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 
@@ -259,11 +329,11 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 - `gJ` - przechodzi do ostatniej linii gdzie wystąpiła zmiana w pliku
 - `gK` - przechodzi do pierwszej linii gdzie wystąpiła zmiana w pliku
 
-## Mapowanie pluginu commentary
+# Mapowanie pluginu commentary
 
 - `<ctrl-/>` - ustawia bieżącą linię lub zaznaczone linie jako komentarz
 
-## Mapowanie pluginu Fern
+# Mapowanie pluginu Fern
 
 - `a` - otwiera linię komend `action`
 - `!` - pokazuje / chowa ukryte pliki
