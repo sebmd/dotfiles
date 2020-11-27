@@ -129,8 +129,6 @@ Pomoc: `:help text-objects`
 - `s` - zdanie
 - `p` - paragraf
 - `()[]{}` - blok
-
-
 - `%` - poruszanie się pomiędzy otwarciem i zamknięciem nawiasów `{}()[]`
 - `(, )` - poruszanie się pomiędzy zdaniami
 - `{, }` - poruszanie się pomiędzy paragrafami (pustymi liniami)
