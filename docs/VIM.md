@@ -124,11 +124,12 @@ tryb INSERT czyli:
 
 Pomoc: `:help text-objects`
 
- - `w` - wyraz
- - `W` - WYRAZ
- - `s` - zdanie
- - `p` - paragraf
- - `()[]{}` - blok
+- `w` - wyraz
+- `W` - WYRAZ
+- `s` - zdanie
+- `p` - paragraf
+- `()[]{}` - blok
+
 
 - `%` - poruszanie się pomiędzy otwarciem i zamknięciem nawiasów `{}()[]`
 - `(, )` - poruszanie się pomiędzy zdaniami
@@ -311,8 +312,7 @@ Koniec i początek linii
 - `yy` - kopiuje całą linię
 - `dd` - usuwa / wycina całą linię
 - `cc` - usuwa / wycina całą linię i przechodzi do trybu **INSERT**
-- `Y`  - kopiuje od kursora do końca linii * * *
-
+- `Y`  - kopiuje od kursora do końca linii
 
 # Praca z plikami
 
