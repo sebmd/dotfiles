@@ -107,7 +107,7 @@ tryb INSERT czyli:
 
 - `gi` - przechodzi do miejsca ostatniej edycji, jednocześnie wchodząc w tryb
   **INSERT**
-- ` ^ `` - przechodzi do miejsca ostatniej edycji
+- `` `^ `` - przechodzi do miejsca ostatniej edycji
 
 ## Zmiany zachowania standardowych skrótów
 
@@ -225,6 +225,7 @@ Niestandardowe Skróty
 
 **Tryb NORMAL**
 
+- `:e .` - otwiera standardowy menadżer plików w bieżącej lokalizacji
 - `<leader>f` - uruchamia menadżer plików Fern
 - `<leader>n` - uruchamia menadżer NERDTree
 - `,e` - otwiera bieżącą lokalizację w menadżerze plików
