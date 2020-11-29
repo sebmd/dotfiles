@@ -3,8 +3,10 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Konfiguracja](#konfiguracja)
+* [Podstawowe tryby pracy w edytorze Vim](#podstawowe-tryby-pracy-w-edytorze-vim)
+    * [Przejście do trybu INSERT](#przejcie-do-trybu-insert)
+* [Wyjście z edytora](#wyjcie-z-edytora)
 * [Tryb NORMAL](#tryb-normal)
-    * [Wyjście i zapisanie](#wyjcie-i-zapisanie)
     * [Poruszanie się w linii](#poruszanie-si-w-linii)
     * [Poruszanie się po pliku (pomiędzy liniami)](#poruszanie-si-po-pliku-pomidzy-liniami)
     * [Obiekty tekstowe](#obiekty-tekstowe)
@@ -47,14 +49,33 @@ LEADER jest klawisz `SPACJA`**
 
 **Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`**
 
-# Tryb NORMAL
+# Podstawowe tryby pracy w edytorze Vim
 
-## Wyjście i zapisanie
+- Tryb **NORMAL** - słuzy do edycji i poruszania się po pliku
+- Tryb **VISUAL** - zaznaczanie tekstu i edycja
+- Tryb **INSERT** - służy do wprowadzania tekstu
+- Tryb **COMMAND** - linia komend
+
+## Przejście do trybu INSERT
+
+Edytor Vim po uruchomieniu znajduje się w trybie **NORMAL** w którym nie można
+wprowadzać tekstu. Żeby wejść w tryb **INSERT** należy użyć komendy.
+
+- `i` - zaczyna wprowadzać w miejscu kursora
+- `a` - zaczyna wprowadzać za kursorem
+- `I` - przechodzi na początek linii i wchodzi w tryb **INSERT**
+- `A` - przechodzi na koniec linii i wchodzi w tryb **INSERT**
+- `o` - przechodzi do linii niżej wchodząc w tryb **INSERT**
+- `O` - przechodzi do linii wyżej wchodząc w tryb **INSERT**
+
+# Wyjście z edytora
 
 - `:q` - wyjście bez zapisania pliku
 - `:q!` - wyjście bez zapsisania pliku nawet jeśli zostały wprowadzone zmiany
 - `:x` - zapisanie i wyjście
 - `:wq` - zapisanie i wyjście
+
+# Tryb NORMAL
 
 ## Poruszanie się w linii
 
