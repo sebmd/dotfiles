@@ -67,6 +67,8 @@ wprowadzać tekstu. Żeby wejść w tryb **INSERT** należy użyć komendy.
 - `A` - przechodzi na koniec linii i wchodzi w tryb **INSERT**
 - `o` - przechodzi do linii niżej wchodząc w tryb **INSERT**
 - `O` - przechodzi do linii wyżej wchodząc w tryb **INSERT**
+- `cc` - usuwa całą linię i wchodzi w tryb **INSERT**
+- `C` - usuwa wszystko na prawo od kursora i wchodzi w tryb **INSERT**
 
 # Wyjście z edytora
 
