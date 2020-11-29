@@ -28,7 +28,6 @@
 * [Mapowanie pluginu signify](#mapowanie-pluginu-signify)
 * [Mapowanie pluginu commentary](#mapowanie-pluginu-commentary)
 * [Mapowanie pluginu Fern](#mapowanie-pluginu-fern)
-* [Pluginy](#pluginy)
 * [Kolory](#kolory)
 * [Funkcje niestandardowe](#funkcje-niestandardowe)
 * [Komendy pluginu FZF](#komendy-pluginu-fzf)
@@ -48,6 +47,8 @@ konfiguracji.
 LEADER jest klawisz `SPACJA`**
 
 **Istnieje jeszcze dodatkowo LOCALLEADER, którym jest znak` \`**
+
+- [Zainstalowane pluginy](Vim_Plugins.md)
 
 # Podstawowe tryby pracy w edytorze Vim
 
@@ -70,12 +71,21 @@ wprowadzać tekstu. Żeby wejść w tryb **INSERT** należy użyć komendy.
 - `cc` - usuwa całą linię i wchodzi w tryb **INSERT**
 - `C` - usuwa wszystko na prawo od kursora i wchodzi w tryb **INSERT**
 
+istnieje też możliwość łączenia komendy `c` np.
+
+- `ciw` - usuwa wyraz pod kursorem i wchodzi w tryb **INSERT**
+- `cap` - usuwa cały paragraf wraz z dodatkową linią i wchodzi w tryb **INSERT**
+
+Więcej na ten temat można przeczytać w dalszej części.
+
 # Wyjście z edytora
 
 - `:q` - wyjście bez zapisania pliku
 - `:q!` - wyjście bez zapsisania pliku nawet jeśli zostały wprowadzone zmiany
 - `:x` - zapisanie i wyjście
 - `:wq` - zapisanie i wyjście
+- `ZZ` - zapisanie i Wyjście
+- `ZQ` - wyjście bez zapisania
 
 # Tryb NORMAL
 
@@ -113,13 +123,13 @@ tryb INSERT czyli:
 - `^` - początek linii, pomija spacje na początku linii
 - `$` - koniec linii
 - `g0` - w przypadku zawijanych linii przechodzi na początek danej linii, inaczej
-   niż `0`
+  niż `0`
 - `g$` - w przypadku zawijanych linii przechodzi na koniec danej linii, inaczej
-   niż `$`
+  niż `$`
 - `g^` - przechodzi do pierwszego znaku w linii pomijając spacje i znak
-   tabulatora
+  tabulatora
 - `g_` - przechodzi do ostatniego znaku w linii ignoruje spacje i tabulatory na
-   końcu linii
+  końcu linii
 
 **Wyszukiwanie w linii**
 
@@ -128,9 +138,9 @@ tryb INSERT czyli:
 - `t`<znak> - przechodzi znak wcześniej w prawo
 - `T`<znak> - przechodzi znak wcześniej w lewo
 - `;` - przechodzi do kolejnego wystąpienia szukanego wcześniej znaku za pomocą
-   `t/T/f/F`
+  `t/T/f/F`
 - `,` - przechodzi do poprzedniego wystąpienia szukanego wcześniej znaku za
-   pomocą `t/T/f/F`
+  pomocą `t/T/f/F`
 
 ## Poruszanie się po pliku (pomiędzy liniami)
 
@@ -156,25 +166,24 @@ Pomoc: `:help text-objects`
 - `(, )` - poruszanie się pomiędzy zdaniami
 - `{, }` - poruszanie się pomiędzy paragrafami (pustymi liniami)
 
-
 ## Poruszanie się po ekranie
 
 W przypadku `H` i `L` ma znaczenie parametr `set scrolloff` gdzie ustalamy
 offset przy przewijaniu ekranu, czyli ile linii dodatkowo widać podczas
 przewijania ekranu.
 
- - `H` - przechodzi na górę ekranu
- - `M` - przechodzi na środek ekranu
- - `L` - przechodzi na dół ekranu
+- `H` - przechodzi na górę ekranu
+- `M` - przechodzi na środek ekranu
+- `L` - przechodzi na dół ekranu
 
 ## Przewijanie pliku
 
- - `Ctrl-e` - przewija o jedną linię w górę
- - `Ctrl-y` - przewija o jedną linię w dół
- - `Ctrl-d` - przewija o pół ekranu w dół
- - `Ctrl-u` - przewija o pół ekranu w górę
- - `Ctrl-f` - przewija o cały ekran w dół
- - `Ctrl-b` - przewija o cały ekran w górę
+- `Ctrl-e` - przewija o jedną linię w górę
+- `Ctrl-y` - przewija o jedną linię w dół
+- `Ctrl-d` - przewija o pół ekranu w dół
+- `Ctrl-u` - przewija o pół ekranu w górę
+- `Ctrl-f` - przewija o cały ekran w dół
+- `Ctrl-b` - przewija o cały ekran w górę
 
 Wszystkie te kombinację możemy poprzedzić liczbą powtórzeń danej operacji. Na
 przykład przewinięcie o 6 linii w dół:
@@ -323,10 +332,10 @@ Wejście do trybu **INSERT**
 
 Koniec i początek linii
 
- - `d$` - usunięcie od kursora do końca linii
- - `d^` - usunięcie od kursora do początku linii
- - `D`  - usunięcie od kursora do końca linii zamiennik `d$`
- - `C`  - usunięcie od kursora do końca linii wejście w tryb INSERT
+- `d$` - usunięcie od kursora do końca linii
+- `d^` - usunięcie od kursora do początku linii
+- `D`  - usunięcie od kursora do końca linii zamiennik `d$`
+- `C`  - usunięcie od kursora do końca linii wejście w tryb INSERT
 
 ## Kopiuj i wkleja
 
@@ -468,66 +477,6 @@ Plugin signify pokazuje zmiany w pliku jeśli ten jest w repozytorium Git.
 - `Ctrl-j` - zaznacza / odznacza plik niżej
 - `Ctrl-k` - zaznacza / odznacza plik wyżej
 - `-` - zaznacza / odznacza plik
-
-# Pluginy
-
-- [fern.vim]
-- [fzf-preview.vim]
-- [fzf.vim]
-- [CtrlSF]
-- [git-messenger]
-- [goyo]
-- [gv]
-- [indentLine]
-- [limelight]
-- [nerdtree-git-plugin] - rozszerzenie dla NERDTree
-- [NERDTree] - menadżer plików
-- [quick-scope]
-- [undotree] - drzewo zmian
-- [vim-abolish]
-- [vim-airline] - linia statusu
-- [vim-colorscheme-manager] - schmaty kolorów
-- [vim-colorscheme-switcher] - przełączanie schematów kolorów
-- [vim-commentary]
-- [vim-eunuch] - dodaje polecenia systemu Linux np: `Mkdir` czy `Chmod`
-- [vim-fugitive]
-- [vim-markdown-toc] - automatycznie tworzy i aktualizuje spis treści dla plików Markdown
-- [vim-peekaboo]
-- [vim-plug] - zarządzanie pluginami
-- [vim-repeat] - dodatkowe obiekty tekstowe na których można używać powtórzeń `.`
-- [vim-signify] - pokazuje zmiany w pliku względem popzedniej wersji w repozytorium Git
-- [vim-startify] - ekran startowy
-- [vim-surround]
-- [vim-unimpaired]
-
-[vim-abolish]: https://github.com/tpope/vim-abolish
-[vim-eunuch]: https://github.com/tpope/vim-eunuch
-[indentLine]: https://github.com/Yggdroot/indentLine
-[vim-peekaboo]: https://github.com/junegunn/vim-peekaboo
-[vim-markdown-toc]: https://github.com/junegunn/vim-markdown-toc
-[limelight]: https://github.com/junegunn/limelight.vim
-[goyo]: https://github.com/junegunn/goyo.vim
-[fern.vim]: https://github.com/lambdalisue/fern.vim
-[vim-plug]: https://github.com/junegunn/vim-plug/
-[fzf.vim]: https://github.com/junegunn/fzf.vim/
-[undotree]: https://github.com/mbbill/undotree
-[vim-startify]: https://github.com/mhinz/vim-startify
-[vim-commentary]: https://github.com/tpope/vim-commentary
-[vim-repeat]: https://github.com/tpope/vim-repeat
-[vim-surround]: https://github.com/tpope/vim-surround
-[vim-fugitive]: https://github.com/tpope/vim-fugitive
-[vim-unimpaired]: https://github.com/tpope/vim-unimpaired
-[NERDTree]: https://github.com/preservim/nerdtree
-[nerdtree-git-plugin]: https://github.com/Xuyuanp/nerdtree-git-plugin
-[gv]: https://github.com/junegunn/gv.vim
-[git-messenger]: https://github.com/rhysd/git-messenger.vim
-[vim-signify]: https://github.com/mhinz/vim-signify
-[quick-scope]: https://github.com/unblevable/quick-scope
-[vim-airline]: https://github.com/vim-airline/vim-airline
-[vim-colorscheme-switcher]: https://github.com/xolox/vim-colorscheme-switcher
-[vim-colorscheme-manager]: https://github.com/Taverius/vim-colorscheme-manager
-[fzf-preview.vim]:https://github.com/chengzeyi/fzf-preview.vim
-[CtrlSF]:https://github.com/dyng/ctrlsf.vim
 
 # Kolory
 
