@@ -297,6 +297,22 @@ Przechodzi do katalogu domowego `$HOME`
 
 Przechodzi do katalogu `$HOME/src`
 
+## cd
+
+Jest to funkcja znajdująca się w pliku `~/.aliases`, która sprawdza czy w
+katalogu do którego przechodzimy znajduje się plik `run_dir.sh`, jeśli taki plik
+istnieje to zostaje uruchomiony.
+
+```bash
+function cd() {
+    builtin cd "$@" && cd_func;
+}
+
+function cd_func() {
+    [ -e $PWD/run_dir.sh ] && source $PWD/run_dir.sh
+}
+```
+
 ## cdb
 
 Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmdirs`

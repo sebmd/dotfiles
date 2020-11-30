@@ -42,6 +42,14 @@ alias cdbd="source ~/bin/cdbd"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cdf="source $HOME/bin/cdf"
 
+function cd() {
+    builtin cd "$@" && cd_func;
+}
+
+function cd_func() {
+    [ -e $PWD/run_dir.sh ] && source $PWD/run_dir.sh
+}
+
 alias dchmod="$HOME/bin/dchmod"
 alias fchmod="$HOME/bin/fchmod"
 
