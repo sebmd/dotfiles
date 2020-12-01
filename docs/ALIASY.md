@@ -313,6 +313,22 @@ function cd_func() {
 }
 ```
 
+Przykład skryptu `run_dir.sh`
+
+```bash
+#!/usr/bin/env bash
+
+shopt -s nocasematch
+
+read -r -n 1 -p "Uruchomić git pull [T/n]: "
+
+case $REPLY in
+    t) echo ; git pull ;;
+    n) echo ;;
+    *) git pull ;;
+esac
+```
+
 ## cdb
 
 Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmdirs`
