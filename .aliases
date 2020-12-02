@@ -177,6 +177,7 @@ alias last-edit="$HOME/bin/last-edit"
 alias open-with-fzf="$HOME/bin/open-with-fzf"
 
 alias fdh="fd --hidden"
+alias rgh="rg --hidden"
 
 # Notatki
 

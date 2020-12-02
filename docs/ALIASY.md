@@ -37,6 +37,10 @@ Wymagane dodatkowe oprogramowanie:
 
 ## .a
 
+```bash
+alias .a="$EDITOR $HOME/.aliases && source $HOME/.aliases"
+```
+
 Edycja aliasów `$HOME/.aliases`
 
 ```bash
@@ -45,9 +49,17 @@ Edycja aliasów `$HOME/.aliases`
 
 ## .ala
 
+```bash
+alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
+```
+
 Edycja pliku konfiguracyjnego alacritty `$HOME/.config/alacritty/alacritty.yml`
 
 ## .b
+
+```bash
+alias .b="$EDITOR $HOME/.bashrc"
+```
 
 Edycja pliku `$HOME/.bashrc`
 
@@ -57,6 +69,10 @@ vim $HOME/.bashrc
 
 ## .bs
 
+```bash
+alias .bs="$EDITOR ~/.config/bspwm/bspwmrc"
+```
+
 Edycja pliku BSPWM `$HOME/.config/bspwm/bspwmrc`
 
 ```bash
@@ -65,17 +81,33 @@ vim $HOME/.config/bspwm/bspwmrc
 
 ## .df
 
+```bash
+alias .df="$HOME/bin/dotfiles"
+```
+
 Wyszukuje pliku konfiguracyjnego z listy zamieszczonej w skrypcie `$HOME/bin/dotfiles`
 
 ## .g
+
+```bash
+alias .g="$EDITOR $HOME/.gitconfig"
+```
 
 Edycja pliku `$HOME/.gitconfig`
 
 ## .kh
 
+```bash
+alias .kh="$EDITOR $HOME/.ssh/known_hosts"
+```
+
 Edycja pliku `$HOME/.ssh/known_hosts`
 
 ## .n
+
+```bash
+alias .n="nvim $HOME/.config/nvim/init.vim"
+```
 
 Edycja pliku konfiguracyjnego edytora Neovim
 
@@ -83,9 +115,17 @@ Edycja pliku konfiguracyjnego edytora Neovim
 
 ## .nv
 
+```bash
+alias .nv="nvim -c 'e \$MYVIMRC'"
+```
+
 Edycja pliku konfiguracyjnego neovim `$HOME/.config/nvim/init.vim`
 
 ## .s
+
+```bash
+alias .s="$EDITOR $HOME/.ssh/config"
+```
 
 Edycja pliku `$HOME/.ssh/config`
 
@@ -96,36 +136,44 @@ vim $HOME/.ssh/config
 ## .sx
 
 ```bash
-vim $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd
+alias .sx="$EDITOR $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
 ```
+
+Edycja oraz restart `sxhkd` odpowiadającego za skróty klawiszowe w BSPWM.
+
 
 ## .t
 
-Edycja pliku `$HOME/.tmux.comf`
-
 ```bash
-vim $HOME/.tmux.conf
+alias .t="$EDITOR $HOME/.tmux.conf"
 ```
+
+Edycja pliku pliku konfiguracyjnego `tmux`
 
 ## .v
 
-Edycja pliku edytora Vim
-
 ```bash
-vim -c 'e \$MYVIMRC'
+alias .v="$EDITOR -c 'e \$MYVIMRC'"
 ```
 
+Edycja pliku edytora Vim
+
 ## .xr
+
+```bash
+alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
+```
 
 Edycja pliku `$HOME/.Xresource` a następnie przeładowuje plik
 
 ## .z
 
-Edycja pliku `$HOME/.zshrc`
-
 ```bash
-vim $HOME/.zshrc
+alias .z="$EDITOR $HOME/.zshrc"
 ```
+
+Edycja pliku konfiguracyjnego powłoki ZSH
+
 
 ------
 
@@ -133,14 +181,18 @@ vim $HOME/.zshrc
 
 ## di
 
+Instalacja pakietu oprogramowania w systemie Fedora
+
 ```bash
-sudo dnf install
+alias di="sudo dnf install"
 ```
 
 ## dr
 
+Usunięcie pakietu oprogramowania w systemie Fedora
+
 ```bash
-sudo dnf remove
+alias dr="sudo dnf remove"
 ```
 
 ## ds
@@ -148,7 +200,7 @@ sudo dnf remove
 Wyszukuje za pomocą FZF pakietów a następnie przechodzi do instalacji
 
 ```bash
-$HOME/bin/ds
+alias ds="$HOME/bin/ds"
 ```
 
 Skrypt pobiera listę pakietów z pliku `~/temp/dnf-list.txt`, ten natomiast jest
@@ -224,7 +276,7 @@ fi
 Skrypt aktualizacyjny uruchamiany w sesji Tmux
 
 ```bash
-$HOME/bin/update
+alias update="$HOME/bin/update"
 ```
 
 Źródło skryptu `$HOME/bin/update`
@@ -266,7 +318,7 @@ fi
 Przechodzi dwa katalogi wyżej
 
 ```bash
-cd ../..
+alias ...="cd ../.."
 ```
 
 ## ..
@@ -274,7 +326,7 @@ cd ../..
 Przechodzi jeden katalog wyżej
 
 ```bash
-cd ..
+alias ..="cd .."
 ```
 
 ## .d
@@ -282,20 +334,32 @@ cd ..
 Przechodzi do katalogu `$HOME/git/dotfiles`
 
 ```bash
-cd $HOME/git/dotfiles
+alias .d="cd $HOME/git/github/dotfiles"
 ```
 
 ## .git
 
 Przechodzi do katalogu `$HOME/git`
 
+```bash
+alias .git="cd $HOME/git"
+```
+
 ## .h
 
 Przechodzi do katalogu domowego `$HOME`
 
+```bash
+alias .h="cd $HOME"
+```
+
 ## .src
 
 Przechodzi do katalogu `$HOME/src`
+
+```bash
+alias .src="cd $HOME/src"
+```
 
 ## cd
 
@@ -334,7 +398,7 @@ esac
 Przechodzenie pomiędzy katalogami znajdującymi się w pliku `$HOME/.config/bmdirs`
 
 ```bash
-source ~/bin/cdb && cdb"
+alias cdb="source ~/bin/cdb"
 ```
 
 ```bash
@@ -349,7 +413,7 @@ KATALOG="$(cat ~/.config/bmdirs|fzf --prompt "PWD: $PWD> "|sed "s|~|$HOME|")"
 Dodatnie bieżącego katalogu do pliku `$HOME/.config/bmdirs`
 
 ```bash
-source ~/bin/cdba && cdba"
+alias cdba="source ~/bin/cdba"
 ```
 
 ```bash
@@ -364,7 +428,7 @@ sort -o ~/.config/bmdirs ~/.config/bmdirs
 Usunięcie bieżącego katalogu z pliku `$HOME/.config/bmdirs`
 
 ```bash
-source ~/bin/cdbd && cdbd
+alias cdbd="source ~/bin/cdbd"
 ```
 
 ```bash
@@ -380,7 +444,7 @@ sed -i '/^$/d'  ~/.config/bmdirs
 Edycja pliku `$HOME/.config/bmdirs`
 
 ```bash
-vim ~/.config/bmdirs
+alias cdbe="$EDITOR ~/.config/bmdirs"
 ```
 
 ## cdf
@@ -388,7 +452,7 @@ vim ~/.config/bmdirs
 Poruszanie się pomiędzy katalogami za pomocą FZF
 
 ```bash
-source $HOME/bin/cdf
+alias cdf="source $HOME/bin/cdf"
 ```
 
 ```bash
@@ -407,6 +471,10 @@ fi
 Nadaje odpowiednie uprawnienia dla katalogów `755`
 
 ```bash
+alias dchmod="$HOME/bin/dchmod"
+```
+
+```bash
 #!/usr/bin/env bash
 
 FD=$(which fd)
@@ -421,6 +489,10 @@ fi
 ## fchmod
 
 Nadaje odpowiednie uprawnienia dla katalogów `644`
+
+```bash
+alias fchmod="$HOME/bin/fchmod"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -439,6 +511,10 @@ fi
 Uruchamia polecenie `exa` z dodatkowymi parametrami
 
 ```bash
+alias ll="$HOME/bin/ll"
+```
+
+```bash
 exa -al --group-directories-first --git --header
 ```
 
@@ -446,21 +522,33 @@ exa -al --group-directories-first --git --header
 
 Jest to alias do `ll`
 
+```bash
+alias l="ll"
+```
+
 ## f
 
 Wyświetla liczbę katalogów w bieżącej lokalizacji
 
 ```bash
-ls -A|wc -l
+alias f="ls -A|wc -l"
 ```
 
 ## md
 
 Alias dla `mkcdir`
 
+```bash
+alias md="mkcdir"
+```
+
 ## mkcdir
 
 Tworzy katalog a następnie przechodzi do niego
+
+```bash
+alias mkcdir="source $HOME/bin/mkcdir $1"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -473,7 +561,7 @@ cd "$KAT"
 ## mkdir
 
 ```bash
-mkdir -p
+alias mkdir="mkdir -p"
 ```
 
 ## lsx
@@ -481,7 +569,7 @@ mkdir -p
 Pokazuje pliki wykonywalne w bieżącej lokalizacji
 
 ```bash
-ls -F | grep '*$'
+alias lsx="ls -F | grep '*$'"
 ```
 
 ## exa-tree
@@ -489,14 +577,20 @@ ls -F | grep '*$'
 Zastępuje polecenie `tree` polecenie `exa`
 
 ```bash
+alias exa-tree="$HOME/bin/exa-tree"
+```
+
+```bash
 exa -l -a -h -g --git --tree"
 ```
 
 ## cleartemp
 
-Link do skryptu `$HOME/bin/cleartemp`
+Czyści pliki / katalogi tymczasowe
 
-Czyści pliki tymczasowe
+```bash
+alias cleartemp="$HOME/bin/cleartemp"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -513,9 +607,43 @@ find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 
 Link do skryptu `$HOME/bin/backup-dir`
 
+```bash
+alias backup-dir="$HOME/bin/backup-dir"
+```
+
 Skrypt wykonuje kopię zapasową bieżącego katalogu wraz z możliwością szyfrowania
 za pomocą PGP
 
+
+```bash
+#!/usr/bin/env bash
+
+XZ_OPT=-8
+SHRED=$(which shred)
+DATA=$(date +%y%m%d-%H%M)
+cd $(readlink -f "$PWD")
+DIR=$(basename "$PWD")
+cd ..
+tar -cJf "$DIR"-"$DATA".txz -C . "$DIR"
+echo "Zapisano $DIR-$DATA.txz w katalogu: $PWD"
+
+echo -n "Zaszyfrować plik? (t/N): "
+read szyfrowanie
+
+case $szyfrowanie in
+    t|T)
+        gpg -c "$DIR"-"$DATA".txz
+        echo "Zapisano "$DIR"-"$DATA".txz.gpg w katalogu "$PWD""
+        if [ $SHRED ]; then
+            shred "$DIR"-"$DATA".txz
+        else
+            rm "$DIR"-"$DATA".txz
+        fi
+        ;;
+     *)
+        ;;
+esac
+```
 ------
 
 # System plików / pamięć
@@ -525,13 +653,13 @@ za pomocą PGP
 Wyświetla wolną przestrzeń na dyskach w bardziej ludzki sposób
 
 ```bash
-df -h
+alias df="df -h"
 ```
 
 ## dfr
 
 ```bash
-df -h /
+alias dfr="df -h /"
 ```
 
 ## free
@@ -539,13 +667,13 @@ df -h /
 Wyświetla informacje dotyczące pamięci operacyjnej RAM i pliku wymiany w bardziej ludzki sposób
 
 ```bash
-free -m
+alias free="free -m"
 ```
 
 ## cryptsetup
 
 ```bash
-sudo cryptsetup
+alias cryptsetup="sudo cryptsetup"
 ```
 
 ------
@@ -554,11 +682,96 @@ sudo cryptsetup
 
 ## books
 
- Menu rofi z listą książek z katalog `$HOME/Books`
+Menu rofi z listą książek z katalog `$HOME/Books`
+
+```bash
+alias books="$HOME/bin/books"
+```
+
+```bash
+#!/usr/bin/env bash
+
+APP=zathura
+BOOKS_DIR=~/Books
+
+BOOK="$( cd $BOOKS_DIR; find * -name \*.pdf -print | rofi -dmenu \
+        -i -l 20 -matching glob -p "Books ($APP)" )"
+
+if [ -n "$BOOK" ]; then
+    $APP $BOOKS_DIR/"$BOOK"
+fi
+```
 
 ## menu
 
 Skrypt wyświetlający podręczne menu rofi
+
+```bash
+alias menu="$HOME/bin/menu"
+```
+
+```bash
+#!/bin/sh
+
+menu=$(echo -e "Suspend\nReboot
+Monitor Off
+Pulseaudio restart
+bspwm reload
+sxhkd restart
+Polybar restart
+Books
+Wyczyść hasło do agenta GPG
+Pass ROFI\nWyczyść historię schowka
+Edit Menu" | rofi -lines 28 -dmenu -i -p "Wybierz coś")
+
+[ "$menu" == "Suspend" ] && sudo /usr/bin/systemctl suspend
+
+[ "$menu" == "Reboot" ] && sudo reboot
+
+if [ "$menu" == "Monitor Off" ]; then
+    notify-send "Za kilka chwil wyłączę monitor..."
+    sleep 1
+    xset dpms force off
+fi
+
+if [ "$menu" == "Pulseaudio restart" ]; then
+    pacmd exit
+    sleep 1
+    pulseaudio --start
+fi
+
+if [ "$menu" == "bspwm reload" ]; then
+    ~/.config/bspwm/bspwmrc
+    if [ $? == 0 ]; then
+        rofi -e "Przeładowałem bspwm"
+    fi
+fi
+
+if [ "$menu" == "sxhkd restart" ]; then
+    pkill -USR1 -x sxhkd
+    if [ $? == 0 ]; then
+        rofi -e "Ustawienia sxhkd zostały przeładowane"
+    fi
+fi
+
+[ "$menu" == "Wyczyść hasło do agenta GPG" ] && gpg-connect-agent reloadagent /bye
+
+[ "$menu" == "Wyczyść historię schowka" ] && $HOME/bin/clipdel -d ".*"
+
+[ "$menu" == "Pass ROFI" ] && $HOME/bin/passr
+
+[ "$menu" == "Books" ] && $HOME/bin/books
+
+if [ "$menu" == "Polybar restart" ]; then
+    pkill polybar
+    sleep 3
+    polybar example
+fi
+
+if [ "$menu" == "Edit Menu" ]; then
+    st -e vim ~/bin/menu
+fi
+```
 
 ------
 
@@ -569,15 +782,15 @@ Skrypt wyświetlający podręczne menu rofi
 Czyści ekran
 
 ```bash
-clear
+alias c="clear"
 ```
 
 ## ff
 
 Uruchamia Firefoxa
 
-```
-firefox
+```bash
+alias ff="firefox"
 ```
 
 ## h
@@ -585,46 +798,78 @@ firefox
 Uruchamia polecenie `history`
 
 ```bash
-history
+alias h="history"
 ```
 
 ## more
 
 Zastępuje program `more` programem `less`
 
+```bash
+alias more="less"
+```
+
 ## n
 
 Uruchamia edytor neovim
+
+```bash
+alias n="nvim"
+```
 
 ## q
 
 Uruchamia polecenie `exit`
 
+```bash
+alias q=exit
+```
+
 ## so
 
 Uruchamia polecenie `source`
 
+```bash
+alias so=source
+```
+
 ## svim
 
 ```bash
-sudo vim
+alias svim="sudo vim"
 ```
 
 ## t
 
 Uruchamia polecenie `tmux`
 
+```bash
+alias t=tmux
+```
+
 ## ta
 
 Uruchamia polecenie `tmux atta`
+
+```bash
+alias ta="tmux atta"
+```
 
 ## v
 
 Uruchamia program `vim`
 
+```bash
+alias v=vim
+```
+
 ## vim
 
 Alias do `vim`
+
+```bash
+alias vim="vim"
+```
 
 ------
 
@@ -635,12 +880,16 @@ Alias do `vim`
 Alias dla polecenia `kill`
 
 ```bash
-kill
+alias k="kill"
 ```
 
 ## pg
 
 Wyszukuje procesów uruchamiając skrypt `$HOME/bin/psgrep`
+
+```bash
+alias pg="$HOME/bin/psgrep"
+```
 
 Źródło:
 
@@ -661,6 +910,10 @@ $ pg vim
 Skrypt `$HOME/bin/psgrep`
 
 ```bash
+alias psgrep="$HOME/bin/psgrep"
+```
+
+```bash
 #!/usr/bin/env bash
 
 ps ax | grep -i "$1" | grep -v grep
@@ -673,6 +926,10 @@ ps ax | grep -i "$1" | grep -v grep
 ## detect-os
 
 Wyświetla nazwę i wersję dystrybucji - `$HOME/bin/detect-os`
+
+```bash
+alias detect-os="$HOME/bin/detect-os"
+```
 
 
 ```bash
@@ -743,6 +1000,22 @@ esac
 
 Ustawia rozdzielczość Full HD
 
+```bash
+alias fullhd="$HOME/bin/fullhd"
+```
+
+```bash
+#!/usr/bin/env bash
+
+
+MONITOR=$(xrandr | grep primary | cut -f 1 -d ' ')
+
+xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode $MONITOR 1920x1080
+xrandr --output $MONITOR --mode 1920x1080
+# xrandr --output $MONITOR --mode $(xrandr|grep -P '^ '|cut -f 4 -d ' '|dmenu)
+```
+
 ------
 
 # Git
@@ -752,7 +1025,7 @@ Ustawia rozdzielczość Full HD
 Uruchamia polecenie `git`
 
 ```bash
-git
+alias g="git"
 ```
 
 ## ga
@@ -760,7 +1033,7 @@ git
 Uruchamia skrypt `$HOME/bin/ga`
 
 ```bash
-~/bin/ga
+alias ga="$HOME/bin/ga"
 ```
 
 Źródło:
@@ -777,13 +1050,37 @@ git add -A && git commit -m $DATA
 
 Uruchamia polecenie `git diff`
 
+```bash
+alias gd="$HOME/bin/gd"
+```
+
+```bash
+#!/usr/bin/env bash
+
+git diff
+```
+
 ## gdiff
 
 Uruchamia polecenie `git diff`
 
+```bash
+alias gd="$HOME/bin/gd"
+```
+
+```bash
+#!/usr/bin/env bash
+
+git diff
+```
+
 ## gl
 
 Uruchamia skrypt `$HOME/bin/gl` - wyświetlający zmiany w repozytorium Git
+
+```bash
+alias gl="$HOME/bin/gl"
+```
 
 Źródło:
 
@@ -794,6 +1091,10 @@ git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) -
 ## gp
 
 Uruchamia skrypt `$HOME/bin/gp`
+
+```bash
+alias gp="$HOME/bin/gp"
+```
 
 Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
 
@@ -820,6 +1121,10 @@ fi
 ## gps
 
 Uruchamia skrypt `$HOME/bin/gps` który jest linkiem symbolicznym do pliku `$HOME/bin/gp`
+
+```bash
+alias gps="$HOME/bin/gps"
+```
 
 Skrypt w zależności od nazwy z jaką go wywołujemy uruchamia polecenia:
 
@@ -848,6 +1153,12 @@ fi
 Uruchamia skrypt `$HOME/bin/gsts`
 
 ```bash
+alias gsts="$HOME/bin/gsts"
+```
+
+```bash
+#!/usr/bin/env bash
+
 git status
 ```
 
@@ -855,9 +1166,29 @@ git status
 
 Uruchamia polecenie `git pull`
 
+```bash
+alias pu="$HOME/bin/pu"
+```
+
+```bash
+#!/usr/bin/env bash
+
+git pull
+```
+
 ## push
 
 Uruchamia polecenie `git push`
+
+```bash
+alias push="$HOME/bin/push"
+```
+
+```bash
+#!/usr/bin/env bash
+
+git push
+```
 
 ------
 
@@ -866,6 +1197,10 @@ Uruchamia polecenie `git push`
 ## otp-add
 
 Dodaje skrót HASH do bazy `pass`
+
+```bash
+alias otp-add="$HOME/bin/otp-add"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -885,6 +1220,10 @@ fi
 Wyświetla kod jednorazowy, którego HASH jest przechowywany w bazie `pass`
 
 ```bash
+alias otp="$HOME/bin/otp"
+```
+
+```bash
 #!/usr/bin/env bash
 
 oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basename {} .gpg \; | fzf)")"
@@ -894,13 +1233,26 @@ oathtool --base32 --totp "$(pass "otp/$(find ~/.password-store/otp/* -exec basen
 
 Uruchamia program `gopass` bez zapisywania polecenia w historii
 
+```bash
+alias p=" gopass"
+```
+
 ## pass
 
-Uruchamia program `gopass` bez zapisywania polecenia w historii
+Uruchamia program `gopass` bez zapisywania polecenia w historii, służy do tego
+znak spacji przed poleceniem.
+
+```bash
+alias pass=" gopass"
+```
 
 ## passf
 
 Uruchamia skrypt `$HOME/bin/passf`
+
+```bash
+alias passf="$HOME/bin/passf"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -915,6 +1267,10 @@ pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf 
 Uruchamia skrypt `$HOME/bin/passr`
 
 ```bash
+alias passr="$HOME/bin/passr"
+```
+
+```bash
 #!/usr/bin/env bash
 
 pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf '%P\n' \
@@ -926,6 +1282,9 @@ pass $(find -L ~/.password-store -path '*.git' -prune -o -iname '*.gpg' -printf 
 
 Generuje hasła od długości 32 znaków
 
+```bash
+alias pwgen="$HOME/bin/pwgen.sh"
+```
 
 ```bash
 pwgen -c -s -n -y -1 32"
@@ -936,7 +1295,7 @@ pwgen -c -s -n -y -1 32"
 Deszyfruje plik za pomocą GPG
 
 ```bash
-$HOME/bin/DecryptGPG
+alias dec="$HOME/bin/DecryptGPG"
 ```
 
 ## enc
@@ -944,12 +1303,16 @@ $HOME/bin/DecryptGPG
 Szyfruje plik za pomocą GPG
 
 ```bash
-$HOME/bin/EncryptGPG
+alias enc="$HOME/bin/EncryptGPG"
 ```
 
 ## DecryptGPG
 
 Skrypt deszyfrujący pliki PGP
+
+```bash
+alias DecryptGPG="$HOME/bin/DecryptGPG"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -972,6 +1335,10 @@ fi
 Skrypt deszyfrujący pliki za pomocą OpenSSL
 
 ```bash
+alias DecryptSSL="$HOME/bin/DecryptSSL"
+```
+
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -990,6 +1357,10 @@ fi
 ## EncryptGPG
 
 Skrypt szyfrujący za pomocą PGP
+
+```bash
+alias EncryptGPG="$HOME/bin/EncryptGPG"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1022,6 +1393,10 @@ esac
 Skrypt szyfrujący za pomocą SSL
 
 ```bash
+alias EncryptSSL="$HOME/bin/EncryptSSL"
+```
+
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -1042,12 +1417,20 @@ fi
 Czyści zapamiętane hasło przez agenta GPG
 
 ```bash
+alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
+```
+
+```bash
 gpg-connect-agent reloadagent /bye"
 ```
 
 ## gpg-agent-restart
 
 Restartuje agenta GPG
+
+```bash
+alias gpg-agent-restart="$HOME/bin/gpg-agent-restart"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1060,6 +1443,10 @@ gpg-connect-agent /bye
 Usuwa klucz z magazynu kluczy
 
 ```bash
+alias gpg-delete-keys="$HOME/bin/gpg-delete-keys"
+```
+
+```bash
 #!/usr/bin/env bash
 
 gpg --delete-keys
@@ -1068,6 +1455,10 @@ gpg --delete-keys
 ## gpg-delete-secret-keys
 
 Usuwa klucze prywatne z magazynu kluczy
+
+```bash
+alias gpg-delete-secret-keys="$HOME/bin/gpg-delete-secret-keys"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1080,6 +1471,10 @@ gpg --delete-secret-keys
 Edytuje wybrany klucz
 
 ```bash
+alias gpg-edit-key="$HOME/bin/gpg-edit-key"
+```
+
+```bash
 #!/usr/bin/env bash
 
 gpg --edit-key
@@ -1088,6 +1483,10 @@ gpg --edit-key
 ## gpg-export-secret-key
 
 Eksportuje klucz prywatny
+
+```bash
+alias gpg-export-secret-key="$HOME/bin/gpg-export-secret-key"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1100,6 +1499,10 @@ gpg --armor --export-secret-keys
 Eksportuj klucz publiczny
 
 ```bash
+alias gpg-export="$HOME/bin/gpg-export"
+```
+
+```bash
 #!/usr/bin/env bash
 
 gpg --armor --export
@@ -1108,6 +1511,10 @@ gpg --armor --export
 ## gpg-gen-key
 
 Generuje parę kluczy PGP
+
+```bash
+alias gpg-gen-key="$HOME/bin/gpg-gen-key"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1120,6 +1527,10 @@ gpg --default-new-key-algo rsa4096 --gen-key
 Wyświetla listę kluczy w formacie SHORT
 
 ```bash
+alias gpg-list-keys-short="$HOME/bin/gpg-list-keys-short"
+```
+
+```bash
 #!/usr/bin/env bash
 
 gpg --list-keys --keyid-format SHORT
@@ -1128,6 +1539,10 @@ gpg --list-keys --keyid-format SHORT
 ## gpg-list-keys
 
 Wyświetla listę kluczy w formacie LONG
+
+```bash
+alias gpg-list-keys="$HOME/bin/gpg-list-keys"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1140,6 +1555,10 @@ gpg --list-keys --keyid-format LONG
 Wyświetla listę kluczy prywatnych w formacie SHORT
 
 ```bash
+alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
+```
+
+```bash
 #!/usr/bin/env bash
 
 gpg --list-secret-keys --keyid-format SHORT
@@ -1148,6 +1567,10 @@ gpg --list-secret-keys --keyid-format SHORT
 ## gpg-list-secret-keys
 
 Wyświetla listę kluczy prywatnych w formacie LONG
+
+```bash
+alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1164,7 +1587,7 @@ gpg --list-secret-keys --keyid-format LONG
 Usypia komputer
 
 ```bash
-sudo systemctl suspend
+alias suspend="sudo systemctl suspend"
 ```
 
 ## sysdis
@@ -1172,7 +1595,7 @@ sudo systemctl suspend
 Deaktywuje usługę
 
 ```bash
-sudo systemctl disable
+alias sysdis="sudo systemctl disable"
 ```
 
 ## sysena
@@ -1180,7 +1603,7 @@ sudo systemctl disable
 Aktywuje usługę
 
 ```bash
-sudo systemctl enable
+alias sysena="sudo systemctl enable"
 ```
 
 ## sysstart
@@ -1188,7 +1611,7 @@ sudo systemctl enable
 Uruchamia usługę
 
 ```bash
-sudo systemctl start"
+alias sysstart="sudo systemctl start"
 ```
 
 ## sysstop
@@ -1196,13 +1619,13 @@ sudo systemctl start"
 Zatrzymuje usługę
 
 ```bash
-sudo systemctl stop"
+alias sysstop="sudo systemctl stop"
 ```
 
 ## reboot
 
 ```bash
-sudo reboot
+alias reboot="sudo reboot"
 ```
 
 ## batt
@@ -1210,7 +1633,13 @@ sudo reboot
 Wyświetlenie stanu baterii laptopa
 
 ```bash
-$HOME/bin/batt
+alias batt="$HOME/bin/batt"
+```
+
+```bash
+#!/usr/bin/env bash
+
+upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage"
 ```
 
 ------
@@ -1220,6 +1649,10 @@ $HOME/bin/batt
 ## rgvi
 
 Uruchamia skrypt `$HOME/bin/rgvi`
+
+```bash
+alias rgvi="$HOME/bin/rgvi"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1243,6 +1676,10 @@ wyświetlając na podglądzie zawartość plików, w przypadku katalogów nie po
 ich zawartości.
 
 Skrypt `se` po wyborze pliku / katalogu otwiera jego zawartość w edytorze Vim.
+
+```bash
+alias se="$HOME/bin/se"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1271,6 +1708,10 @@ podglądzie drzewo podkatalogów.
 Skrypt `sedi` po wyborze katalogu otwiera jego zawartość w edytorze Vim.
 
 ```bash
+alias sedi="$HOME/bin/sedi"
+```
+
+```bash
 #!/usr/bin/env bash
 
 PREVIEW=$(which preview_dir.sh)
@@ -1297,6 +1738,10 @@ podglądzie ich zawartość.
 Skrypt `sefi` po wyborze pliku otwiera jego zawartość w edytorze Vim.
 
 ```bash
+alias sefi="$HOME/bin/sefi"
+```
+
+```bash
 #!/usr/bin/env bash
 
 BAT=$(which bat)
@@ -1317,7 +1762,11 @@ SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 
 ## vf
 
-Skrytp `$HOME/bin/vf`
+Skrypt `$HOME/bin/vf`
+
+```bash
+alias vf="$HOME/bin/vf"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1329,6 +1778,10 @@ sk | xargs -r -I % $EDITOR %
 
 Skrypt `vs` uruchamia w bieżącej lokalizacji polecenie `fzf` z podglądem plików,
 po wybraniu pliku automatycznie jest uruchamiany edytor Vim.
+
+```bash
+alias vs="$HOME/bin/vs"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1353,19 +1806,58 @@ fi
 
 Pokazuje ostatnio edytowane pliki
 
+```bash
+alias last-edit="$HOME/bin/last-edit"
+```
+
+```bash
+#!/usr/bin/env bash
+
+find $HOME -type f -mtime -3 -mtime +4
+find $HOME -type f -mtime -3
+```
+
 ## open-with-fzf
 
 Uruchamia skrypt `/home/t3/bin/open-with-fzf`
 
+```bash
+alias open-with-fzf="$HOME/bin/open-with-fzf"
+```
+
+```bash
+#!/usr/bin/env bash
+
+fd -t f -H -I | fzf -m --preview="xdg-mime query default {}" | xargs -ro -d "\n" xdg-open 2>&-
+```
+
 ## fdh
 
 Uruchamia polecenie `fd` z parametrem `--hidden`
+
+```bash
+alias fdh="fd --hidden"
+```
+
+## rgh
+
+Uruchamia program `rg` z parametrem `--hidden`
+
+```bash
+alias rgh="rg --hidden"
+```
 
 ------
 
 # Notatki
 
 ## wiki
+
+Przeszukuje katalog `$VIMWIKI` po wybraniu otwiera w edytorze Vim
+
+```bash
+alias wiki="$HOME/bin/wiki"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -1430,6 +1922,10 @@ fi
 
 Uruchamia dziennik na bieżący dzień
 
+```bash
+alias diary="$EDITOR -c :VimwikiMakeDiaryNote"
+```
+
 ```
 :VimwikiMakeDiaryNote
 ```
@@ -1438,15 +1934,16 @@ Uruchamia dziennik na bieżący dzień
 
 Uruchamia dziennik na poprzedni dzień
 
-```
-diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
+```bash
+alias diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
 ```
 
 ## diary-next
 
 Uruchamia dziennik na następny dzień
 
-```
+
+```bash
 alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
 ```
 
@@ -1454,7 +1951,7 @@ alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
 
 Uruchamia listę dzienników
 
-```
+```bash
 alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
 ```
 
@@ -1463,11 +1960,13 @@ alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
 Otwiera edytor Vim w lokalizacji `$HOME/notes`
 
 ```bash
-vim -c "e $HOME/notes"
+alias no='$EDITOR -c "e $HOME/notes"'
 ```
 
 ## td
 
-```
+Otwiera plik zawarty w zmiennej `$TODO` znajdującej się w pliku `.vars`
+
+```bash
 alias td="$EDITOR $TODO"
 ```
