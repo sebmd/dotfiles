@@ -11,9 +11,9 @@ Wymagane dodatkowe oprogramowanie:
  - `pass`
  - `rofi` / `dmenu`
  - `bat` lub `preview.sh` z programu FZF
- 
- ------
- 
+
+------
+
 # Spis treści
 
 * [Pliki konfiguracyjne](#pliki-konfiguracyjne)
@@ -38,14 +38,14 @@ Wymagane dodatkowe oprogramowanie:
 ## .a
 
 Edycja aliasów `$HOME/.aliases`
- 
- ```bash
+
+```bash
  vim $HOME/.aliases && source $HOME/.aliases
- ```
- 
+```
+
 ## .ala
 
- Edycja pliku konfiguracyjnego alacritty `$HOME/.config/alacritty/alacritty.yml`
+Edycja pliku konfiguracyjnego alacritty `$HOME/.config/alacritty/alacritty.yml`
 
 ## .b
 
@@ -478,8 +478,8 @@ mkdir -p
 
 ## lsx
 
- Pokazuje pliki wykonywalne w bieżącej lokalizacji
- 
+Pokazuje pliki wykonywalne w bieżącej lokalizacji
+
 ```bash
 ls -F | grep '*$'
 ```
