@@ -35,18 +35,19 @@
 
 # Polecenie fd
 
-```
+```bash
 fd . --ignore-file .gitignore --hidden
 ```
 
 Ignorowanie plików zawierających się w podanym pliku np. `.gitignore`
 
-```
+```bash
 --ignore-file .gitignore
 ```
 
 Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
-```
+
+```bash
 --hidden
 ```
 
@@ -64,7 +65,7 @@ Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
 
 # Sprawdzenie czy skrypt został uruchomiony w trybie graficznym
 
-```
+```bash
 if [[ $DISPLAY ]]; then
     xterm -e htop
 else
@@ -78,13 +79,13 @@ fi
 
 # Przekierowanie wszystki komunikatów do /dev/null
 
-```
+```bash
 > /dev/null 2>&1
 ```
 
 # Wykonanie różnych zadań w zależności od nazwy skryptu
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [ ($basename $0) == 'chmod-dir' ];
@@ -99,7 +100,7 @@ then
 fi
 ```
 
-```
+```bash
 $ ln -s chmod.sh chmod-dir
 $ ln -s chmod.sh chmod-file
 $ chmod +x chmod.sh
@@ -109,7 +110,7 @@ $ chmod +x chmod.sh
 
 Rozwiązanie pełnej ścieżki linku symbolicznego
 
-```
+```bash
 $ readlink -f plik.txt
 
 $ readlink -f $PWD
@@ -117,7 +118,7 @@ $ readlink -f $PWD
 
 Data i godzina oddzielona myślnikami
 
-```
+```bash
 DATA=$(date +%F-%T|tr : -)
 echo $DATA
 2020-08-24-18-53-22
@@ -125,14 +126,14 @@ echo $DATA
 
 Data w formacie ISO
 
-```
+```bash
 date -I
 2020-08-24
 ```
 
 Warunkowe założenie katalogu
 
-```
+```bash
 DATA=$(date -I)
 KATALOG=/mnt/sda1/backup/$DATA
 [ -d $KATALOG ] || mkdir $KATALOG
@@ -142,45 +143,47 @@ KATALOG=/mnt/sda1/backup/$DATA
 
 ## Generowanie pary kluczy (ED25519)
 
-```
+```bash
 $ ssh-keygen -t ed25519 -f nazwa_pliku -C komentarz
 ```
 
 ## Informacje o kluczu SSH
 
 Uzyskanie sumy kontrolnej SHA256 klucza
-```
+
+```bash
 $ ssh-keygen -l -f github-sebmd-ed25519.pub
 256 SHA256:I9W48Mn7W6gxxKzF/kAB5FgNs0cKmoUGHSs8jsbwV/E sebmd@github (ED25519)
 ```
 
 Uzyskanie sumy kontrolnej MD5 klucza
-```
+
+```bash
 $ ssh-keygen -l -f github-sebmd-ed25519.pub -E md5
 256 MD5:00:48:64:34:79:62:7c:24:fb:12:36:cf:22:f0:ac:ab sebmd@github (ED25519)
 ```
 
 ## Pobranie klucza publicznego SSH z github.com
 
-```
+```bash
 curl https://github.com/nazwa_użytkownika.keys -o nazwa_użytkownika.keys
 ```
 
 ## Agent kluczy
 
-```
+```bash
 $ eval $(ssh-agent)
 ```
 
 Dodanie kucza do agenta
 
-```
+```bash
 ssh-add ~/.ssh/klucz_ssh
 ```
 
 # Case in
 
-```
+```bash
 read ODP
 case $ODP in
     t|T)
@@ -273,25 +276,25 @@ fi
 
 Wyszukiwanie wyrazu we wszystkich plikach bieżącego katalogu
 
-```
+```bash
 rg wyraz
 ```
 
 Wyszukiwanie wyrazu w pliku
 
-```
+```bash
 rg wyraz plik.txt
 ```
 
 Wyszukiwanie wyrazu w katalogu
 
-```
+```bash
 rg wyraz katalog/
 ```
 
 Wyszukiwanie plików w których znajduje się znak `#` a następnie słowo `bash`
 
-```
+```bash
 rg "#.*bash*"
 ```
 
@@ -301,12 +304,12 @@ Wyświetlenie dodatkowych linii przed i po wystąpieniem wyszukiwanego wyrazu
 - `-B #` liczba linii wyświetlanych przed wystąpieniu szukanego słowa
 - `-C #` liczba linii wyświetlanych przed i po wystąpieniu szukanego słowa
 
-```
+```bash
 rg -A 2 -B 3 słowo
 ```
 
 Wyszukiwanie w plikach i katalogach ukrytych zaczynających się od `.`
 
-```
+```bash
 rg --hidden github
 ```
