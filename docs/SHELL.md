@@ -11,13 +11,21 @@
 * [Wykonanie różnych zadań w zależności od nazwy skryptu](#wykonanie-rónych-zada-w-zalenoci-od-nazwy-skryptu)
 * [Usunięcie rozszerzenia pliku](#usunicie-rozszerzenia-pliku)
 * [Rozszerzenie i nazwa pliku bez rozszerzenia](#rozszerzenie-i-nazwa-pliku-bez-rozszerzenia)
+* [Usunięcie starszych plików niż X dni](#usunicie-starszych-plików-ni-x-dni)
+* [Zapisanie wyniku polecenie do pliku oraz wyświetlenie na ekranie](#zapisanie-wyniku-polecenie-do-pliku-oraz-wywietlenie-na-ekranie)
+* [Sprawdzenie zawartości pliku](#sprawdzenie-zawartoci-pliku)
+* [Sprawdzenie czy użytkownikiem wykonującym skrypt jest root](#sprawdzenie-czy-uytkownikiem-wykonujcym-skrypt-jest-root)
+* [Sprawdzenie czy skrypt jest wykonany za pomocą komendy sudo](#sprawdzenie-czy-skrypt-jest-wykonany-za-pomoc-komendy-sudo)
+* [grep wyszukanie kilku wyrażeń na raz](#grep-wyszukanie-kilku-wyrae-na-raz)
+* [Warunkowe utworzenie katalogu](#warunkowe-utworzenie-katalogu)
+* [Wyszukiwanie plików rekursywnie](#wyszukiwanie-plików-rekursywnie)
 * [Data i godzina](#data-i-godzina)
 * [Różności](#rónoci)
 * [Klucze SSH](#klucze-ssh)
-	* [Generowanie pary kluczy (ED25519)](#generowanie-pary-kluczy-ed25519)
-	* [Informacje o kluczu SSH](#informacje-o-kluczu-ssh)
-	* [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
-	* [Agent kluczy](#agent-kluczy)
+    * [Generowanie pary kluczy (ED25519)](#generowanie-pary-kluczy-ed25519)
+    * [Informacje o kluczu SSH](#informacje-o-kluczu-ssh)
+    * [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
+    * [Agent kluczy](#agent-kluczy)
 * [Case in](#case-in)
 * [for FILE](#for-file)
 * [Wyświetlenie wartości zmiennej](#wywietlenie-wartoci-zmiennej)
@@ -172,6 +180,116 @@ file=backup2sd.config
 echo ${file##*.}
 
 config
+```
+
+# Usunięcie starszych plików niż X dni
+
+Polecenie usuwa pliki rekursywnie
+
+```bash
+find /home/user/tmp/* -mtime +14 -exec rm {} \;
+```
+
+# Zapisanie wyniku polecenie do pliku oraz wyświetlenie na ekranie
+
+```bash
+watch -n 15 'skrypty/proc_temp.sh | tee -a cpu_temp.txt && date | tee -a cpu_temp.txt'
+```
+
+Wynik:
+
+```bash
+Sat Mar 26 17:05:49 UTC 2019
+temp=38.5'C
+```
+
+Wersja zapisująca wynik dwóch poleceń do pliku w jednej linii.
+
+```bash
+watch -n 15 "echo -n '$(date): ' | tee -a cpu_temp.txt && skrypty/proc_temp.sh | tee -a cpu_temp.txt"
+```
+
+Wynik:
+
+```bash
+Sat Mar 26 17:10:58 UTC 2019: temp=39.0'C
+```
+
+# Sprawdzenie zawartości pliku
+
+Często w plikach systemowych jest zapisywana tylko wartość 0 lub 1 aby sprawdzić
+tą wartość można wykonać następujący test. W tym przykładzie sprawdzana jest
+zawartość pliku test.
+
+```bash
+if [ $(< test) == 0 ]
+then
+    echo Wartosc 0
+else
+    echo Inna wartosc
+fi
+```
+
+# Sprawdzenie czy użytkownikiem wykonującym skrypt jest root
+
+```bash
+if [[ $EUID -ne 0 ]]; then
+  echo "Skrypt musi być uruchomiony z uprawnieniami użytkownika root" 1>&2
+  exit 1
+fi
+```
+
+# Sprawdzenie czy skrypt jest wykonany za pomocą komendy sudo
+
+```bash
+if [ $(id -u) = 0 ]; then
+    if [ ! -z $SUDO_COMMAND ]; then
+        echo '---                                   ---'
+        echo Skrypt uruchomiony za pomocą komendy sudo
+        echo Uruchom skrypt jako użytkownik root
+        echo '---                                   ---'
+        exit 1
+    fi
+else
+    echo '---                              ---'
+    echo Uruchom skrypt jako użytkownik root!
+    echo '---                              ---'
+    exit 1
+fi
+```
+
+# grep wyszukanie kilku wyrażeń na raz
+
+Komenda wyświetli wszystkie wiersze zawierające `ls` oraz `ntfs`
+
+```bash
+ls /bin | grep -e ls -e ntfs
+```
+
+# Warunkowe utworzenie katalogu
+
+Polecenie `mkdir` zostaje wykonane jeśli podany katalog nie istnieje
+
+```bash
+DATA=$(date +%y%m%d)
+[ -d /mnt/sda1/$DATA ] || mkdir /mnt/sda1/$DATA
+```
+
+# Wyszukiwanie plików rekursywnie
+
+Wyszukiwanie plików z rozszerzeniem `*.md` w bieżącej lokalizacji
+
+```bash
+find $PWD -type f -name "*.md"
+```
+
+Wersja bez użycia parametru `-name`
+
+Zapis `/*/` określa, że w danej ścieżce będą przetwarzane wszystkie
+podkatalogi. Zostaną wyświetlone pełne ścieżki znalezionych plików.
+
+```bash
+find ~/.password-store/*/*.gpg -type f
 ```
 
 # Data i godzina
