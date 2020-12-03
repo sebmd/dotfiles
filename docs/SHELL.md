@@ -9,6 +9,7 @@
 * [Różnica pomiędzy [] a [[]]](#rónica-pomidzy--a-)
 * [Przekierowanie wszystki komunikatów do /dev/null](#przekierowanie-wszystki-komunikatów-do-devnull)
 * [Wykonanie różnych zadań w zależności od nazwy skryptu](#wykonanie-rónych-zada-w-zalenoci-od-nazwy-skryptu)
+* [Data i godzina](#data-i-godzina)
 * [Różności](#rónoci)
 * [Klucze SSH](#klucze-ssh)
     * [Generowanie pary kluczy (ED25519)](#generowanie-pary-kluczy-ed25519)
@@ -106,14 +107,20 @@ $ ln -s chmod.sh chmod-file
 $ chmod +x chmod.sh
 ```
 
-# Różności
+# Data i godzina
 
-Rozwiązanie pełnej ścieżki linku symbolicznego
+Sprawdzenie daty modyfikacji pliku
 
 ```bash
-$ readlink -f plik.txt
+$ date -r nazwa_pliku.txt
+Fri 19 Apr 2020 07:22:11 AM CEST
+```
 
-$ readlink -f $PWD
+Zmiana formatu wyświetlenia daty modyfikacji pliku
+
+```bash
+$ date -r nazwa_pliku.txt "+%F %s"
+2020-05-22 155214214
 ```
 
 Data i godzina oddzielona myślnikami
@@ -129,6 +136,36 @@ Data w formacie ISO
 ```bash
 date -I
 2020-08-24
+```
+
+Działania arytmetyczne na datach
+
+```bash
+date -d "09/27/2019 08:53:52 AM CEST +2 days +2 hours" "+%F %T"
+```
+
+```bash
+date -d "Tue 22 Oct 2019 08:53:52 AM CEST +2 days +2 hours" "+%F %T"
+```
+
+# Różności
+
+Rozwiązanie pełnej ścieżki linku symbolicznego
+
+```bash
+$ readlink -f plik.txt
+/home/user/git/dotfiles/docs/SHELL.md
+```
+
+```bash
+$ readlink -f $PWD
+/home/user/git/dotfiles/docs
+```
+
+Wyświetlenie katalogu w którym znajduje się skrypt
+
+```bash
+dirname $(readlink -f $0)
 ```
 
 Warunkowe założenie katalogu
