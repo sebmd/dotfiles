@@ -9,17 +9,20 @@
 * [Różnica pomiędzy [] a [[]]](#rónica-pomidzy--a-)
 * [Przekierowanie wszystki komunikatów do /dev/null](#przekierowanie-wszystki-komunikatów-do-devnull)
 * [Wykonanie różnych zadań w zależności od nazwy skryptu](#wykonanie-rónych-zada-w-zalenoci-od-nazwy-skryptu)
+* [Usunięcie rozszerzenia pliku](#usunicie-rozszerzenia-pliku)
+* [Rozszerzenie i nazwa pliku bez rozszerzenia](#rozszerzenie-i-nazwa-pliku-bez-rozszerzenia)
 * [Data i godzina](#data-i-godzina)
 * [Różności](#rónoci)
 * [Klucze SSH](#klucze-ssh)
-    * [Generowanie pary kluczy (ED25519)](#generowanie-pary-kluczy-ed25519)
-    * [Informacje o kluczu SSH](#informacje-o-kluczu-ssh)
-    * [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
-    * [Agent kluczy](#agent-kluczy)
+	* [Generowanie pary kluczy (ED25519)](#generowanie-pary-kluczy-ed25519)
+	* [Informacje o kluczu SSH](#informacje-o-kluczu-ssh)
+	* [Pobranie klucza publicznego SSH z github.com](#pobranie-klucza-publicznego-ssh-z-githubcom)
+	* [Agent kluczy](#agent-kluczy)
 * [Case in](#case-in)
 * [for FILE](#for-file)
 * [Wyświetlenie wartości zmiennej](#wywietlenie-wartoci-zmiennej)
 * [Pobranie daty modyfikacji pliku](#pobranie-daty-modyfikacji-pliku)
+* [Porównanie dwóch ciągów znaków](#porównanie-dwóch-cigów-znaków)
 * [Generowanie zakresu liczb z poprzedzającym 0](#generowanie-zakresu-liczb-z-poprzedzajcym-0)
 * [Sprawdzenie czy komenda istnieje](#sprawdzenie-czy-komenda-istnieje)
 * [Wyszukiwanie za pomocą ripgrep (rg)](#wyszukiwanie-za-pomoc-ripgrep-rg)
@@ -105,6 +108,70 @@ fi
 $ ln -s chmod.sh chmod-dir
 $ ln -s chmod.sh chmod-file
 $ chmod +x chmod.sh
+```
+
+Wersja z użyciem funkcji `case`
+
+```bash
+case $(basename $0) in
+  bc2sd.mount)
+    mount_sd
+    ;;
+  bc2sd.umount)
+    umount_sd
+    ;;
+  bc2sd.include|bc2sd.inc)
+    backup_sd include
+    ;;
+  bc2sd.exclude|bc2sd.exc)
+    backup2sd exclude
+    ;;
+  bc2sd|backup2sd|backup2sd.sh)
+    run
+    ;;
+esac
+```
+
+# Usunięcie rozszerzenia pliku
+
+Polecenie `find` wyszukuje wszystkie pliki w katalogu `~/.password-store/otp/`
+a następnie wyświetla znalezione pliki usuwając rozszerzenie `.gpg`.
+Polecenie wyświetla wyłącznie nazwę pliku.
+
+```bash
+find ~/.password-store/otp/ -name ".gpg" -exec basename {} .gpg \;
+```
+
+Wersja wyświetlająca pełną ścieżkę pliku
+
+```bash
+find ~/.password-store -name "*.gpg" -exec sh -c 'printf "%s\n" "${0%.*}"' {} \;
+```
+
+Ten sam efekt uzyskamy za pomocą komendy `sed`
+
+```bash
+find ~/.password-store -type f -iname "*.gpg" | sed 's/\.gpg$//1'
+```
+
+# Rozszerzenie i nazwa pliku bez rozszerzenia
+
+Nazwa pliku
+
+```bash
+file=backup2sd.config
+echo ${file%.*}
+
+/home/user/bin/backup2sd
+```
+
+Rozszerzenie pliku
+
+```bash
+file=backup2sd.config
+echo ${file##*.}
+
+config
 ```
 
 # Data i godzina
@@ -288,6 +355,17 @@ zmi
 ```bash
 stat -c '%y' ~/temp/tdrop|cut -f 1 -d ' '
 2020-09-29
+```
+
+# Porównanie dwóch ciągów znaków
+
+
+Tutaj sprawdzenie czy wynik polecenia `type ls` zawiera słowo `alias`
+
+```bash
+if [[ $(type ls) == *"alias"* ]]; then
+    echo alias
+fi
 ```
 
 # Generowanie zakresu liczb z poprzedzającym 0
