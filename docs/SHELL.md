@@ -3,7 +3,6 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Przydatne narzędzia](#przydatne-narzdzia)
-* [Polecenie fd](#polecenie-fd)
 * [Zmienne specjalne](#zmienne-specjalne)
 * [Sprawdzenie czy skrypt został uruchomiony w trybie graficznym](#sprawdzenie-czy-skrypt-zosta-uruchomiony-w-trybie-graficznym)
 * [Różnica pomiędzy [] a [[]]](#rónica-pomidzy--a-)
@@ -34,6 +33,7 @@
 * [Generowanie zakresu liczb z poprzedzającym 0](#generowanie-zakresu-liczb-z-poprzedzajcym-0)
 * [Sprawdzenie czy komenda istnieje](#sprawdzenie-czy-komenda-istnieje)
 * [Wyszukiwanie za pomocą ripgrep (rg)](#wyszukiwanie-za-pomoc-ripgrep-rg)
+* [Polecenie fd](#polecenie-fd)
 
 <!-- vim-markdown-toc -->
 
@@ -44,24 +44,6 @@
 - [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
 - [sd](https://github.com/chmln/sd)
 - [fd - fd-find](https://github.com/sharkdp/fd)
-
-# Polecenie fd
-
-```bash
-fd . --ignore-file .gitignore --hidden
-```
-
-Ignorowanie plików zawierających się w podanym pliku np. `.gitignore`
-
-```bash
---ignore-file .gitignore
-```
-
-Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
-
-```bash
---hidden
-```
 
 # Zmienne specjalne
 
@@ -507,6 +489,13 @@ fi
 
 # Wyszukiwanie za pomocą ripgrep (rg)
 
+**PRZYDATNE PARAMETRY**
+
+- `-u` zastępuje `--no-ignore`
+- `-uu` zastępuje `--no-ignore --hidden`
+- `-uuu` zastępuje `--no-ignore --hidden --binary`
+
+
 Wyszukiwanie wyrazu we wszystkich plikach bieżącego katalogu
 
 ```bash
@@ -546,3 +535,28 @@ Wyszukiwanie w plikach i katalogach ukrytych zaczynających się od `.`
 ```bash
 rg --hidden github
 ```
+
+Wyszukanie wszyskich plików, w których nie ma linii zaczynającej się od `#!`
+
+```bash
+rg -uu --files-without-match "^#!"
+```
+
+# Polecenie fd
+
+```bash
+fd . --ignore-file .gitignore --hidden
+```
+
+Ignorowanie plików zawierających się w podanym pliku np. `.gitignore`
+
+```bash
+--ignore-file .gitignore
+```
+
+Wyszukiwanie ukrytych plików zaczynających się od znaku `.`
+
+```bash
+--hidden
+```
+
