@@ -1,4 +1,8 @@
-# Kompilacja DWM
+# Kompilacja
+
+- [kompilacja](docs/kompilacja/fontmatrix.md)
+
+# DWM
 
 ```
 dnf install libX11-devel
@@ -6,7 +10,7 @@ dnf install libXft-devel
 dnf install libXinerama-devel
 ```
 
-# Kompilacja ST
+# ST
 
 ```
 dnf install libX11-devel
@@ -14,7 +18,7 @@ dnf install libXft-devel
 dnf install harfbuzz-devel
 ```
 
-# Kompilacja clipnotify
+# clipnotify
 
 - https://github.com/cdown/clipnotify
 
