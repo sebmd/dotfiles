@@ -152,8 +152,17 @@ Edycja pliku pliku konfiguracyjnego `tmux`
 
 ## .v
 
+Plik `vimrc` jest podzielony na kilka plików, alias `.v` uruchamia Skrypt
+`~/bin/vimrc`, który wyświetla pliki konfiguracyjne w FZF.
+
 ```bash
-alias .v="$EDITOR -c 'e \$MYVIMRC'"
+alias .v="$HOME/bin/vimrc"
+```
+
+```bash
+#!/usr/bin/env bash
+
+vim $(ls ~/.vim/vimrc ~/.vim/*.vim|fzf -m --tac --prompt="Wybierz plik do edycji: ")
 ```
 
 Edycja pliku edytora Vim

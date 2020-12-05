@@ -83,6 +83,7 @@
 * [Utworzenie brakującego katalgou](#utworzenie-brakujcego-katalgou)
 * [Wstawienie daty i godziny w linii numer 2](#wstawienie-daty-i-godziny-w-linii-numer-2)
 * [Wykrycie systemu operacyjnego](#wykrycie-systemu-operacyjnego)
+* [Wyświetlanie wiadomości](#wywietlanie-wiadomoci)
 
 <!-- vim-markdown-toc -->
 
@@ -1009,3 +1010,14 @@ if system('uname') =~ "Linux"
     echo 'Wykryłem system Linux'
 endif
 ```
+
+# Wyświetlanie wiadomości
+
+Komenda `:echo` wyświetla wiadomość, ale nie zostaje zapisana w historii
+wiadomości.
+
+Komenda `:echom` wyświtla wiadomośći i możemy zobaczyć jej treść za pomocą
+polecenia `:messages`
+
+Komenda `:echoe` wyświetla wiadomość jako błąd i można ją zobaczyć w historii
+wiadomości.
