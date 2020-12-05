@@ -1,6 +1,17 @@
 # Kompilacja
 
+- [alacritty](kompilacja/alacritty.md)
+- [bat](kompilacja/bat.md)
+- [broot](kompilacja/broot.md)
 - [clipnotify](kompilacja/clipnotify.md)
 - [dwm](kompilacja/dwm.md)
 - [fontmatrix](kompilacja/fontmatrix.md)
+- [fzf](Kompilacja/fzf.md)
+- [gh-cli](kompilacja/gh.md)
+- [glow](kompilacja/glow.md)
+- [lazygit](kompilacja/lazygit.md)
+- [lf](kompilacja/lf.md)
+- [maple](kompilacja/maple.md)
+- [neomutt](kompilacja/neomutt.md)
+- [skim / sk](sk.md)
 - [st](kompilacja/st.md)

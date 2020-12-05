@@ -1,4 +1,6 @@
-# ST
+# st
+
+- `st` https://github.com/LukeSmithxyz/st
 
 ```
 dnf install libX11-devel
