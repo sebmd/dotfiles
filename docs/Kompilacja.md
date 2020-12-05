@@ -1,6 +1,6 @@
 # Kompilacja
 
-- [kompilacja](docs/kompilacja/fontmatrix.md)
+- [kompilacja](kompilacja/fontmatrix.md)
 
 # DWM
 
