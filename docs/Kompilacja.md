@@ -13,5 +13,6 @@
 - [lf](kompilacja/lf.md)
 - [maple](kompilacja/maple.md)
 - [neomutt](kompilacja/neomutt.md)
+- [neovim](kompilacja/neovim.md)
 - [skim / sk](kompilacja/skim.md)
 - [st](kompilacja/st.md)
