@@ -16,3 +16,4 @@
 - [neovim](kompilacja/neovim.md)
 - [skim / sk](kompilacja/skim.md)
 - [st](kompilacja/st.md)
+- [vim](kompilacja/vim.md)
