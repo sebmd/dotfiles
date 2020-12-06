@@ -824,6 +824,28 @@ Uruchamia polecenie `history`
 alias h="history"
 ```
 
+## man
+
+Uruchamia stronę podręcznika man przez edytor Vim
+
+```bash
+alias man="$HOME/bin/man-vim.sh"
+```
+
+```bash
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+    /usr/bin/man
+else
+    if man -w $* >/dev/null 2>/dev/null; then
+        /usr/bin/man $* |col -b|vim -u $HOME/.vim/man.vim -
+    else
+        echo "Brak strony: $*"
+    fi
+fi
+```
+
 ## more
 
 Zastępuje program `more` programem `less`

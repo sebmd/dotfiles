@@ -99,6 +99,7 @@ alias t=tmux
 alias ta="tmux atta"
 alias v=vim
 alias vim="vim"
+alias man="$HOME/bin/man-vim.sh"
 
 # Procesy
 
