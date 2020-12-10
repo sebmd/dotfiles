@@ -5,6 +5,7 @@ Monitor Off
 Pulseaudio restart
 bspwm reload
 sxhkd restart
+Polybar toggle
 Polybar restart
 Books
 Wyczyść hasło do agenta GPG
@@ -53,6 +54,10 @@ if [ "$menu" == "Polybar restart" ]; then
     pkill polybar
     sleep 3
     polybar example
+fi
+
+if [ "$menu" == "Polybar toggle" ]; then
+    polybar-msg cmd toggle
 fi
 
 if [ "$menu" == "Edit Menu" ]; then
