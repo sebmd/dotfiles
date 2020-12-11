@@ -489,6 +489,14 @@ if [ ! -z $KATALOG ]; then
 fi
 ```
 
+## cdw
+
+Zmienia katalog na `~/workspace`
+
+```bash
+alias cdw="cd $HOME/workspace"
+```
+
 ## dchmod
 
 Nadaje odpowiednie uprawnienia dla katalogów `755`
@@ -844,6 +852,25 @@ else
         echo "Brak strony: $*"
     fi
 fi
+```
+
+Konfiguracja dla Vim w pliku `~/.vim/man.vim`
+
+```vim
+source $VIMRUNTIME/defaults.vim
+syntax on
+set ft=man
+colo industry
+set background=dark
+set buftype=nofile
+
+" mapowanie klawiszy
+nmap q :q<cr>
+nmap Q :q<cr>
+map n nzz
+map N Nzz
+map d <c-d>
+map u <c-u>
 ```
 
 ## more
