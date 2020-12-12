@@ -1,16 +1,6 @@
 "
 " https://github.com/sebmd/dotfiles
 "
-" ~/.vim/vimrc_abbr.vim
-" ~/.vim/vimrc_autocmd_functions.vim
-" ~/.vim/vimrc_encrypt.vim
-" ~/.vim/vimrc_mappings.vim
-" ~/.vim/vimrc_mappings_which_key.vim
-" ~/.vim/vimrc_plugins_setting.vim
-" ~/.vim/vimrc_plugins.vim
-" ~/.vim/vimrc_settings.vim
-"
-
 " WYłącza wsteczną kompatybilność z edytorem Vi
 set nocompatible
 

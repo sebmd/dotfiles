@@ -32,9 +32,6 @@ autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
 autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
-
-autocmd BufRead ~/.vim/vimrc_plugins.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Plugins.md<cr>
-autocmd BufRead ~/.vim/vimrc_mappings.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Mappings.md<cr>
 ```
 
 - `j` - zmapowany jako skrót `gj`
@@ -90,6 +87,8 @@ autocmd BufRead ~/.vim/vimrc_mappings.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/V
 
 **Klawisz LEADER**
 
+- `<leader><F1>` - pliki docs/VIM*.md
+- `<leader><F2>` - pliki konfiguracyjne edytora Vim
 - `<leader>h` - przechodzi na początek linii
 - `<leader>l` - przechodzi na koniec linii
 - `<leader>;` - wchodzi do trybu komend - `:`

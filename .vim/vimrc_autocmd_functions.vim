@@ -42,6 +42,16 @@ function! RgCurrDir(query, fullscreen)
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
+" Pliki markdown docs/VIM*
+function! Docs()
+    call fzf#run(fzf#wrap({'source': 'ls $DOTFILES_DIR/docs/VIM*.md'}))
+endfunction
+
+" Pliki konfiguracyjne
+function! VimFiles()
+    call fzf#run(fzf#wrap({'source': 'ls $DOTFILES_DIR/.vim/vimrc*'}))
+endfunction
+
 " ProjectFiles
 function! s:find_git_root()
     return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]

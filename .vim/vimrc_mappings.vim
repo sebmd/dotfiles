@@ -182,6 +182,9 @@ nnoremap <leader>e :exe "e ~/notes/".strftime("%F").".md"<cr><bar>:InsertDiaryHe
 nnoremap <leader>en :e ~/notes/notatki.md<cr>
 nnoremap <leader>Fn :Notes<cr>
 
+nnoremap <leader><F1> :call Docs()<cr>
+nnoremap <leader><F2> :call VimFiles()<cr>
+
 cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
 command! Q :q!
@@ -214,6 +217,3 @@ autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
 autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
-
-autocmd BufRead ~/.vim/vimrc_plugins.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Plugins.md<cr>
-autocmd BufRead ~/.vim/vimrc_mappings.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Mappings.md<cr>
