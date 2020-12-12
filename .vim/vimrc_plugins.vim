@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-abolish'
+    Plug 'vim-scripts/ReplaceWithRegister'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'tpope/vim-unimpaired'
     Plug 'junegunn/gv.vim'

@@ -13,7 +13,6 @@
     * [Poruszanie się po ekranie](#poruszanie-si-po-ekranie)
     * [Przewijanie pliku](#przewijanie-pliku)
     * [Bufory](#bufory)
-    * [Zmiany zachowania standardowych skrótów](#zmiany-zachowania-standardowych-skrótów)
 * [Tryb COMMAND](#tryb-command)
 * [Tryb INSERT](#tryb-insert)
 * [Edycja](#edycja)
@@ -205,81 +204,6 @@ Bufory i Pluginy
 
 - `:Buffers` - interaktywna lista buforów
 - `<leader>b` - uruchamia polecenie `:Buffers`
-
-## Zmiany zachowania standardowych skrótów
-
-- `j` - zmapowany jako skrót `gj`
-- `k` - zmapowany jako skrót `gk`
-- `gj` - przechodzi do następnej zmiany w pliku, jeśli ten jest w repozytorium
-  Git, jest to funkcjonalność pluginu Signify
-- `gk` - przechodzi do poprzedniej zmiany w pliku, jeśli ten jest w repozytorium
-  Git, jest to funkcjonalność pluginu Signify
-- `gJ` - przechodzi do ostatniej zmiany w pliku, jeśli ten jest w repozytorium
-  Git, jest to funkcjonalność pluginu Signify
-- `gK` - przechodzi do pierwszej zmiany w pliku, jeśli ten jest w repozytorium
-  Git, jest to funkcjonalność pluginu Signify
-- `J` - łączy dwie linie nie zmieniając pozycji kursora
-- `Y` - kopiuje od kursora do końca linii
-- `n` - zmapowany jako `nzz`
-- `N` - zmapowany jako `Nzz`
-- `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
-- `Q` - w trybie komend zamyka edytor bez zapisywania `:q!`
-- `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
-- `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
-
-**Podstawowe skróty**
-
-- `th` - wyłącza podświetlanie wyszukiwanego tekstu
-- `qq` - wychodzi z edytora zastępuje `:q`
-- `qw` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
-- `Q` - odtwarza zapisane makro `a` czyli zastępuje skrót `@a`
-- `<tab>` - przechodzi pomiędzy dwoma ostatnimi buforami
-- `dh` - usuwa od kursora do początku linii - `d0`
-- `dl` - usuwa od kursora do końca linii - `d$`
-- `gh` - przechodzi na początek linii
-- `gl` - przechodzi na koniec linii (nie działa z plikami vimwiki)
-- `<ctrl-/>` - wstawia znak komentarza na początku linii, jest to
-  funkcjonalność pluginu Commentary
-- `<esc>h` - przechodzi do poprzedniego bufora
-- `<esc>l` - przechodzi do następnego bufora
-
-**Klawisz LEADER**
-
-- `<leader>h` - przechodzi na początek linii
-- `<leader>l` - przechodzi na koniec linii
-- `<leader>;` - wchodzi do trybu komend - `:`
-- `<leader>,` - przechodzi do poprzedniego bufora
-- `<leader>.` - przechodzi do następnego bufora
-- `<leader>o` - ustawia bieżące okno jako główne chowając resztę okien
-- `<leader>cd` - przechodzi do katalogu w którym znajduje się edytowany plik
-- `<leader>cp` - klonuje bieżący paragraf
-- `<leader>pa` - wchodzi / wychodzi w tryb paste
-- `<leader>v` - otwiera plik `vimrc`
-- `<leader>r` - przeładowuje plik `vimrc`
-- `<leader>t` - uruchamia terminal (podział poziomy)
-- `<leader>tv` - uruchamia terminal (podział pionowy)
-- `<leader>E` - uruchamia bieżącą linię jako polecenie systemowe wynik wkleja do bufora
-- `<leader>ve` - uruchamia bieżącą linię jako polecenie edytora Vim
-- `<leader>w` - zapisuje plik ` :update`
-- `<leader>s` - uruchamia sprawdzanie pisowni
-- `<leader>a` - wyrównuje paragraf `=ip` i zawija linie na długość 80 znaków `gqap`
-- `<leader>e` - otwiera nowy plik dziennika w katalogu `~/notes`
-- `<leader>d` - uruchamia funkcję `DestractionFree`
-- `<leader>pr` - uruchamia polecenie `:ProjectFiles` w głównym katalogu repozytorium Git
-- `<leader>gp` - uruchamia skrypt `~/bin/gp` dodaje plik do repozytorium Git,
-  następnie wykonuje commit i push.
-- `<leader>g` - uruchamia polecenie `:Rg` - przeszukiwanie pliku
-- `<leader>gc` - uruchamia polecenie `:GCheckout`
-- `<leader>u` - uruchamia plugin Undotree
-- `<leader>y` - uruchamia polecenie `:YRShow`
-
-Niestandardowe Skróty
-
-- `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
-- `<leader>,` - przechodzi do poprzedniego bufora
-- `<leader>.` - przechodzi do następnego bufora
-- `<esc>h` - przechodzi do poprzedniego bufora
-- `<esc>l` - przechodzi do następnego bufora
 
 **Okna**
 

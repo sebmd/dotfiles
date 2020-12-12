@@ -214,3 +214,6 @@ autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
 autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
 autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
+
+autocmd BufRead ~/.vim/vimrc_plugins.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Plugins.md<cr>
+autocmd BufRead ~/.vim/vimrc_mappings.vim nnoremap <F1> :vs $DOTFILES_DIR/docs/VIM_Mappings.md<cr>
