@@ -69,37 +69,42 @@
 ## gruvbox
 
 Instalacja
-```
+
+```vim
 Plug 'gruvbox-community/gruvbox'
 ```
 
 ## gruvbox-material
 
 Instalacja
-```
+
+```vim
 Plug 'sainnhe/gruvbox-material'
 ```
 
 ## base16-vim
 
 Instalacja
-```
+
+```vim
 Plug 'chriskempson/base16-vim'
 ```
 
 ## vim-colorschemes
 
 Instalacja
-```
+
+```vim
 Plug 'flazz/vim-colorschemes'
 ```
 
 ## vim-colorscheme-manager
  
  Instalacja
- ```
- Plug 'Taverius/vim-colorscheme-manager'
- ```
+
+```vim
+Plug 'Taverius/vim-colorscheme-manager'
+```
 
 ## vim-colorscheme-switcher
 
@@ -108,7 +113,8 @@ Przełączanie kolorów
 Do pracy plugin wymaga pluginu `xolox/vim-misc`
 
 Instalacja
-```
+
+```vim
 Plug 'xolox/vim-colorscheme-switcher'
 Plug 'xolox/vim-misc'
 ```
@@ -118,7 +124,8 @@ Plug 'xolox/vim-misc'
 ## AutoComplPop
 
 Instalacja
-```
+
+```vim
 Plug 'vim-scripts/AutoComplPop'
 ```
 
@@ -129,7 +136,8 @@ Do pracy pluginu jest wymagany `nodejs`
 - https://github.com/neoclide/coc.nvim
 
 Instalacja
-```
+
+```vim
 Plug 'neoclide/coc.nvim'
 ```
 
@@ -139,7 +147,8 @@ Plugin wymagan Pythona > 3.5 oraz dodatkowych pakietów do kompilacji
 oprogramowania.
 
 Instalacja
-```
+
+```vim
 Plug 'ycm-core/YouCompleteMe'
 ```
 
@@ -150,21 +159,24 @@ Plug 'ycm-core/YouCompleteMe'
 Integracja NERDTree z repozytoriami Git
 
 Instalacja
-```
+
+```vim
 Plug 'Xuyuanp/nerdtree-git-plugin'
 ```
 
 ## fern-bookmark.vim
 
 Instalacja
-```
+
+```vim
 Plug 'lambdalisue/fern-bookmark.vim'
 ```
 
 ## fern-renderer-nerdfont.vim
 
 Instalacja
-```
+
+```vim
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 ```
 
@@ -173,28 +185,32 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Menadżer plików Fern
 
 Instalacja
-```
+
+```vim
 Plug 'lambdalisue/fern.vim'
 ```
 
 ## nerdfont.vim
 
 Instalacja
-```
+
+```vim
 Plug 'lambdalisue/nerdfont.vim'
 ```
 
 ## nnn.vim
 
 Instalacja
-```
+
+```vim
 Plug 'mcchrish/nnn.vim'
 ```
 
 ## NERDTree
 
 Instalacja
-```
+
+```vim
 Plug 'preservim/nerdtree'
 ```
 
@@ -203,21 +219,24 @@ Plug 'preservim/nerdtree'
 ## memolist.vim
 
 Instalacja
-```
+
+```vim
 Plug 'glidenote/memolist.vim'
 ```
 
 ## vimwiki
 
 Instalacja
-```
+
+```vim
 Plug 'vimwiki/vimwiki'
 ```
 
 ## vim-bujo
 
 Instalacja
-```
+
+```vim
 Plug 'vuciv/vim-bujo'
 ```
 
@@ -226,12 +245,14 @@ Plug 'vuciv/vim-bujo'
 Generowanie i automatyczna aktualizacja spisu treści w plikach Markdown
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/vim-markdown-toc'
 ```
 
 Generowanie spisu treści
-```
+
+```vim
 :GenTocGFM
 ```
 
@@ -240,35 +261,40 @@ Generowanie spisu treści
 ## gv.vim
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/gv.vim'
 ```
 
 ## vim-signify
 
 Instalacja
-```
+
+```vim
 Plug 'mhinz/vim-signify'
 ```
 
 ## vim-fugitive
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-fugitive'
 ```
 
 ## git-messenger.vim
 
 Instalacja
-```
+
+```vim
 Plug 'rhysd/git-messenger.vim'
 ```
 
 ## fzf-checkout.vim
 
 Instalacja
-```
+
+```vim
 Plug 'stsewd/fzf-checkout.vim'
 ```
 
@@ -277,112 +303,128 @@ Plug 'stsewd/fzf-checkout.vim'
 ## fzf
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 ```
 
 ## fzf.vim
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/fzf.vim'
 ```
 
 ## fzf-preview.vim
 
 Instalacja
-```
+
+```vim
 Plug 'chengzeyi/fzf-preview.vim'
 ```
 
 ## indentLine
 
 Instalacja
-```
+
+```vim
 Plug 'Yggdroot/indentLine'
 ```
 
 ## ale
 
 Instalacja
-```
+
+```vim
 Plug 'dense-analysis/ale'
 ```
 
 ## ctrlsf.vim
 
 Instalacja
-```
+
+```vim
 Plug 'dyng/ctrlsf.vim'
 ```
 
 ## vim-easymotion
 
 Instalacja
-```
+
+```vim
 Plug 'easymotion/vim-easymotion'
 ```
 
 ## goyo.vim
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/goyo.vim'
 ```
 
 ## limelight.vim
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/limelight.vim'
 ```
 
 ## vim-peekaboo
 
 Instalacja
-```
+
+```vim
 Plug 'junegunn/vim-peekaboo'
 ```
 
 ## vim-cheat40
 
 Instalacja
-```
+
+```vim
 Plug 'lifepillar/vim-cheat40'
 ```
 
 ## vim-clap
 
 Instalacja
-```
+
+```vim
 Plug 'liuchengxu/vim-clap'
 ```
 
 ## vim-which-key
 
 Instalacja
-```
+
+```vim
 Plug 'liuchengxu/vim-which-key'
 ```
 
 ## undotree
 
 Instalacja
-```
+
+```vim
 Plug 'mbbill/undotree'
 ```
 
 ## vim-startify
 
 Instalacja
-```
+
+```vim
 Plug 'mhinz/vim-startify'
 ```
 
 ## pear-tree
 
 Instalacja
-```
+
+```vim
 Plug 'tmsvg/pear-tree'
 ```
 
@@ -405,14 +447,16 @@ let g:pear_tree_pairs = {
 ## vim-abolish
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-abolish'
 ```
 
 ## vim-commentary
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-commentary'
 ```
 
@@ -451,14 +495,16 @@ Plug 'tpope/vim-surround'
 ## vim-unimpaired
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-unimpaired'
 ```
 
 ## quick-scope
 
 Instalacja
-```
+
+```vim
 Plug 'unblevable/quick-scope'
 ```
 
@@ -467,7 +513,8 @@ Plug 'unblevable/quick-scope'
 Linia statusu
 
 Instalacja
-```
+
+```vim
 Plug 'vim-airline/vim-airline'
 ```
 
@@ -476,13 +523,14 @@ Plug 'vim-airline/vim-airline'
 Tematy dla linii statusu
 
 Instalacja
-```
+
+```vim
 Plug 'vim-airline/vim-airline-themes'
 ```
 
 ## vim-go
 
-```
+```vim
 Plug 'fatih/vim-go'
 ```
 
