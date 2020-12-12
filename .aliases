@@ -38,12 +38,12 @@ alias .d="cd $HOME/git/github/dotfiles"
 alias .git="cd $HOME/git"
 alias .h="cd $HOME"
 alias .src="cd $HOME/src"
+alias .w="cd $HOME/workspace"
 alias cdb="source ~/bin/cdb"
 alias cdba="source ~/bin/cdba"
 alias cdbd="source ~/bin/cdbd"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cdf="source $HOME/bin/cdf"
-alias cdw="cd $HOME/workspace"
 
 function cd() {
     builtin cd "$@" && cd_func;
