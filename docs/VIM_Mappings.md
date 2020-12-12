@@ -27,11 +27,6 @@ autocmd filetype go nnoremap <leader>5 :w <bar> :GoRun<cr>
 
 autocmd Filetype help nnoremap <leader>l <c-]>
 autocmd Filetype help nnoremap <leader>h <c-t>
-
-autocmd BufRead,BufNewFile */playbooks/*.yaml set filetype=yaml.ansible
-autocmd BufRead,BufNewFile playbook.yaml set filetype=yaml.ansible
-autocmd BufRead,BufNewFile */rules/*/*.yaml set filetype=yaml.ansible
-autocmd Filetype yaml.ansible setlocal sts=2 sw=2 ts=2
 ```
 
 - `j` - zmapowany jako skrót `gj`
