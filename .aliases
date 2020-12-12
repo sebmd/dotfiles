@@ -43,7 +43,7 @@ alias cdba="source ~/bin/cdba"
 alias cdbd="source ~/bin/cdbd"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cdf="source $HOME/bin/cdf"
-alias cdw=$cd $HOME/workspace"
+alias cdw="$cd $HOME/workspace"
 
 function cd() {
     builtin cd "$@" && cd_func;
