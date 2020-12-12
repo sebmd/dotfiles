@@ -53,6 +53,7 @@
     * [vim-commentary](#vim-commentary)
     * [vim-eunuch](#vim-eunuch)
     * [vim-repeat](#vim-repeat)
+    * [ReplaceWithRegister](#replacewithregister)
     * [vim-surround](#vim-surround)
     * [vim-unimpaired](#vim-unimpaired)
     * [quick-scope](#quick-scope)
@@ -418,21 +419,32 @@ Plug 'tpope/vim-commentary'
 ## vim-eunuch
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-eunuch'
 ```
 
 ## vim-repeat
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-repeat'
+```
+
+## ReplaceWithRegister
+
+Instalacja
+
+```vim
+Plug 'vim-scripts/ReplaceWithRegister'
 ```
 
 ## vim-surround
 
 Instalacja
-```
+
+```vim
 Plug 'tpope/vim-surround'
 ```
 
