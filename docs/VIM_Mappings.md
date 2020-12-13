@@ -2,32 +2,13 @@
 
 *2020-12-12 14:30:27*
 
-Klawisz LEADER i LOCALLEADER
+## Klawisz LEADER i LOCALLEADER
 
-Jako klawisz LEADER jest użyta spacja
+Jako klawisz **LEADER** jest użyta `spacja`
 
-Jako klawisz LOCALLEADER jest użyty klawisz \
+Jako klawisz **LOCALLEADER** jest użyty klawisz `\`
 
-```vim
-" odtwarza nagrane makro a
-nnoremap Q @a
-vnoremap Q :norm @a<cr>
-" inore kj <esc>
-
-" \F wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
-nnoremap <localleader>F :echo expand("%:p")<cr>
-
-" kopiuj / wklej do schowka systemowego
-vnoremap <c-c> "*y :let @+=@*<cr>
-nnoremap <c-c> "*y :let @+=@*<cr>
-map <c-p> "+P
-
-autocmd filetype python nnoremap <leader>5 :w <bar> :!python3 % <cr>
-autocmd filetype go nnoremap <leader>5 :w <bar> :GoRun<cr>
-
-autocmd Filetype help nnoremap <leader>l <c-]>
-autocmd Filetype help nnoremap <leader>h <c-t>
-```
+## Tryb NORMAL
 
 - `j` - zmapowany jako skrót `gj`
 - `k` - zmapowany jako skrót `gk`
@@ -47,20 +28,14 @@ autocmd Filetype help nnoremap <leader>h <c-t>
 - `Q` - w trybie komend zamyka edytor bez zapisywania `:q!`
 - `x` - usuwa pojedynczy znak pod kursorem, ale nie zapisuje go w rejestrze
 - `X` - usuwa pojedynczy znak przed kursorem, ale nie zapisuje go w rejestrze
-
 - `,e` - uruchamia polecenie `:e nazwa_pliku`
 - `,s` - uruchamia polecenie `:sp nazwa_pliku`
 - `,v` - uruchamia polecenie `:vs nazwa pliku`
-
-- `<ctrl-s>` `:update`
-
+- `<ctrl-s>` - zapisuje zmiany w pliku `:update`
 - `<ctrl-h>` - przechodzi do okna po lewej
 - `<ctrl-j>` - przechodzi do okna na dole
 - `<ctrl-k>` - przechodzi do okna u góry
 - `<ctrl-l>` - przechodzi do okna po prawej
-
-**Podstawowe skróty**
-
 - `th` - wyłącza podświetlanie wyszukiwanego tekstu
 - `qq` - wychodzi z edytora zastępuje `:q`
 - `qw` - zapisuje zmiany `:update` i wychodzi z edytora `:q`
@@ -75,10 +50,19 @@ autocmd Filetype help nnoremap <leader>h <c-t>
 - `<esc>h` - przechodzi do poprzedniego bufora
 - `<esc>l` - przechodzi do następnego bufora
 
+**kopiuj / wklej do schowka systemowego**
+
+- `<ctrl-c>` - `"*y :let @+=@*<cr>`
+- `<ctrl-c>` - `"*y :let @+=@*<cr>`
+- `<ctrl-p>` - `"+P`
 - `n` - zastąpiony przez `nzz`
 - `N` - zastąpiony przez `Nzz`
-
 - `Y` - zastąpiony przez `y$`
+
+**Skróty w plikach pomocy Vim**
+
+- `<leader>l` - `<c-]>`
+- `<leader>h` - `<c-t>`
 
 **Klawisz LEADER**
 
@@ -113,28 +97,27 @@ autocmd Filetype help nnoremap <leader>h <c-t>
 - `<leader>y` - uruchamia polecenie `:YRShow`
 - `<leader>f` - uruchamia menadżer plików Fern
 - `<leader>n` - uruchamia menadżer plików NERDTree
-
 - `<leader>sn` kopiuje linię / zaznaczenie do pliku ~/notes/notatki.md
 - `<leader>sN` przenosi linię / zaznaczenie do pliku ~/notes/notatki.md
 - `<leader>e` otwiera plik ~/notes/ + bieżąca data
 - `<leader>en` otwiera plik ~/notes/notatki.md
 - `<leader>Fn` wyszukiwanie plików z podglądem w katalogu ~/notes/
+- `<leader>5` - uruchamia skrypt języka Python
+- `<leader>5` - uruchamia program Go
+- `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
+- `<leader>,` - przechodzi do poprzedniego bufora
+- `<leader>.` - przechodzi do następnego bufora
+- `<esc>h` - przechodzi do poprzedniego bufora
+- `<esc>l` - przechodzi do następnego bufora
+- `<localleader>F` - wyświetla pełną ścieżkę dla pliku wraz z jego nazwą
 
-Obsługa pluginu vim-surround
+**Obsługa pluginu vim-surround**
 
 - `<leader>sw` czeka na wprowadzenie znaku, którym otoczy wyraz
 - `<leader>sW` czeka na wprowadzenie znaku, którym otoczy WYRAZ
 - `<leader>sp` czeka na wprowadzenie znaku, który otoczy paragraf
 - `<leader>ss` czeka na wprowadzenie znaku, którym otoczy linię
 - `<leader>sd` czeka na wprowadzenie znaku, którym zostanie usunięty
-
-Niestandardowe Skróty
-
-- `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
-- `<leader>,` - przechodzi do poprzedniego bufora
-- `<leader>.` - przechodzi do następnego bufora
-- `<esc>h` - przechodzi do poprzedniego bufora
-- `<esc>l` - przechodzi do następnego bufora
 
 ## Tryb INSERT
 
@@ -144,31 +127,32 @@ Niestandardowe Skróty
 - `<ctrl-k>` - linia w górę
 - `<ctrl-l>` - jeden znak w prawo
 - `<ctrl-c>` - klawisz ESC
+- `<ctrl-s>` - Zapisuje plik `<esc>:update<cr>a`
 
-- <ctrl-s> <esc>:update<cr>a
+**Praca z plikami**
 
 - `,fp` - wstawia bieżący katalog
 - `,fn` - wstawia nazwę edytowanego pliku
 - `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia
 - `,fnn` - wstawia nazwę edytowanego pliku wraz z pełną ścieżką
 
-Tryb INSERT w plikach Markdown i Vimwiki
-- `,m` - <esc>:InsertLogEntry<cr>
-- `,m` - :InsertLogEntry<cr>
-- `,,` - <esc>/<++><cr>"_c4l
-- `,n` - ----<cr>
-- `,b` - ****<space><++><esc>F*hi
-- `,s` - ~~~~<space><++><esc>F~hi
+**Tryb INSERT w plikach Markdown i Vimwiki**
+
+- `,m` - wstawia nagłówek # oraz aktualną datę i godzinę
+- `,,` - przechodzi do znacznika `<++>`
+- `,n` - wstawia `----`
+- `,b` - wstawia **pogrubienie**
+- `,s` - wstawia ~~przekreślenie~~
 - `,e` - **<++><esc>F*i
-- `,h` - ====<space><++><esc>F=hi
-- `,i` - ![](<++>)<++><esc>F[a
-- `,a` - [](<++>)<++><esc>F[a
-- `,1` - #<space><cr><cr><++><esc>2kA
-- `,2` - ##<space><cr><cr><++><esc>2kA
-- `,3` - ###<space><cr><cr><++><esc>2kA
-- `,4` - ####<space><cr><cr><++><esc>2kA
-- `,l` - --------<cr>
-- `,c` - ```<cr>```<cr><esc>O
+- `,h` - wstawia `== ==`
+- `,i` - wstawia obraz (png, jpg)
+- `,a` - wstawia link do strony
+- `,1` - wstawia nagłówek #
+- `,2` - wstawia nagłówek ##
+- `,3` - wstawia nagłówek ###
+- `,4` - wstawia nagłówek ####
+- `,l` - wstawia --------
+- `,c` - wstawia znacznik kodu
 - `,t` - wstawia datę i godzinę `2020-12-12 14:21:28`
 
 ## Tryb COMMAND
@@ -177,14 +161,10 @@ Tryb INSERT w plikach Markdown i Vimwiki
 - `,fn` - wstawia nazwę edytowanego pliku
 - `,fnr` - wstawia nazwę edytowanego pliku bez rozszerzenia
 - `,fnn` - wstawia nazwę edytowanego pliku wraz z pełną ścieżką
-
 - `<ctrl-h>` - jeden znak w lewo
 - `<ctrl-j>` - linia w dół
 - `<ctrl-k>` - linia w górę
 - `<ctrl-l>` - jeden znak w prawo
 - `<ctrl-c>` - klawisz ESC
-
-cnoremap $c e <c-\>eCurrentFileDir()<cr>
-
-command! Q :q!
-
+- `$c` - wstawia do linii komend :e oraz_bieżący_katalog
+- `Q` - wychodzi z edytora bez zapisania zmian `:q!`
