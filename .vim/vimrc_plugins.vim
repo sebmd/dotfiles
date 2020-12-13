@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-markdown-toc'
     Plug 'junegunn/vim-peekaboo'  " pokazuje zawartość rejestrów (schowka)
     " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    " Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
     Plug 'vim-scripts/YankRing.vim' " :YRShow pokazuje ostatnio kopiowany tekst
     Plug 'tpope/vim-commentary'  " dodaje znak komentarza dla różnych plików
     Plug 'tpope/vim-repeat'
