@@ -38,7 +38,7 @@ Wymagane dodatkowe oprogramowanie:
 ## .a
 
 ```bash
-alias .a="$EDITOR $HOME/.aliases && source $HOME/.aliases"
+alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 ```
 
 Edycja aliasów `$HOME/.config/aliases`
