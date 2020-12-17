@@ -6,6 +6,8 @@
 .vim/undo
 .vim/view
 .vim/viminfo
+.config/vars_local
+.config/aliases_local
 bin/README.md
 bin/alacritty
 bin/bat

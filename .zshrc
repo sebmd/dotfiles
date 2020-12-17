@@ -1,11 +1,11 @@
 # zshrc
 
-if [[ -f ~/.aliases ]]; then
-    source ~/.aliases
+if [[ -f ~/.config/aliases ]]; then
+    source ~/.config/aliases
 fi
 
-if [[ -f ~/.aliases_prv ]]; then
-    source ~/.aliases_prv
+if [[ -f ~/.config/aliases_prv ]]; then
+    source ~/.config/aliases_prv
 fi
 
 if [[ -f "$HOME/.zsh/host/$(hostname -s)" ]]; then

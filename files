@@ -1,4 +1,4 @@
-.aliases
+.config/aliases
 .bashrc
 .config/alacritty/alacritty.yml
 .config/bspwm
@@ -12,7 +12,7 @@
 .gnupg/gpg-agent.conf
 .config/dunst
 .tmux.conf
-.vars
+.config/vars
 .vim
 .Xresources
 .Xresources.themes
