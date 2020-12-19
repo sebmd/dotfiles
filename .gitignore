@@ -6,6 +6,7 @@
 .vim/undo
 .vim/view
 .vim/viminfo
+.vim/yankring_history*
 bin/README.md
 bin/alacritty
 bin/bat
@@ -28,11 +29,13 @@ bin/fzf-tmux
 bin/gh
 bin/glow
 bin/gopass
+bin/install.sh
 bin/ion
 bin/joplin
 bin/lazygit
 bin/lf
 bin/maple
+bin/oni
 bin/rg
 bin/sd
 bin/signal
@@ -42,6 +45,4 @@ bin/st
 bin/st-copyout
 bin/st-urlhandler
 bin/st.info
-bin/install.sh
 notes
-.vim/yankring_history*
