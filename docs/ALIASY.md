@@ -53,7 +53,7 @@ Edycja aliasów `$HOME/.config/aliases`
 alias .a="$EDITOR $HOME/.config/aliases_local && source $HOME/.config/aliases_local"
 ```
 
-Edycja aliasów `$HOME/.config/aliases`_local
+Edycja aliasów `$HOME/.config/aliases_local`
 
 ```bash
  vim $HOME/.config/aliases_local && source $HOME/.config/aliases_local
