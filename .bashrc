@@ -6,6 +6,10 @@
 
 [ -f "$HOME/.config/vars_local" ] && . "$HOME/.config/vars_local"
 
+[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
+
+[ -f "$HOME/.config/aliases_local" ] && source "$HOME/.config/aliases_local"
+
 # export PS1="[\u@\h:\w]\\$ \d\[$(tput sgr0)\]"
 # get current branch in git repo
 function parse_git_branch() {
@@ -55,11 +59,6 @@ function parse_git_dirty {
 }
 
 PS1='\[\e[0m\][\[\e[0;38;5;154m\]\D{%Y-%m-%d %B %A %H:%M}\[\e[0m\]]\[\e[0m\][\[\e[0;38;5;45m\]\u\[\e[0;38;5;190m\]@\[\e[0;38;5;45m\]\H\[\e[0m\]]\[\e[m\]\n\[\e[0m\][\[\e[0;38;5;220m\]\!\[\e[0m\]]\[\e[0m\][\[\e[0;38;5;33m\]$?\[\e[0m\]]\e[0;38;5;82m\]$(parse_git_branch)\[\e[0m\][\[\e[0;38;5;45m\]\w\[\e[0m\]]\[\e[0;38;5;82m\]\$\[\e[m\] \[\e0'
-
-# wczytuje plik $HOME/.aliases jeśli istnieje
-[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
-
-[ -f "$HOME/.config/aliases_local" ] && source "$HOME/.config/aliases_local"
 
 # wyłączenie ctrl-s i ctrl-q
 stty -ctlecho

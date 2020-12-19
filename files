@@ -1,4 +1,5 @@
 .config/aliases
+.config/vars
 .bashrc
 .config/alacritty/alacritty.yml
 .config/bspwm
