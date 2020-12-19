@@ -38,13 +38,25 @@ Wymagane dodatkowe oprogramowanie:
 ## .a
 
 ```bash
-alias .a="$EDITOR $HOME/.aliases && source $HOME/.aliases"
+alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 ```
 
-Edycja aliasów `$HOME/.aliases`
+Edycja aliasów `$HOME/.config/aliases`
 
 ```bash
- vim $HOME/.aliases && source $HOME/.aliases
+ vim $HOME/.config/aliases && source $HOME/.config/aliases
+```
+
+## .al
+
+```bash
+alias .a="$EDITOR $HOME/.config/aliases_local && source $HOME/.config/aliases_local"
+```
+
+Edycja aliasów `$HOME/.config/aliases`_local
+
+```bash
+ vim $HOME/.config/aliases_local && source $HOME/.config/aliases_local
 ```
 
 ## .ala
@@ -179,6 +191,22 @@ alias .va="$HOME/bin/vimrc_all"
 #!/usr/bin/env bash
 
 vim $(ls ~/.vim/vimrc ~/.vim/*.vim )
+```
+
+## .vars
+
+Edycja pliku `~/.config/vars`
+
+```bash
+alias .vars="$EDITOR $HOME/.config/vars && source $HOME/.config/vars"
+```
+
+## .varsl
+
+Edycja pliku `~/.config/vars_local`
+
+```bash
+alias .vars="$EDITOR $HOME/.config/vars_local && source $HOME/.config/vars_local"
 ```
 
 ## .xr

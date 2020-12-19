@@ -6,7 +6,12 @@
 .vim/undo
 .vim/view
 .vim/viminfo
+<<<<<<< HEAD
 .vim/yankring_history*
+=======
+.config/vars_local
+.config/aliases_local
+>>>>>>> 68815ce49e0bcbb1389ac3815873b3e84a6ac4ab
 bin/README.md
 bin/alacritty
 bin/bat
