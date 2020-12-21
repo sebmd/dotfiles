@@ -1034,3 +1034,21 @@ Pierwsza linia usuwa ze zmienej `path` katalog `/usr/include`
 set path-=/usr/includ
 set path+=**
 ```
+
+Komenda `:find` posiada możliwość autouzpełniania nazw plików. Po zdefiniowaniu
+w taki sposób zmiennej `path`, będziemy mogli otworzyć plik `kompilacja/dwm.md`
+wpisując jedynie jego nazwę `dwm.md` lub samo `dwm`, a następnie użyć klawisza
+**TAB**, który uzupełni nazwę pliku. Można użyć też polecenia `:fimd *.md` a
+następnie poruszać się klawiszzem **TAB** po znalezionych plikach pasujących do
+wzoraca.
+
+
+```.
+├── ALIASY.md
+└── kompilacja
+    ├── dwm.md
+    └── vim.md
+```
+
+Przy takiej konfiguracji należy zastanowić się czy warto skorzystać z funkcji
+automatycznej zmiany katalogu na właściwy dla otwieranego pliku.
