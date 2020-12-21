@@ -84,6 +84,7 @@
 * [Wstawienie daty i godziny w linii numer 2](#wstawienie-daty-i-godziny-w-linii-numer-2)
 * [Wykrycie systemu operacyjnego](#wykrycie-systemu-operacyjnego)
 * [Wyświetlanie wiadomości](#wywietlanie-wiadomoci)
+* [Przeszukiwanie plików w bieżącej lokalizacji i podkatalogach](#przeszukiwanie-plików-w-biecej-lokalizacji-i-podkatalogach)
 
 <!-- vim-markdown-toc -->
 
@@ -1021,3 +1022,15 @@ polecenia `:messages`
 
 Komenda `:echoe` wyświetla wiadomość jako błąd i można ją zobaczyć w historii
 wiadomości.
+
+# Przeszukiwanie plików w bieżącej lokalizacji i podkatalogach
+
+Za pomocą komendy `:find` można wyszukiwać plików jednak, żeby przeszukiwać
+podkatalogi należy dodać zmienną `path` w pliku konfiguracyjnym `vimrc`
+
+Pierwsza linia usuwa ze zmienej `path` katalog `/usr/include`
+
+```vim
+set path-=/usr/includ
+set path+=**
+```

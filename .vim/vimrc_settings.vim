@@ -2,6 +2,7 @@ set nocompatible                " wyłączenie wstecznej kompatybilności z edyt
 syntax on                       " podkreślanie składni
 set nu rnu                      " number, relativenumber
 set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, smarttab
+set path-=/usr/include
 set path+=**
 set wildmenu
 set wildmode=list:longest,full
