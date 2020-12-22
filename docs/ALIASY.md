@@ -93,11 +93,41 @@ vim $HOME/.config/bspwm/bspwmrc
 
 ## .df
 
+Wyszukuje pliku konfiguracyjnego z listy zamieszczonej w skrypcie `$HOME/bin/dotfiles`
+
 ```bash
 alias .df="$HOME/bin/dotfiles"
 ```
 
-Wyszukuje pliku konfiguracyjnego z listy zamieszczonej w skrypcie `$HOME/bin/dotfiles`
+Skrypt `$HOME/bin/dotfiles`
+
+```bash
+#!/usr/bin/env bash
+
+ARR=(
+    ~/.Xresources
+    ~/.bashrc
+    ~/.config/alacritty/alacritty.yml
+    ~/.config/aliases
+    ~/.config/bmdirs
+    ~/.config/bspwm/autostart.sh
+    ~/.config/bspwm/bspwmrc
+    ~/.config/nvim/init.vim
+    ~/.config/sxhkd/sxhkdrc
+    ~/.config/vars
+    ~/.gitconfig
+    ~/.ssh/config
+    ~/.tmux.conf
+    ~/.vim/vimrc
+    ~/.zshrc
+    )
+
+PLIK=$(printf '%s\n' "${ARR[@]}"|fzf)
+
+if [ "$PLIK" ]; then
+   $EDITOR "$PLIK"
+fi
+```
 
 ## .g
 
