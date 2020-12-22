@@ -14,18 +14,20 @@
 #ARR[12]=$HOME/.zshrc
 
 ARR=(
-    ~/.aliases
+    ~/.Xresources
+    ~/.bashrc
     ~/.config/alacritty/alacritty.yml
+    ~/.config/aliases
+    ~/.config/bmdirs
     ~/.config/bspwm/autostart.sh
     ~/.config/bspwm/bspwmrc
-    ~/.bashrc
-    ~/.gitconfig
     ~/.config/nvim/init.vim
-    ~/.ssh/config
     ~/.config/sxhkd/sxhkdrc
+    ~/.config/vars
+    ~/.gitconfig
+    ~/.ssh/config
     ~/.tmux.conf
     ~/.vim/vimrc
-    ~/.Xresources
     ~/.zshrc
     )
 
