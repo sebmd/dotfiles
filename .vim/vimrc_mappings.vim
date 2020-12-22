@@ -119,6 +119,8 @@ nnoremap <leader>u :UndotreeToggle<cr>
 nnoremap <leader>t :term<cr>
 nnoremap <leader>tv :botright vertical terminal<cr>
 
+nnoremap <leader>z ma3GD<esc>:r!date +"\%F \%T"<cr>I*<esc>A*<esc>kdd`a
+
 " Otwiera i zamyka NERDTreee w bieżącej lokalizacji
 " nnoremap <silent> <expr> <leader>N g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 

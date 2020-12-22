@@ -1,6 +1,6 @@
 # Mapowanie klawiszy
 
-*2020-12-12 14:30:27*
+*2020-12-22 10:09:46*
 
 ## Klawisz LEADER i LOCALLEADER
 
@@ -107,6 +107,7 @@ Jako klawisz **LOCALLEADER** jest użyty klawisz `\`
 - `<leader>b` - wyszukiwanie otwartych buforów za pomocą FZF
 - `<leader>,` - przechodzi do poprzedniego bufora
 - `<leader>.` - przechodzi do następnego bufora
+- `<leader>z` - przechodzi do 3 linii w pliku i wstawia / aktualizuje datę
 - `<esc>h` - przechodzi do poprzedniego bufora
 - `<esc>l` - przechodzi do następnego bufora
 - `<localleader>F` - wyświetla pełną ścieżkę dla pliku wraz z jego nazwą

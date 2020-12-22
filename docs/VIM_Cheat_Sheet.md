@@ -1,6 +1,6 @@
 # VIM Cheat Sheet
 
-*2020-10-29 21:40:50*
+*2020-12-22 10:09:00*
 
 <!-- vim-markdown-toc GFM -->
 
