@@ -2,8 +2,8 @@ set nocompatible                " wyłączenie wstecznej kompatybilności z edyt
 syntax on                       " podkreślanie składni
 set nu rnu                      " number, relativenumber
 set ts=4 sw=4 sts=4 et sta      " tabstop, shiftwidth, softtabstop, expandtab, smarttab
-set path-=/usr/include
-set path+=**
+set path-=/usr/include          " usuwa /usr/include ze zmiennej path
+set path+=**                    " przeszukuje podkatalogi w bieżącej lokalizacji
 set wildmenu
 set wildmode=list:longest,full
 set foldmethod=marker
@@ -51,6 +51,8 @@ set textwidth=80
 set cursorline
 set colorcolumn=+1
 set background=dark
+" set updatetime=300
+" set timeoutlen=100
 set complete+=kspell " Ctrl+p w trybie INSERT podpowiedzi ze słownika wymaga włączenia trybu spell
 set completeopt=menuone,longest,noselect
 set shortmess+=c  " usuwa informacje o ilości możliwych podpowiedzi
