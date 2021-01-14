@@ -26,6 +26,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lambdalisue/fern-renderer-nerdfont.vim'
     Plug 'lambdalisue/fern-bookmark.vim'
     Plug 'junegunn/goyo.vim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-markdown-toc'
     Plug 'junegunn/vim-peekaboo'  " pokazuje zawartość rejestrów (schowka)
@@ -133,8 +136,8 @@ let $BASH_ENV="~/.aliases"
 " --- Ustawienia }}}
 " --- Ustawienia plugiów {{{
 " YankRing
-" let g:yankring_clipboard_monitor=0
-let g:yankring_history_dir = '$VIM'
+let g:yankring_clipboard_monitor=0
+let g:yankring_history_dir = '~/.config/nvim/yankring_history'
 
 " Rainbow
 let g:rainbow_active = 1
@@ -398,6 +401,10 @@ hi default link WhichKeyDesc        Function
 " --- Mapowanie klawiszy {{{
 let mapleader="\<space>"    " ustawiona spacja jako klawisz leader
 let localmapleader="\\"     " klawisz \ ustawiony jako local leader
+
+" nnoremap <leader>ws :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Search > ")})<cr>
+" nnoremap <leader>ws <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <localleader>ws :Telescope live_grep<cr>
 
 nnoremap th :set hlsearch!<cr>
 nnoremap j gj

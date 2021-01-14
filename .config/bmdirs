@@ -1,14 +1,18 @@
 ~
-~/.config
-~/.local
-~/.vim
 ~/bin
+~/.config
 ~/Documents
 ~/Downloads
 ~/git
+~/git/fsck
+~/git/fsck/redwiki
+~/git/github
 ~/git/github/dotfiles
 ~/git/github/dotfiles/docs
+~/.local
 ~/notes
 ~/src
+~/.vim
 ~/vimwiki
+~/VirtualBox VMs
 ~/workspace

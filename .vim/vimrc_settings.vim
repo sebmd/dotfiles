@@ -11,6 +11,7 @@ set foldcolumn=1
 set splitright
 set splitbelow
 set backspace=indent,eol,start
+set whichwrap+=<,>,h,l          " przechodzi do następnej linii jeśli osiągnie jej koniec za pomocą klawiszy h i l
 set clipboard=unnamedplus
 set mouse=a
 set hidden
