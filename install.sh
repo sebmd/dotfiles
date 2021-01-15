@@ -201,21 +201,29 @@ mkdir -p "$HOME/.config/alacritty"
 mkdir -p "$HOME/.config/fish"
 mkdir -p "$HOME/.gnupg"
 
-cd "$HOME"
+function aliasy() {
+    cd "$HOME"
 
-# odczytuje plik 'files' sprawdzając czy odczytany plik z pliku 'files' istnieje
-# i nie jest linkiem symbolicznym, po czym kopiuje go do katalogu $BACKUP_DIR
-# następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
-# w redpozytorium dotfiles
-while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
-    if [ ! -L "$LINE" ]; then
-        if [ -f "$LINE" ]; then
-            cp -R "$LINE" "$BACKUP_DIR/"
+    # odczytuje plik 'files' sprawdzając czy odczytany plik z pliku 'files' istnieje
+    # i nie jest linkiem symbolicznym, po czym kopiuje go do katalogu $BACKUP_DIR
+    # następnie usuwa go i tworzy w jego miejsce link symboliczny do pliku 
+    # w redpozytorium dotfiles
+    while IFS='' read -r LINE || [[ -n "$LINE" ]]; do
+        if [ ! -L "$LINE" ]; then
+            if [ -f "$LINE" ]; then
+                cp -R "$LINE" "$BACKUP_DIR/"
+            fi
+            rm -rf "$LINE"
+            ln -sf "$SCRIPT_DIR/$LINE" "$LINE"
         fi
-        rm -rf "$LINE"
-        ln -sf "$SCRIPT_DIR/$LINE" "$LINE"
-    fi
-done < "$SCRIPT_DIR/files"
+    done < "$SCRIPT_DIR/files"
+}
+
+aliasy
+
+if [ $1 == "-a" ]; then
+    aliasy
+fi
 
 # Instalacja clipmenu i clipnotify
 function clipboard() {
@@ -246,6 +254,8 @@ function clipboard() {
 }
 
 clipboard
+
+cd $HOME
 
 # przygotowanie edytora Vim
 curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
