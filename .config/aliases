@@ -8,6 +8,7 @@
 alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 alias .al="$EDITOR $HOME/.config/aliases_local && source $HOME/.config/aliases_local"
 alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
+alias .aw="$EDITOR $HOME/.config/awesome/rc.lua"
 alias .b="$EDITOR $HOME/.bashrc"
 alias .bs="$EDITOR ~/.config/bspwm/bspwmrc"
 alias .df="$HOME/bin/dotfiles"
