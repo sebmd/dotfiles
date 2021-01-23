@@ -270,6 +270,13 @@ globalkeys = gears.table.join(
         { description = "menu", group = "skrypty" }
     ),
 
+    awful.key({ modkey,           }, "d",
+        function ()
+            awful.util.spawn("dmenu_run")
+        end,
+        { description = "books", group = "skrypty" }
+    ),
+
     awful.key({ modkey,           }, "b",
         function ()
             awful.util.spawn("bin/books")
@@ -505,6 +512,10 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {instance = { "vim" }
+      }, properties = { placement = awful.placement.centered , floating = true }
+    },
+
+    { rule_any = {instance = { "org.gnome.Nautilus" }
       }, properties = { placement = awful.placement.centered , floating = true }
     },
 
