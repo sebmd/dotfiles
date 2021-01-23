@@ -26,6 +26,8 @@ bin/dmenu_run
 bin/dwm
 bin/exa
 bin/fd
+bin/ff-dev
+bin/ff-vod
 bin/fzf
 bin/fzf-tmux
 bin/gh
