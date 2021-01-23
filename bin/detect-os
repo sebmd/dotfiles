@@ -55,7 +55,6 @@ case $1 in
         echo "$(basename $0) sys-full - wyśweitla nazwę dystrybucji i wersję systemu"
         echo "$(basename $0) ver      - wyświetla wersję systemu"
         echo
-        echo
-        "###########################################################################"
+        echo "######################################################################"
         echo
 esac
