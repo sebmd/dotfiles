@@ -252,9 +252,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "v",
         function()
             awful.spawn("alacritty --class vim -e vim")
-            -- awful.spawn(terminal .. "-e ncpamixer",
-            --             {floating=true, titlebars_enabled=false, ontop=true,
-            --             placement=awful.placement.centered})
+        end,
+        {description = "Open Vim Editor", group = "launcher"}
+    ),
+
+    awful.key({ modkey }, "t",
+        function()
+            awful.spawn("alacritty --class terminal")
         end,
         {description = "Open Vim Editor", group = "launcher"}
     ),
@@ -501,6 +505,10 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {instance = { "vim" }
+      }, properties = { placement = awful.placement.centered , floating = true }
+    },
+
+    { rule_any = {instance = { "terminal" }
       }, properties = { placement = awful.placement.centered , floating = true }
     },
 
