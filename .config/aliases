@@ -148,6 +148,10 @@ alias DecryptSSL="$HOME/bin/DecryptSSL"
 alias EncryptGPG="$HOME/bin/EncryptGPG"
 alias EncryptSSL="$HOME/bin/EncryptSSL"
 
+alias vhdmk="$HOME/bin/vhdmk.sh"
+alias vhdmount="$HOME/bin/vhdmount.sh"
+alias vhdumount="$HOME/bin/vhdumount.sh"
+
 alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
 alias gpg-agent-restart="$HOME/bin/gpg-agent-restart"
 alias gpg-delete-keys="$HOME/bin/gpg-delete-keys"
