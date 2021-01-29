@@ -90,3 +90,5 @@ source <(gopass completion bash)
 
 # To polecenie powinno być uruchamiane jako ostatnie w pliku ~/.bashrc
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
+
+eval "$(starship init bash)"

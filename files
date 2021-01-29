@@ -10,6 +10,7 @@
 .config/rofi
 .config/sxhkd
 .config/zathura/zathurarc
+.config/starship.toml
 .gnupg/gpg-agent.conf
 .config/dunst
 .tmux.conf
