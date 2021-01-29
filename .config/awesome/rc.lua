@@ -223,7 +223,11 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-
+    -- jasność ekranu
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("light -U 5") end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("light -A 5") end),
     -- głośność
     awful.key({ }, "XF86AudioMute"       ,
         function () awful.util.spawn("/usr/bin/pactl set-sink-mute 0 toggle") end),
