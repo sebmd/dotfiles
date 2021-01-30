@@ -31,6 +31,7 @@ else
     set cm=blowfish2
     "set key=dupa123
 endif
+set noswapfile
 set laststatus=2
 set cmdheight=2
 set list
