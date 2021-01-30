@@ -102,8 +102,8 @@ alias so=source
 alias svim="sudo vim"
 alias t=tmux
 alias ta="tmux atta"
-alias v=vim
-alias vim="vim"
+alias v=vimx
+alias vim="vimx"
 alias man="$HOME/bin/man-vim.sh"
 
 # Procesy

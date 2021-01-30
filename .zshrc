@@ -1,23 +1,24 @@
 # zshrc
 
-if [[ -f ~/.config/aliases ]]; then
-    source ~/.config/aliases
-fi
-
 if [[ -f ~/.config/aliases_prv ]]; then
     source ~/.config/aliases_prv
+fi
+
+if [[ -f ~/.config/vars ]]; then
+    source ~/.config/vars
 fi
 
 if [[ -f "$HOME/.zsh/host/$(hostname -s)" ]]; then
     source "$HOME/.zsh/host/$(hostname -s)"
 fi
 
-export GOPATH=${HOME}/go
-export PATH=$PATH:~/.local/bin
-export PATH="$HOME/nvim/bin:$PATH"
-export TERM=xterm-256color
-export MANPAGER='less -X'  # nie czyści ekranu po wyjściu z man
-export EDITOR="vim"
+[ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
+
+[ -f "$HOME/.config/vars_local" ] && . "$HOME/.config/vars_local"
+
+[ -f "$HOME/.config/aliases" ] && . "$HOME/.config/aliases"
+
+[ -f "$HOME/.config/aliases_local" ] && . "$HOME/.config/aliases_local"
 
 if [ $DISPLAY ]; then
     setxkbmap -option caps:escape         # ustawia caps lock jako ESC

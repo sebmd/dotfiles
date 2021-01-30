@@ -189,6 +189,11 @@ nnoremap <leader><F2> :call VimFiles()<cr>
 
 cnoremap $c e <c-\>eCurrentFileDir()<cr>
 
+" Silent version of the super user edit, sudo tee trick.
+cnoremap W!! execute 'silent! write !sudo /usr/bin/tee "%" >/dev/null' <bar> edit!
+" Talkative version of the super user edit, sudo tee trick.
+cmap w!! w !sudo /usr/bin/tee >/dev/null "%"
+
 command! Q :q!
 
 autocmd filetype python nnoremap <leader>5 :w <bar> :!python3 % <cr>

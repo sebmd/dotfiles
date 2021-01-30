@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export TEMPDIR="$HOME/tmp"
-export EDITOR=vim
+export EDITOR=vimx
 export DOTFILES_DIR="$HOME/git/github/dotfiles"
 export TODO="$HOME/vimwiki/todo/inbox.md"
 export VIMWIKI="$HOME/vimwiki"
@@ -9,3 +9,6 @@ export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export LS_COLORS="di=1;36:ln=1;31:so=37:pi=1;35:ex=37:bd=37:cd=37:su=37:sg=37:tw=1;36:ow=1;36"
 export BIN="$HOME/bin"
 export GPG_ID=""
+export GOPATH=${HOME}/go
+export TERM=xterm-256color
+export MANPAGER='less -X'  # nie czyści ekranu po wyjściu z man
