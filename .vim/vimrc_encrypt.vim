@@ -29,4 +29,4 @@ let g:GPGPreferArmor = 1
 " będzie pobierany ze zmiennej systemowej ustawionej w pliku ~/.bashrc lub mieć
 " postać tekstu np. ['0xID_KLUCZ']
 let g:GPGDefaultRecipients = [$GPG_ID]  " gpg --list-keys --keyid-format LONG
-let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\)\='
+let g:GPGFilePattern = '*.\(gpg\|asc\|pgp\)\(.md\|.txt\)\='
