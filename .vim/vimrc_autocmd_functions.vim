@@ -152,17 +152,9 @@ function! DeleteSwapFile()
 endfunction
 
 " Katalogi
-let g:bmdirs = readfile(expand('$HOME/.config/bmdirs'))
-command! FZFProj call fzf#run({
-    \  'source':  g:bmdirs,
-    \  'sink':    'e',
-    \  'options': '-m -x +s',
-    \  'down':    '20%'})
-
-" Katalogi
-function! FZFProj5()
-    let bmdirs = readfile(expand('$HOME/.config/bmdirs'))
-    call fzf#run(fzf#wrap({'source': bmdirs,
+function! FZFProj()
+    let bmproj = readfile(expand('$HOME/.config/bmproj'))
+    call fzf#run(fzf#wrap({'source': bmproj,
                 \ 'sink' : 'e',
                 \ 'options' : '-m -x +s'}))
 endfunction
