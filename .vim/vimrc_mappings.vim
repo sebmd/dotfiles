@@ -186,6 +186,7 @@ nnoremap <leader>Fn :Notes<cr>
 
 nnoremap <leader><F1> :call Docs()<cr>
 nnoremap <leader><F2> :call VimFiles()<cr>
+nnoremap <leader><F3> :FZFProj<cr>
 
 cnoremap $c e <c-\>eCurrentFileDir()<cr>
 

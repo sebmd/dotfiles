@@ -151,6 +151,23 @@ function! DeleteSwapFile()
     echo "Reset swap file extension for file: ".expand('%')
 endfunction
 
+" Katalogi
+let g:bmdirs = readfile(expand('$HOME/.config/bmdirs'))
+command! FZFProj call fzf#run({
+    \  'source':  g:bmdirs,
+    \  'sink':    'e',
+    \  'options': '-m -x +s',
+    \  'down':    '20%'})
+
+" Katalogi
+function! FZFProj5()
+    let bmdirs = readfile(expand('$HOME/.config/bmdirs'))
+    call fzf#run(fzf#wrap({'source': bmdirs,
+                \ 'sink' : 'e',
+                \ 'options' : '-m -x +s'}))
+endfunction
+
+command! FZFProj call FZFProj()
 command! DeleteSwapFile call DeleteSwapFile()
 command! InsertLogEntry call InsertLogEntry()
 command! InsertDiaryHeader call InsertDiaryHeader()
