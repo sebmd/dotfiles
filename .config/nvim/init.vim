@@ -137,7 +137,8 @@ let $BASH_ENV="~/.aliases"
 " --- Ustawienia plugiów {{{
 " YankRing
 let g:yankring_clipboard_monitor=0
-let g:yankring_history_dir = '~/.config/nvim/yankring_history'
+let g:yankring_history_file = 'yank_history.txt'
+let g:yankring_history_dir = '~/.config/nvim/'
 
 " Rainbow
 let g:rainbow_active = 1

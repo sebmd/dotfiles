@@ -12,3 +12,5 @@ map n nzz
 map N Nzz
 map d <c-d>
 map u <c-u>
+map <space> <c-d>
+map <backspace> <c-u>
