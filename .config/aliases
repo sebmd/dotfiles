@@ -5,6 +5,8 @@
 
 # Pliki konfiguracyjne
 
+alias sudo='/usr/local/bin/doas'
+
 alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 alias .al="$EDITOR $HOME/.config/aliases_local && source $HOME/.config/aliases_local"
 alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
