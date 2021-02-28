@@ -4,6 +4,7 @@ set ft=man
 colo industry
 set background=dark
 set buftype=nofile
+set nomodifiable
 
 " mapowanie klawiszy
 nmap q :q<cr>

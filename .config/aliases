@@ -204,3 +204,6 @@ alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
 alias td="$EDITOR $TODO"
 
 alias no='$EDITOR -c "e $HOME/notes"'
+
+alias dg="$HOME/bin/vim-doku-grep.sh"
+alias d="$HOME/bin/vim-doku-fzf.sh"
